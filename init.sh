@@ -33,9 +33,8 @@ if [[ ! -f "$GAMECONFIGDIR/Config/WindowsNoEditor/Engine.ini" || ! -f "$GAMECONF
     echo "$(cat /root/Engine.ini)" >> "$GAMECONFIGDIR/Config/WindowsNoEditor/Engine.ini"
     echo "$(cat /root/Game.ini)" > "$GAMECONFIGDIR/Config/WindowsNoEditor/Game.ini" # this won't get created, so we don't append the echo.
 
-    crontab -l > cronjobs
     echo "*/30 * * * * cp -r \"${GAMECONFIGDIR}/SaveGames/common/\"*.sav /config/savefiles/ 2>&1
-0 */6 * * * /backup.sh 2>&1" >> cronjobs
+0 */6 * * * /backup.sh 2>&1" > cronjobs
     crontab cronjobs
     service cron start
 fi
