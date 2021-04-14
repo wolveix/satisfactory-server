@@ -25,7 +25,8 @@ RUN chmod +x "/init.sh"
 VOLUME /config
 WORKDIR /config
 
-ENV STEAMAPPID=526870
+ENV STEAMAPPID=526870 \
+    STEAMBETA=false
 
 EXPOSE 7777/udp
 

@@ -23,7 +23,7 @@ docker run -it steamcmd/steamcmd +login Your-Steam-Username Your-Steam-Password
 With your credentials in hand, as well as the absolute path to your config directory, run the Satisfactory server image like this:
 
 ```
-docker run -d --name=satisfactory-server -e STEAMUSER=Your-Steam-Username -e STEAMPWD=Your-Steam-Password -e STEAMCODE=Your-Steam-Code -v /path/to/config:/config -p 7777:7777/udp wolveix/satisfactory-server:earlyaccess
+docker run -d --name=satisfactory-server -h satisfactory-server -e STEAMUSER=Your-Steam-Username -e STEAMPWD=Your-Steam-Password -e STEAMCODE=Your-Steam-Code -v /path/to/config:/config -p 7777:7777/udp wolveix/satisfactory-server:latest
 ```
 
 If you're using [Docker Compose](https://docs.docker.com/compose/):
@@ -33,7 +33,8 @@ version: '3'
 services:
     satisfactory-server:
         container_name: 'satisfactory-server'
-        image: 'wolveix/satisfactory-server:earlyaccess'
+        hostname: 'satisfactory-server'
+        image: 'wolveix/satisfactory-server:latest'
         environment:
             - STEAMUSER=Your-Steam-Username
             - STEAMPWD=Your-Steam-Password
@@ -43,6 +44,42 @@ services:
         volumes:
             - '/path/to/config:/config'
         restart: unless-stopped
+```
+
+## Experimental Branch
+
+If you want to run a server for the Experimental version of the game, simply add a `STEAMBETA=true` environment variable.
+
+## Known Issues
+
+When the first person joins your server, you'll get the error below in your log. This error doesn't affect the server, it's a biproduct of running Satisfactory "headless":
+
+```
+Windows: Error: === Critical error: ===
+Windows: Error:
+Windows: Error: Fatal error: [File:D:/ws/SB-160502110050-fad/UE4/Engine/Source/Runtime/RenderCore/Private/RenderingThread.cpp] [Line: 855]
+Windows: Error: Rendering thread exception:
+Windows: Error: Fatal error!
+Windows: Error:
+Windows: Error: Unhandled Exception: EXCEPTION_ACCESS_VIOLATION reading address 0x00000050
+Windows: Error:
+Windows: Error: [Callstack] 0x0000000001dcc860 FTexture2DDynamicResource::GetTexture2DRHI() []
+Windows: Error: [Callstack] 0x0000000003e17065 WriteRawToTexture_RenderThread() []
+Windows: Error: [Callstack] 0x0000000003da87fa TGraphTask<TEnqueueUniqueRenderCommandType<`UAsyncTaskDownloadImage::HandleImageRequest'::`18'::FWriteRawDataToTextureName,<lambda_849dcadaf9ed1a7d4bce65d6b94e4c82> > >::ExecuteTask() []
+Windows: Error: [Callstack] 0x000000018005a753 FNamedTaskThread::ProcessTasksUntilQuit() []
+Windows: Error: [Callstack] 0x0000000002b5a250 RenderingThreadMain() []
+Windows: Error: [Callstack] 0x0000000002b5c930 FRenderingThread::Run() []
+Windows: Error: [Callstack] 0x000000018025cd2b FRunnableThreadWin::Run() []
+Windows: Error: [Callstack] 0x0000000180255741 FRunnableThreadWin::GuardedRun() []
+Windows: Error: [Callstack] 0x000000007bc8f113 DbgUserBreakPoint() []
+Windows: Error:
+Windows: Error:
+Windows: Error:
+Windows: Error:
+Exit: Executing StaticShutdownAfterError
+Windows: FPlatformMisc::RequestExit(1)
+Core: Engine exit requested (reason: Win RequestExit)
+Log file closed, 04/14/21 16:51:27
 ```
 
 ## Credit

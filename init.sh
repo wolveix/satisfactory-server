@@ -6,23 +6,21 @@ GAMECONFIGDIR="/root/.wine/drive_c/users/root/Local Settings/Application Data/Fa
 
 mkdir -p /config /config/gamefiles /config/savefiles "${GAMECONFIGDIR}/SaveGames/common" || true
 
-if [[ -f "~/.steam/config/config.vdf" ]]; then
-    steamcmd +@sSteamCmdForcePlatformType windows \
-    +force_install_dir /config/gamefiles \
-    +app_update "${STEAMAPPID}" \
-    +quit
-else
-    if [[ -z "${STEAMUSER}" || -z "${STEAMPWD}" || -z "${STEAMCODE}" ]]; then
-        printf "Missing Steam credentials environment variables (STEAMUSER, STEAMPWD, STEAMCODE).\\n"
-        exit 1
-    fi
+if [[ "${STEAMBETA}" == "true" ]]; then
+    printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
+    STEAMBETAFLAGS="-beta experimental"
+fi
 
-    steamcmd +@sSteamCmdForcePlatformType windows \
+if [[ -z "${STEAMUSER}" || -z "${STEAMPWD}" || -z "${STEAMCODE}" ]]; then
+    printf "Missing Steam credentials environment variables (STEAMUSER, STEAMPWD, STEAMCODE).\\n"
+    exit 1
+fi
+
+steamcmd +@sSteamCmdForcePlatformType windows \
     +login "${STEAMUSER}" "${STEAMPWD}" "${STEAMCODE}" \
     +force_install_dir /config/gamefiles \
-    +app_update "${STEAMAPPID}" \
+    +app_update ${STEAMAPPID} ${STEAMBETAFLAGS} \
     +quit
-fi
 
 cd /config/gamefiles || exit 1
 
