@@ -16,6 +16,9 @@ RUN set -x \
     && mkdir -p /config /config/gamefiles /config/saves \
     && rm -rf /var/lib/apt/lists/* 
 
+COPY Game.ini /root/Game.ini
+COPY Engine.ini /root/Engine.ini
+
 COPY init.sh "/init.sh"
 RUN chmod +x "/init.sh"
 

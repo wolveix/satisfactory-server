@@ -39,7 +39,7 @@ services:
             - STEAMPWD=Your-Steam-Password
             - STEAMCODE=Your-Steam-Code
         ports:
-            - '7777:7777'
+            - '7777:7777/udp'
         volumes:
             - '/path/to/config:/config'
         restart: unless-stopped
