@@ -10,8 +10,9 @@ This guide assumes the following:
 
 You'll need to generate a new save (or grab an existing save) for the server to use. You can usually find your save files located in `C:\Users\Your User\AppData\Local\FactoryGame\Saved\SaveGames\common\your-world.sav`. You need to rename the save to `savefile.sav`, otherwise the server won't read it.
 
-You'll need to bind a local directory to the Docker container. This directory will hold two directories:
+You'll need to bind a local directory to the Docker container. This directory will hold three directories:
 - `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 15GB+ every time you want to rebuild the container.
+- `/savefilebackups` - the server will automatically backup your saves every 6 hours into this directory.
 - `/savefiles` - this is for the game's saves. They're copied into the container on start, and the saves will be copied back to the host every 30 minutes.
 
 You'll also need to provide your Steam username, password, and Steam Guard when you run the container. To get your Steam Guard code, start the login process using the `steamcmd` Docker image, which will send you an email with the code in (you don't need to finish the login process in that image, you can just press `CTRL + C` to cancel it). You can run that image like this:
@@ -50,7 +51,30 @@ services:
 
 If you want to run a server for the Experimental version of the game, simply add a `STEAMBETA=true` environment variable.
 
+## How to Connect to the Server
+
+To join the dedicated server:
+- Press `WIN + R`
+- Enter `%appdata%`
+- Go into Local > FactoryGame > Saved > Config > WindowsNoEditor > open Input.ini in notepad
+- Paste the following at the end of the file:
+
+```
+[/script/engine.inputsettings]
+ConsoleKey=F6
+ConsoleKeys=F6
+```
+
+Open Satisfactory, press `F6` on the main menu and you should see a console appear. Run:
+```
+Open your.server.ip
+```
+
+It should start loading into the world almost instantly. If it doesn't, then it's probably going to timeout after 20 seconds. 
+
 ## Known Issues
+
+The server is public, meaning that anyone with your server IP or hostname will be able to join your world.
 
 When the first person joins your server, you'll get the error below in your log. This error doesn't affect the server, it's a biproduct of running Satisfactory "headless":
 

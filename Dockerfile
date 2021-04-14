@@ -19,6 +19,9 @@ RUN set -x \
 COPY Game.ini /root/Game.ini
 COPY Engine.ini /root/Engine.ini
 
+COPY backup.sh "/backup.sh"
+RUN chmod +x "/backup.sh"
+
 COPY init.sh "/init.sh"
 RUN chmod +x "/init.sh"
 

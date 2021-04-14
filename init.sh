@@ -4,7 +4,7 @@ set -e
 
 GAMECONFIGDIR="/root/.wine/drive_c/users/root/Local Settings/Application Data/FactoryGame/Saved"
 
-mkdir -p /config /config/gamefiles /config/savefiles "${GAMECONFIGDIR}/SaveGames/common" || true
+mkdir -p /config /config/gamefiles /config/savefiles /config/savefilebackups "${GAMECONFIGDIR}/SaveGames/common" || true
 
 if [[ "${STEAMBETA}" == "true" ]]; then
     printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
@@ -19,20 +19,25 @@ fi
 steamcmd +@sSteamCmdForcePlatformType windows \
     +login "${STEAMUSER}" "${STEAMPWD}" "${STEAMCODE}" \
     +force_install_dir /config/gamefiles \
-    +app_update ${STEAMAPPID} ${STEAMBETAFLAGS} \
+    +app_update "${STEAMAPPID}" ${STEAMBETAFLAGS} \
     +quit
 
 cd /config/gamefiles || exit 1
 
 if [[ ! -f "$GAMECONFIGDIR/Config/WindowsNoEditor/Engine.ini" || ! -f "$GAMECONFIGDIR/Config/WindowsNoEditor/Game.ini" ]]; then
-    printf "\\nIt doesn't look like Satisfactory has been started before. Launching it for a few seconds to generate config files.\\n"
-    wine start FactoryGame.exe -nosteamclient -nullrhi -nosplash -nosound &
-    sleep 5s
+    printf "\\nIt doesn't look like Satisfactory has been started before. Generating config files and inserting cron jobs.\\n"
+    wine start FactoryGame.exe -nosteamclient -nullrhi -nosplash -nosound && sleep 5s
 
     pkill FactoryGame.exe
 
     echo "$(cat /root/Engine.ini)" >> "$GAMECONFIGDIR/Config/WindowsNoEditor/Engine.ini"
-    echo "$(cat /root/Game.ini)" >> "$GAMECONFIGDIR/Config/WindowsNoEditor/Game.ini"
+    echo "$(cat /root/Game.ini)" > "$GAMECONFIGDIR/Config/WindowsNoEditor/Game.ini" # this won't get created, so we don't append the echo.
+
+    crontab -l > cronjobs
+    echo "*/30 * * * * cp -r \"${GAMECONFIGDIR}/SaveGames/common/\"*.sav /config/savefiles/ 2>&1
+0 */6 * * * /backup.sh 2>&1" >> cronjobs
+    crontab cronjobs
+    service cron start
 fi
 
 if [[ ! -f "/config/savefiles/savefile.sav" ]]; then
@@ -47,9 +52,6 @@ if [[ ! "${lastsavefile}" == "savefile.sav" ]]; then
     printf "\\nMoving most recent save (${lastsavefile}) to savefile.sav\\n"
     mv "${lastsavepath}" "${GAMECONFIGDIR}/SaveGames/common/savefile.sav"
 fi
-
-echo "*/30 * * * * cp -r \"${GAMECONFIGDIR}/SaveGames/common/\"*.sav /config/savefiles/ 2>&1" > cronjobs
-crontab cronjobs
 
 wine start FactoryGame.exe -nosteamclient -nullrhi -nosplash -nosound && \
 tail -f "/root/.wine/drive_c/users/root/Local Settings/Application Data/FactoryGame/Saved/Logs/FactoryGame.log"
