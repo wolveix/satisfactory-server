@@ -33,7 +33,7 @@ if [[ ! -f "$GAMECONFIGDIR/Config/WindowsNoEditor/Engine.ini" || ! -f "$GAMECONF
     echo "$(cat /root/Engine.ini)" >> "$GAMECONFIGDIR/Config/WindowsNoEditor/Engine.ini"
     echo "$(cat /root/Game.ini)" > "$GAMECONFIGDIR/Config/WindowsNoEditor/Game.ini" # this won't get created, so we don't append the echo.
 
-    echo "*/30 * * * * cp -r \"${GAMECONFIGDIR}/SaveGames/common/\"*.sav /config/savefiles/ 2>&1
+    echo "*/30 * * * * cp -rp \"${GAMECONFIGDIR}/SaveGames/common/\"*.sav /config/savefiles/ 2>&1
 0 */6 * * * /backup.sh 2>&1" > cronjobs
     crontab cronjobs
     service cron start
@@ -44,7 +44,7 @@ if [[ ! -f "/config/savefiles/savefile.sav" ]]; then
     exit 1
 fi
 
-cp -r /config/savefiles/*.sav "${GAMECONFIGDIR}"/SaveGames/common/
+cp -rp /config/savefiles/*.sav "${GAMECONFIGDIR}"/SaveGames/common/
 lastsavepath=$(find "${GAMECONFIGDIR}"/SaveGames/common -name '*.sav' -printf '%p\n' | sort -r | head -n 1)
 lastsavefile=$(basename "$lastsavepath")
 if [[ ! "${lastsavefile}" == "savefile.sav" ]]; then
