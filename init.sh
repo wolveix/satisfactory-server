@@ -42,7 +42,7 @@ cp -rp /config/savefiles/*.sav "${GAMECONFIGDIR}"/SaveGames/common/
 lastsavefile=$(ls -Art "${GAMECONFIGDIR}"/SaveGames/common | tail -n 1)
 if [[ ! "${lastsavefile}" == "savefile.sav" ]]; then
     printf "\\nMoving most recent save (${lastsavefile}) to savefile.sav\\n"
-    mv  "${GAMECONFIGDIR}"/SaveGames/common/"${lastsavefile}" "${GAMECONFIGDIR}/SaveGames/common/savefile.sav"
+    mv "${GAMECONFIGDIR}"/SaveGames/common/"${lastsavefile}" "${GAMECONFIGDIR}/SaveGames/common/savefile.sav"
 fi
 
 wine start FactoryGame.exe -nosteamclient -nullrhi -nosplash -nosound && \
