@@ -25,8 +25,16 @@ steamcmd +@sSteamCmdForcePlatformType windows \
 
 cd /config/gamefiles || exit 1
 
-echo "$(cat /root/Engine.ini)" > "$GAMECONFIGDIR/Config/WindowsNoEditor/Engine.ini"
-echo "$(cat /root/Game.ini)" > "$GAMECONFIGDIR/Config/WindowsNoEditor/Game.ini"
+if [[ ! -f "/config/Engine.ini" ]]; then
+    echo "$(cat /root/Engine.ini)" > "/config/Engine.ini" || exit
+fi
+
+if [[ ! -f "/config/Game.ini" ]]; then
+    echo "$(cat /root/Game.ini)" > "/config/Game.ini" || exit
+fi
+
+echo "$(cat /config/Engine.ini)" > "$GAMECONFIGDIR/Config/WindowsNoEditor/Engine.ini"
+echo "$(cat /config/Game.ini)" > "$GAMECONFIGDIR/Config/WindowsNoEditor/Game.ini"
 
 echo "*/5 * * * * cp -rp \"${GAMECONFIGDIR}/SaveGames/common/\"*.sav /config/savefiles/ 2>&1
 0 */6 * * * /backup.sh 2>&1" > cronjobs
