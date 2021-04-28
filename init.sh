@@ -2,10 +2,8 @@
 
 set -e
 
-GAMECONFIGDIR="/root/.wine/drive_c/users/root/Local Settings/Application Data/FactoryGame/Saved"
-
-mkdir -p /config/gamefiles /config/savefiles /config/savefilebackups "${GAMECONFIGDIR}/Config/WindowsNoEditor" "${GAMECONFIGDIR}/Logs" "${GAMECONFIGDIR}/SaveGames/common" || true
-touch "${GAMECONFIGDIR}/Config/WindowsNoEditor/Engine.ini" "${GAMECONFIGDIR}/Config/WindowsNoEditor/Game.ini" "${GAMECONFIGDIR}/Logs/FactoryGame.log"
+mkdir -p /config/gamefiles /config/savefiles /config/savefilebackups "${GAMECONFIGDIR}/Config/WindowsNoEditor" "${GAMECONFIGDIR}/Logs" "${GAMECONFIGDIR}/SaveGames/common" || exit 1
+touch "${GAMECONFIGDIR}/Logs/FactoryGame.log"
 
 if [[ "${STEAMBETA}" == "true" ]]; then
     printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
@@ -26,15 +24,18 @@ steamcmd +@sSteamCmdForcePlatformType windows \
 cd /config/gamefiles || exit 1
 
 if [[ ! -f "/config/Engine.ini" ]]; then
-    echo "$(cat /root/Engine.ini)" > "/config/Engine.ini" || exit
+    cp /home/satisfactory/Engine.ini /config/Engine.ini || exit 1
 fi
 
 if [[ ! -f "/config/Game.ini" ]]; then
-    echo "$(cat /root/Game.ini)" > "/config/Game.ini" || exit
+    cp /home/satisfactory/Game.ini /config/Game.ini || exit 1
 fi
 
-echo "$(cat /config/Engine.ini)" > "$GAMECONFIGDIR/Config/WindowsNoEditor/Engine.ini"
-echo "$(cat /config/Game.ini)" > "$GAMECONFIGDIR/Config/WindowsNoEditor/Game.ini"
+if [[ ! -f "/config/Scalibility.ini" ]]; then
+    cp /home/satisfactory/Scalibility.ini /config/Scalibility.ini || exit 1
+fi
+
+cp /config/{Engine.ini,Game.ini,Scalibility.ini} "$GAMECONFIGDIR/Config/WindowsNoEditor/"
 
 echo "*/5 * * * * cp -rp \"${GAMECONFIGDIR}/SaveGames/common/\"*.sav /config/savefiles/ 2>&1
 0 */6 * * * /backup.sh 2>&1" > cronjobs
@@ -49,9 +50,13 @@ fi
 cp -rp /config/savefiles/*.sav "${GAMECONFIGDIR}"/SaveGames/common/
 lastsavefile=$(ls -Art "${GAMECONFIGDIR}"/SaveGames/common | tail -n 1)
 if [[ ! "${lastsavefile}" == "savefile.sav" ]]; then
-    printf "\\nMoving most recent save (${lastsavefile}) to savefile.sav\\n"
+    printf "\\nMoving most recent save (%s) to savefile.sav\\n" "$lastsavefile"
     mv "${GAMECONFIGDIR}"/SaveGames/common/"${lastsavefile}" "${GAMECONFIGDIR}/SaveGames/common/savefile.sav"
 fi
 
-wine start FactoryGame.exe -nosteamclient -nullrhi -nosplash -nosound && \
+chown -R satisfactory:satisfactory /config/gamefiles /home/satisfactory
+chown root:root "$GAMECONFIGDIR/Config/WindowsNoEditor/Engine.ini" "$GAMECONFIGDIR/Config/WindowsNoEditor/Game.ini"
+
+sudo -u satisfactory -H sh -c "wine start FactoryGame.exe -nosteamclient -nullrhi -nosplash -nosound"
+
 tail -f "${GAMECONFIGDIR}/Logs/FactoryGame.log"

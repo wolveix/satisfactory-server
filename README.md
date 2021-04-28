@@ -55,8 +55,8 @@ If you want to run a server for the Experimental version of the game, simply add
 
 To join the dedicated server:
 - Press `WIN + R`
-- Enter `%appdata%`
-- Go into Local > FactoryGame > Saved > Config > WindowsNoEditor > open Input.ini in notepad
+- Enter `%localappdata%/FactoryGame/Saved/Config/WindowsNoEditor`
+- Open Input.ini in notepad
 - Paste the following at the end of the file:
 
 ```
@@ -72,39 +72,18 @@ Open your.server.ip
 
 It should start loading into the world almost instantly. If it doesn't, then it's probably going to timeout after 20 seconds. 
 
+## How to Improve the Multiplayer Experience
+
+The [Satisfactory Wiki](https://satisfactory.fandom.com/wiki/Multiplayer) recommends a few config tweaks to really get the best out of multiplayer. These changes are already applied to the server, but they need to be applied to your local config too:
+- Press `WIN + R`
+- Enter `%localappdata%/FactoryGame/Saved/Config/WindowsNoEditor`
+- Copy the config data from the wiki into the respective files
+- Right-click each of the 3 config files (Engine.ini, Game.ini, Scalibility.ini)
+- Go to Properties > tick Read-only under the attributes
+
 ## Known Issues
 
 The server is public, meaning that anyone with your server IP or hostname will be able to join your world.
-
-When the first person joins your server, you'll get the error below in your log. This error doesn't affect the server, it's a biproduct of running Satisfactory "headless":
-
-```
-Windows: Error: === Critical error: ===
-Windows: Error:
-Windows: Error: Fatal error: [File:D:/ws/SB-160502110050-fad/UE4/Engine/Source/Runtime/RenderCore/Private/RenderingThread.cpp] [Line: 855]
-Windows: Error: Rendering thread exception:
-Windows: Error: Fatal error!
-Windows: Error:
-Windows: Error: Unhandled Exception: EXCEPTION_ACCESS_VIOLATION reading address 0x00000050
-Windows: Error:
-Windows: Error: [Callstack] 0x0000000001dcc860 FTexture2DDynamicResource::GetTexture2DRHI() []
-Windows: Error: [Callstack] 0x0000000003e17065 WriteRawToTexture_RenderThread() []
-Windows: Error: [Callstack] 0x0000000003da87fa TGraphTask<TEnqueueUniqueRenderCommandType<`UAsyncTaskDownloadImage::HandleImageRequest'::`18'::FWriteRawDataToTextureName,<lambda_849dcadaf9ed1a7d4bce65d6b94e4c82> > >::ExecuteTask() []
-Windows: Error: [Callstack] 0x000000018005a753 FNamedTaskThread::ProcessTasksUntilQuit() []
-Windows: Error: [Callstack] 0x0000000002b5a250 RenderingThreadMain() []
-Windows: Error: [Callstack] 0x0000000002b5c930 FRenderingThread::Run() []
-Windows: Error: [Callstack] 0x000000018025cd2b FRunnableThreadWin::Run() []
-Windows: Error: [Callstack] 0x0000000180255741 FRunnableThreadWin::GuardedRun() []
-Windows: Error: [Callstack] 0x000000007bc8f113 DbgUserBreakPoint() []
-Windows: Error:
-Windows: Error:
-Windows: Error:
-Windows: Error:
-Exit: Executing StaticShutdownAfterError
-Windows: FPlatformMisc::RequestExit(1)
-Core: Engine exit requested (reason: Win RequestExit)
-Log file closed, 04/14/21 16:51:27
-```
 
 ## Credit
 

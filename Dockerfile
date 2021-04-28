@@ -3,33 +3,23 @@ FROM steamcmd/steamcmd:latest
 RUN set -x \
     && dpkg --add-architecture i386 \
     && apt-get update \
-    && apt-get install -y \
-        cron \
-        libfreetype6 \
-        libfreetype6:i386 \
-        nano \
-        python3 \
-        tmux \
-        vim \
-        winbind \
-        wine-stable \
-    && mkdir -p /config /config/gamefiles /config/saves \
-    && rm -rf /var/lib/apt/lists/* 
+    && apt-get install -y cron sudo wine-stable \
+    && mkdir -p /config \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY Game.ini /root/Game.ini
-COPY Engine.ini /root/Engine.ini
+RUN useradd -ms /bin/bash satisfactory
 
-COPY backup.sh "/backup.sh"
-RUN chmod +x "/backup.sh"
+COPY Game.ini Engine.ini Scalibility.ini /home/satisfactory/
+COPY backup.sh init.sh /
 
-COPY init.sh "/init.sh"
-RUN chmod +x "/init.sh"
+RUN chmod +x "/backup.sh" "/init.sh"
 
 VOLUME /config
 WORKDIR /config
 
-ENV STEAMAPPID=526870 \
-    STEAMBETA=false
+ENV GAMECONFIGDIR="/home/satisfactory/.wine/drive_c/users/satisfactory/Local Settings/Application Data/FactoryGame/Saved" \
+    STEAMAPPID="526870" \
+    STEAMBETA="false"
 
 EXPOSE 7777/udp
 
