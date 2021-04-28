@@ -9,7 +9,7 @@ RUN set -x \
 
 RUN useradd -ms /bin/bash satisfactory
 
-COPY Game.ini Engine.ini Scalibility.ini /home/satisfactory/
+COPY Game.ini Engine.ini Scalability.ini /home/satisfactory/
 COPY backup.sh init.sh /
 
 RUN chmod +x "/backup.sh" "/init.sh"

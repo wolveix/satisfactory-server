@@ -31,11 +31,11 @@ if [[ ! -f "/config/Game.ini" ]]; then
     cp /home/satisfactory/Game.ini /config/Game.ini || exit 1
 fi
 
-if [[ ! -f "/config/Scalibility.ini" ]]; then
-    cp /home/satisfactory/Scalibility.ini /config/Scalibility.ini || exit 1
+if [[ ! -f "/config/Scalability.ini" ]]; then
+    cp /home/satisfactory/Scalability.ini /config/Scalability.ini || exit 1
 fi
 
-cp /config/{Engine.ini,Game.ini,Scalibility.ini} "$GAMECONFIGDIR/Config/WindowsNoEditor/"
+cp /config/{Engine.ini,Game.ini,Scalability.ini} "$GAMECONFIGDIR/Config/WindowsNoEditor/"
 
 echo "*/5 * * * * cp -rp \"${GAMECONFIGDIR}/SaveGames/common/\"*.sav /config/savefiles/ 2>&1
 0 */6 * * * /backup.sh 2>&1" > cronjobs
