@@ -78,7 +78,7 @@ The [Satisfactory Wiki](https://satisfactory.fandom.com/wiki/Multiplayer) recomm
 - Press `WIN + R`
 - Enter `%localappdata%/FactoryGame/Saved/Config/WindowsNoEditor`
 - Copy the config data from the wiki into the respective files
-- Right-click each of the 3 config files (Engine.ini, Game.ini, Scalibility.ini)
+- Right-click each of the 3 config files (Engine.ini, Game.ini, Scalability.ini)
 - Go to Properties > tick Read-only under the attributes
 
 ## Known Issues
