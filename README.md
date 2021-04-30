@@ -74,7 +74,7 @@ It should start loading into the world almost instantly. If it doesn't, then it'
 
 ## How to Improve the Multiplayer Experience
 
-The [Satisfactory Wiki](https://satisfactory.fandom.com/wiki/Multiplayer) recommends a few config tweaks to really get the best out of multiplayer. These changes are already applied to the server, but they need to be applied to your local config too:
+The [Satisfactory Wiki](https://satisfactory.fandom.com/wiki/Multiplayer#Engine.ini) recommends a few config tweaks to really get the best out of multiplayer. These changes are already applied to the server, but they need to be applied to your local config too:
 - Press `WIN + R`
 - Enter `%localappdata%/FactoryGame/Saved/Config/WindowsNoEditor`
 - Copy the config data from the wiki into the respective files
