@@ -2,24 +2,47 @@
 
 set -e
 
-mkdir -p /config/gamefiles /config/savefiles /config/savefilebackups "${GAMECONFIGDIR}/Config/WindowsNoEditor" "${GAMECONFIGDIR}/Logs" "${GAMECONFIGDIR}/SaveGames/common" || exit 1
+mkdir -p /config/gamefiles /config/savefiles /config/savefilebackups /config/steam /root/.steam/config "${GAMECONFIGDIR}/Config/WindowsNoEditor" "${GAMECONFIGDIR}/Logs" "${GAMECONFIGDIR}/SaveGames/common" || exit 1
 touch "${GAMECONFIGDIR}/Logs/FactoryGame.log"
+
+if [[ -z "${STEAMUSER}" || -z "${STEAMPWD}" ]]; then
+    printf "Missing Steam credentials environment variables (STEAMUSER, STEAMPWD).\\n"
+    exit 1
+fi
+
+STEAMLOGINFLAGS="+login ${STEAMUSER} ${STEAMPWD}"
+sentry=$(find /config/steam/ -type f -name "ssfn*")
+
+if [[ ! -f "/config/steam/config.vdf" && ! -f "$sentry" ]]; then 
+    if [[ -z "${STEAMCODE}" ]]; then
+        printf "Missing Steam credentials environment variables (STEAMCODE), this code is needed for the intial build.\\n"
+        exit 1
+    fi
+
+    STEAMLOGINFLAGS="${STEAMLOGINFLAGS} ${STEAMCODE}"
+else
+    sentry_file=$(basename "$sentry")
+
+    cp "/config/steam/config.vdf" "/root/.steam/config/config.vdf"
+    cp "$sentry" "/root/.steam/$sentry_file"
+fi
 
 if [[ "${STEAMBETA}" == "true" ]]; then
     printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
     STEAMBETAFLAGS="-beta experimental"
 fi
 
-if [[ -z "${STEAMUSER}" || -z "${STEAMPWD}" || -z "${STEAMCODE}" ]]; then
-    printf "Missing Steam credentials environment variables (STEAMUSER, STEAMPWD, STEAMCODE).\\n"
-    exit 1
-fi
+printf "Downloading the latest version of the game...\\n"
 
 steamcmd +@sSteamCmdForcePlatformType windows \
-    +login "${STEAMUSER}" "${STEAMPWD}" "${STEAMCODE}" \
+    ${STEAMLOGINFLAGS} \
     +force_install_dir /config/gamefiles \
     +app_update "${STEAMAPPID}" ${STEAMBETAFLAGS} \
     +quit
+
+sentry=$(find /root/.steam/ -type f -name "ssfn*")
+
+cp /root/.steam/config/config.vdf "$sentry" /config/steam/
 
 cd /config/gamefiles || exit 1
 

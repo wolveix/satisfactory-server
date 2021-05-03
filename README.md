@@ -14,8 +14,9 @@ You'll need to bind a local directory to the Docker container. This directory wi
 - `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 15GB+ every time you want to rebuild the container.
 - `/savefilebackups` - the server will automatically backup your saves every 6 hours into this directory.
 - `/savefiles` - this is for the game's saves. They're copied into the container on start, and the saves will be copied back to the host every 30 minutes.
+- `/steam` - this retains your Steam credentials, simplifying the update process.
 
-You'll also need to provide your Steam username, password, and Steam Guard when you run the container. To get your Steam Guard code, start the login process using the `steamcmd` Docker image, which will send you an email with the code in (you don't need to finish the login process in that image, you can just press `CTRL + C` to cancel it). You can run that image like this:
+You'll also need to provide your Steam username, password, and Steam Guard code when you first run the container. To get your Steam Guard code, start the login process using the `steamcmd` Docker image, which will send you an email with the code in (you don't need to finish the login process in that image, you can just press `CTRL + C` to cancel it). You can run that image like this:
 
 ```
 docker run -it steamcmd/steamcmd +login Your-Steam-Username Your-Steam-Password
@@ -46,6 +47,8 @@ services:
             - '/path/to/config:/config'
         restart: unless-stopped
 ```
+
+You won't need to re-obtain your Steam Guard code after the initial creation.
 
 ## Experimental Branch
 
