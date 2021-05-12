@@ -80,6 +80,6 @@ fi
 chown -R satisfactory:satisfactory /config/gamefiles /home/satisfactory
 chown root:root "$GAMECONFIGDIR/Config/WindowsNoEditor/Engine.ini" "$GAMECONFIGDIR/Config/WindowsNoEditor/Game.ini"
 
-sudo -u satisfactory -H sh -c "wine start FactoryGame.exe -nosteamclient -nullrhi -nosplash -nosound"
+sudo -u satisfactory -H sh -c "wine start FactoryGame.exe -listen -nosteamclient -nosplash -nosound -nullrhi -server -spectatoronly -unattended"
 
 tail -f "${GAMECONFIGDIR}/Logs/FactoryGame.log"
