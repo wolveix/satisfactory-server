@@ -1,0 +1,5 @@
+@sSteamCmdForcePlatformType windows
+login "$STEAMUSER" "$STEAMPWD" $STEAMCODE
+force_install_dir /config/gamefiles
+app_update "$STEAMAPPID$STEAMBETAFLAG"
+quit

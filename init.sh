@@ -5,43 +5,54 @@ set -e
 mkdir -p /config/gamefiles /config/savefiles /config/savefilebackups /config/steam /root/.steam/config "${GAMECONFIGDIR}/Config/WindowsNoEditor" "${GAMECONFIGDIR}/Logs" "${GAMECONFIGDIR}/SaveGames/common" || exit 1
 touch "${GAMECONFIGDIR}/Logs/FactoryGame.log"
 
-if [[ -z "${STEAMUSER}" || -z "${STEAMPWD}" ]]; then
+if [[ -z "$STEAMUSER" || -z "$STEAMPWD" ]]; then
     printf "Missing Steam credentials environment variables (STEAMUSER, STEAMPWD).\\n"
     exit 1
 fi
 
-STEAMLOGINARGS=("$STEAMUSER" "$STEAMPASS")
 sentry=$(find /config/steam/ -type f -name "ssfn*")
 
-if [[ ! -f "/config/steam/config.vdf" && ! -f "$sentry" ]]; then 
-    if [[ -z "${STEAMCODE}" ]]; then
+if [[ ! -f "/config/steam/config.vdf" && ! -f "$sentry" ]]; then
+    if [[ -z "$STEAMCODE" ]]; then
         printf "Missing Steam credentials environment variables (STEAMCODE), this code is needed for the intial build.\\n"
         exit 1
     fi
-    STEAMLOGINARGS+=("$STEAMCODE")
 else
     sentry_file=$(basename "$sentry")
 
     cp "/config/steam/config.vdf" "/root/.steam/config/config.vdf"
-    cp "$sentry" "/root/.steam/$sentry_file"
+    cp "$sentry" "/root/.steam/${sentry_file}"
 fi
 
-if [[ "${STEAMBETA}" == "true" ]]; then
+if [[ "$STEAMBETA" == "true" ]]; then
     printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
-    STEAMBETAFLAGS="-beta experimental"
+    STEAMBETAFLAG=" -beta experimental"
 fi
 
-printf "\\nDownloading the latest version of the game...\\n"
+printf "Downloading the latest version of the game...\\n"
 
-steamcmd +@sSteamCmdForcePlatformType windows \
-    +login "${STEAMLOGINARGS[@]}" \
-    +force_install_dir /config/gamefiles \
-    +app_update "${STEAMAPPID}" ${STEAMBETAFLAGS} \
-    +quit
+if [[ -f "/root/steamscript.txt" ]]; then
+    rm /root/steamscript.txt
+fi
+
+export STEAMAPPID STEAMBETAFLAG STEAMCODE STEAMPWD STEAMUSER
+envsubst < "/steamscript.txt" > "/root/steamscript.txt"
+steamcmd +runscript /root/steamscript.txt
+
+if [[ ! -f "/config/gamefiles/FactoryGame.exe" ]]; then
+    printf "Game binary is missing.\\n"
+    exit 1
+fi
 
 sentry=$(find /root/.steam/ -type f -name "ssfn*")
 
 cp /root/.steam/config/config.vdf "$sentry" /config/steam/
+
+echo "*/5 * * * * cp -rp \"${GAMECONFIGDIR}/SaveGames/common/\"*.sav /config/savefiles/ 2>&1
+0 */6 * * * /backup.sh 2>&1" > cronjobs
+crontab cronjobs
+service cron start
+rm cronjobs
 
 cd /config/gamefiles || exit 1
 
@@ -58,11 +69,6 @@ if [[ ! -f "/config/Scalability.ini" ]]; then
 fi
 
 cp /config/{Engine.ini,Game.ini,Scalability.ini} "$GAMECONFIGDIR/Config/WindowsNoEditor/"
-
-echo "*/5 * * * * cp -rp \"${GAMECONFIGDIR}/SaveGames/common/\"*.sav /config/savefiles/ 2>&1
-0 */6 * * * /backup.sh 2>&1" > cronjobs
-crontab cronjobs
-service cron start
 
 if [[ ! -f "/config/savefiles/savefile.sav" ]]; then
     printf "\\nSave file cannot be found. You need to generate a new world on your client, and then put it into /config/savefiles/savefile.sav\\n"
