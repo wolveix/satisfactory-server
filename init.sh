@@ -31,18 +31,11 @@ fi
 
 printf "Downloading the latest version of the game...\\n"
 
-if [[ -f "/root/steamscript.txt" ]]; then
-    rm /root/steamscript.txt
-fi
-
-export STEAMAPPID STEAMBETAFLAG STEAMCODE STEAMPWD STEAMUSER
+export STEAMBETAFLAG
 envsubst < "/steamscript.txt" > "/root/steamscript.txt"
-steamcmd +runscript /root/steamscript.txt
 
-if [[ ! -f "/config/gamefiles/FactoryGame.exe" ]]; then
-    printf "Game binary is missing.\\n"
-    exit 1
-fi
+steamcmd +runscript /root/steamscript.txt
+rm /root/steamscript.txt
 
 sentry=$(find /root/.steam/ -type f -name "ssfn*")
 
@@ -55,6 +48,11 @@ service cron start
 rm cronjobs
 
 cd /config/gamefiles || exit 1
+
+if [[ ! -f "FactoryGame.exe" ]]; then
+    printf "Game binary is missing.\\n"
+    exit 1
+fi
 
 if [[ ! -f "/config/Engine.ini" ]]; then
     cp /home/satisfactory/Engine.ini /config/Engine.ini || exit 1
