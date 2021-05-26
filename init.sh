@@ -10,7 +10,7 @@ if [[ -z "${STEAMUSER}" || -z "${STEAMPWD}" ]]; then
     exit 1
 fi
 
-STEAMLOGINFLAGS="+login ${STEAMUSER} ${STEAMPWD}"
+STEAMLOGINARGS=("$STEAMUSER" "$STEAMPASS")
 sentry=$(find /config/steam/ -type f -name "ssfn*")
 
 if [[ ! -f "/config/steam/config.vdf" && ! -f "$sentry" ]]; then 
@@ -18,8 +18,7 @@ if [[ ! -f "/config/steam/config.vdf" && ! -f "$sentry" ]]; then
         printf "Missing Steam credentials environment variables (STEAMCODE), this code is needed for the intial build.\\n"
         exit 1
     fi
-
-    STEAMLOGINFLAGS="${STEAMLOGINFLAGS} ${STEAMCODE}"
+    STEAMLOGINARGS+=("$STEAMCODE")
 else
     sentry_file=$(basename "$sentry")
 
@@ -32,10 +31,10 @@ if [[ "${STEAMBETA}" == "true" ]]; then
     STEAMBETAFLAGS="-beta experimental"
 fi
 
-printf "Downloading the latest version of the game...\\n"
+printf "\\nDownloading the latest version of the game...\\n"
 
 steamcmd +@sSteamCmdForcePlatformType windows \
-    ${STEAMLOGINFLAGS} \
+    +login "${STEAMLOGINARGS[@]}" \
     +force_install_dir /config/gamefiles \
     +app_update "${STEAMAPPID}" ${STEAMBETAFLAGS} \
     +quit

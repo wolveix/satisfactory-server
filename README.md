@@ -10,7 +10,7 @@ This guide assumes the following:
 
 You'll need to generate a new save (or grab an existing save) for the server to use. You can usually find your save files located in `C:\Users\Your User\AppData\Local\FactoryGame\Saved\SaveGames\common\your-world.sav`. You need to rename the save to `savefile.sav`, otherwise the server won't read it.
 
-You'll need to bind a local directory to the Docker container. This directory will hold three directories:
+You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 - `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 15GB+ every time you want to rebuild the container.
 - `/savefilebackups` - the server will automatically backup your saves every 6 hours into this directory.
 - `/savefiles` - this is for the game's saves. They're copied into the container on start, and the saves will be copied back to the host every 30 minutes.
