@@ -38,8 +38,11 @@ steamcmd +runscript /root/steamscript.txt
 rm /root/steamscript.txt
 
 sentry=$(find /root/.steam/ -type f -name "ssfn*")
+if [[ -n "$sentry" ]]; then
+    cp "$sentry" /config/steam/
+fi
 
-cp /root/.steam/config/config.vdf "$sentry" /config/steam/
+cp /root/.steam/config/config.vdf /config/steam/
 
 echo "*/5 * * * * cp -rp \"${GAMECONFIGDIR}/SaveGames/common/\"*.sav /config/savefiles/ 2>&1
 0 */6 * * * /backup.sh 2>&1" > cronjobs
