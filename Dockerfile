@@ -18,6 +18,7 @@ VOLUME /config
 WORKDIR /config
 
 ENV GAMECONFIGDIR="/home/satisfactory/.wine/drive_c/users/satisfactory/Local Settings/Application Data/FactoryGame/Saved" \
+    MAXBACKUPS=10 \
     STEAMAPPID="526870" \
     STEAMBETA="false"
 

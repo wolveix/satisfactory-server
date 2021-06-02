@@ -29,6 +29,14 @@ if [[ "$STEAMBETA" == "true" ]]; then
     STEAMBETAFLAG=" -beta experimental"
 fi
 
+printf "Checking available space...\\n"
+space=$(stat -f --format="%a*%S" .)
+space=$((space/1024/1024/1024))
+
+if [[ "$space" -lt 20 ]]; then
+  printf "You have less than 20GB (${space}GB detected) of available space to download the game.\\nIf this is a fresh install, it will probably fail.\\n"
+fi
+
 printf "Downloading the latest version of the game...\\n"
 
 export STEAMBETAFLAG

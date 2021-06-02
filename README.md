@@ -25,7 +25,7 @@ docker run -it steamcmd/steamcmd +login Your-Steam-Username Your-Steam-Password
 With your credentials in hand, as well as the absolute path to your config directory, run the Satisfactory server image like this:
 
 ```
-docker run -d --name=satisfactory-server -h satisfactory-server -e STEAMUSER=Your-Steam-Username -e STEAMPWD=Your-Steam-Password -e STEAMCODE=Your-Steam-Code -v /path/to/config:/config -p 7777:7777/udp wolveix/satisfactory-server:latest
+docker run -d --name=satisfactory-server -h satisfactory-server -e STEAMUSER=Your-Steam-Username -e STEAMPWD=Your-Steam-Password -e STEAMCODE=Your-Steam-Code -e MAXBACKUPS=10 -v /path/to/config:/config -p 7777:7777/udp wolveix/satisfactory-server:latest
 ```
 
 If you're using [Docker Compose](https://docs.docker.com/compose/):
@@ -41,6 +41,7 @@ services:
             - STEAMUSER=Your-Steam-Username
             - STEAMPWD=Your-Steam-Password
             - STEAMCODE=Your-Steam-Code
+            - MAXBACKUPS=10
         ports:
             - '7777:7777/udp'
         volumes:
