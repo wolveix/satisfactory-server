@@ -79,16 +79,17 @@ fi
 
 cp /config/{Engine.ini,Game.ini,Scalability.ini} "$GAMECONFIGDIR/Config/WindowsNoEditor/"
 
-if [[ ! -f "/config/savefiles/savefile.sav" ]]; then
-    printf "\\nSave file cannot be found. You need to generate a new world on your client, and then put it into /config/savefiles/savefile.sav\\n"
-    exit 1
-fi
-
-cp -rp /config/savefiles/*.sav "${GAMECONFIGDIR}"/SaveGames/common/
+rm "${GAMECONFIGDIR}"/SaveGames/common/*.sav
+cp -rp /config/savefiles/*.sav "${GAMECONFIGDIR}"/SaveGames/common/ || continue
 lastsavefile=$(ls -Art "${GAMECONFIGDIR}"/SaveGames/common | tail -n 1)
 if [[ ! "${lastsavefile}" == "savefile.sav" ]]; then
     printf "\\nMoving most recent save (%s) to savefile.sav\\n" "$lastsavefile"
     mv "${GAMECONFIGDIR}"/SaveGames/common/"${lastsavefile}" "${GAMECONFIGDIR}/SaveGames/common/savefile.sav"
+fi
+
+if [[ ! -f "/config/savefiles/savefile.sav" ]]; then
+    printf "\\nSave file cannot be found. You need to generate a new world on your client, and then put it into /config/savefiles/savefile.sav\\n"
+    exit 1
 fi
 
 chown -R satisfactory:satisfactory /config/gamefiles /home/satisfactory
