@@ -79,7 +79,10 @@ fi
 
 cp /config/{Engine.ini,Game.ini,Scalability.ini} "$GAMECONFIGDIR/Config/WindowsNoEditor/"
 
-rm "${GAMECONFIGDIR}"/SaveGames/common/*.sav
+if [[ -f "${GAMECONFIGDIR}"/SaveGames/common/*.sav ]]; then
+    rm "${GAMECONFIGDIR}"/SaveGames/common/*.sav
+fi
+
 cp -rp /config/savefiles/*.sav "${GAMECONFIGDIR}"/SaveGames/common/ || continue
 lastsavefile=$(ls -Art "${GAMECONFIGDIR}"/SaveGames/common | tail -n 1)
 if [[ ! "${lastsavefile}" == "savefile.sav" ]]; then
