@@ -3,8 +3,7 @@ FROM steamcmd/steamcmd:latest
 RUN set -x \
     && dpkg --add-architecture i386 \
     && apt-get update \
-    && echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
-    && apt-get install -y cron gettext-base sudo wine-stable \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y cron gettext-base sudo wine-stable \
     && mkdir -p /config \
     && rm -rf /var/lib/apt/lists/*
 
