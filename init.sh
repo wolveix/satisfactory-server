@@ -50,7 +50,9 @@ if [[ -n "$sentry" ]]; then
     cp "$sentry" /config/steam/
 fi
 
-cp /root/.steam/config/config.vdf /config/steam/
+if [[ -f "/root/.steam/config/config.vdf" ]]; then
+    cp /root/.steam/config/config.vdf /config/steam/
+fi
 
 echo "*/5 * * * * cp -rp \"${GAMECONFIGDIR}/SaveGames/common/\"*.sav /config/savefiles/ 2>&1
 0 */6 * * * /backup.sh 2>&1" > cronjobs

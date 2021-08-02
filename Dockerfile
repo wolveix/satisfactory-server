@@ -1,4 +1,4 @@
-FROM steamcmd/steamcmd:latest
+FROM steamcmd/steamcmd:ubuntu-18
 
 RUN set -x \
     && dpkg --add-architecture i386 \
