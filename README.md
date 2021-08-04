@@ -87,7 +87,8 @@ The [Satisfactory Wiki](https://satisfactory.fandom.com/wiki/Multiplayer#Engine.
 
 ## Known Issues
 
-The server is public, meaning that anyone with your server IP or hostname will be able to join your world.
+- The server is public, meaning that anyone with your server IP or hostname will be able to join your world.
+- The server log will show various errors; most of which can be safely ignored. As long as the container continues to run and your log looks similar to the example log, the server should be functioning just fine: [example log](https://github.com/wolveix/satisfactory-server/blob/main/server.log)
 
 ## Credit
 

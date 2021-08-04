@@ -1,0 +1,676 @@
+Checking available space...
+Downloading the latest version of the game...
+Redirecting stderr to '/root/.steam/logs/stderr.txt'
+[  0%] Checking for available updates...
+[----] Verifying installation...
+[  0%] Downloading update...
+[  0%] Checking for available updates...
+[----] Download complete.
+[----] Extracting package...
+[----] Extracting package...
+[----] Extracting package...
+[----] Extracting package...
+[----] Installing update...
+[----] Installing update...
+[----] Installing update...
+[----] Installing update...
+[----] Installing update...
+[----] Installing update...
+[----] Installing update...
+[----] Installing update...
+[----] Cleaning up...
+[----] Update complete, launching Steamcmd...
+Redirecting stderr to '/root/.steam/logs/stderr.txt'
+[  0%] Checking for available updates...
+[----] Verifying installation...
+Steam Console Client (c) Valve Corporation
+-- type 'quit' to exit --
+Loading Steam API...OK
+@sSteamCmdForcePlatformType windows
+"@sSteamCmdForcePlatformType" = "windows"
+Logging in user 'wolveix' to Steam Public...OK
+Waiting for client config...OK
+Waiting for user info...OK
+force_install_dir /config/gamefiles
+app_update "526870"
+Success! App '526870' already up to date.
+quit
+ * Starting periodic command scheduler cron
+   ...done.
+
+Moving most recent save (savefile_autosave_1.sav) to savefile.sav
+0012:err:ole:marshal_object couldn't get IPSFactory buffer for interface {00000131-0000-0000-c000-000000000046}
+0012:err:ole:marshal_object couldn't get IPSFactory buffer for interface {6d5140c1-7436-11ce-8034-00aa006009fa}
+0012:err:ole:StdMarshalImpl_MarshalInterface Failed to create ifstub, hres=0x80004002
+0012:err:ole:CoMarshalInterface Failed to marshal the interface {6d5140c1-7436-11ce-8034-00aa006009fa}, 80004002
+0012:err:ole:get_local_server_stream Failed: 80004002
+0014:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
+0014:err:winediag:nodrv_CreateWindow Make sure that your X server is running and that $DISPLAY is set correctly.
+0014:err:ole:apartment_createwindowifneeded CreateWindow failed with error 0
+0014:err:ole:apartment_createwindowifneeded CreateWindow failed with error 0
+0014:err:ole:marshal_object couldn't get IPSFactory buffer for interface {00000131-0000-0000-c000-000000000046}
+0014:err:ole:apartment_createwindowifneeded CreateWindow failed with error 14007
+0014:err:ole:StdMarshalImpl_MarshalInterface Failed to create ifstub, hres=0x800736b7
+0014:err:ole:CoMarshalInterface Failed to marshal the interface {6d5140c1-7436-11ce-8034-00aa006009fa}, 800736b7
+0014:err:ole:get_local_server_stream Failed: 800736b7
+0010:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
+0010:err:winediag:nodrv_CreateWindow Make sure that your X server is running and that $DISPLAY is set correctly.
+000b:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
+000b:err:winediag:nodrv_CreateWindow Make sure that your X server is running and that $DISPLAY is set correctly.
+Could not load wine-gecko. HTML rendering will be disabled.
+0027:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
+0027:err:winediag:nodrv_CreateWindow Make sure that your X server is running and that $DISPLAY is set correctly.
+Could not load wine-gecko. HTML rendering will be disabled.
+wine: configuration in '/home/satisfactory/.wine' has been updated.
+﻿Log file open, 08/03/21 16:19:32
+LogInit: Display: Running engine for game: FactoryGame
+LogInit: Display: Project file not found: Z:/config/gamefiles/FactoryGame/FactoryGame.uproject
+LogInit: Display:       Attempting to find via project info helper.
+LogUProjectInfo: Found projects:
+LogPakFile: Display: Found Pak file ../../../FactoryGame/Content/Paks/FactoryGame-WindowsNoEditor.pak attempting to mount.
+LogPakFile: Display: Mounting pak file ../../../FactoryGame/Content/Paks/FactoryGame-WindowsNoEditor.pak.
+LogPlatformFile: Not using cached read wrapper
+LogTaskGraph: Started task graph with 4 named threads and 37 total threads with 3 sets of task threads.
+LogD3D11RHI: Loaded GFSDK_Aftermath_Lib.x64.dll
+LogICUInternationalization: ICU TimeZone Detection - Raw Offset: +0:00, Platform Override: ''
+LogPluginManager: Mounting plugin ReplicationGraph
+LogPluginManager: Mounting plugin Wwise
+LogPluginManager: Mounting plugin ApexDestruction
+LogPluginManager: Mounting plugin BlueprintStats
+LogPluginManager: Mounting plugin OnlineFramework
+LogPluginManager: Mounting plugin OnlineSubsystem
+LogPluginManager: Mounting plugin OnlineSubsystemUtils
+LogPluginManager: Mounting plugin LensDistortion
+LogPluginManager: Mounting plugin WindowsDeviceProfileSelector
+LogPluginManager: Mounting plugin SteamController
+LogPluginManager: Mounting plugin SteamShared
+LogPluginManager: Mounting plugin RawInput
+LogPluginManager: Mounting plugin MfMedia
+LogPluginManager: Mounting plugin OnlineSubsystemSteam
+LogPluginManager: Mounting plugin OnlineSubsystemEOS
+LogPluginManager: Mounting plugin SignificanceManager
+LogPluginManager: Mounting plugin PythonScriptPlugin
+LogPluginManager: Mounting plugin EditorScriptingUtilities
+LogPluginManager: Mounting plugin EditorTests
+LogPluginManager: Mounting plugin FbxAutomationTestBuilder
+LogPluginManager: Mounting plugin FunctionalTestingEditor
+LogPluginManager: Mounting plugin RuntimeTests
+LogPluginManager: Mounting plugin ScreenshotTools
+LogPluginManager: Mounting plugin RenderDocPlugin
+LogPluginManager: Mounting plugin CSSEditorToolsExtension
+LogPluginManager: Mounting plugin Paper2D
+LogPluginManager: Mounting plugin AISupport
+LogPluginManager: Mounting plugin LightPropagationVolume
+LogPluginManager: Mounting plugin AnimationSharing
+LogPluginManager: Mounting plugin UObjectPlugin
+LogPluginManager: Mounting plugin AssetManagerEditor
+LogPluginManager: Mounting plugin FacialAnimation
+LogPluginManager: Mounting plugin GeometryMode
+LogPluginManager: Mounting plugin DatasmithContent
+LogPluginManager: Mounting plugin VariantManagerContent
+LogPluginManager: Mounting plugin AlembicImporter
+LogPluginManager: Mounting plugin GeometryCache
+LogPluginManager: Mounting plugin AutomationUtils
+LogPluginManager: Mounting plugin BackChannel
+LogPluginManager: Mounting plugin ChaosClothEditor
+LogPluginManager: Mounting plugin ChaosCloth
+LogPluginManager: Mounting plugin ChaosEditor
+LogPluginManager: Mounting plugin PlanarCut
+LogPluginManager: Mounting plugin GeometryProcessing
+LogPluginManager: Mounting plugin EditableMesh
+LogPluginManager: Mounting plugin GeometryCollectionPlugin
+LogPluginManager: Mounting plugin ProceduralMeshComponent
+LogPluginManager: Mounting plugin ChaosSolverPlugin
+LogPluginManager: Mounting plugin ChaosNiagara
+LogPluginManager: Mounting plugin Niagara
+LogPluginManager: Mounting plugin CharacterAI
+LogPluginManager: Mounting plugin PlatformCrypto
+LogPluginManager: Mounting plugin MagicLeapPassableWorld
+LogPluginManager: Mounting plugin ImgMedia
+LogPluginManager: Mounting plugin MediaCompositing
+LogPluginManager: Mounting plugin WmfMedia
+LogPluginManager: Mounting plugin MeshPainting
+LogPluginManager: Mounting plugin TcpMessaging
+LogPluginManager: Mounting plugin UdpMessaging
+LogPluginManager: Mounting plugin ActorSequence
+LogPluginManager: Mounting plugin LevelSequenceEditor
+LogPluginManager: Mounting plugin MatineeToLevelSequence
+LogPluginManager: Mounting plugin TemplateSequence
+LogPluginManager: Mounting plugin MovieRenderPipeline
+LogPluginManager: Mounting plugin NetcodeUnitTest
+LogPluginManager: Mounting plugin OnlineSubsystemNull
+LogPluginManager: Mounting plugin LauncherChunkInstaller
+LogPluginManager: Mounting plugin AppleImageUtils
+LogPluginManager: Mounting plugin AssetTags
+LogPluginManager: Mounting plugin AudioCapture
+LogPluginManager: Mounting plugin CableComponent
+LogPluginManager: Mounting plugin CustomMeshComponent
+LogPluginManager: Mounting plugin ExampleDeviceProfileSelector
+LogPluginManager: Mounting plugin GooglePAD
+LogPluginManager: Mounting plugin PhysXVehicles
+LogPluginManager: Mounting plugin RuntimePhysXCooking
+LogPluginManager: Mounting plugin SoundFields
+LogPluginManager: Mounting plugin Synthesis
+LogPluginManager: Mounting plugin WebMMoviePlayer
+LogPluginManager: Mounting plugin WebMMedia
+LogPluginManager: Mounting plugin WindowsMoviePlayer
+002f:err:winediag:SECUR32_initNTLMSP ntlm_auth was not found or is outdated. Make sure that ntlm_auth >= 3.0.25 is in your path. Usually, you can find it in the winbind package of your distribution.
+LogInit: Using libcurl 7.55.1-DEV
+LogInit:  - built for x86_64-pc-win32
+LogInit:  - supports SSL with OpenSSL/1.1.1
+LogInit:  - supports HTTP deflate (compression) using libz 1.2.8
+LogInit:  - other features:
+LogInit:      CURL_VERSION_SSL
+LogInit:      CURL_VERSION_LIBZ
+LogInit:      CURL_VERSION_IPV6
+LogInit:      CURL_VERSION_ASYNCHDNS
+LogInit:      CURL_VERSION_LARGEFILE
+LogInit:      CURL_VERSION_IDN
+LogInit:  CurlRequestOptions (configurable via config and command line):
+LogInit:  - bVerifyPeer = true  - Libcurl will verify peer certificate
+LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
+LogInit:  - MaxHostConnections = 16  - Libcurl will limit the number of connections to a host
+LogInit:  - LocalHostAddr = Default
+LogInit:  - BufferSize = 65536
+LogInit: WinSock: version 1.1 (2.2), MaxSocks=128, MaxUdp=1024
+LogOnline: OSS: Creating online subsystem instance for: EOS
+LogOnline: OSS: FOnlineSubsystemEOS: Init success.
+LogSteamShared: Display: Loading Steam SDK 1.47
+LogSteamShared: Steam SDK Loaded!
+LogOnline: OSS: Creating online subsystem instance for: STEAM
+LogOnline: Warning: STEAM: Steam API failed to initialize!
+LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
+LogOnline: OSS: Unable to create OnlineSubsystem module STEAM
+LogOnline: OSS: TryLoadSubsystemAndSetDefault: Loaded subsystem for module [EOS]
+LogOnline: OSS: Creating online subsystem instance for: STEAM
+LogOnline: Warning: STEAM: Steam API failed to initialize!
+LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
+LogWmfMedia: Failed to load mfplay.dll
+LogWmfMedia: Failed to load required Windows Media Foundation libraries
+LogInit: Build: ++FactoryGame+rel-early-access-CL-159365
+LogInit: Engine Version: 4.25.3-159365+++FactoryGame+rel-early-access
+LogInit: Compatible Engine Version: 4.25.3-159365+++FactoryGame+rel-early-access
+LogInit: Net CL: 159365
+LogInit: OS: Windows 7 (Service Pack 1), CPU: AMD Ryzen 5 3600 6-Core Processor              , GPU: X11 Windowing System
+LogInit: Compiled (64-bit): May 27 2021 14:44:22
+LogInit: Compiled with Visual C++: 19.16.27038.00
+LogInit: Build Configuration: Shipping
+LogInit: Branch Name: ++FactoryGame+rel-early-access
+LogInit: Command Line:  -listen -nosteamclient -nosplash -nosound -nullrhi -server -spectatoronly -unattended
+LogInit: Base Directory: Z:/config/gamefiles/Engine/Binaries/Win64/
+LogInit: Allocator: binned2
+LogInit: Installed Engine Build: 1
+LogInit: Launcher File: Z:/config/gamefiles/launcher_id
+LogInit: Launcher ID: steam
+LogInit: Launcher Artifact:
+LogInit: Presizing for max 2097152 objects, including 1 objects not considered by GC, pre-allocating 0 bytes for permanent pool.
+LogStreaming: Display: Async Loading initialized: Event Driven Loader: true, Async Loading Thread: true, Async Post Load: true
+LogInit: Object subsystem initialized
+[2021.08.03-16.19.33:365][  0]LogInit: Selected Device Profile: [WindowsNoEditor]
+[2021.08.03-16.19.33:365][  0]LogInit: Applying CVar settings loaded from the selected device profile: [WindowsNoEditor]
+[2021.08.03-16.19.33:365][  0]LogHAL: Display: Platform has ~ 63 GB [67545382912 / 68719476736 / 63], which maps to Largest [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
+[2021.08.03-16.19.33:365][  0]LogInit: Going up to parent DeviceProfile [Windows]
+[2021.08.03-16.19.33:365][  0]LogInit: Going up to parent DeviceProfile []
+[2021.08.03-16.19.33:366][  0]LogInit: Computer: satisfactory-se
+[2021.08.03-16.19.33:366][  0]LogInit: User: satisfactory
+[2021.08.03-16.19.33:366][  0]LogInit: CPU Page size=4096, Cores=12
+[2021.08.03-16.19.33:366][  0]LogInit: High frequency timer resolution =10.000000 MHz
+[2021.08.03-16.19.33:366][  0]LogMemory: Memory total: Physical=62.9GB (63GB approx)
+[2021.08.03-16.19.33:366][  0]LogMemory: Platform Memory Stats for WindowsNoEditor
+[2021.08.03-16.19.33:366][  0]LogMemory: Process Physical Memory: 177.20 MB used, 177.20 MB peak
+[2021.08.03-16.19.33:366][  0]LogMemory: Process Virtual Memory: 151.89 MB used, 151.89 MB peak
+[2021.08.03-16.19.33:366][  0]LogMemory: Physical Memory: 2037.62 MB used,  62378.68 MB free, 64416.30 MB total
+[2021.08.03-16.19.33:366][  0]LogMemory: Virtual Memory: 0.06 MB used,  134217728.00 MB free, 134217728.00 MB total
+[2021.08.03-16.19.33:368][  0]LogWindows: WindowsPlatformFeatures enabled
+[2021.08.03-16.19.33:383][  0]LogInit: Physics initialised using underlying interface: PhysX
+[2021.08.03-16.19.33:384][  0]LogInit: Overriding language with engine culture configuration option (en-US-Posix).
+[2021.08.03-16.19.33:384][  0]LogInit: Overriding locale with engine culture configuration option (en-US-Posix).
+[2021.08.03-16.19.33:395][  0]LogTextLocalizationResource: LocRes '../../../Engine/Content/Localization/Engine/en-US-POSIX/Engine.locres' could not be opened for reading!
+[2021.08.03-16.19.33:395][  0]LogTextLocalizationResource: LocRes '../../../Engine/Plugins/Online/OnlineFramework/Content/Localization/OnlineFramework/en-US-POSIX/OnlineFramework.locres' could not be opened for reading!
+[2021.08.03-16.19.33:395][  0]LogTextLocalizationResource: LocRes '../../../Engine/Plugins/Online/OnlineSubsystem/Content/Localization/OnlineSubsystem/en-US-POSIX/OnlineSubsystem.locres' could not be opened for reading!
+[2021.08.03-16.19.33:395][  0]LogTextLocalizationResource: LocRes '../../../Engine/Plugins/Online/OnlineSubsystemUtils/Content/Localization/OnlineSubsystemUtils/en-US-POSIX/OnlineSubsystemUtils.locres' could not be opened for reading!
+[2021.08.03-16.19.33:395][  0]LogTextLocalizationResource: LocRes '../../../Engine/Plugins/Online/OnlineSubsystemSteam/Content/Localization/OnlineSubsystemSteam/en-US-POSIX/OnlineSubsystemSteam.locres' could not be opened for reading!
+[2021.08.03-16.19.33:406][  0]LogWindowsTextInputMethodSystem: Warning: Initialization failed while creating the IMM context.
+[2021.08.03-16.19.33:418][  0]LogSlate: New Slate User Created.  User Index 0, Is Virtual User: 0
+[2021.08.03-16.19.33:418][  0]LogSlate: Slate User Registered.  User Index 0, Is Virtual User: 0
+[2021.08.03-16.19.33:442][  0]LogSlate: Using FreeType 2.10.0
+[2021.08.03-16.19.33:442][  0]LogSlate: SlateFontServices - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
+[2021.08.03-16.19.33:445][  0]LogInit: Overriding language with engine culture configuration option (en-US-Posix).
+[2021.08.03-16.19.33:445][  0]LogInit: Overriding locale with engine culture configuration option (en-US-Posix).
+[2021.08.03-16.19.33:454][  0]LogTextLocalizationResource: LocRes '../../../FactoryGame/Content/Localization/Game/en/Game.locres' could not be opened for reading!
+[2021.08.03-16.19.33:457][  0]LogTextLocalizationManager: Compacting localization data took   0.70ms
+[2021.08.03-16.19.33:526][  0]LogAssetRegistry: FAssetRegistry took 0.0683 seconds to start up
+[2021.08.03-16.19.33:539][  0]LogEnum: Warning: EnumRedirect for enum ECachedNatType maps 'ECachedNATType::CNT_MAX' to invalid value 'ECachedNatType::CNT_MAX'!
+[2021.08.03-16.19.33:566][  0]LogStreaming: Display: Flushing async loaders.
+[2021.08.03-16.19.33:566][  0]LogPackageLocalizationCache: Processed 21 localized package path(s) for 2 prioritized culture(s) in 0.000162 seconds
+[2021.08.03-16.19.33:566][  0]LogPakFile: New pak file ../../../FactoryGame/Content/Paks/FactoryGame-WindowsNoEditor.pak added to pak precacher.
+[2021.08.03-16.19.33:569][  0]LogInit: Selected Device Profile: [WindowsNoEditor]
+[2021.08.03-16.19.33:580][  0]LogNetVersion: FactoryGame 1.0.0, NetCL: 159365, EngineNetVer: 14, GameNetVer: 0 (Checksum: 2411073547)
+[2021.08.03-16.19.33:609][  0]LogAISub: UAISubsystem::UAISubsystem AISubsystem (0000000010BB1180), frame # 0
+[2021.08.03-16.19.33:609][  0]LogAISub: UAISubsystem::UAISubsystem AIPerceptionSystem (0000000019438580), frame # 0
+[2021.08.03-16.19.33:610][  0]LogAISub: UAISubsystem::UAISubsystem EnvQueryManager (0000000019438080), frame # 0
+[2021.08.03-16.19.33:637][  0]LogWindowsMoviePlayer: Could not load mfplay.dll. Library not found.
+[2021.08.03-16.19.33:643][  0]LogInit: Audiokinetic Audio Device initialization failed.
+[2021.08.03-16.19.33:761][  0]LogSerialization: Warning: Attempting to load a BulkData object that cannot be loaded from disk
+[2021.08.03-16.19.33:765][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.08.03-16.19.35:464][  0]LogPakFile: Precache HighWater 16MB
+
+[2021.08.03-16.19.35:464][  0]LogPakFile: Precache HighWater 32MB
+
+[2021.08.03-16.19.35:464][  0]LogPakFile: Precache HighWater 48MB
+
+[2021.08.03-16.19.35:464][  0]LogPakFile: Precache HighWater 64MB
+
+[2021.08.03-16.19.35:464][  0]LogPakFile: Precache HighWater 80MB
+
+[2021.08.03-16.19.35:464][  0]LogPakFile: Precache HighWater 96MB
+
+[2021.08.03-16.19.35:464][  0]LogPakFile: Precache HighWater 112MB
+
+[2021.08.03-16.19.35:464][  0]LogPakFile: Precache HighWater 128MB
+
+[2021.08.03-16.19.35:464][  0]LogPakFile: Precache HighWater 144MB
+
+[2021.08.03-16.19.35:464][  0]LogPakFile: Precache HighWater 160MB
+
+[2021.08.03-16.19.35:464][  0]LogPakFile: Precache HighWater 176MB
+
+[2021.08.03-16.19.35:464][  0]LogPakFile: Precache HighWater 192MB
+
+[2021.08.03-16.19.35:465][  0]LogPakFile: Precache HighWater 208MB
+
+[2021.08.03-16.19.35:465][  0]LogPakFile: Precache HighWater 224MB
+
+[2021.08.03-16.19.35:465][  0]LogPakFile: Precache HighWater 240MB
+
+[2021.08.03-16.19.35:465][  0]LogPakFile: Precache HighWater 256MB
+
+[2021.08.03-16.19.35:465][  0]LogPakFile: Precache HighWater 272MB
+
+[2021.08.03-16.19.35:465][  0]LogPakFile: Precache HighWater 288MB
+
+[2021.08.03-16.19.35:465][  0]LogPakFile: Precache HighWater 304MB
+
+[2021.08.03-16.19.35:465][  0]LogPakFile: Precache HighWater 320MB
+
+[2021.08.03-16.19.35:465][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.08.03-16.19.35:465][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.08.03-16.19.35:466][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.08.03-16.19.35:469][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.08.03-16.19.36:291][  0]GameAnalyticsModule: Display: GameAnalyticsModule has started!
+[2021.08.03-16.19.36:291][  0]LogStreaming: Warning: Failed to read file 'C:/users/satisfactory/Local Settings/Application Data/FactoryGame/Saved/SaveGames/GameAnalytics.sav' error.
+[2021.08.03-16.19.36:344][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2021.08.03-16.19.36:345][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2021.08.03-16.19.36:363][  0]LogUObjectArray: 90326 objects as part of root set at end of initial load.
+[2021.08.03-16.19.36:364][  0]LogUObjectArray: 2 objects are not in the root set, but can never be destroyed because they are in the DisregardForGC set.
+[2021.08.03-16.19.36:364][  0]LogUObjectAllocator: 26449968 out of 0 bytes used by permanent object pool.
+[2021.08.03-16.19.36:364][  0]LogUObjectArray: CloseDisregardForGC: 90326/90326 objects in disregard for GC pool
+[2021.08.03-16.19.36:376][  0]LogEngine: Initializing Engine...
+[2021.08.03-16.19.36:380][  0]LogStats: UGameplayTagsManager::InitializeManager -  0.002 s
+[2021.08.03-16.19.36:431][  0]LogInit: Initializing FReadOnlyCVARCache
+[2021.08.03-16.19.36:431][  0]LogNetVersion: Set ProjectVersion to 0.0.1.0. Version Checksum will be recalculated on next use.
+[2021.08.03-16.19.36:431][  0]LogInit: Texture streaming: Disabled
+[2021.08.03-16.19.36:433][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:433][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:434][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:435][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:435][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:435][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:435][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:436][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:436][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:437][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:437][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:437][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:437][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:438][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:438][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:439][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:439][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:439][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:439][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:440][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:440][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:440][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:440][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:440][  0]LogConfig: Warning: Trying to use empty CVAR
+[2021.08.03-16.19.36:443][  0]LogOnline: OSS: Creating online subsystem instance for: STEAM
+[2021.08.03-16.19.36:443][  0]LogOnline: Warning: STEAM: Steam API failed to initialize!
+[2021.08.03-16.19.36:443][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
+[2021.08.03-16.19.36:444][  0]LogOnline: OSS: Creating online subsystem instance for: STEAM
+[2021.08.03-16.19.36:444][  0]LogOnline: Warning: STEAM: Steam API failed to initialize!
+[2021.08.03-16.19.36:444][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
+[2021.08.03-16.19.36:444][  0]LogOnline: OSS: Creating online subsystem instance for: STEAM
+[2021.08.03-16.19.36:444][  0]LogOnline: Warning: STEAM: Steam API failed to initialize!
+[2021.08.03-16.19.36:444][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
+[2021.08.03-16.19.36:445][  0]LogGame: MaxNumBackupsaves: 25
+[2021.08.03-16.19.36:445][  0]GameAnalyticsModule: Display: Loaded GUID 25B2D8C1-4CCF-9416-1E11-5989507950BC
+[2021.08.03-16.19.36:445][  0]LogOnline: Warning: OSS: [EOS SDK | Plugin] Begin Player Session...
+[2021.08.03-16.19.36:445][  0]LogEngine: GameWindow did not exist.  Was created
+[2021.08.03-16.19.36:446][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.08.03-16.19.36:446][  0]LogOnline: OSS: Creating online subsystem instance for: STEAM
+[2021.08.03-16.19.36:446][  0]LogOnline: Warning: STEAM: Steam API failed to initialize!
+[2021.08.03-16.19.36:446][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
+[2021.08.03-16.19.36:446][  0]LogOnline: OSS: Creating online subsystem instance for: STEAM
+[2021.08.03-16.19.36:446][  0]LogOnline: Warning: STEAM: Steam API failed to initialize!
+[2021.08.03-16.19.36:446][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
+[2021.08.03-16.19.36:446][  0]LogOnline: OSS: Creating online subsystem instance for: STEAM
+[2021.08.03-16.19.36:446][  0]LogOnline: Warning: STEAM: Steam API failed to initialize!
+[2021.08.03-16.19.36:446][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
+[2021.08.03-16.19.36:447][  0]LogOnline: OSS: Creating online subsystem instance for: STEAM
+[2021.08.03-16.19.36:447][  0]LogOnline: Warning: STEAM: Steam API failed to initialize!
+[2021.08.03-16.19.36:447][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
+[2021.08.03-16.19.36:447][  0]LogInit: Display: Game Engine Initialized.
+[2021.08.03-16.19.36:447][  0]LogNetVersion: Set ProjectVersion to ++FactoryGame+rel-early-access-CL-159365. Version Checksum will be recalculated on next use.
+[2021.08.03-16.19.36:457][  0]LogConsoleResponse: Display: RHIThread is now running on a dedicated thread.
+[2021.08.03-16.19.36:458][  0]LogInit: OnPostEngineInit has been broadcasted successfully.
+[2021.08.03-16.19.36:471][  0]LogInit: Display: Starting Game.
+[2021.08.03-16.19.36:471][  0]LogNet: Browse: /Game/FactoryGame/Map/GameLevel01/Persistent_Level?name=Host?sessionName=SatisfactoryServer?Visibility=SV_FriendsOnly?loadgame=savefile?listen?bUseIpSockets
+[2021.08.03-16.19.36:471][  0]LogLoad: LoadMap: /Game/FactoryGame/Map/GameLevel01/Persistent_Level?name=Host?sessionName=SatisfactoryServer?Visibility=SV_FriendsOnly?loadgame=savefile?listen?bUseIpSockets
+[2021.08.03-16.19.36:471][  0]LogWorld: BeginTearingDown for /Temp/Untitled_0
+[2021.08.03-16.19.36:475][  0]LogWorld: UWorld::CleanupWorld for Untitled, bSessionEnded=true, bCleanupResources=true
+[2021.08.03-16.19.36:475][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.08.03-16.19.36:483][  0]LogUObjectHash: Compacting FUObjectHashTables data took   6.35ms
+[2021.08.03-16.19.37:971][  0]LogAIModule: Creating AISystem for world Persistent_Level
+[2021.08.03-16.19.37:972][  0]LogAISub: UAISubsystem::UAISubsystem EnvQueryManager (000000001775D800), frame # 0
+[2021.08.03-16.19.37:972][  0]LogAISub: UAISubsystem::UAISubsystem AIPerceptionSystem (0000000024C50B00), frame # 0
+[2021.08.03-16.19.37:975][  0]LogLoad: Game class is 'BP_GameMode_C'
+[2021.08.03-16.19.37:976][  0]LogReplicationGraph: Display: SetActorDiscoveryBudget set to 10 kBps (666 bits per network tick).
+[2021.08.03-16.19.37:996][  0]LogNetCore: DDoS detection status: detection enabled: 0 analytics enabled: 0
+[2021.08.03-16.19.37:996][  0]LogInit: WinSock: Socket queue. Rx: 262144 (config 131072) Tx: 262144 (config 131072)
+[2021.08.03-16.19.37:996][  0]LogNet: Created socket for bind address: 0.0.0.0 on port 7777
+[2021.08.03-16.19.37:996][  0]PacketHandlerLog: Loaded PacketHandler component: Engine.EngineHandlerComponentFactory (StatelessConnectHandlerComponent)
+[2021.08.03-16.19.37:996][  0]LogNet: GameNetDriver EOSNetDriver_2147482513 IpNetDriver listening on port 7777
+[2021.08.03-16.19.37:996][  0]LogStreaming: Display: ULevelStreaming::RequestLevel(/Game/FactoryGame/Map/GameLevel01/Persistent_Exploration_2) is flushing async loading
+[2021.08.03-16.19.39:683][  0]LogStreaming: Display: ULevelStreaming::RequestLevel(/Game/FactoryGame/Map/GameLevel01/Persistent_Exploration) is flushing async loading
+[2021.08.03-16.19.39:973][  0]LogWorld: Bringing World /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level up for play (max tick rate 0) at 2021.08.03-16.19.39
+[2021.08.03-16.19.39:975][  0]LogOnline: Warning: OSS: EOSSDK-LogEOSP2P: NAT Detection failed, unable to resolve host
+[2021.08.03-16.19.39:976][  0]LogOnline: Warning: OSS: EOSSDK-LogEOSAuth: No existing persistent auth credentials were found for automatic login.
+[2021.08.03-16.19.43:156][  0]LogSeasonalEvents: No active seasonal events
+[2021.08.03-16.19.43:165][  0]LogSerialization: Warning: Attempting to load a BulkData object that cannot be loaded from disk
+[2021.08.03-16.19.43:169][  0]LogGame: Read Raw Data: 0.001 seconds
+[2021.08.03-16.19.43:196][  0]LogGame: Decompression: 0.023 seconds
+[2021.08.03-16.19.43:196][  0]LogGame: Setting EditorObjectVersionOverride to match mSaveHeader Version: 38
+[2021.08.03-16.19.43:196][  0]LogGame: SaveGame : FArchiveObjectTOCProxy EditorObjectVersion: 38
+[2021.08.03-16.19.43:196][  0]LogGame: SaveGame : FArchiveObjectTOCProxy EditorObjectVersion: 38
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147227034.Front Ladder Component'
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147227034.Back Ladder Component'
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147221320.Front Ladder Component'
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147221320.Back Ladder Component'
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147227257.Front Ladder Component'
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147227257.Back Ladder Component'
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147194835.Front Ladder Component'
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147194835.Back Ladder Component'
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147231271.Front Ladder Component'
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147231271.Back Ladder Component'
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147227391.Front Ladder Component'
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147227391.Back Ladder Component'
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147209749.Front Ladder Component'
+[2021.08.03-16.19.43:260][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147209749.Back Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147209702.Front Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147209702.Back Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147194793.Front Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147194793.Back Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147194731.Front Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147194731.Back Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147423993.Front Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147423993.Back Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147377426.Front Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147377426.Back Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147422889.Front Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147422889.Back Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147406056.Front Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147406056.Back Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147405956.Front Ladder Component'
+[2021.08.03-16.19.43:261][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147405956.Back Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147405884.Front Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147405884.Back Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147405762.Front Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147405762.Back Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147405721.Front Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147405721.Back Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147405675.Front Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147405675.Back Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147405641.Front Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147405641.Back Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147401067.Front Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147401067.Back Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147400839.Front Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147400839.Back Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147404751.Front Ladder Component'
+[2021.08.03-16.19.43:262][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147404751.Back Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147403810.Front Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147403810.Back Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147403783.Front Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147403783.Back Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147359674.Front Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147359674.Back Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147284146.Front Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147284146.Back Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147283586.Front Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147283586.Back Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2146878105.Front Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2146878105.Back Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2146878073.Front Ladder Component'
+[2021.08.03-16.19.43:263][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2146878073.Back Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2146877841.Front Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2146877841.Back Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147337060.Front Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147337060.Back Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147337031.Front Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147337031.Back Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147336994.Front Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147336994.Back Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147188108.Front Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147188108.Back Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147187675.Front Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147187675.Back Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147187341.Front Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147187341.Back Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147187171.Front Ladder Component'
+[2021.08.03-16.19.43:264][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147187171.Back Ladder Component'
+[2021.08.03-16.19.43:265][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147179667.Front Ladder Component'
+[2021.08.03-16.19.43:265][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2147179667.Back Ladder Component'
+[2021.08.03-16.19.43:265][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2146954380.Front Ladder Component'
+[2021.08.03-16.19.43:265][  0]LogGame: Warning: Movable ladders are not supported: 'FGLadderComponent /Game/FactoryGame/Map/GameLevel01/Persistent_Level.Persistent_Level:PersistentLevel.Build_Ladder_C_2146954380.Back Ladder Component'
+[2021.08.03-16.19.43:707][  0]LogNet: Display: Char_Player_C_2147306170 ClassRepPolicy = 6
+[2021.08.03-16.19.43:708][  0]LogNet: Display: Char_Player_C_2147416037 ClassRepPolicy = 6
+[2021.08.03-16.19.43:709][  0]LogNet: Display: Char_Player_C_2147181307 ClassRepPolicy = 6
+[2021.08.03-16.19.43:710][  0]LogNet: Display: Char_Player_C_2147397556 ClassRepPolicy = 6
+[2021.08.03-16.19.43:711][  0]LogNet: Display: Char_Player_C_2147478653 ClassRepPolicy = 6
+[2021.08.03-16.19.43:712][  0]LogNet: Display: Char_Player_C_2147455148 ClassRepPolicy = 6
+[2021.08.03-16.19.43:712][  0]LogNet: Display: Char_Player_C_2147234432 ClassRepPolicy = 6
+[2021.08.03-16.19.43:713][  0]LogNet: Display: Char_Player_C_2147478420 ClassRepPolicy = 6
+[2021.08.03-16.19.43:714][  0]LogNet: Display: Char_Player_C_2147407649 ClassRepPolicy = 6
+[2021.08.03-16.19.43:715][  0]LogNet: Display: Char_Player_C_2147478428 ClassRepPolicy = 6
+[2021.08.03-16.19.43:716][  0]LogNet: Display: Char_Player_C_2147478421 ClassRepPolicy = 6
+[2021.08.03-16.19.43:717][  0]LogNet: Display: Char_Player_C_2146950879 ClassRepPolicy = 6
+[2021.08.03-16.19.43:718][  0]LogNet: Display: Char_Player_C_2146435888 ClassRepPolicy = 6
+[2021.08.03-16.19.43:719][  0]LogNet: Display: Char_Player_C_2145924051 ClassRepPolicy = 6
+[2021.08.03-16.19.43:719][  0]LogNet: Display: Char_Player_C_2145419396 ClassRepPolicy = 6
+[2021.08.03-16.19.43:720][  0]LogNet: Display: Char_Player_C_2144915001 ClassRepPolicy = 6
+[2021.08.03-16.19.43:721][  0]LogNet: Display: Char_Player_C_2146454847 ClassRepPolicy = 6
+[2021.08.03-16.19.43:722][  0]LogNet: Display: Char_Player_C_2147403350 ClassRepPolicy = 6
+[2021.08.03-16.19.43:723][  0]LogNet: Display: Char_Player_C_2147355181 ClassRepPolicy = 6
+[2021.08.03-16.19.43:724][  0]LogNet: Display: Char_Player_C_2147306833 ClassRepPolicy = 6
+[2021.08.03-16.19.43:725][  0]LogNet: Display: Char_Player_C_2147258107 ClassRepPolicy = 6
+[2021.08.03-16.19.43:726][  0]LogNet: Display: Char_Player_C_2147478388 ClassRepPolicy = 6
+[2021.08.03-16.19.43:726][  0]LogNet: Display: Char_Player_C_2147387599 ClassRepPolicy = 6
+[2021.08.03-16.19.44:501][  0]LogSave: Warning: ========= Load error summary =========
+[2021.08.03-16.19.44:501][  0]LogSave: Warning: Found 0 Unknown Classes, 0 Unknown Levels and 3 Unknown Objects
+[2021.08.03-16.19.44:501][  0]LogSave: Warning: ========= Unknown Classes =========
+[2021.08.03-16.19.44:502][  0]LogSave: Warning: ========= Unknown Levels =========
+[2021.08.03-16.19.44:502][  0]LogSave: Warning: ========= Unknown Objects =========
+[2021.08.03-16.19.44:502][  0]LogSave: Warning: Persistent_Level::Persistent_Level:PersistentLevel.BP_BuildGun_C_2147387585
+[2021.08.03-16.19.44:502][  0]LogSave: Warning: Persistent_Level::Persistent_Level:PersistentLevel.BP_ResourceScanner_C_2147387589
+[2021.08.03-16.19.44:502][  0]LogSave: Warning: Persistent_Level::Persistent_Level:PersistentLevel.Equip_ResourceMiner_C_2147387587
+[2021.08.03-16.19.44:502][  0]LogGame: World Serialization (load): 1.306 seconds
+[2021.08.03-16.19.44:502][  0]LogOnlineIdentity: Error: OSS: EOS-OSS: GetUniquePlayerId() with LocalUserNum failed. Had no local maping for the numer in EOS or external registred accounts: Num: 0
+[2021.08.03-16.19.44:596][  0]LogNet: Display: Char_Player_C_2147306170 ClassRepPolicy = 6
+[2021.08.03-16.19.44:596][  0]LogNet: Display: Char_Player_C_2147416037 ClassRepPolicy = 6
+[2021.08.03-16.19.44:596][  0]LogNet: Display: Char_Player_C_2147181307 ClassRepPolicy = 6
+[2021.08.03-16.19.44:596][  0]LogNet: Display: Char_Player_C_2147397556 ClassRepPolicy = 6
+[2021.08.03-16.19.44:596][  0]LogNet: Display: Char_Player_C_2147478653 ClassRepPolicy = 6
+[2021.08.03-16.19.44:596][  0]LogNet: Display: Char_Player_C_2147455148 ClassRepPolicy = 6
+[2021.08.03-16.19.44:596][  0]LogNet: Display: Char_Player_C_2147234432 ClassRepPolicy = 6
+[2021.08.03-16.19.44:596][  0]LogNet: Display: Char_Player_C_2147478420 ClassRepPolicy = 6
+[2021.08.03-16.19.44:596][  0]LogNet: Display: Char_Player_C_2147407649 ClassRepPolicy = 6
+[2021.08.03-16.19.44:596][  0]LogNet: Display: Char_Player_C_2147478428 ClassRepPolicy = 6
+[2021.08.03-16.19.44:596][  0]LogNet: Display: Char_Player_C_2147478421 ClassRepPolicy = 6
+[2021.08.03-16.19.44:597][  0]LogNet: Display: Char_Player_C_2146950879 ClassRepPolicy = 6
+[2021.08.03-16.19.44:597][  0]LogNet: Display: Char_Player_C_2146435888 ClassRepPolicy = 6
+[2021.08.03-16.19.44:597][  0]LogNet: Display: Char_Player_C_2145924051 ClassRepPolicy = 6
+[2021.08.03-16.19.44:597][  0]LogNet: Display: Char_Player_C_2145419396 ClassRepPolicy = 6
+[2021.08.03-16.19.44:597][  0]LogNet: Display: Char_Player_C_2144915001 ClassRepPolicy = 6
+[2021.08.03-16.19.44:597][  0]LogNet: Display: Char_Player_C_2146454847 ClassRepPolicy = 6
+[2021.08.03-16.19.44:597][  0]LogNet: Display: Char_Player_C_2147403350 ClassRepPolicy = 6
+[2021.08.03-16.19.44:597][  0]LogNet: Display: Char_Player_C_2147355181 ClassRepPolicy = 6
+[2021.08.03-16.19.44:597][  0]LogNet: Display: Char_Player_C_2147306833 ClassRepPolicy = 6
+[2021.08.03-16.19.44:597][  0]LogNet: Display: Char_Player_C_2147258107 ClassRepPolicy = 6
+[2021.08.03-16.19.44:597][  0]LogNet: Display: Char_Player_C_2147478388 ClassRepPolicy = 6
+[2021.08.03-16.19.44:597][  0]LogNet: Display: Char_Player_C_2147387599 ClassRepPolicy = 6
+[2021.08.03-16.19.44:605][  0]LogWorld: Bringing up level for play took: 4.651808
+[2021.08.03-16.19.44:605][  0]LogNavigation: Error: Navmesh bounds are too large! Limiting requested tiles count (1481952) to: (1048576)
+[2021.08.03-16.19.44:685][  0]LogOnline: OSS: Creating online subsystem instance for: STEAM
+[2021.08.03-16.19.44:685][  0]LogOnline: Warning: STEAM: Steam API failed to initialize!
+[2021.08.03-16.19.44:686][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
+[2021.08.03-16.19.44:686][  0]LogOnlineIdentity: Error: OSS: EOS-OSS: GetUniquePlayerId() with LocalUserNum failed. Had no local maping for the numer in EOS or external registred accounts: Num: 0
+[2021.08.03-16.19.44:686][  0]LogOnlineIdentity: Error: OSS: EOS-OSS: GetUniquePlayerId() with LocalUserNum failed. Had no local maping for the numer in EOS or external registred accounts: Num: 0
+[2021.08.03-16.19.44:686][  0]LogGame: Warning: No Player Start was found OR player starts are in invalid locations(eg. player could be overlapping something if placed there).This can also be caused by bad positioning of player starts within The Hub.
+[2021.08.03-16.19.44:686][  0]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2021.08.03-16.19.44:711][  0]LogGameMode: Display: Match State Changed from EnteringMap to WaitingToStart
+[2021.08.03-16.19.44:711][  0]LogGameState: Match State Changed from EnteringMap to WaitingToStart
+[2021.08.03-16.19.47:193][  0]LogGameMode: Display: Match State Changed from WaitingToStart to InProgress
+[2021.08.03-16.19.47:194][  0]LogGame: Warning: No Player Start was found OR player starts are in invalid locations(eg. player could be overlapping something if placed there).This can also be caused by bad positioning of player starts within The Hub.
+[2021.08.03-16.19.47:194][  0]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2021.08.03-16.19.47:195][  0]LogNet: Display: Char_Player_C_2147478381 ClassRepPolicy = 6
+[2021.08.03-16.19.47:196][  0]LogFactory: Warning: Put down failed because we where never equipped.
+[2021.08.03-16.19.47:196][  0]LogFactory: Warning: Put down failed because we where never equipped.
+[2021.08.03-16.19.47:204][  0]LogUObjectGlobals: Warning: Failed to find object 'Class /Game/FactoryGame/Buildable/-Shared/Particle/NewBuildingPing.NewBuildingPing_C'
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: BP_ChristmasCalendar_GEN_VARIABLE_BP_ChristmasCalendar_C_CAT_2147480618::BeginPlay, no built with recipe set!
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (0), component 'CalendarInventory'
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (1), component 'CalendarInventory'
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (2), component 'CalendarInventory'
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (3), component 'CalendarInventory'
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (4), component 'CalendarInventory'
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (5), component 'CalendarInventory'
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (6), component 'CalendarInventory'
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (7), component 'CalendarInventory'
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (8), component 'CalendarInventory'
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (9), component 'CalendarInventory'
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (10), component 'CalendarInventory'
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (11), component 'CalendarInventory'
+[2021.08.03-16.19.47:407][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (12), component 'CalendarInventory'
+[2021.08.03-16.19.47:408][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (13), component 'CalendarInventory'
+[2021.08.03-16.19.47:408][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (14), component 'CalendarInventory'
+[2021.08.03-16.19.47:408][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (15), component 'CalendarInventory'
+[2021.08.03-16.19.47:408][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (16), component 'CalendarInventory'
+[2021.08.03-16.19.47:408][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (17), component 'CalendarInventory'
+[2021.08.03-16.19.47:408][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (18), component 'CalendarInventory'
+[2021.08.03-16.19.47:408][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (19), component 'CalendarInventory'
+[2021.08.03-16.19.47:408][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (20), component 'CalendarInventory'
+[2021.08.03-16.19.47:408][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (21), component 'CalendarInventory'
+[2021.08.03-16.19.47:408][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (22), component 'CalendarInventory'
+[2021.08.03-16.19.47:408][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (23), component 'CalendarInventory'
+[2021.08.03-16.19.47:408][  0]LogGame: Warning: RemoveAllFromIndex failed, cannot remove all from an already empty index (24), component 'CalendarInventory'
+[2021.08.03-16.19.47:669][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147230219
+[2021.08.03-16.19.47:669][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147230219
+[2021.08.03-16.19.47:670][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147230219: Num connection components found: 2
+[2021.08.03-16.19.47:670][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147230199
+[2021.08.03-16.19.47:670][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147230199
+[2021.08.03-16.19.47:671][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147230199: Num connection components found: 2
+[2021.08.03-16.19.47:671][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147230030
+[2021.08.03-16.19.47:671][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147230030
+[2021.08.03-16.19.47:672][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147230030: Num connection components found: 2
+[2021.08.03-16.19.47:672][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147229943
+[2021.08.03-16.19.47:672][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147229943
+[2021.08.03-16.19.47:673][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147229943: Num connection components found: 2
+[2021.08.03-16.19.47:673][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147219006
+[2021.08.03-16.19.47:673][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147219006
+[2021.08.03-16.19.47:674][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147219006: Num connection components found: 2
+[2021.08.03-16.19.47:674][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147218986
+[2021.08.03-16.19.47:674][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147218986
+[2021.08.03-16.19.47:675][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147218986: Num connection components found: 2
+[2021.08.03-16.19.47:675][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147213337
+[2021.08.03-16.19.47:675][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147213337
+[2021.08.03-16.19.47:676][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147213337: Num connection components found: 2
+[2021.08.03-16.19.47:676][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147468152
+[2021.08.03-16.19.47:676][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147468152
+[2021.08.03-16.19.47:678][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147468152: Num connection components found: 2
+[2021.08.03-16.19.47:678][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147467958
+[2021.08.03-16.19.47:678][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147467958
+[2021.08.03-16.19.47:680][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147467958: Num connection components found: 2
+[2021.08.03-16.19.47:680][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147467938
+[2021.08.03-16.19.47:680][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147467938
+[2021.08.03-16.19.47:682][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147467938: Num connection components found: 2
+[2021.08.03-16.19.47:682][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147467918
+[2021.08.03-16.19.47:682][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147467918
+[2021.08.03-16.19.47:683][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147467918: Num connection components found: 2
+[2021.08.03-16.19.47:683][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147467898
+[2021.08.03-16.19.47:683][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147467898
+[2021.08.03-16.19.47:684][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147467898: Num connection components found: 2
+[2021.08.03-16.19.47:684][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147463069
+[2021.08.03-16.19.47:684][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147463069
+[2021.08.03-16.19.47:685][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147463069: Num connection components found: 2
+[2021.08.03-16.19.47:685][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147424309
+[2021.08.03-16.19.47:685][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147424309
+[2021.08.03-16.19.47:687][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147424309: Num connection components found: 2
+[2021.08.03-16.19.47:687][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147424124
+[2021.08.03-16.19.47:687][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147424124
+[2021.08.03-16.19.47:689][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147424124: Num connection components found: 2
+[2021.08.03-16.19.47:689][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147421990
+[2021.08.03-16.19.47:689][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147421990
+[2021.08.03-16.19.47:690][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147421990: Num connection components found: 2
+[2021.08.03-16.19.47:690][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147425153
+[2021.08.03-16.19.47:690][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147425153
+[2021.08.03-16.19.47:691][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147425153: Num connection components found: 2
+[2021.08.03-16.19.47:691][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147395241
+[2021.08.03-16.19.47:691][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147395241
+[2021.08.03-16.19.47:692][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147395241: Num connection components found: 2
+[2021.08.03-16.19.47:692][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147385332
+[2021.08.03-16.19.47:692][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147385332
+[2021.08.03-16.19.47:693][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147385332: Num connection components found: 2
+[2021.08.03-16.19.47:693][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147457844
+[2021.08.03-16.19.47:693][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147457844
+[2021.08.03-16.19.47:694][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147457844: Num connection components found: 2
+[2021.08.03-16.19.47:694][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147451668
+[2021.08.03-16.19.47:694][  0]LogFactory: Warning: AFGBuildableSubsystem::AddBuildable, A instanced proxy were added without a static mesh. Make sure this is intended. Actor name: Build_PowerPoleWallDouble_C_2147451668
+[2021.08.03-16.19.47:695][  0]LogTemp: Warning: Build_PowerPoleWallDouble_C_2147451668: Num connection components found: 2
+[2021.08.03-16.19.48:099][  0]LogSerialization: Warning: Attempting to load a BulkData object that cannot be loaded from disk
+[2021.08.03-16.19.48:100][  0]LogSerialization: Warning: Attempting to load a BulkData object that cannot be loaded from disk
+[2021.08.03-16.19.48:105][  0]LogTemp: Warning: Mesh SM_ConveyorLift_Lift_01,Lod level 0 Row 0, Id 0
+[2021.08.03-16.19.48:105][  0]LogTemp: Warning: Mesh SM_ConveyorLift_Lift_01,Lod level 1 Row 0, Id 1
+[2021.08.03-16.19.48:105][  0]LogTemp: Warning: Mesh SM_ConveyorLift_Lift_01,Lod level 2 Row 0, Id 2
+[2021.08.03-16.19.48:151][  0]LogSerialization: Warning: Attempting to load a BulkData object that cannot be loaded from disk
+[2021.08.03-16.19.54:203][  0]LogEquipment: Warning: ArmSlot::SetOverrideEquipment, called twice with same equipment 'nullpeter'.
+[2021.08.03-16.19.54:204][  0]LogBehaviorTree: Warning: > Failed to find key 'PanicLocation' in BB asset BlackboardData /Game/FactoryGame/Character/Creature/Wildlife/SpaceRabbit/AI/BB_SpaceRabbit.BB_SpaceRabbit. BB Key Selector will be set to 'Invalid'
+[2021.08.03-16.19.55:995][  0]LogGame: Warning: FGFoliageRemoval_2147436333::Apply(), failed to remove 2 instances
+[2021.08.03-16.19.55:997][  0]LogGame: Warning: FGFoliageRemoval_2147436344::Apply(), failed to remove 41 instances
+[2021.08.03-16.19.55:997][  0]LogGame: Warning: FGFoliageRemoval_2147436345::Apply(), failed to remove 4 instances
+[2021.08.03-16.19.55:997][  0]LogGame: Warning: FGFoliageRemoval_2147436371::Apply(), failed to remove 7 instances
+[2021.08.03-16.19.55:998][  0]LogGameState: Match State Changed from WaitingToStart to InProgress
+[2021.08.03-16.19.55:998][  0]LogLoad: Took 19.526864 seconds to LoadMap(/Game/FactoryGame/Map/GameLevel01/Persistent_Level)
+[2021.08.03-16.19.55:998][  0]LogLoad: (Engine Initialization) Total time: 23.37 seconds
+[2021.08.03-16.19.56:001][  0]LogRawInputWindows: Warning: Found device 2 devices
+[2021.08.03-16.19.56:001][  0]LogRawInputWindows: Warning: Found device 2 devices
+[2021.08.03-16.19.56:001][  0]LogRawInputWindows: Warning: Device was registered succesfully but not connected (Usage:4 UsagePage:1)
+[2021.08.03-16.19.56:001][  0]LogRawInputWindows: Warning: Found device 2 devices
+[2021.08.03-16.19.56:001][  0]LogRawInputWindows: Warning: Device was registered succesfully but not connected (Usage:5 UsagePage:1)
+[2021.08.03-16.19.56:003][  0]LogSteamShared: Warning: SteamAPI failed to initialize, conditions not met.
+[2021.08.03-16.19.56:003][  0]LogSteamController: SteamController is not available
+[2021.08.03-16.19.56:003][  0]LogNet: UNetDriver::TickDispatch: Very long time between ticks. DeltaTime: 0.00, Realtime: 18.03. EOSNetDriver_2147482513
+[2021.08.03-16.19.56:030][  0]LogSlate: Took 0.000219 seconds to synchronously load lazily loaded font '../../../FactoryGame/Content/FactoryGame/Interface/Font/OpenSans-Regular.ufont' (213K)
+[2021.08.03-16.19.56:031][  0]LogSlate: Took 0.000165 seconds to synchronously load lazily loaded font '../../../FactoryGame/Content/FactoryGame/Interface/Font/OpenSans-SemiBold.ufont' (216K)
+[2021.08.03-16.19.56:031][  0]LogSlate: Took 0.000186 seconds to synchronously load lazily loaded font '../../../FactoryGame/Content/FactoryGame/Interface/Font/OpenSans-Bold.ufont' (220K)
+[2021.08.03-16.19.56:034][  0]LogStreaming: Display: Suspending async loading (1)
+[2021.08.03-16.19.56:065][  0]LogStreaming: Display: Resuming async loading (0)
+[2021.08.03-16.19.56:082][  1]LogOnlineIdentity: Warning: OSS: EOS-OSS: Unable to AutoLogin user (0) due to missing auth command line args
+[2021.08.03-16.19.56:082][  1]LogOnlineIdentity: Warning: OSS: EOS-OSS: Login(0) failed with EOS result code (EOS_InvalidAuth)
+[2021.08.03-16.19.56:082][  1]LogGameSession: Warning: Autologin attempt failed, unable to register server!
+[2021.08.03-16.19.56:082][  1]LogOnline: OSS: Creating online subsystem instance for: STEAM
+[2021.08.03-16.19.56:082][  1]LogOnline: Warning: STEAM: Steam API failed to initialize!
+[2021.08.03-16.19.56:082][  1]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
+[2021.08.03-16.19.56:944][122]LogOnline: Warning: OSS: EOSSDK-LogEOSEcom: Purchase flow is disabled due to overlay setup failure (EOS_NotConfigured).
+[2021.08.03-16.19.56:944][122]LogOnline: Warning: OSS: EOSSDK-LogEOSUI: Social overlay is disabled due to overlay setup failure (EOS_UnexpectedError).
+[2021.08.03-16.19.57:007][132]LogNet: New Dynamic NetSpeed 60000 vs old 60000
