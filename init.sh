@@ -12,7 +12,7 @@ fi
 
 sentry=$(find /config/steam/ -type f -name "ssfn*")
 
-if [[ ! -f "/config/steam/config.vdf" && ! -f "$sentry" ]]; then
+if [[ ! -f "/config/steam/config.vdf" || ! -f "$sentry" ]]; then
     if [[ -z "$STEAMCODE" ]]; then
         printf "Missing Steam credentials environment variables (STEAMCODE), this code is needed for the intial build.\\n"
         exit 1
