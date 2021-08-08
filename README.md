@@ -8,7 +8,7 @@ This guide assumes the following:
 - You have intermediate knowledge of Linux and Docker
 - You have Satisfactory on Steam (Epic may be supported in the future)
 
-You'll need to generate a new save (or grab an existing save) for the server to use. You can usually find your save files located in `C:\Users\Your User\AppData\Local\FactoryGame\Saved\SaveGames\common\your-world.sav`. You need to rename the save to `savefile.sav`, otherwise the server won't read it.
+You'll need to generate a new save (or grab an existing save) for the server to use. You can usually find your save files located in `C:\Users\Your User\AppData\Local\FactoryGame\Saved\SaveGames\common\your-world.sav`. Once you've located this file, put it into `/config/savefiles/` and make sure that its file extension is `.sav`.
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 - `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 15GB+ every time you want to rebuild the container.

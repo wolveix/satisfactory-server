@@ -92,8 +92,8 @@ if [[ ! "${lastsavefile}" == "savefile.sav" ]]; then
     mv "${GAMECONFIGDIR}"/SaveGames/common/"${lastsavefile}" "${GAMECONFIGDIR}/SaveGames/common/savefile.sav"
 fi
 
-if [[ ! -f "/config/savefiles/savefile.sav" ]]; then
-    printf "\\nSave file cannot be found. You need to generate a new world on your client, and then put it into /config/savefiles/savefile.sav\\n"
+if [[ ! -f "${GAMECONFIGDIR}/SaveGames/common/savefile.sav" ]]; then
+    printf "\\nSave file cannot be found. You need to generate a new world on your client, and then put it into /config/savefiles/\\n"
     exit 1
 fi
 
