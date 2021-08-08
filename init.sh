@@ -43,6 +43,13 @@ export STEAMBETAFLAG
 envsubst < "/steamscript.txt" > "/root/steamscript.txt"
 
 steamcmd +runscript /root/steamscript.txt
+errors=$(< /root/.steam/logs/connection_log.txt grep "Invalid" || true)
+if [[ -n "$errors" ]]; then
+    printf "Failed to login to Steam. Please check your Steam credentials.\\nSleeping for 60 seconds..."
+    sleep 60
+    exit 1
+fi
+
 rm /root/steamscript.txt
 
 sentry=$(find /root/.steam/ -type f -name "ssfn*")
@@ -81,11 +88,11 @@ fi
 
 cp /config/{Engine.ini,Game.ini,Scalability.ini} "$GAMECONFIGDIR/Config/WindowsNoEditor/"
 
-if [[ -f "${GAMECONFIGDIR}"/SaveGames/common/*.sav ]]; then
-    rm "${GAMECONFIGDIR}"/SaveGames/common/*.sav
+if [[ -f "${GAMECONFIGDIR}/SaveGames/common/*.sav" ]]; then
+    rm "${GAMECONFIGDIR}/SaveGames/common/*.sav"
 fi
 
-cp -rp /config/savefiles/*.sav "${GAMECONFIGDIR}"/SaveGames/common/ || continue
+cp -rp /config/savefiles/*.sav "${GAMECONFIGDIR}"/SaveGames/common/
 lastsavefile=$(ls -Art "${GAMECONFIGDIR}"/SaveGames/common | tail -n 1)
 if [[ ! "${lastsavefile}" == "savefile.sav" ]]; then
     printf "\\nMoving most recent save (%s) to savefile.sav\\n" "$lastsavefile"
