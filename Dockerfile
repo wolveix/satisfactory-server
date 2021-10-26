@@ -1,27 +1,15 @@
-FROM steamcmd/steamcmd:ubuntu-18
+FROM cm2network/steamcmd:latest
 
-RUN set -x \
-    && dpkg --add-architecture i386 \
-    && apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y cron gettext-base sudo wine-stable \
-    && mkdir -p /config \
-    && rm -rf /var/lib/apt/lists/*
+COPY Game.ini Engine.ini Scalability.ini /home/steam/
+COPY init.sh /home/steam/init.sh
 
-RUN useradd -ms /bin/bash satisfactory
-
-COPY Game.ini Engine.ini Scalability.ini /home/satisfactory/
-COPY backup.sh init.sh steamscript.txt /
-
-RUN chmod +x "/backup.sh" "/init.sh"
+ENV GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
+    STEAMAPPID="1690800" \
+    STEAMBETA="false"
 
 VOLUME /config
 WORKDIR /config
 
-ENV GAMECONFIGDIR="/home/satisfactory/.wine/drive_c/users/satisfactory/Local Settings/Application Data/FactoryGame/Saved" \
-    MAXBACKUPS=10 \
-    STEAMAPPID="526870" \
-    STEAMBETA="false"
+EXPOSE 7777/udp 15000/udp 15777/udp
 
-EXPOSE 7777/udp
-
-ENTRYPOINT ["bash", "-c", "/init.sh"]
+ENTRYPOINT [ "/home/steam/init.sh" ]
