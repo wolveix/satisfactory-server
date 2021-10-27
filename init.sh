@@ -28,12 +28,7 @@ cp -a /config/saves/. /config/backups/
 cp -a "${GAMESAVESDIR}/server/." /config/backups # useless in first run, but useful in additional runs
 rm -rf "${GAMESAVESDIR}/server"
 ln -sf /config/saves "${GAMESAVESDIR}/server"
-
-if [[ -f "/config/ServerSettings.15777" ]]; then
-    cp "/config/ServerSettings.15777" "${GAMESAVESDIR}/ServerSettings.15777" || exit 1
-elif [[ -f "${GAMESAVESDIR}/ServerSettings.15777" ]]; then
-    cp "${GAMESAVESDIR}/ServerSettings.15777" "/config/ServerSettings.15777" || exit 1
-fi
+ln -sf /config/ServerSettings.15777 "${GAMESAVESDIR}/ServerSettings.15777"
 
 if [[ ! -f "/config/Engine.ini" ]]; then
     cp /home/steam/Engine.ini /config/Engine.ini || exit 1

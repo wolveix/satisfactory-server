@@ -4,9 +4,7 @@ This is a Dockerized version of the [Satisfactory](https://store.steampowered.co
 
 ## Notice
 
-Coffee Stain Studios just released an official implementation of a [Satisfactory dedicated server](https://www.youtube.com/watch?v=Nn-1s87JJxc&lc=UgzNgIDo1jRPAn-Kuxx4AaABAg)! This allowed a major rewrite for this project, removing the requirement of owning the game on Steam as well as removing the need to run the server under Wine (and bringing the download size of the gamefiles from 20GB to just 5GB!).
-
-The only downside is that this server is in beta (like the rest of the game). Please provide non-breaking feedback in the [discussions tab](https://github.com/wolveix/satisfactory-server/discussions), and anything else in the [issues tab](https://github.com/wolveix/satisfactory-server/issues)!
+If you're currently playing `v4` (early access, **not** experimental), then please see the [v4 branch](https://github.com/wolveix/satisfactory-server/tree/v4).
 
 ## Setup
 
@@ -40,6 +38,13 @@ services:
             - '/path/to/config:/config'
         restart: unless-stopped
 ```
+
+## Loading Your Save
+If you want to upload your own save to the server, you'll need to do the following workaround as there's no UI for this in-game just yet.
+
+Per the instructions [here](https://satisfactory.fandom.com/wiki/Dedicated_servers#Loading_save_file), you'll want to place your savefile in the `/config/saves` directory. Before the next step, you'll need to find out your session name. You can find the session name from either the `Load Menu`, or through a [save editor](https://satisfactory-calculator.com/en/interactive-map)
+
+Once you've done this, connect to the server in-game. From the `Server Settings` tab, insert your session name into the appropriate field. You may need to copy & paste the name in and immediately press `ENTER`, as the UI seems to constantly refresh.
 
 ## Experimental Branch
 
