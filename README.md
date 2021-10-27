@@ -2,12 +2,19 @@
 
 This is a Dockerized version of the [Satisfactory](https://store.steampowered.com/app/526870/Satisfactory/) dedicated server.
 
+## Notice
+
+Coffee Stain Studios just released an official implementation of a [Satisfactory dedicated server](https://www.youtube.com/watch?v=Nn-1s87JJxc&lc=UgzNgIDo1jRPAn-Kuxx4AaABAg)! This allowed a major rewrite for this project, removing the requirement of owning the game on Steam as well as removing the need to run the server under Wine (and bringing the download size of the gamefiles from 20GB to just 5GB!).
+
+The only downside is that this server is in beta (like the rest of the game). Please provide non-breaking feedback in the [discussions tab](https://github.com/wolveix/satisfactory-server/discussions), and anything else in the [issues tab](https://github.com/wolveix/satisfactory-server/issues)!
+
 ## Setup
 
 According to [the official wiki](https://satisfactory.fandom.com/wiki/Dedicated_servers), expect to need 5GB - 10GB of RAM. This implementation raises the player cap from 4 to 16.
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
-- `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 15GB+ every time you want to rebuild the container.
+- `/backups` - the server will automatically backup your saves when the container first starts
+- `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 15GB+ every time you want to rebuild the container
 - `/saves` - this is for the game's saves. They're copied into the container on start
 
 Run the Satisfactory server image like this:
