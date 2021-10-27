@@ -36,7 +36,7 @@ services:
             - '7777:7777/udp'
             - '15000:15000/udp'
             - '15777:15777/udp'
-        user: 1000
+        user: '1000'
         volumes:
             - '/path/to/config:/config'
         restart: unless-stopped
