@@ -10,7 +10,7 @@ If you're currently playing `v4` (early access, **not** experimental), then plea
 
 According to [the official wiki](https://satisfactory.fandom.com/wiki/Dedicated_servers), expect to need 5GB - 10GB of RAM. This implementation raises the player cap from 4 to 16.
 
-You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
+You'll need to bind a local directory to the Docker container's `/home/steam/config` directory. This directory will hold the following directories:
 - `/backups` - the server will automatically backup your saves when the container first starts
 - `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 15GB+ every time you want to rebuild the container
 - `/saves` - this is for the game's saves. They're copied into the container on start
@@ -20,7 +20,7 @@ Before running the server image, you should find your user ID that will be runni
 Run the Satisfactory server image like this:
 
 ```
-docker run -d --name=satisfactory-server -h satisfactory-server -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp --user=1000 wolveix/satisfactory-server:latest
+docker run -d --name=satisfactory-server -h satisfactory-server -v /path/to/config:/home/steam/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp --user=1000 wolveix/satisfactory-server:latest
 ```
 
 If you're using [Docker Compose](https://docs.docker.com/compose/):
@@ -38,14 +38,14 @@ services:
             - '15777:15777/udp'
         user: 1000
         volumes:
-            - '/path/to/config:/config'
+            - '/path/to/config:/home/steam/config'
         restart: unless-stopped
 ```
 
 ## Loading Your Save
 If you want to upload your own save to the server, you'll need to do the following workaround as there's no UI for this in-game just yet.
 
-Per the instructions [here](https://satisfactory.fandom.com/wiki/Dedicated_servers#Loading_save_file), you'll want to place your savefile in the `/config/saves` directory. Before the next step, you'll need to find out your session name. You can find the session name from either the `Load Menu`, or through a [save editor](https://satisfactory-calculator.com/en/interactive-map)
+Per the instructions [here](https://satisfactory.fandom.com/wiki/Dedicated_servers#Loading_save_file), you'll want to place your savefile in the `/home/steam/config/saves` directory. Before the next step, you'll need to find out your session name. You can find the session name from either the `Load Menu`, or through a [save editor](https://satisfactory-calculator.com/en/interactive-map)
 
 Once you've done this, connect to the server in-game. From the `Server Settings` tab, insert your session name into the appropriate field. You may need to copy & paste the name in and immediately press `ENTER`, as the UI seems to constantly refresh.
 
