@@ -15,10 +15,12 @@ You'll need to bind a local directory to the Docker container's `/config` direct
 - `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 15GB+ every time you want to rebuild the container
 - `/saves` - this is for the game's saves. They're copied into the container on start
 
+Before running the server image, you should find your user ID that will be running the container. This isn't necessary in most cases, but it's good to find out regardless. If you're seeing `permission denied` errors, then this is probably why. Find your ID in `Linux` by running the `id` command. Then grab the user ID (usually something like `1000`) and pass it into the `--user=1000` argument.
+
 Run the Satisfactory server image like this:
 
 ```
-docker run -d --name=satisfactory-server -h satisfactory-server -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp wolveix/satisfactory-server:latest
+docker run -d --name=satisfactory-server -h satisfactory-server -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp --user=1000 wolveix/satisfactory-server:latest
 ```
 
 If you're using [Docker Compose](https://docs.docker.com/compose/):
@@ -34,6 +36,7 @@ services:
             - '7777:7777/udp'
             - '15000:15000/udp'
             - '15777:15777/udp'
+        user: 1000
         volumes:
             - '/path/to/config:/config'
         restart: unless-stopped
