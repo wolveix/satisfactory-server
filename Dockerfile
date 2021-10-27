@@ -1,6 +1,6 @@
 FROM cm2network/steamcmd:latest
 
-COPY --chown=1000:1000 ./ /home/steam/
+COPY --chown=steam:steam Game.ini Engine.ini Scalability.ini init.sh /home/steam/
 
 ENV GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
     STEAMAPPID="1690800" \
