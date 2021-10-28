@@ -1,13 +1,17 @@
-FROM cm2network/steamcmd:latest
+FROM cm2network/steamcmd:root
 
 COPY --chown=steam:steam Game.ini Engine.ini Scalability.ini init.sh /home/steam/
+
+RUN mkdir -p /config \
+    && chown steam:steam /config
+
+USER steam
+
+WORKDIR /config
 
 ENV GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
     STEAMAPPID="1690800" \
     STEAMBETA="false"
-
-VOLUME /config
-WORKDIR /config
 
 EXPOSE 7777/udp 15000/udp 15777/udp
 
