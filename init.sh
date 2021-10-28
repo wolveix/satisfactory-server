@@ -42,7 +42,7 @@ if [[ ! -f "/config/Scalability.ini" ]]; then
     cp /home/steam/Scalability.ini /config/Scalability.ini || exit 1
 fi
 
-cp /config/{Engine.ini,Game.ini,Scalability.ini} "${GAMECONFIGDIR}/SaveGames/server"
+cp /config/{Engine.ini,Game.ini,Scalability.ini} "${GAMECONFIGDIR}/Config/LinuxServer"
 
 if [ ! -f "/config/gamefiles/Engine/Binaries/Linux/UE4Server-Linux-Shipping" ]; then
     printf "Game binary is missing.\\n"
