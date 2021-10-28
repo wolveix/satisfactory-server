@@ -40,7 +40,7 @@ services:
         volumes:
             - '/path/to/config:/config'
         environment:
-            - STEAMBETA=${STEAMBETA:-false}
+            - STEAMBETA=false
         restart: unless-stopped
 ```
 
