@@ -20,7 +20,7 @@ Before running the server image, you should find your user ID that will be runni
 Run the Satisfactory server image like this:
 
 ```
-docker run -d --name=satisfactory-server -h satisfactory-server -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp --user=1000 wolveix/satisfactory-server:latest
+docker run -d --name=satisfactory-server -h satisfactory-server -e STEAMBETA=false -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp --user=1000 wolveix/satisfactory-server:latest
 ```
 
 If you're using [Docker Compose](https://docs.docker.com/compose/):
@@ -53,13 +53,7 @@ Once you've done this, connect to the server in-game. From the `Server Settings`
 
 ## Experimental Branch
 
-If you want to run a server for the Experimental version of the game, simply add a `STEAMBETA=true` environment variable.
-
-If using Docker Compose, create a `.env` file accordingly to set this environment variable:
-
-```
-STEAMBETA=true
-```
+If you want to run a server for the Experimental version of the game, set the `STEAMBETA` environment variable to `true`.
 
 ## How to Improve the Multiplayer Experience
 
