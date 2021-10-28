@@ -39,6 +39,8 @@ services:
         user: '1000'
         volumes:
             - '/path/to/config:/config'
+        environment:
+            - STEAMBETA=${STEAMBETA:-false}
         restart: unless-stopped
 ```
 
@@ -52,6 +54,12 @@ Once you've done this, connect to the server in-game. From the `Server Settings`
 ## Experimental Branch
 
 If you want to run a server for the Experimental version of the game, simply add a `STEAMBETA=true` environment variable.
+
+If using Docker Compose, create a `.env` file accordingly to set this environment variable:
+
+```
+STEAMBETA=true
+```
 
 ## How to Improve the Multiplayer Experience
 
