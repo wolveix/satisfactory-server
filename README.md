@@ -8,7 +8,7 @@ If you're currently playing `v4` (early access, **not** experimental), then plea
 
 ## Setup
 
-According to [the official wiki](https://satisfactory.fandom.com/wiki/Dedicated_servers), expect to need 5GB - 10GB of RAM. This implementation raises the player cap from 4 to 16.
+According to [the official wiki](https://satisfactory.fandom.com/wiki/Dedicated_servers), expect to need 5GB - 10GB of RAM. This implementation raises the player cap from 4 to 16 by default, but you can specify any number by using the `MAXPLAYERS` environment variable.
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 
