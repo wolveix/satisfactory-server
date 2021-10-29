@@ -21,7 +21,7 @@ Before running the server image, you should find your user ID that will be runni
 Run the Satisfactory server image like this:
 
 ```bash
-docker run -d --name=satisfactory-server -h satisfactory-server -e STEAMBETA=false -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp --user=1000 wolveix/satisfactory-server:latest
+docker run -d --name=satisfactory-server -h satisfactory-server -e MAXPLAYERS=16 -e STEAMBETA=false -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp --user=1000 wolveix/satisfactory-server:latest
 ```
 
 If you're using [Docker Compose](https://docs.docker.com/compose/):
@@ -41,17 +41,10 @@ services:
         volumes:
             - '/path/to/config:/config'
         environment:
+            - MAXPLAYERS=16
             - STEAMBETA=false
-            - MAX_PLAYERS=16
         restart: unless-stopped
 ```
-
-### Environment Variables
-
-The following Environment Values are available:
-
-- `STEAMBETA=...` (Default: `false`)
-- `MAX_PLAYERS=...` (Default: `16`)
 
 ## Loading Your Save
 
