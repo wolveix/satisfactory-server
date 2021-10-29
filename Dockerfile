@@ -10,6 +10,7 @@ USER steam
 WORKDIR /config
 
 ENV GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
+    MAXPLAYERS="16" \
     STEAMAPPID="1690800" \
     STEAMBETA="false"
 

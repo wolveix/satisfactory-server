@@ -7,6 +7,15 @@ GAMESAVESDIR="/home/steam/.config/Epic/FactoryGame/Saved/SaveGames"
 
 mkdir -p /config/backups /config/gamefiles /config/saves "${GAMECONFIGDIR}/Config/LinuxServer" "${GAMECONFIGDIR}/Logs" "${GAMECONFIGDIR}/SaveGames/server" "${GAMESAVESDIR}/server" || exit 1
 
+NUMCHECK='^[0-9]+$'
+if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
+    printf "Invalid max players given: ${MAXPLAYERS}\\n"
+    MAXPLAYERS="16"
+fi
+
+printf "Setting max players to ${MAXPLAYERS}\\n"
+sed "s/MaxPlayers\=16/MaxPlayers=$MAXPLAYERS/" -i "/home/steam/Game.ini"
+
 if [[ "$STEAMBETA" == "true" ]]; then
     printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
     STEAMBETAFLAG=" -beta experimental"
