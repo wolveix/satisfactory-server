@@ -1,0 +1,23 @@
+name: Linting
+on: [pull_request]
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run Shellcheck
+        uses: azohra/shell-linter@latest
+        with:
+          severity: "error"
+  dockerlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Validate Dockerfile
+        uses: ghe-actions/dockerfile-validator@v1
+        with:
+          dockerfile: 'Dockerfile'
+          lint: 'hadolint'
