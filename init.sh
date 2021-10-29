@@ -39,19 +39,7 @@ rm -rf "${GAMESAVESDIR}/server"
 ln -sf /config/saves "${GAMESAVESDIR}/server"
 ln -sf /config/ServerSettings.15777 "${GAMESAVESDIR}/ServerSettings.15777"
 
-if [[ ! -f "/config/Engine.ini" ]]; then
-    cp /home/steam/Engine.ini /config/Engine.ini || exit 1
-fi
-
-if [[ ! -f "/config/Game.ini" ]]; then
-    cp /home/steam/Game.ini /config/Game.ini || exit 1
-fi
-
-if [[ ! -f "/config/Scalability.ini" ]]; then
-    cp /home/steam/Scalability.ini /config/Scalability.ini || exit 1
-fi
-
-cp /config/{Engine.ini,Game.ini,Scalability.ini} "${GAMECONFIGDIR}/Config/LinuxServer"
+cp /home/steam/{Engine.ini,Game.ini,Scalability.ini} "${GAMECONFIGDIR}/Config/LinuxServer"
 
 if [ ! -f "/config/gamefiles/Engine/Binaries/Linux/UE4Server-Linux-Shipping" ]; then
     printf "Game binary is missing.\\n"
