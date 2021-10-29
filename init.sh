@@ -12,6 +12,10 @@ if [[ "$STEAMBETA" == "true" ]]; then
     STEAMBETAFLAG=" -beta experimental"
 fi
 
+if [[ "$MAX_PLAYERS" != "" ]]; then
+    sed "s/MaxPlayers\=16/MaxPlayers=$MAX_PLAYERS/" -i /home/steam/Game.ini
+fi
+
 printf "Checking available space...\\n"
 space=$(stat -f --format="%a*%S" .)
 space=$((space/1024/1024/1024))

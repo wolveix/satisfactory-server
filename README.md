@@ -41,8 +41,15 @@ services:
             - '/path/to/config:/config'
         environment:
             - STEAMBETA=false
+            - MAX_PLAYERS=16
         restart: unless-stopped
 ```
+
+### Environment Variables
+The following Environment Values are available:
+
+- `STEAMBETA=...` (Default: `false`)
+- `MAX_PLAYERS=...` (Default: `16`)
 
 ## Loading Your Save
 If you want to upload your own save to the server, you'll need to do the following workaround as there's no UI for this in-game just yet.
