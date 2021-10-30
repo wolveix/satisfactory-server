@@ -8,7 +8,7 @@ If you're currently playing `v4` (early access, **not** experimental), then plea
 
 ## Setup
 
-According to [the official wiki](https://satisfactory.fandom.com/wiki/Dedicated_servers), expect to need 5GB - 10GB of RAM. This implementation raises the player cap from 4 to 16 by default, but you can specify any number by using the `MAXPLAYERS` environment variable.
+According to [the official wiki](https://satisfactory.fandom.com/wiki/Dedicated_servers), expect to need 5GB - 10GB of RAM. This implementation raises the player cap from 4 to 8 by default, but you can specify any number by using the `MAXPLAYERS` environment variable.
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 
@@ -16,12 +16,12 @@ You'll need to bind a local directory to the Docker container's `/config` direct
 - `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 15GB+ every time you want to rebuild the container
 - `/saves` - this is for the game's saves. They're copied into the container on start
 
-Before running the server image, you should find your user ID that will be running the container. This isn't necessary in most cases, but it's good to find out regardless. If you're seeing `permission denied` errors, then this is probably why. Find your ID in `Linux` by running the `id` command. Then grab the user ID (usually something like `1000`) and pass it into the `--user=1000` argument.
+Before running the server image, you should find your user ID that will be running the container. This isn't necessary in most cases, but it's good to find out regardless. If you're seeing `permission denied` errors, then this is probably why. Find your ID in `Linux` by running the `id` command. Then grab the user ID (usually something like `1000`) and pass it into the `-e PGID=1000` and `-e PUID=1000` environment variables.
 
 Run the Satisfactory server image like this:
 
 ```bash
-docker run -d --name=satisfactory-server -h satisfactory-server -e MAXPLAYERS=16 -e STEAMBETA=false -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp --user=1000 wolveix/satisfactory-server:latest
+docker run -d --name=satisfactory-server -h satisfactory-server -e DEBUG=false -e MAXPLAYERS=8 -e PGID=1000 -e PUID=1000 -e SKIPUPDATE=false -e STEAMBETA=false -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp wolveix/satisfactory-server:latest
 ```
 
 If you're using [Docker Compose](https://docs.docker.com/compose/):
@@ -37,11 +37,14 @@ services:
             - '7777:7777/udp'
             - '15000:15000/udp'
             - '15777:15777/udp'
-        user: '1000'
         volumes:
             - '/path/to/config:/config'
         environment:
-            - MAXPLAYERS=16
+            - DEBUG=false
+            - MAXPLAYERS=8
+            - PGID=1000
+            - PUID=1000
+            - SKIPUPDATE=false
             - STEAMBETA=false
         restart: unless-stopped
 ```
@@ -70,4 +73,5 @@ The [Satisfactory Wiki](https://satisfactory.fandom.com/wiki/Multiplayer#Engine.
 
 ## Known Issues
 
+- The container is run as `root`. This is pretty common for Docker images, but is bad practice for security reasons. This change was made to address [permissions issues](https://github.com/wolveix/satisfactory-server/issues/44)
 - The server log will show various errors; most of which can be safely ignored. As long as the container continues to run and your log looks similar to the example log, the server should be functioning just fine: [example log](https://github.com/wolveix/satisfactory-server/blob/main/server.log)

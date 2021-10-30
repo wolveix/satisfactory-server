@@ -2,50 +2,37 @@
 
 set -e
 
-# temporary addition as the game doesn't respect the config directory being within /config/gamefiles
-GAMESAVESDIR="/home/steam/.config/Epic/FactoryGame/Saved/SaveGames"
+if [[ "$DEBUG" == "true" ]]; then
+    printf "Debugging enabled (the container will exit after printing the debug info)\\n\\nPrinting environment variables:\\n"
+    export
+
+    printf "\\n\\nDisk usage:\\n"
+    df -h | awk '$NF=="/"{printf "%d/%dGB (%s)\n", $3,$2,$5}'
+    
+    printf "\\nCurent user:\\n"
+    id
+
+    printf "\\nExiting...\\n"
+    exit 1
+fi
 
 mkdir -p /config/backups /config/gamefiles /config/saves "${GAMECONFIGDIR}/Config/LinuxServer" "${GAMECONFIGDIR}/Logs" "${GAMECONFIGDIR}/SaveGames/server" "${GAMESAVESDIR}/server" || exit 1
 
 NUMCHECK='^[0-9]+$'
-if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
-    printf "Invalid max players given: ${MAXPLAYERS}\\n"
-    MAXPLAYERS="16"
+
+if ! [[ "$PGID" =~ $NUMCHECK ]] ; then
+    printf "Invalid group id given: ${PGID}\\n"
+    PGID="1000"
 fi
 
-printf "Setting max players to ${MAXPLAYERS}\\n"
-sed "s/MaxPlayers\=16/MaxPlayers=$MAXPLAYERS/" -i "/home/steam/Game.ini"
-
-if [[ "$STEAMBETA" == "true" ]]; then
-    printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
-    STEAMBETAFLAG=" -beta experimental"
+if ! [[ "$PUID" =~ $NUMCHECK ]] ; then
+    printf "Invalid user id given: ${PUID}\\n"
+    PUID="1000"
 fi
 
-printf "Checking available space...\\n"
-space=$(stat -f --format="%a*%S" .)
-space=$((space/1024/1024/1024))
+groupmod -g "${PGID}" steam || exit 1
+usermod -u "${PUID}" steam || exit 1
 
-if [[ "$space" -lt 5 ]]; then
-  printf "You have less than 5GB (${space}GB detected) of available space to download the game.\\nIf this is a fresh install, it will probably fail.\\n"
-fi
+chown -R steam:steam /config /home/steam
 
-printf "Downloading the latest version of the game...\\n"
-
-/home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir /config/gamefiles +app_update "$STEAMAPPID$STEAMBETAFLAG" +quit
-
-cp -a /config/saves/. /config/backups/
-cp -a "${GAMESAVESDIR}/server/." /config/backups # useless in first run, but useful in additional runs
-rm -rf "${GAMESAVESDIR}/server"
-ln -sf /config/saves "${GAMESAVESDIR}/server"
-ln -sf /config/ServerSettings.15777 "${GAMESAVESDIR}/ServerSettings.15777"
-
-cp /home/steam/{Engine.ini,Game.ini,Scalability.ini} "${GAMECONFIGDIR}/Config/LinuxServer"
-
-if [ ! -f "/config/gamefiles/Engine/Binaries/Linux/UE4Server-Linux-Shipping" ]; then
-    printf "Game binary is missing.\\n"
-    exit 1
-fi
-
-cd /config/gamefiles || exit 1
-
-Engine/Binaries/Linux/UE4Server-Linux-Shipping FactoryGame -log -NoSteamClient -unattended
+sudo -u steam -E -H sh -c "/home/steam/run.sh"
