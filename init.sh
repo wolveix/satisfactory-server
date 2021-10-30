@@ -8,9 +8,12 @@ if [[ "$DEBUG" == "true" ]]; then
 
     printf "\\n\\nDisk usage:\\n"
     df -h | awk '$NF=="/"{printf "%d/%dGB (%s)\n", $3,$2,$5}'
-    
+
     printf "\\nCurent user:\\n"
     id
+
+    printf "\\nProposed user:\\n"
+    printf "uid=${PUID}(?) gid=${PGID}(?) groups=${PGID}(?)\\n"
 
     printf "\\nExiting...\\n"
     exit 1
@@ -30,9 +33,18 @@ if ! [[ "$PUID" =~ $NUMCHECK ]] ; then
     PUID="1000"
 fi
 
-groupmod -g "${PGID}" steam || exit 1
-usermod -u "${PUID}" steam || exit 1
+if [[ $(getent group ${PGID} | cut -d: -f1) ]]; then
+    usermod -a -G "${PGID}" steam
+else
+    groupmod -g "${PGID}" steam
+fi
 
-chown -R steam:steam /config /home/steam
+if [[ $(getent passwd ${PUID} | cut -d: -f1) ]]; then
+    USER=$(getent passwd ${PUID} | cut -d: -f1)
+else
+    usermod -u "${PUID}" steam
+fi
 
-sudo -u steam -E -H sh -c "/home/steam/run.sh"
+chown -R "${PUID}":"${PGID}" /config /home/steam
+
+sudo -u "${USER}" -E -H sh -c "/home/steam/run.sh"
