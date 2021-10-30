@@ -9,7 +9,7 @@ if [[ "$DEBUG" == "true" ]]; then
     printf "\\n\\nDisk usage:\\n"
     df -h | awk '$NF=="/"{printf "%d/%dGB (%s)\n", $3,$2,$5}'
 
-    printf "\\nCurent user:\\n"
+    printf "\\nCurrent user:\\n"
     id
 
     printf "\\nProposed user:\\n"
