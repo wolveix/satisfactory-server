@@ -19,6 +19,13 @@ if [[ "$DEBUG" == "true" ]]; then
     exit 1
 fi
 
+CURRENTUID=$(id -u)
+
+if [[ "${CURRENTUID}" -ne "0" ]]; then
+    printf "Current user is not root (${CURRENTUID})\\nPass your user and group to the container using the PGID and PUID environment variables\\nDo not use the --user flag (or user: field in Docker Compose)\\n"
+    exit 1
+fi
+
 mkdir -p /config/backups /config/gamefiles /config/saves "${GAMECONFIGDIR}/Config/LinuxServer" "${GAMECONFIGDIR}/Logs" "${GAMECONFIGDIR}/SaveGames/server" "${GAMESAVESDIR}/server" || exit 1
 
 NUMCHECK='^[0-9]+$'
