@@ -48,4 +48,4 @@ fi
 
 cd /config/gamefiles || exit 1
 
-Engine/Binaries/Linux/UE4Server-Linux-Shipping FactoryGame -log -NoSteamClient -unattended
+Engine/Binaries/Linux/UE4Server-Linux-Shipping FactoryGame -log -NoSteamClient -unattended -multihome=0.0.0.0
