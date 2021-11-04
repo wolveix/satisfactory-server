@@ -21,7 +21,7 @@ Before running the server image, you should find your user ID that will be runni
 Run the Satisfactory server image like this:
 
 ```bash
-docker run -d --name=satisfactory-server -h satisfactory-server -e DEBUG=false -e MAXPLAYERS=8 -e PGID=1000 -e PUID=1000 -e SKIPUPDATE=false -e STEAMBETA=false -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp wolveix/satisfactory-server:latest
+docker run -d --name=satisfactory-server -h satisfactory-server -e MAXPLAYERS=8 -e PGID=1000 -e PUID=1000 -e STEAMBETA=false -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp wolveix/satisfactory-server:latest
 ```
 
 If you're using [Docker Compose](https://docs.docker.com/compose/):
@@ -40,14 +40,26 @@ services:
         volumes:
             - '/path/to/config:/config'
         environment:
-            - DEBUG=false
             - MAXPLAYERS=8
             - PGID=1000
             - PUID=1000
-            - SKIPUPDATE=false
             - STEAMBETA=false
         restart: unless-stopped
 ```
+
+## Environment Variables
+
+| Parameter | Function |
+| :----: | --- |
+| `DEBUG` | for debugging the server |
+| `MAXPLAYERS` | set the player limit for your server |
+| `PGID` | set the group ID of the user the server will run as |
+| `PUID` | set the user ID of the user the server will run as |
+| `SERVERBEACONPORT` | set the game's beacon port |
+| `SERVERGAMEPORT` | set the game's port |
+| `SERVERIP` | set the game's ip (usually not needed) |
+| `SERVERQUERYPORT` | set the game's query port |
+| `SKIPUPDATE` | avoid updating the game on container start/restart |
 
 ## Loading Your Save
 
