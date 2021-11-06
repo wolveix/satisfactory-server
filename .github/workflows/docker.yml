@@ -14,7 +14,7 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
       - name: Build image
-        run: docker build . --file Dockerfile --tag image
+        run: docker build . --file Dockerfile --tag imagelatest --tag imagehash
 
       - name: Push image to Github Packages
         run: |
@@ -23,10 +23,12 @@ jobs:
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
           [ "$VERSION" == "main" ] && VERSION=latest
+          VERSION_HASH=$(echo ${{ github.sha }} | cut -c1-8)
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
-          docker tag image $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
+          docker tag imagelatest $IMAGE_ID:$VERSION
+          docker tag imagehash $IMAGE_ID:$VERSION_HASH
+          docker push $IMAGE_ID --all-tags
       - name: Push image to Docker Hub
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
