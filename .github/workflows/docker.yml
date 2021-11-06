@@ -20,7 +20,7 @@ jobs:
         run: |
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          VERSION=$(echo ${{ github.sha }} | cut -c1-8)
+          VERSION=dev
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
           docker tag image $IMAGE_ID:$VERSION
@@ -35,7 +35,7 @@ jobs:
             ${{ github.repository }}
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=sha,prefix=,suffix=,format=short
+            type=raw,value=dev
           # always generate latest tag on push
 
       - name: Login to DockerHub
