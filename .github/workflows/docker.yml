@@ -35,3 +35,4 @@ jobs:
             name: ${{ github.repository }}
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PASSWORD }}
+            tags: "latest,$VERSION_HASH"
