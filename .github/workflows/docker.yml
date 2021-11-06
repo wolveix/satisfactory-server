@@ -30,10 +30,9 @@ jobs:
           docker tag imagehash $IMAGE_ID:$VERSION_HASH
           docker push $IMAGE_ID --all-tags
       - name: Push image to Docker Hub
-        pre: echo ::save-state name=RELEASE_VERSION::$(echo ${{ github.sha }} | cut -c1-8)
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
             name: ${{ github.repository }}
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PASSWORD }}
-            tags: "latest,${{ env.STATE_RELEASE_VERSION }}"
+            tags: "latest,${{ env.VERSION_HASH }}"
