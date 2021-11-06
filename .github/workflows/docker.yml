@@ -40,17 +40,3 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}:dev
             ${{ steps.meta.outputs.tags }}
-
-      # - name: Build image for Github Packages
-      #   run: docker build . --file Dockerfile --tag image
-            # - name: Push image to Github Packages
-      #   run: |
-      #     IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-      #     IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-      #     VERSION=dev
-      #     echo IMAGE_ID=$IMAGE_ID
-      #     echo VERSION=$VERSION
-      #     docker tag image $IMAGE_ID:$VERSION
-      #     docker push $IMAGE_ID --all-tags
-      # - name: Log into GitHub Packages registry
-      #   run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
