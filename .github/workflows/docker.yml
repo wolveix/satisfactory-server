@@ -1,9 +1,6 @@
 name: Docker
 on: push
 
-env:
-  IMAGE_NAME: '${{ github.event.repository.name }}'
-
 jobs:
   push:
     runs-on: ubuntu-latest
@@ -41,7 +38,7 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/$IMAGE_NAME:dev
+            ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}:dev
             ${{ steps.meta.outputs.tags }}
 
       # - name: Build image for Github Packages
