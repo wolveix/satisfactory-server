@@ -3,6 +3,9 @@ on:
   release:
     types: [published]
 
+env:
+  IMAGE_NAME: '${{ github.event.repository.name }}'
+
 jobs:
   release:
     runs-on: ubuntu-latest
