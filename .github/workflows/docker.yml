@@ -39,7 +39,7 @@ jobs:
             ${{ github.repository }}
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=sha
+            type=sha,prefix=,suffix=,format=short
           flavor: |
             latest=true
 
