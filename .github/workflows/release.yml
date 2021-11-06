@@ -3,9 +3,6 @@ on:
   release:
     types: [published]
 
-env:
-  IMAGE_NAME: '${{ github.event.repository.name }}'
-
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -40,11 +37,13 @@ jobs:
             latest=true
 
       - name: Build and push to DockerHub
+        env:
+          TAG_NAME: ${{ github.event.release.tag_name }}
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: true
           tags: |
           ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}:latest
-          ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}:${{ github.event.release.tag_name }}
+          ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}:$TAG_NAME
           ${{ steps.meta.outputs.tags }}
