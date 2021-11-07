@@ -32,18 +32,15 @@ jobs:
           # generate Docker tags based on the following events/attributes
           tags: |
             type=semver,pattern={{raw}}
+            type=raw,value=ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}:latest
+            type=raw,value=ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}:${{ github.event.release.tag_name }}
           # always generate latest tag on push
           flavor: |
             latest=true
 
       - name: Build and push to DockerHub
-        env:
-          TAG_NAME: ${{ github.event.release.tag_name }}
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: |
-          ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}:latest
-          ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}:$TAG_NAME
-          ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}
