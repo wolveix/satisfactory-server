@@ -29,11 +29,12 @@ jobs:
           # list of Docker images to use as base name for tags
           images: |
             ${{ github.repository }}
+            ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=semver,pattern={{raw}}
-            type=raw,value=ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}:latest
-            type=raw,value=ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}:${{ github.event.release.tag_name }}
+            type=semver,pattern=v{{version}}
+            type=semver,pattern=v{{major}}.{{minor}}
+            type=semver,pattern=v{{major}}
           # always generate latest tag on push
           flavor: |
             latest=true
