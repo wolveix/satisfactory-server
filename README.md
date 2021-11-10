@@ -1,5 +1,10 @@
 # Satisfactory Server
 
+![Release](https://img.shields.io/github/v/release/wolveix/satisfactory-server?style=for-the-badge)
+![Docker Pulls](https://img.shields.io/docker/pulls/wolveix/satisfactory-server?style=for-the-badge)
+![Docker Stars](https://img.shields.io/docker/stars/wolveix/satisfactory-server?style=for-the-badge)
+![Image Size](https://img.shields.io/docker/image-size/wolveix/satisfactory-server?style=for-the-badge)
+
 This is a Dockerized version of the [Satisfactory](https://store.steampowered.com/app/526870/Satisfactory/) dedicated server.
 
 ## Notice
