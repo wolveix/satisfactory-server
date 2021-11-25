@@ -7,10 +7,6 @@
 
 This is a Dockerized version of the [Satisfactory](https://store.steampowered.com/app/526870/Satisfactory/) dedicated server.
 
-## Notice
-
-If you're currently playing `v4` (early access, **not** experimental), then please see the [v4 branch](https://github.com/wolveix/satisfactory-server/tree/v4).
-
 ## Setup
 
 According to [the official wiki](https://satisfactory.fandom.com/wiki/Dedicated_servers), expect to need 5GB - 10GB of RAM. This implementation raises the player cap from 4 to 8 by default, but you can specify any number by using the `MAXPLAYERS` environment variable.
