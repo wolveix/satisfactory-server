@@ -38,11 +38,11 @@ else
     printf "Skipping update as flag is set\\n"
 fi
 
-cp -a /config/saves/. /config/backups/
-cp -a "${GAMESAVESDIR}/server/." /config/backups # useless in first run, but useful in additional runs
+cp -a "/config/saves/." "/config/backups/"
+cp -a "${GAMESAVESDIR}/server/." "/config/backups" # useless in first run, but useful in additional runs
 rm -rf "${GAMESAVESDIR}/server"
-ln -sf /config/saves "${GAMESAVESDIR}/server"
-ln -sf /config/ServerSettings.15777 "${GAMESAVESDIR}/ServerSettings.15777"
+ln -sf "/config/saves" "${GAMESAVESDIR}/server"
+ln -sf "/config/ServerSettings.${SERVERQUERYPORT}" "${GAMESAVESDIR}/ServerSettings.${SERVERQUERYPORT}"
 
 cp /home/steam/{Engine.ini,Game.ini,Scalability.ini} "${GAMECONFIGDIR}/Config/LinuxServer"
 
