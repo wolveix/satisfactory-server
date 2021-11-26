@@ -61,6 +61,8 @@ services:
 | `SERVERIP` | set the game's ip (usually not needed) |
 | `SERVERQUERYPORT` | set the game's query port |
 | `SKIPUPDATE` | avoid updating the game on container start/restart |
+| `STEAMBETA` | set experimental game version |
+| `CRASHREPORT` | automatic crash reporting |
 
 ## Loading Your Save
 

@@ -12,6 +12,10 @@ fi
 printf "Setting max players to ${MAXPLAYERS}\\n"
 sed "s/MaxPlayers\=16/MaxPlayers=$MAXPLAYERS/" -i "/home/steam/Game.ini"
 
+
+printf "Crash reporting " && [[ "$CRASHREPORT" == "true" ]] && printf "enabled\\n" || printf "disabled\\n"
+sed "s/bImplicitSend\=True/bImplicitSend=${CRASHREPORT^}/" -i "/home/steam/Engine.ini"
+
 if [[ "$SKIPUPDATE" == "false" ]]; then
     if [[ "$STEAMBETA" == "true" ]]; then
         printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"

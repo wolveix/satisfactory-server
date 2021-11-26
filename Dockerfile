@@ -26,7 +26,8 @@ ENV DEBUG="false" \
     SERVERQUERYPORT="15777" \
     SKIPUPDATE="false" \
     STEAMAPPID="1690800" \
-    STEAMBETA="false"
+    STEAMBETA="false" \
+    CRASHREPORT="true"
 
 EXPOSE 7777/udp 15000/udp 15777/udp
 
