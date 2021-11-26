@@ -28,7 +28,7 @@ if [[ "$SKIPUPDATE" == "false" ]]; then
 
     printf "Downloading the latest version of the game...\\n"
 
-    /home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir /config/gamefiles +app_update "$STEAMAPPID$STEAMBETAFLAG" +quit
+    /home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir /config/gamefiles +app_update "$STEAMAPPID" "$STEAMBETAFLAG" +quit
 else
     printf "Skipping update as flag is set\\n"
 fi
