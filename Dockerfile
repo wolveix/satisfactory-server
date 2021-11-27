@@ -6,7 +6,7 @@ RUN set -x \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /config \
-    && chown steam:steam /config
+ && chown steam:steam /config
 
 COPY init.sh /
 
@@ -14,7 +14,8 @@ COPY --chown=steam:steam Game.ini Engine.ini Scalability.ini run.sh /home/steam/
 
 WORKDIR /config
 
-ENV DEBUG="false" \
+ENV CRASHREPORT="false" \
+    DEBUG="false" \
     GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
     GAMESAVESDIR="/home/steam/.config/Epic/FactoryGame/Saved/SaveGames" \
     MAXPLAYERS="16" \

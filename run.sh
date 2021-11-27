@@ -5,12 +5,15 @@ set -e
 NUMCHECK='^[0-9]+$'
 
 if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
-    printf "Invalid max players given: ${MAXPLAYERS}\\n"
+    printf "Invalid max players given: %s\\n" "${MAXPLAYERS}"
     MAXPLAYERS="16"
 fi
 
-printf "Setting max players to ${MAXPLAYERS}\\n"
+printf "Setting max players to %s\\n" "${MAXPLAYERS}"
 sed "s/MaxPlayers\=16/MaxPlayers=$MAXPLAYERS/" -i "/home/steam/Game.ini"
+
+printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
+sed "s/bImplicitSend\=False/bImplicitSend=${CRASHREPORT^}/" -i "/home/steam/Engine.ini"
 
 if [[ "$SKIPUPDATE" == "false" ]]; then
     if [[ "$STEAMBETA" == "true" ]]; then
@@ -20,10 +23,10 @@ if [[ "$SKIPUPDATE" == "false" ]]; then
 
     space=$(stat -f --format="%a*%S" .)
     space=$((space/1024/1024/1024))
-    printf "Checking available space...${space}GB detected\\n"
+    printf "Checking available space...%sGB detected\\n" "${space}"
 
     if [[ "$space" -lt 5 ]]; then
-        printf "You have less than 5GB (${space}GB detected) of available space to download the game.\\nIf this is a fresh install, it will probably fail.\\n"
+        printf "You have less than 5GB (%sGB detected) of available space to download the game.\\nIf this is a fresh install, it will probably fail.\\n" "${space}"
     fi
 
     printf "Downloading the latest version of the game...\\n"
@@ -48,4 +51,4 @@ fi
 
 cd /config/gamefiles || exit 1
 
-Engine/Binaries/Linux/UE4Server-Linux-Shipping FactoryGame -log -NoSteamClient -unattended ?listen -Port=$SERVERGAMEPORT -BeaconPort=$SERVERBEACONPORT -ServerQueryPort=$SERVERQUERYPORT -multihome=$SERVERIP
+Engine/Binaries/Linux/UE4Server-Linux-Shipping FactoryGame -log -NoSteamClient -unattended ?listen -Port="$SERVERGAMEPORT" -BeaconPort="$SERVERBEACONPORT" -ServerQueryPort="$SERVERQUERYPORT" -multihome="$SERVERIP"

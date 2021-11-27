@@ -52,6 +52,7 @@ services:
 
 | Parameter | Function |
 | :----: | --- |
+| `CRASHREPORT` | automatic crash reporting |
 | `DEBUG` | for debugging the server |
 | `MAXPLAYERS` | set the player limit for your server |
 | `PGID` | set the group ID of the user the server will run as |
@@ -61,6 +62,7 @@ services:
 | `SERVERIP` | set the game's ip (usually not needed) |
 | `SERVERQUERYPORT` | set the game's query port |
 | `SKIPUPDATE` | avoid updating the game on container start/restart |
+| `STEAMBETA` | set experimental game version |
 
 ## Loading Your Save
 
