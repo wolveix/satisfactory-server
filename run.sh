@@ -15,7 +15,7 @@ sed "s/MaxPlayers\=16/MaxPlayers=$MAXPLAYERS/" -i "/home/steam/Game.ini"
 if [[ "$SKIPUPDATE" == "false" ]]; then
     if [[ "$STEAMBETA" == "true" ]]; then
         printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
-        STEAMBETAFLAG=" -beta experimental"
+        STEAMBETAFLAG=" -beta experimental validate"
     fi
 
     space=$(stat -f --format="%a*%S" .)
