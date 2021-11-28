@@ -7,7 +7,6 @@ metadata:
     app: satisfactory
 spec:
   type: NodePort
-  externalTrafficPolicy: Local
   ports:
   - port: 15777
     nodePort: 15777
