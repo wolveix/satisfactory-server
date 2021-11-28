@@ -6,20 +6,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: satisfactory # has to match .spec.template.metadata.labels
+      app: satisfactory
   serviceName: "satisfactory"
   replicas: 1
   template:
     metadata:
       labels:
-        app: satisfactory # has to match .spec.selector.matchLabels
+        app: satisfactory
     spec:
-      nodeSelector:
-        dedicated: satisfactory
-      tolerations:
-        - key: dedicated
-          operator: Equal
-          value: satisfactory
       containers:
       - name: satisfactory
         image: wolveix/satisfactory-server:latest
