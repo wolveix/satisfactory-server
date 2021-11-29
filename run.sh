@@ -13,7 +13,7 @@ printf "Setting max players to %s\\n" "${MAXPLAYERS}"
 sed "s/MaxPlayers\=16/MaxPlayers=$MAXPLAYERS/" -i "/home/steam/Game.ini"
 
 printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
-sed "s/bImplicitSend\=False/bImplicitSend=${CRASHREPORT^}/" -i "/home/steam/Engine.ini"
+sed "s/bImplicitSend\=True/bImplicitSend=${CRASHREPORT^}/" -i "/home/steam/Engine.ini"
 
 if [[ "$SKIPUPDATE" == "false" ]]; then
     if [[ "$STEAMBETA" == "true" ]]; then

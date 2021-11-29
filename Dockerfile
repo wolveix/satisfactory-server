@@ -14,7 +14,7 @@ COPY --chown=steam:steam Game.ini Engine.ini Scalability.ini run.sh /home/steam/
 
 WORKDIR /config
 
-ENV CRASHREPORT="false" \
+ENV CRASHREPORT="true" \
     DEBUG="false" \
     GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
     GAMESAVESDIR="/home/steam/.config/Epic/FactoryGame/Saved/SaveGames" \
