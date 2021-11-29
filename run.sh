@@ -4,19 +4,51 @@ set -e
 
 NUMCHECK='^[0-9]+$'
 
+setiniprop() {
+    sed "/\[$2\]/,/^\[/ s/$3\=.*/$3=$4/" -i "/home/steam/$1"
+}
+
+setinival() {
+    sed "/\[$2\]/,/^\[/ s/((\"$3\",.*))/((\"$3\", $4))/" -i "/home/steam/$1"
+}
+
+## Game.ini
 if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
     printf "Invalid max players given: %s\\n" "${MAXPLAYERS}"
-    MAXPLAYERS="16"
+    MAXPLAYERS="4"
 fi
-
 printf "Setting max players to %s\\n" "${MAXPLAYERS}"
-sed "s/MaxPlayers\=16/MaxPlayers=$MAXPLAYERS/" -i "/home/steam/Game.ini"
+setiniprop "Game.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "${MAXPLAYERS}"
 
+## Engine.ini
+if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]] ; then
+    printf "Invalid auto save number given: %s\\n" "${AUTOSAVENUM}"
+    AUTOSAVENUM="3"
+fi
+printf "Setting auto save number to %s\\n" "${AUTOSAVENUM}"
+setiniprop "Engine.ini" "\/Script\/FactoryGame\.FGSaveSession" "mNumRotatingAutosaves" "${AUTOSAVENUM}"
+[[ "${CRASHREPORT,,}" == "true" ]] && CRASHREPORT="true" || CRASHREPORT="false"
 printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
-sed "s/bImplicitSend\=True/bImplicitSend=${CRASHREPORT^}/" -i "/home/steam/Engine.ini"
+setiniprop "Engine.ini" "CrashReportClient" "bImplicitSend" "${CRASHREPORT^}"
 
-if [[ "$SKIPUPDATE" == "false" ]]; then
-    if [[ "$STEAMBETA" == "true" ]]; then
+## ServerSettings.ini
+[[ "${AUTOPAUSE,,}" == "true" ]] && AUTOPAUSE="true" || AUTOPAUSE="false"
+printf "Setting auto pause to %s\\n" "${AUTOPAUSE^}"
+setiniprop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mAutoPause" "${AUTOPAUSE^}"
+[[ "${AUTOSAVEONDISCO,,}" == "true" ]] && AUTOSAVEONDISCO="true" || AUTOSAVEONDISCO="false"
+printf "Setting auto save on disconnect to %s\\n" "${AUTOSAVEONDISCO^}"
+setiniprop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mAutoSaveOnDisconnect" "${AUTOSAVEONDISCO^}"
+
+## GameUserSettings.ini
+if ! [[ "$AUTOSAVEINTERVAL" =~ $NUMCHECK ]] ; then
+    printf "Invalid auto save interval given: %s\\n" "${AUTOSAVEINTERVAL}"
+    AUTOSAVEINTERVAL="300"
+fi
+printf "Setting auto save interval to %s\\n" "${AUTOSAVEINTERVAL}"
+setinival "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "FG.AutosaveInterval" "${AUTOSAVEINTERVAL}"
+
+if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
+    if [[ "${STEAMBETA,,}" == "true" ]]; then
         printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
         STEAMBETAFLAG=" -beta experimental validate"
     fi
