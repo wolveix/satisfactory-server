@@ -13,7 +13,7 @@ printf "Setting max players to %s\\n" "${MAXPLAYERS}"
 sed "s/MaxPlayers\=16/MaxPlayers=$MAXPLAYERS/" -i "/home/steam/Game.ini"
 
 printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
-sed "s/bImplicitSend\=False/bImplicitSend=${CRASHREPORT^}/" -i "/home/steam/Engine.ini"
+sed "s/bImplicitSend\=True/bImplicitSend=${CRASHREPORT^}/" -i "/home/steam/Engine.ini"
 
 if [[ "$SKIPUPDATE" == "false" ]]; then
     if [[ "$STEAMBETA" == "true" ]]; then
@@ -42,7 +42,7 @@ rm -rf "${GAMESAVESDIR}/server"
 ln -sf "/config/saves" "${GAMESAVESDIR}/server"
 ln -sf "/config/ServerSettings.${SERVERQUERYPORT}" "${GAMESAVESDIR}/ServerSettings.${SERVERQUERYPORT}"
 
-cp /home/steam/{Engine.ini,Game.ini,Scalability.ini} "${GAMECONFIGDIR}/Config/LinuxServer"
+cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer"
 
 if [ ! -f "/config/gamefiles/Engine/Binaries/Linux/UE4Server-Linux-Shipping" ]; then
     printf "Game binary is missing.\\n"
