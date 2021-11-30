@@ -2,8 +2,6 @@
 
 set -e
 
-NUMCHECK='^[0-9]+$'
-
 setiniprop() {
     sed "/\[$2\]/,/^\[/ s/$3\=.*/$3=$4/" -i "/home/steam/$1"
 }
@@ -11,6 +9,8 @@ setiniprop() {
 setinival() {
     sed "/\[$2\]/,/^\[/ s/((\"$3\",.*))/((\"$3\", $4))/" -i "/home/steam/$1"
 }
+
+NUMCHECK='^[0-9]+$'
 
 ## Game.ini
 if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
@@ -44,7 +44,7 @@ if ! [[ "$AUTOSAVEINTERVAL" =~ $NUMCHECK ]] ; then
     printf "Invalid auto save interval given: %s\\n" "${AUTOSAVEINTERVAL}"
     AUTOSAVEINTERVAL="300"
 fi
-printf "Setting auto save interval to %s\\n" "${AUTOSAVEINTERVAL}"
+printf "Setting auto save interval to %ss\\n" "${AUTOSAVEINTERVAL}"
 setinival "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "FG.AutosaveInterval" "${AUTOSAVEINTERVAL}"
 
 if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
