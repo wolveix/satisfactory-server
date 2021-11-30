@@ -52,10 +52,10 @@ services:
 
 | Parameter | Function |
 | :----: | --- |
-| `AUTOPAUSE` | pause server when empty |
-| `AUTOSAVEINTERVAL` | autosave interval |
-| `AUTOSAVENUM` | number of rotating autosaves |
-| `AUTOSAVEONDISCO` | autosave when player disconnects |
+| `AUTOPAUSE` | pause game when no player is connected |
+| `AUTOSAVEINTERVAL` | autosave interval in seconds |
+| `AUTOSAVENUM` | number of rotating autosave files |
+| `AUTOSAVEONDISCO` | autosave when last player disconnects |
 | `CRASHREPORT` | automatic crash reporting |
 | `DEBUG` | for debugging the server |
 | `MAXPLAYERS` | set the player limit for your server |
