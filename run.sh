@@ -2,15 +2,26 @@
 
 set -e
 
-setiniprop() {
+set_ini_prop() {
     sed "/\[$2\]/,/^\[/ s/$3\=.*/$3=$4/" -i "/home/steam/$1"
 }
 
-setinival() {
+set_ini_val() {
     sed "/\[$2\]/,/^\[/ s/((\"$3\",.*))/((\"$3\", $4))/" -i "/home/steam/$1"
 }
 
 NUMCHECK='^[0-9]+$'
+
+# Engine.ini
+if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]] ; then
+    printf "Invalid autosave number given: %s\\n" "${AUTOSAVENUM}"
+    AUTOSAVENUM="3"
+fi
+printf "Setting autosave number to %s\\n" "${AUTOSAVENUM}"
+set_ini_prop "Engine.ini" "\/Script\/FactoryGame\.FGSaveSession" "mNumRotatingAutosaves" "${AUTOSAVENUM}"
+[[ "${CRASHREPORT,,}" == "true" ]] && CRASHREPORT="true" || CRASHREPORT="false"
+printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
+set_ini_prop "Engine.ini" "CrashReportClient" "bImplicitSend" "${CRASHREPORT^}"
 
 ## Game.ini
 if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
@@ -18,34 +29,24 @@ if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
     MAXPLAYERS="4"
 fi
 printf "Setting max players to %s\\n" "${MAXPLAYERS}"
-setiniprop "Game.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "${MAXPLAYERS}"
+set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "${MAXPLAYERS}"
 
-## Engine.ini
-if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]] ; then
-    printf "Invalid auto save number given: %s\\n" "${AUTOSAVENUM}"
-    AUTOSAVENUM="3"
-fi
-printf "Setting auto save number to %s\\n" "${AUTOSAVENUM}"
-setiniprop "Engine.ini" "\/Script\/FactoryGame\.FGSaveSession" "mNumRotatingAutosaves" "${AUTOSAVENUM}"
-[[ "${CRASHREPORT,,}" == "true" ]] && CRASHREPORT="true" || CRASHREPORT="false"
-printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
-setiniprop "Engine.ini" "CrashReportClient" "bImplicitSend" "${CRASHREPORT^}"
-
-## ServerSettings.ini
-[[ "${AUTOPAUSE,,}" == "true" ]] && AUTOPAUSE="true" || AUTOPAUSE="false"
-printf "Setting auto pause to %s\\n" "${AUTOPAUSE^}"
-setiniprop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mAutoPause" "${AUTOPAUSE^}"
-[[ "${AUTOSAVEONDISCO,,}" == "true" ]] && AUTOSAVEONDISCO="true" || AUTOSAVEONDISCO="false"
-printf "Setting auto save on disconnect to %s\\n" "${AUTOSAVEONDISCO^}"
-setiniprop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mAutoSaveOnDisconnect" "${AUTOSAVEONDISCO^}"
-
-## GameUserSettings.ini
+# GameUserSettings.ini
 if ! [[ "$AUTOSAVEINTERVAL" =~ $NUMCHECK ]] ; then
-    printf "Invalid auto save interval given: %s\\n" "${AUTOSAVEINTERVAL}"
+    printf "Invalid autosave interval given: %s\\n" "${AUTOSAVEINTERVAL}"
     AUTOSAVEINTERVAL="300"
 fi
-printf "Setting auto save interval to %ss\\n" "${AUTOSAVEINTERVAL}"
-setinival "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "FG.AutosaveInterval" "${AUTOSAVEINTERVAL}"
+printf "Setting autosave interval to %ss\\n" "${AUTOSAVEINTERVAL}"
+set_ini_val "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "FG.AutosaveInterval" "${AUTOSAVEINTERVAL}"
+
+# ServerSettings.ini
+[[ "${AUTOPAUSE,,}" == "true" ]] && AUTOPAUSE="true" || AUTOPAUSE="false"
+printf "Setting auto pause to %s\\n" "${AUTOPAUSE^}"
+set_ini_prop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mAutoPause" "${AUTOPAUSE^}"
+
+[[ "${AUTOSAVEONDISCONNECT,,}" == "true" ]] && AUTOSAVEONDISCONNECT="true" || AUTOSAVEONDISCONNECT="false"
+printf "Setting autosave on disconnect to %s\\n" "${AUTOSAVEONDISCONNECT^}"
+set_ini_prop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mAUTOSAVEONDISCONNECTnnect" "${AUTOSAVEONDISCONNECT^}"
 
 if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
     if [[ "${STEAMBETA,,}" == "true" ]]; then

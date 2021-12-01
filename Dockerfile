@@ -14,10 +14,10 @@ COPY --chown=steam:steam *.ini run.sh /home/steam/
 
 WORKDIR /config
 
-ENV AUTOPAUSE="true" \ 
+ENV AUTOPAUSE="true" \
     AUTOSAVEINTERVAL="300" \
     AUTOSAVENUM="3" \
-    AUTOSAVEONDISCO="true" \
+    AUTOSAVEONDISCONNECT="true" \
     CRASHREPORT="true" \
     DEBUG="false" \
     GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
