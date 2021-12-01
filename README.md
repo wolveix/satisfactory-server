@@ -51,7 +51,7 @@ services:
 ## Environment Variables
 
 | Parameter | Default | Function |
-| :----: | --- | --- |
+| :---: | :---: | --- |
 | `AUTOPAUSE` | `true` | pause game when no player is connected |
 | `AUTOSAVEINTERVAL` | `300` | autosave interval in seconds |
 | `AUTOSAVENUM` | `3` | number of rotating autosave files |
