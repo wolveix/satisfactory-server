@@ -20,6 +20,7 @@ ENV AUTOPAUSE="true" \
     AUTOSAVEONDISCONNECT="true" \
     CRASHREPORT="true" \
     DEBUG="false" \
+    DISABLESEASONALEVENTS="false" \
     GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
     GAMESAVESDIR="/home/steam/.config/Epic/FactoryGame/Saved/SaveGames" \
     MAXPLAYERS="4" \
