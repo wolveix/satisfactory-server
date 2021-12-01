@@ -10,15 +10,19 @@ RUN mkdir -p /config \
 
 COPY init.sh /
 
-COPY --chown=steam:steam Game.ini Engine.ini Scalability.ini run.sh /home/steam/
+COPY --chown=steam:steam *.ini run.sh /home/steam/
 
 WORKDIR /config
 
-ENV CRASHREPORT="true" \
+ENV AUTOPAUSE="true" \
+    AUTOSAVEINTERVAL="300" \
+    AUTOSAVENUM="3" \
+    AUTOSAVEONDISCONNECT="true" \
+    CRASHREPORT="true" \
     DEBUG="false" \
     GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
     GAMESAVESDIR="/home/steam/.config/Epic/FactoryGame/Saved/SaveGames" \
-    MAXPLAYERS="16" \
+    MAXPLAYERS="4" \
     PGID="1000" \
     PUID="1000" \
     SERVERBEACONPORT="15000" \

@@ -2,21 +2,54 @@
 
 set -e
 
+set_ini_prop() {
+    sed "/\[$2\]/,/^\[/ s/$3\=.*/$3=$4/" -i "/home/steam/$1"
+}
+
+set_ini_val() {
+    sed "/\[$2\]/,/^\[/ s/((\"$3\",.*))/((\"$3\", $4))/" -i "/home/steam/$1"
+}
+
 NUMCHECK='^[0-9]+$'
 
+# Engine.ini
+if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]] ; then
+    printf "Invalid autosave number given: %s\\n" "${AUTOSAVENUM}"
+    AUTOSAVENUM="3"
+fi
+printf "Setting autosave number to %s\\n" "${AUTOSAVENUM}"
+set_ini_prop "Engine.ini" "\/Script\/FactoryGame\.FGSaveSession" "mNumRotatingAutosaves" "${AUTOSAVENUM}"
+[[ "${CRASHREPORT,,}" == "true" ]] && CRASHREPORT="true" || CRASHREPORT="false"
+printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
+set_ini_prop "Engine.ini" "CrashReportClient" "bImplicitSend" "${CRASHREPORT^}"
+
+## Game.ini
 if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
     printf "Invalid max players given: %s\\n" "${MAXPLAYERS}"
-    MAXPLAYERS="16"
+    MAXPLAYERS="4"
 fi
-
 printf "Setting max players to %s\\n" "${MAXPLAYERS}"
-sed "s/MaxPlayers\=16/MaxPlayers=$MAXPLAYERS/" -i "/home/steam/Game.ini"
+set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "${MAXPLAYERS}"
 
-printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
-sed "s/bImplicitSend\=True/bImplicitSend=${CRASHREPORT^}/" -i "/home/steam/Engine.ini"
+# GameUserSettings.ini
+if ! [[ "$AUTOSAVEINTERVAL" =~ $NUMCHECK ]] ; then
+    printf "Invalid autosave interval given: %s\\n" "${AUTOSAVEINTERVAL}"
+    AUTOSAVEINTERVAL="300"
+fi
+printf "Setting autosave interval to %ss\\n" "${AUTOSAVEINTERVAL}"
+set_ini_val "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "FG.AutosaveInterval" "${AUTOSAVEINTERVAL}"
 
-if [[ "$SKIPUPDATE" == "false" ]]; then
-    if [[ "$STEAMBETA" == "true" ]]; then
+# ServerSettings.ini
+[[ "${AUTOPAUSE,,}" == "true" ]] && AUTOPAUSE="true" || AUTOPAUSE="false"
+printf "Setting auto pause to %s\\n" "${AUTOPAUSE^}"
+set_ini_prop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mAutoPause" "${AUTOPAUSE^}"
+
+[[ "${AUTOSAVEONDISCONNECT,,}" == "true" ]] && AUTOSAVEONDISCONNECT="true" || AUTOSAVEONDISCONNECT="false"
+printf "Setting autosave on disconnect to %s\\n" "${AUTOSAVEONDISCONNECT^}"
+set_ini_prop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mAUTOSAVEONDISCONNECTnnect" "${AUTOSAVEONDISCONNECT^}"
+
+if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
+    if [[ "${STEAMBETA,,}" == "true" ]]; then
         printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
         STEAMBETAFLAG=" -beta experimental validate"
     fi
@@ -42,7 +75,7 @@ rm -rf "${GAMESAVESDIR}/server"
 ln -sf "/config/saves" "${GAMESAVESDIR}/server"
 ln -sf "/config/ServerSettings.${SERVERQUERYPORT}" "${GAMESAVESDIR}/ServerSettings.${SERVERQUERYPORT}"
 
-cp /home/steam/{Engine.ini,Game.ini,Scalability.ini} "${GAMECONFIGDIR}/Config/LinuxServer"
+cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer"
 
 if [ ! -f "/config/gamefiles/Engine/Binaries/Linux/UE4Server-Linux-Shipping" ]; then
     printf "Game binary is missing.\\n"
