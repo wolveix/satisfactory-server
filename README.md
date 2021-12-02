@@ -58,6 +58,7 @@ services:
 | `AUTOSAVEONDISCONNECT` | `true` | autosave when last player disconnects |
 | `CRASHREPORT` | `true` | automatic crash reporting |
 | `DEBUG` | `false` | for debugging the server |
+| `DISABLESEASONALEVENTS` | `false` | disable the FICSMAS event (you miserable bastard) |
 | `MAXPLAYERS` | `4` | set the player limit for your server |
 | `PGID` | `1000` | set the group ID of the user the server will run as |
 | `PUID` | `1000` | set the user ID of the user the server will run as |
