@@ -54,4 +54,4 @@ fi
 
 chown -R "${PUID}":"${PGID}" /config /home/steam
 
-sudo -u "${USER}" -E -H sh -c "/home/steam/run.sh"
+exec gosu "${USER}" "/home/steam/run.sh" "$@"

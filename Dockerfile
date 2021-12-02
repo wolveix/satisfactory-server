@@ -5,6 +5,13 @@ RUN set -x \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y sudo=1.8.27-1+deb10u3 --no-install-recommends\
     && rm -rf /var/lib/apt/lists/*
 
+RUN set -eux; \
+	apt-get update; \
+	apt-get install -y gosu; \
+	rm -rf /var/lib/apt/lists/*; \
+# verify that the binary works
+	gosu nobody true
+
 RUN mkdir -p /config \
  && chown steam:steam /config
 
