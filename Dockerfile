@@ -2,8 +2,9 @@ FROM cm2network/steamcmd:root
 
 RUN set -x \
     && apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y sudo=1.8.27-1+deb10u3 --no-install-recommends\
-    && rm -rf /var/lib/apt/lists/*
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu --no-install-recommends\
+    && rm -rf /var/lib/apt/lists/*  \
+    && gosu nobody true
 
 RUN mkdir -p /config \
  && chown steam:steam /config
