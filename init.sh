@@ -6,8 +6,12 @@ if [[ "$DEBUG" == "true" ]]; then
     printf "Debugging enabled (the container will exit after printing the debug info)\\n\\nPrinting environment variables:\\n"
     export
 
-    printf "\\n\\nDisk usage:\\n"
-    df -h | awk '$NF=="/"{printf "%d/%dGB (%s)\n", $3,$2,$5}'
+    echo "
+System info:
+OS:  $(uname -a)
+CPU: $(lscpu | grep 'Model name:' | sed 's/Model name:[[:space:]]*//g')
+RAM: $(awk '/MemAvailable/ {printf( "%d\n", $2 / 1024000 )}' /proc/meminfo)GB/$(awk '/MemTotal/ {printf( "%d\n", $2 / 1024000 )}' /proc/meminfo)GB
+HDD: $(df -h | awk '$NF=="/"{printf "%dGB/%dGB (%s used)\n", $3,$2,$5}')"
 
     printf "\\nCurrent user:\\n"
     id

@@ -13,9 +13,9 @@ According to [the official wiki](https://satisfactory.fandom.com/wiki/Dedicated_
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 
-- `/backups` - the server will automatically backup your saves when the container first starts
-- `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 15GB+ every time you want to rebuild the container
-- `/saves` - this is for the game's saves. They're copied into the container on start
+-   `/backups` - the server will automatically backup your saves when the container first starts
+-   `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 15GB+ every time you want to rebuild the container
+-   `/saves` - this is for the game's saves. They're copied into the container on start
 
 Before running the server image, you should find your user ID that will be running the container. This isn't necessary in most cases, but it's good to find out regardless. If you're seeing `permission denied` errors, then this is probably why. Find your ID in `Linux` by running the `id` command. Then grab the user ID (usually something like `1000`) and pass it into the `-e PGID=1000` and `-e PUID=1000` environment variables.
 
@@ -50,24 +50,24 @@ services:
 
 ## Environment Variables
 
-| Parameter | Default | Function |
-| :---: | :---: | --- |
-| `AUTOPAUSE` | `true` | pause game when no player is connected |
-| `AUTOSAVEINTERVAL` | `300` | autosave interval in seconds |
-| `AUTOSAVENUM` | `3` | number of rotating autosave files |
-| `AUTOSAVEONDISCONNECT` | `true` | autosave when last player disconnects |
-| `CRASHREPORT` | `true` | automatic crash reporting |
-| `DEBUG` | `false` | for debugging the server |
-| `DISABLESEASONALEVENTS` | `false` | disable the FICSMAS event (you miserable bastard) |
-| `MAXPLAYERS` | `4` | set the player limit for your server |
-| `PGID` | `1000` | set the group ID of the user the server will run as |
-| `PUID` | `1000` | set the user ID of the user the server will run as |
-| `SERVERBEACONPORT` | `15000` | set the game's beacon port |
-| `SERVERGAMEPORT` | `7777` | set the game's port |
-| `SERVERIP` | `0.0.0.0` | set the game's ip (usually not needed) |
-| `SERVERQUERYPORT` | `15777` | set the game's query port |
-| `SKIPUPDATE` | `false` | avoid updating the game on container start/restart |
-| `STEAMBETA` | `false` | set experimental game version |
+| Parameter               |  Default  | Function                                            |
+| ----------------------- | :-------: | --------------------------------------------------- |
+| `AUTOPAUSE`             |   `true`  | pause game when no player is connected              |
+| `AUTOSAVEINTERVAL`      |   `300`   | autosave interval in seconds                        |
+| `AUTOSAVENUM`           |    `3`    | number of rotating autosave files                   |
+| `AUTOSAVEONDISCONNECT`  |   `true`  | autosave when last player disconnects               |
+| `CRASHREPORT`           |   `true`  | automatic crash reporting                           |
+| `DEBUG`                 |  `false`  | for debugging the server                            |
+| `DISABLESEASONALEVENTS` |  `false`  | disable the FICSMAS event (you miserable bastard)   |
+| `MAXPLAYERS`            |    `4`    | set the player limit for your server                |
+| `PGID`                  |   `1000`  | set the group ID of the user the server will run as |
+| `PUID`                  |   `1000`  | set the user ID of the user the server will run as  |
+| `SERVERBEACONPORT`      |  `15000`  | set the game's beacon port                          |
+| `SERVERGAMEPORT`        |   `7777`  | set the game's port                                 |
+| `SERVERIP`              | `0.0.0.0` | set the game's ip (usually not needed)              |
+| `SERVERQUERYPORT`       |  `15777`  | set the game's query port                           |
+| `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart  |
+| `STEAMBETA`             |  `false`  | set experimental game version                       |
 
 ## Loading Your Save
 
@@ -85,13 +85,13 @@ If you want to run a server for the Experimental version of the game, set the `S
 
 The [Satisfactory Wiki](https://satisfactory.fandom.com/wiki/Multiplayer#Engine.ini) recommends a few config tweaks to really get the best out of multiplayer. These changes are already applied to the server, but they need to be applied to your local config too:
 
-- Press `WIN + R`
-- Enter `%localappdata%/FactoryGame/Saved/Config/WindowsNoEditor`
-- Copy the config data from the wiki into the respective files
-- Right-click each of the 3 config files (Engine.ini, Game.ini, Scalability.ini)
-- Go to Properties > tick Read-only under the attributes
+-   Press `WIN + R`
+-   Enter `%localappdata%/FactoryGame/Saved/Config/WindowsNoEditor`
+-   Copy the config data from the wiki into the respective files
+-   Right-click each of the 3 config files (Engine.ini, Game.ini, Scalability.ini)
+-   Go to Properties > tick Read-only under the attributes
 
 ## Known Issues
 
-- The container is run as `root`. This is pretty common for Docker images, but is bad practice for security reasons. This change was made to address [permissions issues](https://github.com/wolveix/satisfactory-server/issues/44)
-- The server log will show various errors; most of which can be safely ignored. As long as the container continues to run and your log looks similar to the example log, the server should be functioning just fine: [example log](https://github.com/wolveix/satisfactory-server/blob/main/server.log)
+-   The container is run as `root`. This is pretty common for Docker images, but is bad practice for security reasons. This change was made to address [permissions issues](https://github.com/wolveix/satisfactory-server/issues/44)
+-   The server log will show various errors; most of which can be safely ignored. As long as the container continues to run and your log looks similar to the example log, the server should be functioning just fine: [example log](https://github.com/wolveix/satisfactory-server/blob/main/server.log)
