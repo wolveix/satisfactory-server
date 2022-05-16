@@ -25,6 +25,8 @@ Run the Satisfactory server image like this:
 docker run -d --name=satisfactory-server -h satisfactory-server -e MAXPLAYERS=4 -e PGID=1000 -e PUID=1000 -e STEAMBETA=false -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp wolveix/satisfactory-server:latest
 ```
 
+### Docker Compose
+
 If you're using [Docker Compose](https://docs.docker.com/compose/):
 
 ```yaml
@@ -46,6 +48,46 @@ services:
             - PUID=1000
             - STEAMBETA=false
         restart: unless-stopped
+```
+
+### Kubernetes
+
+If you are running a [Kubernetes](https://kubernetes.io) cluster & using [Helm](https://helm.sh), Helm charts can be found on [ArtifactHUB](https://artifacthub.io/packages/search?ts_query_web=satisfactory&sort=relevance&page=1).  For example the [k8s-at-home](https://github.com/k8s-at-home/charts) helm chart for Satisfactory can be installed with the below.
+
+Some suggested default `values.yaml` for the k8s-at-home chart - check out the vaules.yaml for full defaults, and the common chart for more values options.
+
+**values.yaml**
+
+```yaml
+env:
+    # Environmental variables as below can be passed in this yaml block
+    # e.g.
+    AUTOPAUSE: "true"
+    MAXPLAYERS: 3
+
+service:
+    main: # Example setup for a LoadBalancer with a Ip outside cluster
+          # MetalLB for example could be used if a Loadbalancer not provided by your provider.
+        type: LoadBalancer # Setting Ip external to cluster for easy port forward
+        externalTrafficPolicy: Cluster
+        loadBalancerIP: "192.168.2.200" # IP of the satisfactory server
+
+persistence:
+    config: # Save & config data stored here
+        enabled: true
+
+    server-cache: # Downloaded game files stored here.
+        # This is seperated to allow for backing up only game/config data
+        enabled: true
+
+```
+
+The `values.yaml` could then be installed to your Kubernetes cluster with the below
+
+```bash
+helm repo add k8s-at-home https://k8s-at-home.com/charts/
+helm repo update
+helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 ```
 
 ## Environment Variables
