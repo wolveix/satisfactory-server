@@ -52,7 +52,9 @@ services:
 
 ### Kubernetes
 
-If you are running a [Kubernetes](https://kubernetes.io) cluster & using [Helm](https://helm.sh), Helm charts can be found on [ArtifactHUB](https://artifacthub.io/packages/search?ts_query_web=satisfactory&sort=relevance&page=1).  For example the [k8s-at-home](https://github.com/k8s-at-home/charts) helm chart for Satisfactory can be installed with the below.
+If you are running a [Kubernetes](https://kubernetes.io) cluster, we do have a [service.yaml](https://github.com/wolveix/satisfactory-server/cluster/service.yaml) and [statefulset.yaml](https://github.com/wolveix/satisfactory-server/cluster/statefulset.yaml) available under the [cluster](https://github.com/wolveix/satisfactory-server/cluster) directory of this repo.
+
+If you are using [Helm](https://helm.sh), you can find charts for this repo on [ArtifactHUB](https://artifacthub.io/packages/search?ts_query_web=satisfactory&sort=relevance&page=1). The [k8s-at-home](https://github.com/k8s-at-home/charts) helm chart for Satisfactory can be installed with the below.
 
 Some suggested default `values.yaml` for the k8s-at-home chart - check out the vaules.yaml for full defaults, and the common chart for more values options.
 
