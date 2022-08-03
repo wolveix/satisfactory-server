@@ -46,7 +46,6 @@ set_ini_val "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "
 printf "Setting disable seasonal events to %s\\n" "${DISABLESEASONALEVENTS}"
 set_ini_val "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "FG.DisableSeasonalEvents" "${DISABLESEASONALEVENTS}"
 
-
 if ! [[ "$NETWORKQUALITY" =~ $NUMCHECK ]] ; then
     printf "Invalid network quality number given: %s\\n" "${NETWORKQUALITY}"
     NETWORKQUALITY="3"
