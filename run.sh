@@ -51,7 +51,7 @@ if ! [[ "$NETWORKQUALITY" =~ $NUMCHECK ]] ; then
     NETWORKQUALITY="3"
 fi
 printf "Setting network quality number to %s\\n" "${NETWORKQUALITY}"
-set_ini_prop "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "mNetworkQuality" "${AUTOSAVENUM}"
+set_ini_prop "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "mNetworkQuality" "${NETWORKQUALITY}"
 ## END GameUserSettings.ini
 
 ## START ServerSettings.ini
