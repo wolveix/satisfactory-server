@@ -25,6 +25,7 @@ ENV AUTOPAUSE="true" \
     GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
     GAMESAVESDIR="/home/steam/.config/Epic/FactoryGame/Saved/SaveGames" \
     MAXPLAYERS="4" \
+    NETWORKQUALITY="3" \
     PGID="1000" \
     PUID="1000" \
     SERVERBEACONPORT="15000" \
