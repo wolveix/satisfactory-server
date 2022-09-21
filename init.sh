@@ -30,6 +30,14 @@ if [[ "${CURRENTUID}" -ne "0" ]]; then
     exit 1
 fi
 
+ramAvailable=$(awk '/MemAvailable/ {printf( "%d\n", $2 / 1024000 )}' /proc/meminfo)
+printf "Checking available memory...%sGB detected\\n" "${ramAvailable}"
+    
+if [[ "$ramAvailable" -lt 12 ]]; then
+    printf "You have less than the required 12GB minmum (%sGB detected) of available RAM to run the game server.\\n" "${ramAvailable}"
+    exit 1
+fi
+
 mkdir -p /config/backups /config/gamefiles /config/saves "${GAMECONFIGDIR}/Config/LinuxServer" "${GAMECONFIGDIR}/Logs" "${GAMECONFIGDIR}/SaveGames/server" "${GAMESAVESDIR}/server" || exit 1
 
 NUMCHECK='^[0-9]+$'

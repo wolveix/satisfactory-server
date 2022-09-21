@@ -9,7 +9,9 @@ This is a Dockerized version of the [Satisfactory](https://store.steampowered.co
 
 ## Setup
 
-According to [the official wiki](https://satisfactory.fandom.com/wiki/Dedicated_servers), expect to need 5GB - 10GB of RAM.
+According to [the official 
+wiki](https://satisfactory.fandom.com/wiki/Dedicated_servers), expect to 
+need 12GB - 16GB of RAM.
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 
