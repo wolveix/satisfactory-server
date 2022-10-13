@@ -24,6 +24,7 @@ ENV AUTOPAUSE="true" \
     DISABLESEASONALEVENTS="false" \
     GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
     GAMESAVESDIR="/home/steam/.config/Epic/FactoryGame/Saved/SaveGames" \
+    MAXOBJECTS="2162688" \
     MAXPLAYERS="4" \
     NETWORKQUALITY="3" \
     PGID="1000" \

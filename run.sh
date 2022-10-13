@@ -20,6 +20,14 @@ fi
 printf "Setting autosave number to %s\\n" "${AUTOSAVENUM}"
 set_ini_prop "Engine.ini" "\/Script\/FactoryGame\.FGSaveSession" "mNumRotatingAutosaves" "${AUTOSAVENUM}"
 
+if ! [[ "$MAXOBJECTS" =~ $NUMCHECK ]] ; then
+    printf "Invalid max objects number given: %s\\n" "${MAXOBJECTS}"
+    MAXOBJECTS="2162688"
+fi
+printf "Setting max objects number to %s\\n" "${MAXOBJECTS}"
+set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInEditor" "${MAXOBJECTS}"
+set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInGame" "${MAXOBJECTS}"
+
 [[ "${CRASHREPORT,,}" == "true" ]] && CRASHREPORT="true" || CRASHREPORT="false"
 printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
 set_ini_prop "Engine.ini" "CrashReportClient" "bImplicitSend" "${CRASHREPORT^}"
