@@ -100,7 +100,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | ----------------------- | :-------: | --------------------------------------------------- |
 | `AUTOPAUSE`             |   `true`  | pause game when no player is connected              |
 | `AUTOSAVEINTERVAL`      |   `300`   | autosave interval in seconds                        |
-| `AUTOSAVENUM`           |    `3`    | number of rotating autosave files                   |
+| `AUTOSAVENUM`           |    `5`    | number of rotating autosave files                   |
 | `AUTOSAVEONDISCONNECT`  |   `true`  | autosave when last player disconnects               |
 | `CRASHREPORT`           |   `true`  | automatic crash reporting                           |
 | `DEBUG`                 |  `false`  | for debugging the server                            |
@@ -116,6 +116,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `SERVERQUERYPORT`       |  `15777`  | set the game's query port                           |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart  |
 | `STEAMBETA`             |  `false`  | set experimental game version                       |
+| `TIMEOUT`               |   `300`   | set client timeout (in seconds)                     |
 
 ## Loading Your Save
 

@@ -13,13 +13,6 @@ set_ini_val() {
 NUMCHECK='^[0-9]+$'
 
 ## START Engine.ini
-if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]] ; then
-    printf "Invalid autosave number given: %s\\n" "${AUTOSAVENUM}"
-    AUTOSAVENUM="3"
-fi
-printf "Setting autosave number to %s\\n" "${AUTOSAVENUM}"
-set_ini_prop "Engine.ini" "\/Script\/FactoryGame\.FGSaveSession" "mNumRotatingAutosaves" "${AUTOSAVENUM}"
-
 if ! [[ "$MAXOBJECTS" =~ $NUMCHECK ]] ; then
     printf "Invalid max objects number given: %s\\n" "${MAXOBJECTS}"
     MAXOBJECTS="2162688"
@@ -27,6 +20,21 @@ fi
 printf "Setting max objects number to %s\\n" "${MAXOBJECTS}"
 set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInEditor" "${MAXOBJECTS}"
 set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInGame" "${MAXOBJECTS}"
+
+if ! [[ "$TIMEOUT" =~ $NUMCHECK ]] ; then
+    printf "Invalid timeout number given: %s\\n" "${TIMEOUT}"
+    TIMEOUT="300"
+fi
+printf "Setting timeout number to %s\\n" "${TIMEOUT}"
+set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils\.IpNetDriver" "InitialConnectTimeout" "${TIMEOUT}"
+set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils\.IpNetDriver" "ConnectionTimeout" "${TIMEOUT}"
+
+if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]] ; then
+    printf "Invalid autosave number given: %s\\n" "${AUTOSAVENUM}"
+    AUTOSAVENUM="3"
+fi
+printf "Setting autosave number to %s\\n" "${AUTOSAVENUM}"
+set_ini_prop "Engine.ini" "\/Script\/FactoryGame\.FGSaveSession" "mNumRotatingAutosaves" "${AUTOSAVENUM}"
 
 [[ "${CRASHREPORT,,}" == "true" ]] && CRASHREPORT="true" || CRASHREPORT="false"
 printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
