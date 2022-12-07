@@ -13,61 +13,61 @@ set_ini_val() {
 NUMCHECK='^[0-9]+$'
 
 ## START Engine.ini
-if ! [[ "$MAXOBJECTS" =~ $NUMCHECK ]] ; then
-    printf "Invalid max objects number given: %s\\n" "${MAXOBJECTS}"
-    MAXOBJECTS="2162688"
-fi
-printf "Setting max objects number to %s\\n" "${MAXOBJECTS}"
-set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInEditor" "${MAXOBJECTS}"
-set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInGame" "${MAXOBJECTS}"
-
-if ! [[ "$TIMEOUT" =~ $NUMCHECK ]] ; then
-    printf "Invalid timeout number given: %s\\n" "${TIMEOUT}"
-    TIMEOUT="300"
-fi
-printf "Setting timeout number to %s\\n" "${TIMEOUT}"
-set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils\.IpNetDriver" "InitialConnectTimeout" "${TIMEOUT}"
-set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils\.IpNetDriver" "ConnectionTimeout" "${TIMEOUT}"
-
 if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]] ; then
-    printf "Invalid autosave number given: %s\\n" "${AUTOSAVENUM}"
+    printf "Invalid autosave number given: %s\\n" "$AUTOSAVENUM"
     AUTOSAVENUM="3"
 fi
-printf "Setting autosave number to %s\\n" "${AUTOSAVENUM}"
-set_ini_prop "Engine.ini" "\/Script\/FactoryGame\.FGSaveSession" "mNumRotatingAutosaves" "${AUTOSAVENUM}"
+printf "Setting autosave number to %s\\n" "$AUTOSAVENUM"
+set_ini_prop "Engine.ini" "\/Script\/FactoryGame\.FGSaveSession" "mNumRotatingAutosaves" "$AUTOSAVENUM"
 
 [[ "${CRASHREPORT,,}" == "true" ]] && CRASHREPORT="true" || CRASHREPORT="false"
 printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
 set_ini_prop "Engine.ini" "CrashReportClient" "bImplicitSend" "${CRASHREPORT^}"
+
+if ! [[ "$MAXOBJECTS" =~ $NUMCHECK ]] ; then
+    printf "Invalid max objects number given: %s\\n" "$MAXOBJECTS"
+    MAXOBJECTS="2162688"
+fi
+printf "Setting max objects number to %s\\n" "$MAXOBJECTS"
+set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInEditor" "$MAXOBJECTS"
+set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInGame" "$MAXOBJECTS"
+
+if ! [[ "$TIMEOUT" =~ $NUMCHECK ]] ; then
+    printf "Invalid timeout number given: %s\\n" "$TIMEOUT"
+    TIMEOUT="300"
+fi
+printf "Setting timeout number to %s\\n" "$TIMEOUT"
+set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils\.IpNetDriver" "ConnectionTimeout" "$TIMEOUT"
+set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils\.IpNetDriver" "InitialConnectTimeout" "$TIMEOUT"
 ## END Engine.ini
 
 ## START Game.ini
 if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
-    printf "Invalid max players given: %s\\n" "${MAXPLAYERS}"
+    printf "Invalid max players given: %s\\n" "$MAXPLAYERS"
     MAXPLAYERS="4"
 fi
-printf "Setting max players to %s\\n" "${MAXPLAYERS}"
-set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "${MAXPLAYERS}"
+printf "Setting max players to %s\\n" "$MAXPLAYERS"
+set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "$MAXPLAYERS"
 ## END Game.ini
 
 ## START GameUserSettings.ini
 if ! [[ "$AUTOSAVEINTERVAL" =~ $NUMCHECK ]] ; then
-    printf "Invalid autosave interval given: %s\\n" "${AUTOSAVEINTERVAL}"
+    printf "Invalid autosave interval given: %s\\n" "$AUTOSAVEINTERVAL"
     AUTOSAVEINTERVAL="300"
 fi
-printf "Setting autosave interval to %ss\\n" "${AUTOSAVEINTERVAL}"
-set_ini_val "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "FG.AutosaveInterval" "${AUTOSAVEINTERVAL}"
+printf "Setting autosave interval to %ss\\n" "$AUTOSAVEINTERVAL"
+set_ini_val "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "FG.AutosaveInterval" "$AUTOSAVEINTERVAL"
 
 [[ "${DISABLESEASONALEVENTS,,}" == "true" ]] && DISABLESEASONALEVENTS="1" || DISABLESEASONALEVENTS="0"
-printf "Setting disable seasonal events to %s\\n" "${DISABLESEASONALEVENTS}"
-set_ini_val "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "FG.DisableSeasonalEvents" "${DISABLESEASONALEVENTS}"
+printf "Setting disable seasonal events to %s\\n" "$DISABLESEASONALEVENTS"
+set_ini_val "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "FG.DisableSeasonalEvents" "$DISABLESEASONALEVENTS"
 
 if ! [[ "$NETWORKQUALITY" =~ $NUMCHECK ]] ; then
-    printf "Invalid network quality number given: %s\\n" "${NETWORKQUALITY}"
+    printf "Invalid network quality number given: %s\\n" "$NETWORKQUALITY"
     NETWORKQUALITY="3"
 fi
-printf "Setting network quality number to %s\\n" "${NETWORKQUALITY}"
-set_ini_prop "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "mNetworkQuality" "${NETWORKQUALITY}"
+printf "Setting network quality number to %s\\n" "$NETWORKQUALITY"
+set_ini_prop "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "mNetworkQuality" "$NETWORKQUALITY"
 ## END GameUserSettings.ini
 
 ## START ServerSettings.ini
@@ -84,31 +84,52 @@ if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
     if [[ "${STEAMBETA,,}" == "true" ]]; then
         printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
         STEAMBETAFLAG=" -beta experimental validate"
+    else
+        STEAMBETAFLAG=" -beta public validate"
     fi
 
-    space=$(stat -f --format="%a*%S" .)
-    space=$((space/1024/1024/1024))
-    printf "Checking available space...%sGB detected\\n" "${space}"
+    STORAGEAVAILABLE=$(stat -f -c "%a*%S" .)
+    STORAGEAVAILABLE=$((STORAGEAVAILABLE/1024/1024/1024))
+    printf "Checking available storage...%sGB detected\\n" "$STORAGEAVAILABLE"
 
-    if [[ "$space" -lt 5 ]]; then
-        printf "You have less than 5GB (%sGB detected) of available space to download the game.\\nIf this is a fresh install, it will probably fail.\\n" "${space}"
+    if [[ "$STORAGEAVAILABLE" -lt 8 ]]; then
+        printf "You have less than 8GB (%sGB detected) of available storage to download the game.\\nIf this is a fresh install, it will probably fail.\\n" "$STORAGEAVAILABLE"
     fi
 
     printf "Downloading the latest version of the game...\\n"
 
-    /home/steam/steamcmd/steamcmd.sh +force_install_dir /config/gamefiles +login anonymous +app_update "$STEAMAPPID" $STEAMBETAFLAG +quit
+    steamcmd +force_install_dir /config/gamefiles +login anonymous +app_update "$STEAMAPPID" $STEAMBETAFLAG +quit
 else
     printf "Skipping update as flag is set\\n"
 fi
 
-cp -a "/config/saves/." "/config/backups/"
-cp -a "${GAMESAVESDIR}/server/." "/config/backups" # useless in first run, but useful in additional runs
-rm -rf "${GAMESAVESDIR}/server"
-ln -sf "/config/blueprints" "${GAMESAVESDIR}/blueprints"
-ln -sf "/config/saves" "${GAMESAVESDIR}/server"
-ln -sf "/config/ServerSettings.${SERVERQUERYPORT}" "${GAMESAVESDIR}/ServerSettings.${SERVERQUERYPORT}"
+# temporary migration to new format
+if [ -d "/config/blueprints" ]; then
+  if [ $(ls "/config/blueprints" | wc -l) -eq 0 ]; then
+    rmdir "/config/blueprints"
+  else
+    find "/config/blueprints/" -type f -print0 | xargs -0 mv -t "/config/saved/blueprints"
+  fi
+fi
 
-cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer"
+if [ -d "/config/saves" ]; then
+  if [ $(ls "/config/saves" | wc -l) -eq 0 ]; then
+    rmdir "/config/saves"
+  else
+    find "/config/saves/" -type f -print0 | xargs -0 mv -t "/config/saved/server"
+  fi
+fi
+
+if [ -f "/config/ServerSettings.${SERVERQUERYPORT}" ]; then
+  mv "/config/ServerSettings.${SERVERQUERYPORT}" "/config/saved/ServerSettings.${SERVERQUERYPORT}"
+fi
+# temporary migration to new format
+
+cp -a "/config/saved/server/." "/config/backups/"
+cp -a "${GAMESAVESDIR}/server/." "/config/backups" # useful after the first run
+rm -rf "$GAMESAVESDIR"
+ln -sf "/config/saved" "$GAMESAVESDIR"
+cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
 
 if [ ! -f "/config/gamefiles/Engine/Binaries/Linux/UE4Server-Linux-Shipping" ]; then
     printf "Game binary is missing.\\n"

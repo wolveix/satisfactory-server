@@ -16,8 +16,8 @@ need 12GB - 16GB of RAM.
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 
 -   `/backups` - the server will automatically backup your saves when the container first starts
--   `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 15GB+ every time you want to rebuild the container
--   `/saves` - this is for the game's saves. They're copied into the container on start
+-   `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 8GB+ every time you want to rebuild the container
+-   `/saved` - this contains the game's blueprints, saves, and server configuration
 
 Before running the server image, you should find your user ID that will be running the container. This isn't necessary in most cases, but it's good to find out regardless. If you're seeing `permission denied` errors, then this is probably why. Find your ID in `Linux` by running the `id` command. Then grab the user ID (usually something like `1000`) and pass it into the `-e PGID=1000` and `-e PUID=1000` environment variables.
 
@@ -65,25 +65,23 @@ Some suggested default `values.yaml` for the k8s-at-home chart - check out the v
 ```yaml
 env:
     # Environmental variables as below can be passed in this yaml block
-    # e.g.
     AUTOPAUSE: "true"
     MAXPLAYERS: 3
 
 service:
-    main: # Example setup for a LoadBalancer with a Ip outside cluster
-          # MetalLB for example could be used if a Loadbalancer not provided by your provider.
-        type: LoadBalancer # Setting Ip external to cluster for easy port forward
+    main: # Example setup for a LoadBalancer with an external IP
+          # MetalLB for example could be used if a Loadbalancer is not provided by your provider
+        type: LoadBalancer # Setting an external IP for simple port forwarding
         externalTrafficPolicy: Cluster
         loadBalancerIP: "192.168.2.200" # IP of the satisfactory server
 
 persistence:
-    config: # Save & config data stored here
+    config: # Config/save data stored here
         enabled: true
 
-    server-cache: # Downloaded game files stored here.
+    server-cache: # Game files stored here
         # This is seperated to allow for backing up only game/config data
         enabled: true
-
 ```
 
 The `values.yaml` could then be installed to your Kubernetes cluster with the below
@@ -97,21 +95,21 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 ## Environment Variables
 
 | Parameter               |  Default  | Function                                            |
-| ----------------------- | :-------: | --------------------------------------------------- |
-| `AUTOPAUSE`             |   `true`  | pause game when no player is connected              |
+|-------------------------|:---------:|-----------------------------------------------------|
+| `AUTOPAUSE`             |  `true`   | pause game when no player is connected              |
 | `AUTOSAVEINTERVAL`      |   `300`   | autosave interval in seconds                        |
 | `AUTOSAVENUM`           |    `5`    | number of rotating autosave files                   |
-| `AUTOSAVEONDISCONNECT`  |   `true`  | autosave when last player disconnects               |
-| `CRASHREPORT`           |   `true`  | automatic crash reporting                           |
+| `AUTOSAVEONDISCONNECT`  |  `true`   | autosave when last player disconnects               |
+| `CRASHREPORT`           |  `true`   | automatic crash reporting                           |
 | `DEBUG`                 |  `false`  | for debugging the server                            |
 | `DISABLESEASONALEVENTS` |  `false`  | disable the FICSMAS event (you miserable bastard)   |
 | `MAXOBJECTS`            | `2162688` | set the object limit for your server                |
 | `MAXPLAYERS`            |    `4`    | set the player limit for your server                |
 | `NETWORKQUALITY`        |    `3`    | set the network quality/bandwidth for your server   |
-| `PGID`                  |   `1000`  | set the group ID of the user the server will run as |
-| `PUID`                  |   `1000`  | set the user ID of the user the server will run as  |
+| `PGID`                  |  `1000`   | set the group ID of the user the server will run as |
+| `PUID`                  |  `1000`   | set the user ID of the user the server will run as  |
 | `SERVERBEACONPORT`      |  `15000`  | set the game's beacon port                          |
-| `SERVERGAMEPORT`        |   `7777`  | set the game's port                                 |
+| `SERVERGAMEPORT`        |  `7777`   | set the game's port                                 |
 | `SERVERIP`              | `0.0.0.0` | set the game's ip (usually not needed)              |
 | `SERVERQUERYPORT`       |  `15777`  | set the game's query port                           |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart  |
@@ -120,7 +118,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 
 ## Loading Your Save
 
-To upload your save, connect to the server using the in-game Server Manager. From here, navigate the menus to the save manager. Upload it, then load it.
+To upload your save, connect to the server using the in-game Server Manager. From here, navigate to the save manager. Upload the save, then load it.
 
 ## Experimental Branch
 

@@ -1,16 +1,16 @@
-FROM cm2network/steamcmd:root
+FROM steamcmd/steamcmd:ubuntu-18
 
 RUN set -x \
     && apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu --no-install-recommends\
-    && rm -rf /var/lib/apt/lists/*  \
+    && rm -rf /var/lib/apt/lists/* \
+    && useradd -ms /bin/bash steam \
     && gosu nobody true
 
 RUN mkdir -p /config \
  && chown steam:steam /config
 
 COPY init.sh /
-
 COPY --chown=steam:steam *.ini run.sh /home/steam/
 
 WORKDIR /config
