@@ -24,7 +24,7 @@ Before running the server image, you should find your user ID that will be runni
 Run the Satisfactory server image like this:
 
 ```bash
-docker run -d --name=satisfactory-server -h satisfactory-server -e MAXPLAYERS=4 -e PGID=1000 -e PUID=1000 -e STEAMBETA=false -v /path/to/config:/config -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp wolveix/satisfactory-server:latest
+docker run -d --name=satisfactory-server -h satisfactory-server -e MAXPLAYERS=4 -e PGID=1000 -e PUID=1000 -e STEAMBETA=false -v /path/to/config:/config -m 16G --memory-reservation=12G -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp wolveix/satisfactory-server:latest
 ```
 
 ### Docker Compose
@@ -50,6 +50,12 @@ services:
             - PUID=1000
             - STEAMBETA=false
         restart: unless-stopped
+        deploy:
+          resources:
+            limits:
+              memory: 16G
+            reservations:
+              memory: 12G
 ```
 
 ### Kubernetes
