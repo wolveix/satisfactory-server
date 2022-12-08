@@ -106,9 +106,10 @@ fi
 # temporary migration to new format
 if [ -d "/config/blueprints" ]; then
   if [ $(ls "/config/blueprints" | wc -l) -eq 0 ]; then
-    rmdir "/config/blueprints"
+    rm -rf "/config/blueprints"
   else
-    find "/config/blueprints/" -type f -print0 | xargs -0 mv -t "/config/saved/blueprints"
+    rm -rf "/config/saved/blueprints"
+    mv "/config/blueprints" "/config/saved/blueprints"
   fi
 fi
 
