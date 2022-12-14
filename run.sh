@@ -83,9 +83,9 @@ set_ini_prop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mA
 if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
     if [[ "${STEAMBETA,,}" == "true" ]]; then
         printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
-        STEAMBETAFLAG=" -beta experimental validate"
+        STEAMBETAFLAG="experimental"
     else
-        STEAMBETAFLAG=" -beta public validate"
+        STEAMBETAFLAG="public"
     fi
 
     STORAGEAVAILABLE=$(stat -f -c "%a*%S" .)
@@ -98,26 +98,26 @@ if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
 
     printf "Downloading the latest version of the game...\\n"
 
-    steamcmd +force_install_dir /config/gamefiles +login anonymous +app_update "$STEAMAPPID" $STEAMBETAFLAG +quit
+    steamcmd +force_install_dir /config/gamefiles +login anonymous +app_update "$STEAMAPPID" -beta "$STEAMBETAFLAG" validate +quit
 else
     printf "Skipping update as flag is set\\n"
 fi
 
 # temporary migration to new format
 if [ -d "/config/blueprints" ]; then
-  if [ $(ls "/config/blueprints" | wc -l) -eq 0 ]; then
-    rm -rf "/config/blueprints"
-  else
+  if [ -n "$(ls -A "/config/blueprints" 2>/dev/null)" ]; then
     rm -rf "/config/saved/blueprints"
     mv "/config/blueprints" "/config/saved/blueprints"
+  else
+    rm -rf "/config/blueprints"
   fi
 fi
 
 if [ -d "/config/saves" ]; then
-  if [ $(ls "/config/saves" | wc -l) -eq 0 ]; then
-    rmdir "/config/saves"
+  if [ -n "$(ls -A "/config/saves" 2>/dev/null)" ]; then
+    find "/config/saves/" -type f -print0 | xargs -0 mv -t "/config/saved/server" || exit 1
   else
-    find "/config/saves/" -type f -print0 | xargs -0 mv -t "/config/saved/server"
+    rmdir "/config/saves"
   fi
 fi
 
