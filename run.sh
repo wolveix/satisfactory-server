@@ -126,8 +126,8 @@ if [ -f "/config/ServerSettings.${SERVERQUERYPORT}" ]; then
 fi
 # temporary migration to new format
 
-cp -a "/config/saved/server/." "/config/backups/"
-cp -a "${GAMESAVESDIR}/server/." "/config/backups" # useful after the first run
+cp -r "/config/saved/server/." "/config/backups/"
+cp -r "${GAMESAVESDIR}/server/." "/config/backups" # useful after the first run
 rm -rf "$GAMESAVESDIR"
 ln -sf "/config/saved" "$GAMESAVESDIR"
 cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
