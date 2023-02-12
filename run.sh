@@ -32,6 +32,14 @@ printf "Setting max objects number to %s\\n" "$MAXOBJECTS"
 set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInEditor" "$MAXOBJECTS"
 set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInGame" "$MAXOBJECTS"
 
+if ! [[ "$MAXTICKRATE" =~ $NUMCHECK ]] ; then
+    printf "Invalid max tick rate number given: %s\\n" "$MAXTICKRATE"
+    MAXTICKRATE="120"
+fi
+printf "Setting max tick rate to %s\\n" "$MAXTICKRATE"
+set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils.IpNetDriver" "NetServerMaxTickRate" "$MAXTICKRATE"
+set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils.IpNetDriver" "LanServerMaxTickRate" "$MAXTICKRATE"
+
 if ! [[ "$TIMEOUT" =~ $NUMCHECK ]] ; then
     printf "Invalid timeout number given: %s\\n" "$TIMEOUT"
     TIMEOUT="300"
