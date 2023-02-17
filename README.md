@@ -16,15 +16,19 @@ need 12GB - 16GB of RAM.
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 
 -   `/backups` - the server will automatically backup your saves when the container first starts
--   `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 8GB+ every time you want to rebuild the container
+-   `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 8GB+ every time you want to rebuild 
+the container
 -   `/saved` - this contains the game's blueprints, saves, and server configuration
 
-Before running the server image, you should find your user ID that will be running the container. This isn't necessary in most cases, but it's good to find out regardless. If you're seeing `permission denied` errors, then this is probably why. Find your ID in `Linux` by running the `id` command. Then grab the user ID (usually something like `1000`) and pass it into the `-e PGID=1000` and `-e PUID=1000` environment variables.
+Before running the server image, you should find your user ID that will be running the container. This isn't necessary in most cases, but it's good to find 
+out regardless. If you're seeing `permission denied` errors, then this is probably why. Find your ID in `Linux` by running the `id` command. Then grab the 
+user ID (usually something like `1000`) and pass it into the `-e PGID=1000` and `-e PUID=1000` environment variables.
 
 Run the Satisfactory server image like this:
 
 ```bash
-docker run -d --name=satisfactory-server -h satisfactory-server -e MAXPLAYERS=4 -e PGID=1000 -e PUID=1000 -e STEAMBETA=false -v /path/to/config:/config -m 16G --memory-reservation=12G -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp wolveix/satisfactory-server:latest
+docker run -d --name=satisfactory-server -h satisfactory-server -e MAXPLAYERS=4 -e PGID=1000 -e PUID=1000 -e STEAMBETA=false -v /path/to/config:/config -m 16G 
+--memory-reservation=12G -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp wolveix/satisfactory-server:latest
 ```
 
 ### Docker Compose
@@ -60,9 +64,14 @@ services:
 
 ### Kubernetes
 
-If you are running a [Kubernetes](https://kubernetes.io) cluster, we do have a [service.yaml](https://github.com/wolveix/satisfactory-server/cluster/service.yaml) and [statefulset.yaml](https://github.com/wolveix/satisfactory-server/cluster/statefulset.yaml) available under the [cluster](https://github.com/wolveix/satisfactory-server/cluster) directory of this repo.
+If you are running a [Kubernetes](https://kubernetes.io) cluster, we do have a 
+[service.yaml](https://github.com/wolveix/satisfactory-server/cluster/service.yaml) and 
+[statefulset.yaml](https://github.com/wolveix/satisfactory-server/cluster/statefulset.yaml) available under the 
+[cluster](https://github.com/wolveix/satisfactory-server/cluster) directory of this repo.
 
-If you are using [Helm](https://helm.sh), you can find charts for this repo on [ArtifactHUB](https://artifacthub.io/packages/search?ts_query_web=satisfactory&sort=relevance&page=1). The [k8s-at-home](https://github.com/k8s-at-home/charts) helm chart for Satisfactory can be installed with the below.
+If you are using [Helm](https://helm.sh), you can find charts for this repo on 
+[ArtifactHUB](https://artifacthub.io/packages/search?ts_query_web=satisfactory&sort=relevance&page=1). The 
+[k8s-at-home](https://github.com/k8s-at-home/charts) helm chart for Satisfactory can be installed with the below.
 
 Some suggested default `values.yaml` for the k8s-at-home chart - check out the vaules.yaml for full defaults, and the common chart for more values options.
 
@@ -101,22 +110,22 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 ## Environment Variables
 
 | Parameter               |  Default  | Function                                            |
-|-------------------------|:---------:|-----------------------------------------------------|
-| `AUTOPAUSE`             |  `true`   | pause game when no player is connected              |
+| ----------------------- | :-------: | --------------------------------------------------- |
+| `AUTOPAUSE`             |   `true`  | pause game when no player is connected              |
 | `AUTOSAVEINTERVAL`      |   `300`   | autosave interval in seconds                        |
 | `AUTOSAVENUM`           |    `5`    | number of rotating autosave files                   |
-| `AUTOSAVEONDISCONNECT`  |  `true`   | autosave when last player disconnects               |
-| `CRASHREPORT`           |  `true`   | automatic crash reporting                           |
+| `AUTOSAVEONDISCONNECT`  |   `true`  | autosave when last player disconnects               |
+| `CRASHREPORT`           |   `true`  | automatic crash reporting                           |
 | `DEBUG`                 |  `false`  | for debugging the server                            |
 | `DISABLESEASONALEVENTS` |  `false`  | disable the FICSMAS event (you miserable bastard)   |
 | `MAXOBJECTS`            | `2162688` | set the object limit for your server                |
-| `MAXTICKRATE`           |   `30`    | set the maximum sim tick rate for your server       |
 | `MAXPLAYERS`            |    `4`    | set the player limit for your server                |
+| `MAXTICKRATE`           |    `30`   | set the maximum sim tick rate for your server       |
 | `NETWORKQUALITY`        |    `3`    | set the network quality/bandwidth for your server   |
-| `PGID`                  |  `1000`   | set the group ID of the user the server will run as |
-| `PUID`                  |  `1000`   | set the user ID of the user the server will run as  |
+| `PGID`                  |   `1000`  | set the group ID of the user the server will run as |
+| `PUID`                  |   `1000`  | set the user ID of the user the server will run as  |
 | `SERVERBEACONPORT`      |  `15000`  | set the game's beacon port                          |
-| `SERVERGAMEPORT`        |  `7777`   | set the game's port                                 |
+| `SERVERGAMEPORT`        |   `7777`  | set the game's port                                 |
 | `SERVERIP`              | `0.0.0.0` | set the game's ip (usually not needed)              |
 | `SERVERQUERYPORT`       |  `15777`  | set the game's query port                           |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart  |
@@ -133,7 +142,8 @@ If you want to run a server for the Experimental version of the game, set the `S
 
 ## How to Improve the Multiplayer Experience
 
-The [Satisfactory Wiki](https://satisfactory.fandom.com/wiki/Multiplayer#Engine.ini) recommends a few config tweaks to really get the best out of multiplayer. These changes are already applied to the server, but they need to be applied to your local config too:
+The [Satisfactory Wiki](https://satisfactory.fandom.com/wiki/Multiplayer#Engine.ini) recommends a few config tweaks to really get the best out of multiplayer. 
+These changes are already applied to the server, but they need to be applied to your local config too:
 
 -   Press `WIN + R`
 -   Enter `%localappdata%/FactoryGame/Saved/Config/WindowsNoEditor`
@@ -143,5 +153,7 @@ The [Satisfactory Wiki](https://satisfactory.fandom.com/wiki/Multiplayer#Engine.
 
 ## Known Issues
 
--   The container is run as `root`. This is pretty common for Docker images, but is bad practice for security reasons. This change was made to address [permissions issues](https://github.com/wolveix/satisfactory-server/issues/44)
--   The server log will show various errors; most of which can be safely ignored. As long as the container continues to run and your log looks similar to the example log, the server should be functioning just fine: [example log](https://github.com/wolveix/satisfactory-server/blob/main/server.log)
+-   The container is run as `root`. This is pretty common for Docker images, but is bad practice for security reasons. This change was made to address 
+[permissions issues](https://github.com/wolveix/satisfactory-server/issues/44)
+-   The server log will show various errors; most of which can be safely ignored. As long as the container continues to run and your log looks similar to the 
+example log, the server should be functioning just fine: [example log](https://github.com/wolveix/satisfactory-server/blob/main/server.log)
