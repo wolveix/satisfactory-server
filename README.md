@@ -110,6 +110,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `DEBUG`                 |  `false`  | for debugging the server                            |
 | `DISABLESEASONALEVENTS` |  `false`  | disable the FICSMAS event (you miserable bastard)   |
 | `MAXOBJECTS`            | `2162688` | set the object limit for your server                |
+| `MAXTICKRATE`           |   `30`    | set the maximum sim tick rate for your server       |
 | `MAXPLAYERS`            |    `4`    | set the player limit for your server                |
 | `NETWORKQUALITY`        |    `3`    | set the network quality/bandwidth for your server   |
 | `PGID`                  |  `1000`   | set the group ID of the user the server will run as |
