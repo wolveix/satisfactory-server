@@ -7,7 +7,7 @@ set_ini_prop() {
 }
 
 set_ini_val() {
-    sed "/\[$2\]/,/^\[/ s/((\"$3\",.*))/((\"$3\", $4))/" -i "/home/steam/$1"
+    sed "s/\(\"$2\", \)[0-9]*/\1$3/" -i "/home/steam/$1"
 }
 
 NUMCHECK='^[0-9]+$'
@@ -64,11 +64,11 @@ if ! [[ "$AUTOSAVEINTERVAL" =~ $NUMCHECK ]] ; then
     AUTOSAVEINTERVAL="300"
 fi
 printf "Setting autosave interval to %ss\\n" "$AUTOSAVEINTERVAL"
-set_ini_val "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "FG.AutosaveInterval" "$AUTOSAVEINTERVAL"
+set_ini_val "GameUserSettings.ini" "FG.AutosaveInterval" "$AUTOSAVEINTERVAL"
 
 [[ "${DISABLESEASONALEVENTS,,}" == "true" ]] && DISABLESEASONALEVENTS="1" || DISABLESEASONALEVENTS="0"
 printf "Setting disable seasonal events to %s\\n" "$DISABLESEASONALEVENTS"
-set_ini_val "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "FG.DisableSeasonalEvents" "$DISABLESEASONALEVENTS"
+set_ini_val "GameUserSettings.ini" "FG.DisableSeasonalEvents" "$DISABLESEASONALEVENTS"
 
 if ! [[ "$NETWORKQUALITY" =~ $NUMCHECK ]] ; then
     printf "Invalid network quality number given: %s\\n" "$NETWORKQUALITY"
@@ -76,7 +76,7 @@ if ! [[ "$NETWORKQUALITY" =~ $NUMCHECK ]] ; then
 fi
 printf "Setting network quality number to %s\\n" "$NETWORKQUALITY"
 set_ini_prop "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "mNetworkQuality" "$NETWORKQUALITY"
-set_ini_val "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "FG.NetworkQuality" "$NETWORKQUALITY"
+set_ini_val "GameUserSettings.ini" "FG.NetworkQuality" "$NETWORKQUALITY"
 ## END GameUserSettings.ini
 
 ## START ServerSettings.ini
