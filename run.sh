@@ -2,12 +2,14 @@
 
 set -e
 
+STEAMHOME="/home/steam"
+
 set_ini_prop() {
-    sed "/\[$2\]/,/^\[/ s/$3\=.*/$3=$4/" -i "/home/steam/$1"
+    sed "/\[$2\]/,/^\[/ s/$3\=.*/$3=$4/" -i "${STEAMHOME}/$1"
 }
 
 set_ini_val() {
-    sed "/\[$2\]/,/^\[/ s/((\"$3\",.*))/((\"$3\", $4))/" -i "/home/steam/$1"
+    sed "/\[$2\]/,/^\[/ s/((\"$3\",.*))/((\"$3\", $4))/" -i "${STEAMHOME}/$1"
 }
 
 NUMCHECK='^[0-9]+$'
@@ -76,6 +78,7 @@ if ! [[ "$NETWORKQUALITY" =~ $NUMCHECK ]] ; then
 fi
 printf "Setting network quality number to %s\\n" "$NETWORKQUALITY"
 set_ini_prop "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "mNetworkQuality" "$NETWORKQUALITY"
+sed -i "s/\(\"FG.NetworkQuality\", \)[0-9]*/\1$NETWORKQUALITY/" "${STEAMHOME}/GameUserSettings.ini"
 ## END GameUserSettings.ini
 
 ## START ServerSettings.ini
