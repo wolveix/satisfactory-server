@@ -56,6 +56,21 @@ if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
 fi
 printf "Setting max players to %s\\n" "$MAXPLAYERS"
 set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "$MAXPLAYERS"
+
+# Check INITCONNECTTIMEOUT for not empty & valid input
+if [[ ! -z "$INITCONNECTTIMEOUT" && ! "$INITCONNECTTIMEOUT" =~ $NUMCHECK ]] ; then
+    printf "Invalid init connect timeout given: %s\\n" "$INITCONNECTTIMEOUT"
+elif ! [[ "$INITCONNECTTIMEOUT" -eq "0" ]]; then
+    printf "Setting Initial Connect Timeout to %s\\n" "$INITCONNECTTIMEOUT"
+fi
+
+# Check GAMECONNECTTIMEOUT for not empty & valid input
+if [[ ! -z "$GAMECONNECTTIMEOUT" && ! "$GAMECONNECTTIMEOUT" =~ $NUMCHECK ]] ; then
+    printf "Invalid game connection timeout given: %s\\n" "$GAMECONNECTTIMEOUT"
+elif ! [[ "$GAMECONNECTTIMEOUT" -eq "0" ]]; then
+    printf "Setting Game Connection Timeout to %s\\n" "$GAMECONNECTTIMEOUT"
+fi
+
 ## END Game.ini
 
 ## START GameUserSettings.ini
