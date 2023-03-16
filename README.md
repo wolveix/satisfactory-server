@@ -125,8 +125,6 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart  |
 | `STEAMBETA`             |  `false`  | set experimental game version                       |
 | `TIMEOUT`               |   `300`   | set client timeout (in seconds)                     |
-| `INITCONNECTTIMEOUT`    |   null    | GameSession.InitialConnectTimeout. not set if null  |
-| `GAMECONNECTTIMEOUT`    |   null    | GameSession.ConnectionTimeout. not set if null      |
 
 ## Loading Your Save
 
