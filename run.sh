@@ -50,6 +50,10 @@ set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils\.IpNetDriver" "Initial
 ## END Engine.ini
 
 ## START Game.ini
+# Finish setting timeout from Engine.ini
+set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "ConnectionTimeout" "$TIMEOUT"
+set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "InitialConnectTimeout" "$TIMEOUT"
+
 if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
     printf "Invalid max players given: %s\\n" "$MAXPLAYERS"
     MAXPLAYERS="4"
