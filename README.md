@@ -26,7 +26,7 @@ docker run \
 --sig-proxy=false \
 --name=satisfactory-server \
 --hostname satisfactory-server \
---restart always
+--restart unless-stopped \
 -v /path/to/config:/config \
 -e MAXPLAYERS=4 \
 -e PGID=1000 \
