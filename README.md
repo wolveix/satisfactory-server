@@ -44,8 +44,8 @@ wolveix/satisfactory-server:latest
 <details> 
 <summary>Explanation of the command:</summary>
 
-* `--detached` -> Starts the container detached from your terminal. If you
-want to see the logs replace it with `--sig-proxy=false`.
+* `--detached` -> Starts the container detached from your terminal.<br> 
+If you want to see the logs replace it with `--sig-proxy=false`.
 * `--name` -> Gives the container a unqiue name.
 * `--hostname` -> Changes the hostname of the container.
 * `--restart unless-stopped` -> Enables the restart policy that restarts the container unless it was stopped by the user.
