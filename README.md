@@ -41,19 +41,20 @@ docker run \
 wolveix/satisfactory-server:latest
 ```
 
-    <details>
-    <summary>Explanation of the command</summary>
-    * `--detached` -> Starts the container detached from your terminal.
-    If you want to see the logs replace it with `--sig-proxy=false`.
+    <details> <summary>Explanation of the command:</summary>
+    * `--detached` -> Starts the container detached from your terminal. If you
+      want to see the logs replace it with `--sig-proxy=false`.
     * `--name` -> Gives the container a unqiue name.
     * `--hostname` -> Changes the hostname of the container.
-    * `--restart unless-stopped` -> Enables the restart policy that restarts the container unless it was stopped by the user.
-    * `-v` -> Binds the satisfactory config folder to the folder you specified. Allows you to easily access your savegames.
-    * For the environment (`-e`) variables please see [here](https://github.com/wolveix/satisfactory-server#environment-variables).
+    * `--restart unless-stopped` -> Enables the restart policy that restarts
+      the container unless it was stopped by the user.
+    * `-v` -> Binds the satisfactory config folder to the folder you specified.
+      Allows you to easily access your savegames.
+    * For the environment (`-e`) variables please see
+      [here](https://github.com/wolveix/satisfactory-server#environment-variables).
     * `--memory-reservation` -> Is a memory soft limit.
     * `-m 16G` -> Limits the RAM that the container uses to 16 Gigabytes.
-    * `-p` -> Specifies the ports that the container exposes.<br>
-    Should only be changed if you know what you are doing. For more information please refer to the [docker documentation](https://docs.docker.com/engine/reference/run/).
+    * `-p` -> Specifies the ports that the container exposes.<br> 
     </details>
 
 ### Docker Compose
