@@ -145,11 +145,11 @@ rm -rf "$GAMESAVESDIR"
 ln -sf "/config/saved" "$GAMESAVESDIR"
 cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
 
-if [ ! -f "/config/gamefiles/Engine/Binaries/Linux/UE4Server-Linux-Shipping" ]; then
-    printf "Game binary is missing.\\n"
+if [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
+    printf "FactoryServer launch script is missing.\\n"
     exit 1
 fi
 
 cd /config/gamefiles || exit 1
 
-exec ./Engine/Binaries/Linux/UE4Server-Linux-Shipping FactoryGame -log -NoSteamClient -unattended ?listen -Port="$SERVERGAMEPORT" -BeaconPort="$SERVERBEACONPORT" -ServerQueryPort="$SERVERQUERYPORT" -multihome="$SERVERIP" "$@"
+exec ./FactoryServer.sh -log -NoSteamClient -unattended ?listen -Port="$SERVERGAMEPORT" -BeaconPort="$SERVERBEACONPORT" -ServerQueryPort="$SERVERQUERYPORT" -multihome="$SERVERIP" "$@"
