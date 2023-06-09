@@ -1,8 +1,8 @@
-FROM steamcmd/steamcmd:ubuntu-18
+FROM steamcmd/steamcmd:ubuntu-22
 
 RUN set -x \
  && apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu --no-install-recommends\
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu xdg-user-dirs --no-install-recommends\
  && rm -rf /var/lib/apt/lists/* \
  && useradd -ms /bin/bash steam \
  && gosu nobody true
