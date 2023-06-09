@@ -72,5 +72,5 @@ else
     usermod -u "$PUID" steam
 fi
 
-chown -R "$PUID":"$PGID" /config /home/steam
+chown -R "$PUID":"$PGID" /config /home/steam /tmp/dumps
 exec gosu "$USER" "/home/steam/run.sh" "$@"
