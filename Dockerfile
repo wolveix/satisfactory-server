@@ -1,4 +1,4 @@
-FROM steamcmd/steamcmd:ubuntu-22
+FROM steamcmd/steamcmd:ubuntu-18
 
 RUN set -x \
  && apt-get update \
