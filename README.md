@@ -124,7 +124,8 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `SERVERQUERYPORT`       |  `15777`  | set the game's query port                           |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart  |
 | `STEAMBETA`             |  `false`  | set experimental game version                       |
-| `TIMEOUT`               |   `300`   | set client timeout (in seconds)                     |
+| `TIMEOUT`               |   `30`   | set client timeout (in seconds)                     
+|
 
 ## Loading Your Save
 
