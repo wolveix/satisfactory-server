@@ -9,7 +9,7 @@ This is a Dockerized version of the [Satisfactory](https://store.steampowered.co
 
 ## Setup
 
-According to [the official wiki](https://satisfactory.fandom.com/wiki/Dedicated_servers), expect to need 12GB - 16GB of RAM.
+According to [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers), expect to need 12GB - 16GB of RAM.
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 
@@ -136,7 +136,7 @@ If you want to run a server for the Experimental version of the game, set the `S
 
 ## How to Improve the Multiplayer Experience
 
-The [Satisfactory Wiki](https://satisfactory.fandom.com/wiki/Multiplayer#Engine.ini) recommends a few config tweaks to really get the best out of multiplayer. These changes are already applied to the server, but they need to be applied to your local config too:
+The [Satisfactory Wiki](https://satisfactory.wiki.gg/wiki/Multiplayer#Engine.ini) recommends a few config tweaks to really get the best out of multiplayer. These changes are already applied to the server, but they need to be applied to your local config too:
 
 -   Press `WIN + R`
 -   Enter `%localappdata%/FactoryGame/Saved/Config/WindowsNoEditor`
