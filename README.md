@@ -28,16 +28,16 @@ docker run \
 --name=satisfactory-server \
 --hostname satisfactory-server \
 --restart unless-stopped \
--v /path/to/config:/config \
--e MAXPLAYERS=4 \
--e PGID=1000 \
--e PUID=1000 \
--e STEAMBETA=false \
+--volume /path/to/config:/config \
+--env MAXPLAYERS=4 \
+--env PGID=1000 \
+--env PUID=1000 \
+--env STEAMBETA=false \
 --memory-reservation=12G \
--m 16G \
--p 7777:7777/udp \
--p 15000:15000/udp \
--p 15777:15777/udp \
+--memory 16G \
+--publish 7777:7777/udp \
+--publish 15000:15000/udp \
+--publish 15777:15777/udp \
 wolveix/satisfactory-server:latest
 ```
 
