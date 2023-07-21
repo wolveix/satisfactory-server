@@ -19,11 +19,43 @@ You'll need to bind a local directory to the Docker container's `/config` direct
 
 Before running the server image, you should find your user ID that will be running the container. This isn't necessary in most cases, but it's good to find out regardless. If you're seeing `permission denied` errors, then this is probably why. Find your ID in `Linux` by running the `id` command. Then grab the user ID (usually something like `1000`) and pass it into the `-e PGID=1000` and `-e PUID=1000` environment variables.
 
-Run the Satisfactory server image like this:
+Run the Satisfactory server image like this:<br>
+Note: This is one command make sure to copy all of it!
 
 ```bash
-docker run -d --name=satisfactory-server -h satisfactory-server -e MAXPLAYERS=4 -e PGID=1000 -e PUID=1000 -e STEAMBETA=false -v /path/to/config:/config -m 16G --memory-reservation=12G -p 7777:7777/udp -p 15000:15000/udp -p 15777:15777/udp wolveix/satisfactory-server:latest
+docker run \
+--detached \
+--name=satisfactory-server \
+--hostname satisfactory-server \
+--restart unless-stopped \
+--volume /path/to/config:/config \
+--env MAXPLAYERS=4 \
+--env PGID=1000 \
+--env PUID=1000 \
+--env STEAMBETA=false \
+--memory-reservation=12G \
+--memory 16G \
+--publish 7777:7777/udp \
+--publish 15000:15000/udp \
+--publish 15777:15777/udp \
+wolveix/satisfactory-server:latest
 ```
+
+<details> 
+<summary>Explanation of the command:</summary>
+
+* `--detached` -> Starts the container detached from your terminal.<br> 
+If you want to see the logs replace it with `--sig-proxy=false`.
+* `--name` -> Gives the container a unqiue name.
+* `--hostname` -> Changes the hostname of the container.
+* `--restart unless-stopped` -> Enables the restart policy that restarts the container unless it was stopped by the user.
+* `--volume` -> Binds the satisfactory config folder to the folder you specified.
+Allows you to easily access your savegames.
+* For the environment (`--env`) variables please see [here](https://github.com/wolveix/satisfactory-server#environment-variables).
+* `--memory-reservation` -> Is a memory soft limit.
+* `--memory 16G` -> Limits the RAM that the container uses to 16 Gigabytes.
+* `--publish` -> Specifies the ports that the container exposes.<br> 
+</details>
 
 ### Docker Compose
 
