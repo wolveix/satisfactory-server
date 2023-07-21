@@ -9,7 +9,7 @@ This is a Dockerized version of the [Satisfactory](https://store.steampowered.co
 
 ## Setup
 
-According to [the official wiki](https://satisfactory.fandom.com/wiki/Dedicated_servers), expect to need 12GB - 16GB of RAM.
+According to [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers), expect to need 12GB - 16GB of RAM.
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 
@@ -156,7 +156,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `SERVERQUERYPORT`       |  `15777`  | set the game's query port                           |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart  |
 | `STEAMBETA`             |  `false`  | set experimental game version                       |
-| `TIMEOUT`               |   `300`   | set client timeout (in seconds)                     |
+| `TIMEOUT`               |   `30`   | set client timeout (in seconds)                      |
 
 ## Loading Your Save
 
@@ -168,7 +168,7 @@ If you want to run a server for the Experimental version of the game, set the `S
 
 ## How to Improve the Multiplayer Experience
 
-The [Satisfactory Wiki](https://satisfactory.fandom.com/wiki/Multiplayer#Engine.ini) recommends a few config tweaks to really get the best out of multiplayer. These changes are already applied to the server, but they need to be applied to your local config too:
+The [Satisfactory Wiki](https://satisfactory.wiki.gg/wiki/Multiplayer#Engine.ini) recommends a few config tweaks to really get the best out of multiplayer. These changes are already applied to the server, but they need to be applied to your local config too:
 
 -   Press `WIN + R`
 -   Enter `%localappdata%/FactoryGame/Saved/Config/WindowsNoEditor`
@@ -180,3 +180,7 @@ The [Satisfactory Wiki](https://satisfactory.fandom.com/wiki/Multiplayer#Engine.
 
 -   The container is run as `root`. This is pretty common for Docker images, but is bad practice for security reasons. This change was made to address [permissions issues](https://github.com/wolveix/satisfactory-server/issues/44)
 -   The server log will show various errors; most of which can be safely ignored. As long as the container continues to run and your log looks similar to the example log, the server should be functioning just fine: [example log](https://github.com/wolveix/satisfactory-server/blob/main/server.log)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=wolveix/satisfactory-server&type=Date)](https://star-history.com/#wolveix/satisfactory-server&Date)

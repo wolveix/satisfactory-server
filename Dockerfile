@@ -2,7 +2,7 @@ FROM steamcmd/steamcmd:ubuntu-18
 
 RUN set -x \
  && apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu --no-install-recommends\
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu xdg-user-dirs --no-install-recommends\
  && rm -rf /var/lib/apt/lists/* \
  && useradd -ms /bin/bash steam \
  && gosu nobody true
@@ -26,7 +26,7 @@ ENV AUTOPAUSE="true" \
     GAMESAVESDIR="/home/steam/.config/Epic/FactoryGame/Saved/SaveGames" \
     MAXOBJECTS="2162688" \
     MAXPLAYERS="4" \
-    MAXTICKRATE="120" \
+    MAXTICKRATE="30" \
     NETWORKQUALITY="3" \
     PGID="1000" \
     PUID="1000" \
@@ -37,7 +37,7 @@ ENV AUTOPAUSE="true" \
     SKIPUPDATE="false" \
     STEAMAPPID="1690800" \
     STEAMBETA="false" \
-    TIMEOUT="300"
+    TIMEOUT="30"
 
 EXPOSE 7777/udp 15000/udp 15777/udp
 
