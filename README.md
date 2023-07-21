@@ -9,7 +9,7 @@ This is a Dockerized version of the [Satisfactory](https://store.steampowered.co
 
 ## Setup
 
-According to [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers), expect to need 12GB - 16GB of RAM.
+According to [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers), expect to need 2GB - 5GB of RAM.
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 
@@ -34,7 +34,7 @@ docker run \
 --env PUID=1000 \
 --env STEAMBETA=false \
 --memory-reservation=12G \
---memory 16G \
+--memory 5G \
 --publish 7777:7777/udp \
 --publish 15000:15000/udp \
 --publish 15777:15777/udp \
@@ -53,7 +53,7 @@ If you want to see the logs replace it with `--sig-proxy=false`.
 Allows you to easily access your savegames.
 * For the environment (`--env`) variables please see [here](https://github.com/wolveix/satisfactory-server#environment-variables).
 * `--memory-reservation` -> Is a memory soft limit.
-* `--memory 16G` -> Limits the RAM that the container uses to 16 Gigabytes.
+* `--memory 5G` -> Limits the RAM that the container uses to 5 Gigabytes.
 * `--publish` -> Specifies the ports that the container exposes.<br> 
 </details>
 
@@ -83,7 +83,7 @@ services:
         deploy:
           resources:
             limits:
-              memory: 16G
+              memory: 5G
             reservations:
               memory: 12G
 ```
