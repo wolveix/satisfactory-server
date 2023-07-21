@@ -49,12 +49,12 @@ If you want to see the logs replace it with `--sig-proxy=false`.
 * `--name` -> Gives the container a unqiue name.
 * `--hostname` -> Changes the hostname of the container.
 * `--restart unless-stopped` -> Enables the restart policy that restarts the container unless it was stopped by the user.
-* `-v` -> Binds the satisfactory config folder to the folder you specified.
+* `--volume` -> Binds the satisfactory config folder to the folder you specified.
 Allows you to easily access your savegames.
 * For the environment (`-e`) variables please see [here](https://github.com/wolveix/satisfactory-server#environment-variables).
 * `--memory-reservation` -> Is a memory soft limit.
-* `-m 16G` -> Limits the RAM that the container uses to 16 Gigabytes.
-* `-p` -> Specifies the ports that the container exposes.<br> 
+* `--memory 16G` -> Limits the RAM that the container uses to 16 Gigabytes.
+* `--publish` -> Specifies the ports that the container exposes.<br> 
 </details>
 
 ### Docker Compose
