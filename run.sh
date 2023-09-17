@@ -93,6 +93,10 @@ printf "Setting autosave on disconnect to %s\\n" "${AUTOSAVEONDISCONNECT^}"
 set_ini_prop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mAutoSaveOnDisconnect" "${AUTOSAVEONDISCONNECT^}"
 ## END ServerSettings.ini
 
+if [ -n "$SERVERIP" ]; then
+    SERVERIP="-multihome \"$SERVERIP\""
+fi
+
 if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
     if [[ "${STEAMBETA,,}" == "true" ]]; then
         printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
@@ -152,4 +156,4 @@ fi
 
 cd /config/gamefiles || exit 1
 
-exec ./FactoryServer.sh -log -NoSteamClient -unattended ?listen -Port="$SERVERGAMEPORT" -BeaconPort="$SERVERBEACONPORT" -ServerQueryPort="$SERVERQUERYPORT" -multihome="$SERVERIP" "$@"
+exec ./FactoryServer.sh -log -NoSteamClient -unattended ?listen -Port="$SERVERGAMEPORT" -BeaconPort="$SERVERBEACONPORT" -ServerQueryPort="$SERVERQUERYPORT" $SERVERIP "$@"
