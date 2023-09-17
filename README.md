@@ -152,7 +152,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `PUID`                  |   `1000`  | set the user ID of the user the server will run as  |
 | `SERVERBEACONPORT`      |  `15000`  | set the game's beacon port                          |
 | `SERVERGAMEPORT`        |   `7777`  | set the game's port                                 |
-| `SERVERIP`              | `0.0.0.0` | set the game's ip (usually not needed)              |
+| `SERVERIP`              |     ``    | set the game's ip (usually not needed)              |
 | `SERVERQUERYPORT`       |  `15777`  | set the game's query port                           |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart  |
 | `STEAMBETA`             |  `false`  | set experimental game version                       |
