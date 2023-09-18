@@ -36,6 +36,7 @@ fi
 mkdir -p \
     /config/backups \
     /config/gamefiles \
+    /config/overrides \
     /config/saved/blueprints \
     /config/saved/server \
     "${GAMECONFIGDIR}/Config/LinuxServer" \
