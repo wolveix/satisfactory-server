@@ -153,11 +153,15 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `PUID`                  |  `1000`   | set the user ID of the user the server will run as  |
 | `SERVERBEACONPORT`      |  `15000`  | set the game's beacon port                          |
 | `SERVERGAMEPORT`        |  `7777`   | set the game's port                                 |
-| `SERVERIP`              |    ` `    | set the game's ip (usually not needed)              |
+| `SERVERIP`              | `0.0.0.0` | set the game's ip (usually not needed)              |
 | `SERVERQUERYPORT`       |  `15777`  | set the game's query port                           |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart  |
 | `STEAMBETA`             |  `false`  | set experimental game version                       |
 | `TIMEOUT`               |   `30`    | set client timeout (in seconds)                     |
+
+## Experimental Branch
+
+If you want to run a server for the Experimental version of the game, set the `STEAMBETA` environment variable to `true`.
 
 ## Configuration Overrides
 
@@ -165,9 +169,9 @@ While we've made most of the common configuration options through the `.ini` fil
 
 **Do note that doing this disables the environment variables specific to the file in question.**
 
-## Experimental Branch
+## IPv6 Support
 
-If you want to run a server for the Experimental version of the game, set the `STEAMBETA` environment variable to `true`.
+If you want to use IPv6, set the `SERVERIP` variable to empty or to your IPv6 address. By default, we set this to `0.0.0.0` which means that the server will bind to IPv4.
 
 ## How to Improve the Multiplayer Experience
 
