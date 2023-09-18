@@ -161,7 +161,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 
 ## Configuration Overrides
 
-While we've made most of the common configuration options through the `.ini` files configurable through environment variables, you may have a niche requirement that we hadn't considered or may not be used by most people. In which case, please your own version of the `.ini` file into `/config/overrides` and the container will use your version instead.
+While we've made most of the common configuration options through the `.ini` files configurable through environment variables, you may have a niche requirement that we hadn't considered or may not be used by most people. In which case, please place your version of the `.ini` file into the `/config/overrides` directory and the container will use this instead.
 
 **Do note that doing this disables the environment variables specific to the file in question.**
 
