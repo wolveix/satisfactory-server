@@ -9,12 +9,13 @@ This is a Dockerized version of the [Satisfactory](https://store.steampowered.co
 
 ## Setup
 
-According to [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers), expect to need 3GB - 5GB of RAM.
+According to [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers#Requirements), expect to need 12GB - 16GB of RAM.
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 
 -   `/backups` - the server will automatically backup your saves when the container first starts
 -   `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload 8GB+ every time you want to rebuild the container
+-   `/overrides` - this is for custom `.ini` configuration file overrides
 -   `/saved` - this contains the game's blueprints, saves, and server configuration
 
 Before running the server image, you should find your user ID that will be running the container. This isn't necessary in most cases, but it's good to find out regardless. If you're seeing `permission denied` errors, then this is probably why. Find your ID in `Linux` by running the `id` command. Then grab the user ID (usually something like `1000`) and pass it into the `-e PGID=1000` and `-e PUID=1000` environment variables.
@@ -136,35 +137,41 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 ## Environment Variables
 
 | Parameter               |  Default  | Function                                            |
-| ----------------------- | :-------: | --------------------------------------------------- |
-| `AUTOPAUSE`             |   `true`  | pause game when no player is connected              |
+|-------------------------|:---------:|-----------------------------------------------------|
+| `AUTOPAUSE`             |  `true`   | pause game when no player is connected              |
 | `AUTOSAVEINTERVAL`      |   `300`   | autosave interval in seconds                        |
 | `AUTOSAVENUM`           |    `5`    | number of rotating autosave files                   |
-| `AUTOSAVEONDISCONNECT`  |   `true`  | autosave when last player disconnects               |
-| `CRASHREPORT`           |   `true`  | automatic crash reporting                           |
+| `AUTOSAVEONDISCONNECT`  |  `true`   | autosave when last player disconnects               |
+| `CRASHREPORT`           |  `true`   | automatic crash reporting                           |
 | `DEBUG`                 |  `false`  | for debugging the server                            |
 | `DISABLESEASONALEVENTS` |  `false`  | disable the FICSMAS event (you miserable bastard)   |
 | `MAXOBJECTS`            | `2162688` | set the object limit for your server                |
 | `MAXPLAYERS`            |    `4`    | set the player limit for your server                |
-| `MAXTICKRATE`           |    `30`   | set the maximum sim tick rate for your server       |
+| `MAXTICKRATE`           |   `30`    | set the maximum sim tick rate for your server       |
 | `NETWORKQUALITY`        |    `3`    | set the network quality/bandwidth for your server   |
-| `PGID`                  |   `1000`  | set the group ID of the user the server will run as |
-| `PUID`                  |   `1000`  | set the user ID of the user the server will run as  |
+| `PGID`                  |  `1000`   | set the group ID of the user the server will run as |
+| `PUID`                  |  `1000`   | set the user ID of the user the server will run as  |
 | `SERVERBEACONPORT`      |  `15000`  | set the game's beacon port                          |
-| `SERVERGAMEPORT`        |   `7777`  | set the game's port                                 |
+| `SERVERGAMEPORT`        |  `7777`   | set the game's port                                 |
 | `SERVERIP`              | `0.0.0.0` | set the game's ip (usually not needed)              |
 | `SERVERQUERYPORT`       |  `15777`  | set the game's query port                           |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart  |
 | `STEAMBETA`             |  `false`  | set experimental game version                       |
-| `TIMEOUT`               |   `30`   | set client timeout (in seconds)                      |
-
-## Loading Your Save
-
-To upload your save, connect to the server using the in-game Server Manager. From here, navigate to the save manager. Upload the save, then load it.
+| `TIMEOUT`               |   `30`    | set client timeout (in seconds)                     |
 
 ## Experimental Branch
 
 If you want to run a server for the Experimental version of the game, set the `STEAMBETA` environment variable to `true`.
+
+## Configuration Overrides
+
+While we've made most of the common configuration options through the `.ini` files configurable through environment variables, you may have a niche requirement that we hadn't considered or may not be used by most people. In which case, please place your version of the `.ini` file into the `/config/overrides` directory and the container will use this instead.
+
+**Do note that doing this disables the environment variables specific to the file in question.**
+
+## IPv6 Support
+
+If you want to use IPv6, set the `SERVERIP` variable to empty or to your IPv6 address. By default, we set this to `0.0.0.0` which means that the server will bind to IPv4.
 
 ## How to Improve the Multiplayer Experience
 

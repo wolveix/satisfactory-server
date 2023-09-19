@@ -12,86 +12,114 @@ set_ini_val() {
 
 NUMCHECK='^[0-9]+$'
 
-## START Engine.ini
-if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]] ; then
-    printf "Invalid autosave number given: %s\\n" "$AUTOSAVENUM"
-    AUTOSAVENUM="3"
+if [ -f "/config/overrides/Engine.ini" ]; then
+    echo "Config override /config/overrides/Engine.ini exists, ignoring environment variables"
+    cp /config/overrides/Engine.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
+else
+    if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]] ; then
+        printf "Invalid autosave number given: %s\\n" "$AUTOSAVENUM"
+        AUTOSAVENUM="3"
+    fi
+    printf "Setting autosave number to %s\\n" "$AUTOSAVENUM"
+    set_ini_prop "Engine.ini" "\/Script\/FactoryGame\.FGSaveSession" "mNumRotatingAutosaves" "$AUTOSAVENUM"
+
+    [[ "${CRASHREPORT,,}" == "true" ]] && CRASHREPORT="true" || CRASHREPORT="false"
+    printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
+    set_ini_prop "Engine.ini" "CrashReportClient" "bImplicitSend" "${CRASHREPORT^}"
+
+    if ! [[ "$MAXOBJECTS" =~ $NUMCHECK ]] ; then
+        printf "Invalid max objects number given: %s\\n" "$MAXOBJECTS"
+        MAXOBJECTS="2162688"
+    fi
+    printf "Setting max objects number to %s\\n" "$MAXOBJECTS"
+    set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInEditor" "$MAXOBJECTS"
+    set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInGame" "$MAXOBJECTS"
+
+    if ! [[ "$MAXTICKRATE" =~ $NUMCHECK ]] ; then
+        printf "Invalid max tick rate number given: %s\\n" "$MAXTICKRATE"
+        MAXTICKRATE="120"
+    fi
+    printf "Setting max tick rate to %s\\n" "$MAXTICKRATE"
+    set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils.IpNetDriver" "NetServerMaxTickRate" "$MAXTICKRATE"
+    set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils.IpNetDriver" "LanServerMaxTickRate" "$MAXTICKRATE"
+
+    if ! [[ "$TIMEOUT" =~ $NUMCHECK ]] ; then
+        printf "Invalid timeout number given: %s\\n" "$TIMEOUT"
+        TIMEOUT="300"
+    fi
+    printf "Setting timeout number to %s\\n" "$TIMEOUT"
+    set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils\.IpNetDriver" "ConnectionTimeout" "$TIMEOUT"
+    set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils\.IpNetDriver" "InitialConnectTimeout" "$TIMEOUT"
+
+    cp /home/steam/Engine.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
 fi
-printf "Setting autosave number to %s\\n" "$AUTOSAVENUM"
-set_ini_prop "Engine.ini" "\/Script\/FactoryGame\.FGSaveSession" "mNumRotatingAutosaves" "$AUTOSAVENUM"
 
-[[ "${CRASHREPORT,,}" == "true" ]] && CRASHREPORT="true" || CRASHREPORT="false"
-printf "Setting crash reporting to %s\\n" "${CRASHREPORT^}"
-set_ini_prop "Engine.ini" "CrashReportClient" "bImplicitSend" "${CRASHREPORT^}"
+if [ -f "/config/overrides/Game.ini" ]; then
+    echo "Config override /config/overrides/Game.ini exists, ignoring environment variables"
+    cp /config/overrides/Game.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
+else
+    if ! [[ "$TIMEOUT" =~ $NUMCHECK ]] ; then
+        printf "Invalid timeout number given: %s\\n" "$TIMEOUT"
+        TIMEOUT="300"
+    fi
+    printf "Setting timeout number to %s\\n" "$TIMEOUT"
+    set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "ConnectionTimeout" "$TIMEOUT"
+    set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "InitialConnectTimeout" "$TIMEOUT"
 
-if ! [[ "$MAXOBJECTS" =~ $NUMCHECK ]] ; then
-    printf "Invalid max objects number given: %s\\n" "$MAXOBJECTS"
-    MAXOBJECTS="2162688"
+    if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
+        printf "Invalid max players given: %s\\n" "$MAXPLAYERS"
+        MAXPLAYERS="4"
+    fi
+    printf "Setting max players to %s\\n" "$MAXPLAYERS"
+    set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "$MAXPLAYERS"
+
+    cp /home/steam/Game.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
 fi
-printf "Setting max objects number to %s\\n" "$MAXOBJECTS"
-set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInEditor" "$MAXOBJECTS"
-set_ini_prop "Engine.ini" "\/Script\/Engine\.GarbageCollectionSettings" "gc.MaxObjectsInGame" "$MAXOBJECTS"
 
-if ! [[ "$MAXTICKRATE" =~ $NUMCHECK ]] ; then
-    printf "Invalid max tick rate number given: %s\\n" "$MAXTICKRATE"
-    MAXTICKRATE="120"
+if [ -f "/config/overrides/GameUserSettings.ini" ]; then
+    echo "Config override /config/overrides/GameUserSettings.ini exists, ignoring environment variables"
+    cp /config/overrides/GameUserSettings.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
+else
+    if ! [[ "$AUTOSAVEINTERVAL" =~ $NUMCHECK ]] ; then
+        printf "Invalid autosave interval given: %s\\n" "$AUTOSAVEINTERVAL"
+        AUTOSAVEINTERVAL="300"
+    fi
+    printf "Setting autosave interval to %ss\\n" "$AUTOSAVEINTERVAL"
+    set_ini_val "GameUserSettings.ini" "FG.AutosaveInterval" "$AUTOSAVEINTERVAL"
+
+    [[ "${DISABLESEASONALEVENTS,,}" == "true" ]] && DISABLESEASONALEVENTS="1" || DISABLESEASONALEVENTS="0"
+    printf "Setting disable seasonal events to %s\\n" "$DISABLESEASONALEVENTS"
+    set_ini_val "GameUserSettings.ini" "FG.DisableSeasonalEvents" "$DISABLESEASONALEVENTS"
+
+    if ! [[ "$NETWORKQUALITY" =~ $NUMCHECK ]] ; then
+        printf "Invalid network quality number given: %s\\n" "$NETWORKQUALITY"
+        NETWORKQUALITY="3"
+    fi
+    printf "Setting network quality number to %s\\n" "$NETWORKQUALITY"
+    set_ini_prop "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "mNetworkQuality" "$NETWORKQUALITY"
+    set_ini_val "GameUserSettings.ini" "FG.NetworkQuality" "$NETWORKQUALITY"
+
+    cp /home/steam/GameUserSettings.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
 fi
-printf "Setting max tick rate to %s\\n" "$MAXTICKRATE"
-set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils.IpNetDriver" "NetServerMaxTickRate" "$MAXTICKRATE"
-set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils.IpNetDriver" "LanServerMaxTickRate" "$MAXTICKRATE"
 
-if ! [[ "$TIMEOUT" =~ $NUMCHECK ]] ; then
-    printf "Invalid timeout number given: %s\\n" "$TIMEOUT"
-    TIMEOUT="300"
+if [ -f "/config/overrides/ServerSettings.ini" ]; then
+    echo "Config override /config/overrides/ServerSettings.ini exists, ignoring environment variables"
+    cp /config/overrides/ServerSettings.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
+else
+    [[ "${AUTOPAUSE,,}" == "true" ]] && AUTOPAUSE="true" || AUTOPAUSE="false"
+    printf "Setting auto pause to %s\\n" "${AUTOPAUSE^}"
+    set_ini_prop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mAutoPause" "${AUTOPAUSE^}"
+
+    [[ "${AUTOSAVEONDISCONNECT,,}" == "true" ]] && AUTOSAVEONDISCONNECT="true" || AUTOSAVEONDISCONNECT="false"
+    printf "Setting autosave on disconnect to %s\\n" "${AUTOSAVEONDISCONNECT^}"
+    set_ini_prop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mAutoSaveOnDisconnect" "${AUTOSAVEONDISCONNECT^}"
+
+    cp /home/steam/ServerSettings.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
 fi
-printf "Setting timeout number to %s\\n" "$TIMEOUT"
-set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils\.IpNetDriver" "ConnectionTimeout" "$TIMEOUT"
-set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils\.IpNetDriver" "InitialConnectTimeout" "$TIMEOUT"
-## END Engine.ini
 
-## START Game.ini
-# Finish setting timeout from Engine.ini
-set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "ConnectionTimeout" "$TIMEOUT"
-set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "InitialConnectTimeout" "$TIMEOUT"
-
-if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
-    printf "Invalid max players given: %s\\n" "$MAXPLAYERS"
-    MAXPLAYERS="4"
+if [ -n "$SERVERIP" ]; then
+    SERVERIP="-multihome \"$SERVERIP\""
 fi
-printf "Setting max players to %s\\n" "$MAXPLAYERS"
-set_ini_prop "Game.ini" "\/Script\/Engine\.GameSession" "MaxPlayers" "$MAXPLAYERS"
-## END Game.ini
-
-## START GameUserSettings.ini
-if ! [[ "$AUTOSAVEINTERVAL" =~ $NUMCHECK ]] ; then
-    printf "Invalid autosave interval given: %s\\n" "$AUTOSAVEINTERVAL"
-    AUTOSAVEINTERVAL="300"
-fi
-printf "Setting autosave interval to %ss\\n" "$AUTOSAVEINTERVAL"
-set_ini_val "GameUserSettings.ini" "FG.AutosaveInterval" "$AUTOSAVEINTERVAL"
-
-[[ "${DISABLESEASONALEVENTS,,}" == "true" ]] && DISABLESEASONALEVENTS="1" || DISABLESEASONALEVENTS="0"
-printf "Setting disable seasonal events to %s\\n" "$DISABLESEASONALEVENTS"
-set_ini_val "GameUserSettings.ini" "FG.DisableSeasonalEvents" "$DISABLESEASONALEVENTS"
-
-if ! [[ "$NETWORKQUALITY" =~ $NUMCHECK ]] ; then
-    printf "Invalid network quality number given: %s\\n" "$NETWORKQUALITY"
-    NETWORKQUALITY="3"
-fi
-printf "Setting network quality number to %s\\n" "$NETWORKQUALITY"
-set_ini_prop "GameUserSettings.ini" "\/Script\/FactoryGame\.FGGameUserSettings" "mNetworkQuality" "$NETWORKQUALITY"
-set_ini_val "GameUserSettings.ini" "FG.NetworkQuality" "$NETWORKQUALITY"
-## END GameUserSettings.ini
-
-## START ServerSettings.ini
-[[ "${AUTOPAUSE,,}" == "true" ]] && AUTOPAUSE="true" || AUTOPAUSE="false"
-printf "Setting auto pause to %s\\n" "${AUTOPAUSE^}"
-set_ini_prop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mAutoPause" "${AUTOPAUSE^}"
-
-[[ "${AUTOSAVEONDISCONNECT,,}" == "true" ]] && AUTOSAVEONDISCONNECT="true" || AUTOSAVEONDISCONNECT="false"
-printf "Setting autosave on disconnect to %s\\n" "${AUTOSAVEONDISCONNECT^}"
-set_ini_prop "ServerSettings.ini" "\/Script\/FactoryGame\.FGServerSubsystem" "mAutoSaveOnDisconnect" "${AUTOSAVEONDISCONNECT^}"
-## END ServerSettings.ini
 
 if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
     if [[ "${STEAMBETA,,}" == "true" ]]; then
@@ -143,7 +171,6 @@ cp -r "/config/saved/server/." "/config/backups/"
 cp -r "${GAMESAVESDIR}/server/." "/config/backups" # useful after the first run
 rm -rf "$GAMESAVESDIR"
 ln -sf "/config/saved" "$GAMESAVESDIR"
-cp /home/steam/*.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
 
 if [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
     printf "FactoryServer launch script is missing.\\n"
@@ -152,4 +179,4 @@ fi
 
 cd /config/gamefiles || exit 1
 
-exec ./FactoryServer.sh -log -NoSteamClient -unattended ?listen -Port="$SERVERGAMEPORT" -BeaconPort="$SERVERBEACONPORT" -ServerQueryPort="$SERVERQUERYPORT" -multihome="$SERVERIP" "$@"
+exec ./FactoryServer.sh -Port="$SERVERGAMEPORT" -BeaconPort="$SERVERBEACONPORT" -ServerQueryPort="$SERVERQUERYPORT" $SERVERIP "$@"
