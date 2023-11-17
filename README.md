@@ -34,8 +34,8 @@ docker run \
 --env PGID=1000 \
 --env PUID=1000 \
 --env STEAMBETA=false \
---memory-reservation=12G \
---memory 5G \
+--memory-reservation=4G \
+--memory 6G \
 --publish 7777:7777/udp \
 --publish 15000:15000/udp \
 --publish 15777:15777/udp \
@@ -53,8 +53,8 @@ If you want to see the logs replace it with `--sig-proxy=false`.
 * `--volume` -> Binds the satisfactory config folder to the folder you specified.
 Allows you to easily access your savegames.
 * For the environment (`--env`) variables please see [here](https://github.com/wolveix/satisfactory-server#environment-variables).
-* `--memory-reservation` -> Is a memory soft limit.
-* `--memory 5G` -> Limits the RAM that the container uses to 16 Gigabytes.
+* `--memory-reservation=4G` -> Is a memory soft limit.
+* `--memory 6G` -> Limits the RAM that the container uses to 16 Gigabytes.
 * `--publish` -> Specifies the ports that the container exposes.<br> 
 </details>
 
@@ -84,9 +84,9 @@ services:
         deploy:
           resources:
             limits:
-              memory: 5G
+              memory: 6G
             reservations:
-              memory: 12G
+              memory: 4G
 ```
 
 ### Kubernetes
