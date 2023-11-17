@@ -118,7 +118,7 @@ else
 fi
 
 if [ -n "$SERVERIP" ]; then
-    SERVERIP="-multihome \"$SERVERIP\""
+    SERVERIP="-multihome=\"$SERVERIP\""
 fi
 
 if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
