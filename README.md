@@ -54,7 +54,7 @@ If you want to see the logs replace it with `--sig-proxy=false`.
 Allows you to easily access your savegames.
 * For the environment (`--env`) variables please see [here](https://github.com/wolveix/satisfactory-server#environment-variables).
 * `--memory-reservation=4G` -> Is a memory soft limit.
-* `--memory 6G` -> Limits the RAM that the container uses to 16 Gigabytes.
+* `--memory 6G` -> Limits the RAM that the container uses to 6 Gigabytes.
 * `--publish` -> Specifies the ports that the container exposes.<br> 
 </details>
 
