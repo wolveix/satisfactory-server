@@ -9,7 +9,7 @@ This is a Dockerized version of the [Satisfactory](https://store.steampowered.co
 
 ## Setup
 
-Update 8 dropped the average RAM utilization to 4GB - 6GB, but according to [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers#Requirements), expect to need 12GB - 16GB of RAM.
+Recent updates consume 4GB - 6GB RAM, but [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers#Requirements) recommends allocating 12GB - 16GB RAM.
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 
@@ -20,8 +20,7 @@ You'll need to bind a local directory to the Docker container's `/config` direct
 
 Before running the server image, you should find your user ID that will be running the container. This isn't necessary in most cases, but it's good to find out regardless. If you're seeing `permission denied` errors, then this is probably why. Find your ID in `Linux` by running the `id` command. Then grab the user ID (usually something like `1000`) and pass it into the `-e PGID=1000` and `-e PUID=1000` environment variables.
 
-Run the Satisfactory server image like this:<br>
-Note: This is one command make sure to copy all of it!
+Run the Satisfactory server image like this (this is one command, make sure to copy all of it):<br>
 
 ```bash
 docker run \
@@ -43,19 +42,19 @@ wolveix/satisfactory-server:latest
 ```
 
 <details> 
-<summary>Explanation of the command:</summary>
+<summary>Explanation of the command</summary>
 
-* `--detached` -> Starts the container detached from your terminal.<br> 
-If you want to see the logs replace it with `--sig-proxy=false`.
-* `--name` -> Gives the container a unqiue name.
-* `--hostname` -> Changes the hostname of the container.
-* `--restart unless-stopped` -> Enables the restart policy that restarts the container unless it was stopped by the user.
-* `--volume` -> Binds the satisfactory config folder to the folder you specified.
-Allows you to easily access your savegames.
-* For the environment (`--env`) variables please see [here](https://github.com/wolveix/satisfactory-server#environment-variables).
-* `--memory-reservation=4G` -> Is a memory soft limit.
-* `--memory 6G` -> Limits the RAM that the container uses to 6GB.
-* `--publish` -> Specifies the ports that the container exposes.<br> 
+* `--detached` -> Starts the container detached from your terminal<br> 
+If you want to see the logs replace it with `--sig-proxy=false`
+* `--name` -> Gives the container a unqiue name
+* `--hostname` -> Changes the hostname of the container
+* `--restart unless-stopped` -> Automatically restarts the container unless the container was manually stopped
+* `--volume` -> Binds the Satisfactory config folder to the folder you specified
+Allows you to easily access your savegames
+* For the environment (`--env`) variables please see [here](https://github.com/wolveix/satisfactory-server#environment-variables)
+* `--memory-reservation=4G` -> Reserves 4GB RAM from the host for the container's use
+* `--memory 6G` -> Restricts the container to 6GB RAM
+* `--publish` -> Specifies the ports that the container exposes<br> 
 </details>
 
 ### Docker Compose
