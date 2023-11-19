@@ -9,7 +9,7 @@ This is a Dockerized version of the [Satisfactory](https://store.steampowered.co
 
 ## Setup
 
-Update 8 dropped the average RAM utilization to ~6GB, but according to [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers#Requirements), expect to need 12GB - 16GB of RAM.
+Update 8 dropped the average RAM utilization to 4GB - 6GB, but according to [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers#Requirements), expect to need 12GB - 16GB of RAM.
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the following directories:
 
