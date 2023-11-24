@@ -31,8 +31,6 @@ if [[ $(lscpu | grep 'Model name:' | sed 's/Model name:[[:space:]]*//g') = "Comm
     exit 1
 fi
 
-exit 0
-
 if [[ "$CURRENTUID" -ne "0" ]]; then
     printf "${MSGERROR} Current user is not root (%s)\\nPass your user and group to the container using the PGID and PUID environment variables\\nDo not use the --user flag (or user: field in Docker Compose)\\n" "$CURRENTUID"
     exit 1
