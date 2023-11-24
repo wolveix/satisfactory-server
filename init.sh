@@ -3,8 +3,8 @@
 set -e
 
 CURRENTUID=$(id -u)
-MSGERROR="$(tput setaf 1)ERROR:$(tput sgr0)"
-MSGWARNING="$(tput setaf 3)WARNING:$(tput sgr0)"
+MSGERROR="\033[0;31mERROR:\033[0m"
+MSGWARNING="\033[0;33mWARNING:\033[0m"
 NUMCHECK='^[0-9]+$'
 RAMAVAILABLE=$(awk '/MemAvailable/ {printf( "%d\n", $2 / 1024000 )}' /proc/meminfo)
 USER="steam"
