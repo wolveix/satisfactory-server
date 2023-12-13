@@ -37,7 +37,8 @@ ENV AUTOPAUSE="true" \
     SKIPUPDATE="false" \
     STEAMAPPID="1690800" \
     STEAMBETA="false" \
-    TIMEOUT="30"
+    TIMEOUT="30"\
+    ROOTLESS="false"
 
 EXPOSE 7777/udp 15000/udp 15777/udp
 
