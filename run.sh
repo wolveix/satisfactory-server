@@ -10,8 +10,6 @@ set_ini_val() {
     sed "s/\(\"$2\", \)[0-9]*/\1$3/" -i "/home/steam/$1"
 }
 
-NUMCHECK='^[0-9]+$'
-
 if [ -f "/config/overrides/Engine.ini" ]; then
     echo "Config override /config/overrides/Engine.ini exists, ignoring environment variables"
     cp /config/overrides/Engine.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
@@ -139,10 +137,6 @@ if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
     fi
 
     printf "Downloading the latest version of the game...\\n"
-    if [[ "$ROOTLESS" = true ]]; then
-      export USER=steam
-      export HOME=/home/steam
-    fi
     steamcmd +force_install_dir /config/gamefiles +login anonymous +app_update "$STEAMAPPID" -beta "$STEAMBETAFLAG" validate +quit
 else
     printf "Skipping update as flag is set\\n"

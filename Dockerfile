@@ -30,6 +30,7 @@ ENV AUTOPAUSE="true" \
     NETWORKQUALITY="3" \
     PGID="1000" \
     PUID="1000" \
+    ROOTLESS="false" \
     SERVERBEACONPORT="15000" \
     SERVERGAMEPORT="7777" \
     SERVERIP="0.0.0.0" \
@@ -37,8 +38,7 @@ ENV AUTOPAUSE="true" \
     SKIPUPDATE="false" \
     STEAMAPPID="1690800" \
     STEAMBETA="false" \
-    TIMEOUT="30"\
-    ROOTLESS="false"
+    TIMEOUT="30"
 
 EXPOSE 7777/udp 15000/udp 15777/udp
 

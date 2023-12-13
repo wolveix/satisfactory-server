@@ -3,13 +3,14 @@
 set -e
 
 CURRENTUID=$(id -u)
+HOME="/home/steam"
 MSGERROR="\033[0;31mERROR:\033[0m"
 MSGWARNING="\033[0;33mWARNING:\033[0m"
 NUMCHECK='^[0-9]+$'
 RAMAVAILABLE=$(awk '/MemAvailable/ {printf( "%d\n", $2 / 1024000 )}' /proc/meminfo)
 USER="steam"
 
-if [[ "$DEBUG" == "true" ]]; then
+if [[ "${DEBUG,,}" == "false" ]]; then
     printf "Debugging enabled (the container will exit after printing the debug info)\\n\\nPrinting environment variables:\\n"
     export
 
@@ -31,19 +32,17 @@ if [[ $(lscpu | grep 'Model name:' | sed 's/Model name:[[:space:]]*//g') = "Comm
     exit 1
 fi
 
-if [[ "$ROOTLESS" = false ]]; then
-  if [[ "$CURRENTUID" -ne "0" ]]; then
-      printf "${MSGERROR} Current user is not root (%s)\\nPass your user and group to the container using the PGID and PUID environment variables\\nDo not use the --user flag (or user: field in Docker Compose)\\n" "$CURRENTUID"
-      exit 1
-  fi
-fi
-
 printf "Checking available memory...%sGB detected\\n" "$RAMAVAILABLE"
 if [[ "$RAMAVAILABLE" -lt 12 ]]; then
     printf "${MSGWARNING} You have less than the required 12GB minmum (%sGB detected) of available RAM to run the game server.\\nIt is likely that the server will fail to load properly.\\n" "$RAMAVAILABLE"
 fi
 
 # check if the user and group IDs have been set
+if [[ "$CURRENTUID" -ne "0" ]] && [[ "${ROOTLESS,,}" != "true" ]]; then
+    printf "${MSGERROR} Current user (%s) is not root (0)\\nPass your user and group to the container using the PGID and PUID environment variables\\nDo not use the --user flag (or user: field in Docker Compose) without setting ROOTLESS=true\\n" "$CURRENTUID"
+    exit 1
+fi
+
 if ! [[ "$PGID" =~ $NUMCHECK ]] ; then
     printf "${MSGWARNING} Invalid group id given: %s\\n" "$PGID"
     PGID="1000"
@@ -60,7 +59,7 @@ elif [[ "$PUID" -eq 0 ]]; then
     exit 1
 fi
 
-if [[ "$ROOTLESS" = false ]]; then
+if [[ "${ROOTLESS,,}" != "true" ]]; then
   if [[ $(getent group $PGID | cut -d: -f1) ]]; then
       usermod -a -G "$PGID" steam
   else
@@ -74,6 +73,11 @@ if [[ "$ROOTLESS" = false ]]; then
   fi
 fi
 
+if [[ ! -w "/config" ]]; then
+    echo "The current user does not have write permissions for /config"
+    exit 1
+fi
+
 mkdir -p \
     /config/backups \
     /config/gamefiles \
@@ -84,7 +88,8 @@ mkdir -p \
     "${GAMECONFIGDIR}/Logs" \
     "${GAMESAVESDIR}/server" \
     || exit 1
-if [[ "$ROOTLESS" = false ]]; then
+
+if [[ "${ROOTLESS,,}" != "true" ]]; then
   chown -R "$PUID":"$PGID" /config /home/steam /tmp/dumps
   exec gosu "$USER" "/home/steam/run.sh" "$@"
 else
