@@ -119,15 +119,19 @@ if [ -n "$SERVERIP" ]; then
     SERVERIP="-multihome=\"$SERVERIP\""
 fi
 
-# should we add an check, that if it is first installation to download the files?
-if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
+if [[ "${SKIPUPDATE,,}" != "true" ]] && [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
+    printf "%s Skip update is set, but no game files exist. Updating anyway\\n" "${MSGWARNING}"
+    SKIPUPDATE="false"
+fi
+
+if [[ "${SKIPUPDATE,,}" != "true" ]]; then
     if [[ "${STEAMBETA,,}" == "true" ]]; then
         printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
         STEAMBETAFLAG="experimental"
     else
         STEAMBETAFLAG="public"
     fi
-    # returns for Kubernetes 0 but works, probably for wrong folder the check is done?
+
     STORAGEAVAILABLE=$(stat -f -c "%a*%S" .)
     STORAGEAVAILABLE=$((STORAGEAVAILABLE/1024/1024/1024))
     printf "Checking available storage...%sGB detected\\n" "$STORAGEAVAILABLE"
@@ -142,7 +146,7 @@ else
     printf "Skipping update as flag is set\\n"
 fi
 
-# temporary migration to new format
+# START temporary migration to new format
 if [ -d "/config/blueprints" ]; then
   if [ -n "$(ls -A "/config/blueprints" 2>/dev/null)" ]; then
     rm -rf "/config/saved/blueprints"
@@ -163,7 +167,7 @@ fi
 if [ -f "/config/ServerSettings.${SERVERQUERYPORT}" ]; then
   mv "/config/ServerSettings.${SERVERQUERYPORT}" "/config/saved/ServerSettings.${SERVERQUERYPORT}"
 fi
-# temporary migration to new format
+# END temporary migration to new format
 
 cp -r "/config/saved/server/." "/config/backups/"
 cp -r "${GAMESAVESDIR}/server/." "/config/backups" # useful after the first run
