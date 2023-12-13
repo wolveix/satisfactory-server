@@ -121,6 +121,7 @@ if [ -n "$SERVERIP" ]; then
     SERVERIP="-multihome=\"$SERVERIP\""
 fi
 
+# should we add an check, that if it is first installation to download the files?
 if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
     if [[ "${STEAMBETA,,}" == "true" ]]; then
         printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
@@ -128,7 +129,7 @@ if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
     else
         STEAMBETAFLAG="public"
     fi
-
+    # returns for Kubernetes 0 but works, probably for wrong folder the check is done?
     STORAGEAVAILABLE=$(stat -f -c "%a*%S" .)
     STORAGEAVAILABLE=$((STORAGEAVAILABLE/1024/1024/1024))
     printf "Checking available storage...%sGB detected\\n" "$STORAGEAVAILABLE"
@@ -138,7 +139,10 @@ if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
     fi
 
     printf "Downloading the latest version of the game...\\n"
-
+    if [[ "$ROOTLESS" = true ]]; then
+      export USER=steam
+      export HOME=/home/steam
+    fi
     steamcmd +force_install_dir /config/gamefiles +login anonymous +app_update "$STEAMAPPID" -beta "$STEAMBETAFLAG" validate +quit
 else
     printf "Skipping update as flag is set\\n"

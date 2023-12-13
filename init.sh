@@ -31,9 +31,11 @@ if [[ $(lscpu | grep 'Model name:' | sed 's/Model name:[[:space:]]*//g') = "Comm
     exit 1
 fi
 
-if [[ "$CURRENTUID" -ne "0" ]]; then
-    printf "${MSGERROR} Current user is not root (%s)\\nPass your user and group to the container using the PGID and PUID environment variables\\nDo not use the --user flag (or user: field in Docker Compose)\\n" "$CURRENTUID"
-    exit 1
+if [[ "$ROOTLESS" = false ]]; then
+  if [[ "$CURRENTUID" -ne "0" ]]; then
+      printf "${MSGERROR} Current user is not root (%s)\\nPass your user and group to the container using the PGID and PUID environment variables\\nDo not use the --user flag (or user: field in Docker Compose)\\n" "$CURRENTUID"
+      exit 1
+  fi
 fi
 
 printf "Checking available memory...%sGB detected\\n" "$RAMAVAILABLE"
@@ -58,16 +60,18 @@ elif [[ "$PUID" -eq 0 ]]; then
     exit 1
 fi
 
-if [[ $(getent group $PGID | cut -d: -f1) ]]; then
-    usermod -a -G "$PGID" steam
-else
-    groupmod -g "$PGID" steam
-fi
+if [[ "$ROOTLESS" = false ]]; then
+  if [[ $(getent group $PGID | cut -d: -f1) ]]; then
+      usermod -a -G "$PGID" steam
+  else
+      groupmod -g "$PGID" steam
+  fi
 
-if [[ $(getent passwd ${PUID} | cut -d: -f1) ]]; then
-    USER=$(getent passwd $PUID | cut -d: -f1)
-else
-    usermod -u "$PUID" steam
+  if [[ $(getent passwd ${PUID} | cut -d: -f1) ]]; then
+      USER=$(getent passwd $PUID | cut -d: -f1)
+  else
+      usermod -u "$PUID" steam
+  fi
 fi
 
 mkdir -p \
@@ -80,6 +84,9 @@ mkdir -p \
     "${GAMECONFIGDIR}/Logs" \
     "${GAMESAVESDIR}/server" \
     || exit 1
-
-chown -R "$PUID":"$PGID" /config /home/steam /tmp/dumps
-exec gosu "$USER" "/home/steam/run.sh" "$@"
+if [[ "$ROOTLESS" = false ]]; then
+  chown -R "$PUID":"$PGID" /config /home/steam /tmp/dumps
+  exec gosu "$USER" "/home/steam/run.sh" "$@"
+else
+  exec "/home/steam/run.sh" "$@"
+fi
