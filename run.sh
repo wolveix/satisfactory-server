@@ -139,7 +139,7 @@ if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
     fi
 
     printf "Downloading the latest version of the game...\\n"
-    if [[ "$ROOTLESS" = false ]]; then
+    if [[ "$ROOTLESS" = true ]]; then
       export USER=steam
       export HOME=/home/steam
     fi
