@@ -10,8 +10,6 @@ set_ini_val() {
     sed "s/\(\"$2\", \)[0-9]*/\1$3/" -i "/home/steam/$1"
 }
 
-NUMCHECK='^[0-9]+$'
-
 if [ -f "/config/overrides/Engine.ini" ]; then
     echo "Config override /config/overrides/Engine.ini exists, ignoring environment variables"
     cp /config/overrides/Engine.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
@@ -121,7 +119,12 @@ if [ -n "$SERVERIP" ]; then
     SERVERIP="-multihome=\"$SERVERIP\""
 fi
 
-if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
+if [[ "${SKIPUPDATE,,}" != "true" ]] && [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
+    printf "%s Skip update is set, but no game files exist. Updating anyway\\n" "${MSGWARNING}"
+    SKIPUPDATE="false"
+fi
+
+if [[ "${SKIPUPDATE,,}" != "true" ]]; then
     if [[ "${STEAMBETA,,}" == "true" ]]; then
         printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
         STEAMBETAFLAG="experimental"
@@ -138,13 +141,12 @@ if ! [[ "${SKIPUPDATE,,}" == "true" ]]; then
     fi
 
     printf "Downloading the latest version of the game...\\n"
-
     steamcmd +force_install_dir /config/gamefiles +login anonymous +app_update "$STEAMAPPID" -beta "$STEAMBETAFLAG" validate +quit
 else
     printf "Skipping update as flag is set\\n"
 fi
 
-# temporary migration to new format
+# START temporary migration to new format
 if [ -d "/config/blueprints" ]; then
   if [ -n "$(ls -A "/config/blueprints" 2>/dev/null)" ]; then
     rm -rf "/config/saved/blueprints"
@@ -165,7 +167,7 @@ fi
 if [ -f "/config/ServerSettings.${SERVERQUERYPORT}" ]; then
   mv "/config/ServerSettings.${SERVERQUERYPORT}" "/config/saved/ServerSettings.${SERVERQUERYPORT}"
 fi
-# temporary migration to new format
+# END temporary migration to new format
 
 cp -r "/config/saved/server/." "/config/backups/"
 cp -r "${GAMESAVESDIR}/server/." "/config/backups" # useful after the first run

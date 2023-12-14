@@ -30,6 +30,7 @@ ENV AUTOPAUSE="true" \
     NETWORKQUALITY="3" \
     PGID="1000" \
     PUID="1000" \
+    ROOTLESS="false" \
     SERVERBEACONPORT="15000" \
     SERVERGAMEPORT="7777" \
     SERVERIP="0.0.0.0" \

@@ -32,6 +32,7 @@ docker run \
 --env MAXPLAYERS=4 \
 --env PGID=1000 \
 --env PUID=1000 \
+--env ROOTLESS=false \
 --env STEAMBETA=false \
 --memory-reservation=4G \
 --memory 6G \
@@ -78,6 +79,7 @@ services:
             - MAXPLAYERS=4
             - PGID=1000
             - PUID=1000
+            - ROOTLESS=false
             - STEAMBETA=false
         restart: unless-stopped
         deploy:
@@ -150,6 +152,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `NETWORKQUALITY`        |    `3`    | set the network quality/bandwidth for your server   |
 | `PGID`                  |  `1000`   | set the group ID of the user the server will run as |
 | `PUID`                  |  `1000`   | set the user ID of the user the server will run as  |
+| `ROOTLESS`              |  `false`  | run the container as a non-root user                |
 | `SERVERBEACONPORT`      |  `15000`  | set the game's beacon port                          |
 | `SERVERGAMEPORT`        |  `7777`   | set the game's port                                 |
 | `SERVERIP`              | `0.0.0.0` | set the game's ip (usually not needed)              |
