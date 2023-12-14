@@ -10,7 +10,7 @@ NUMCHECK='^[0-9]+$'
 RAMAVAILABLE=$(awk '/MemAvailable/ {printf( "%d\n", $2 / 1024000 )}' /proc/meminfo)
 USER="steam"
 
-if [[ "${DEBUG,,}" == "false" ]]; then
+if [[ "${DEBUG,,}" == "true" ]]; then
     printf "Debugging enabled (the container will exit after printing the debug info)\\n\\nPrinting environment variables:\\n"
     export
 
