@@ -119,7 +119,7 @@ if [ -n "$SERVERIP" ]; then
     SERVERIP="-multihome=\"$SERVERIP\""
 fi
 
-if [[ "${SKIPUPDATE,,}" != "true" ]] && [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
+if [[ "${SKIPUPDATE,,}" != "false" ]] && [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
     printf "%s Skip update is set, but no game files exist. Updating anyway\\n" "${MSGWARNING}"
     SKIPUPDATE="false"
 fi
