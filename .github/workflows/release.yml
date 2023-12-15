@@ -56,8 +56,8 @@ jobs:
           mkdir -p builds/compressed
           go install github.com/mitchellh/gox@latest
           cd saveshare
-          gox --output "../../builds/saveshare-{{.OS}}-{{.Arch}}" -osarch 'darwin/amd64 linux/amd64 windows/amd64'
-          cd ../../builds
+          gox --output "../builds/saveshare-{{.OS}}-{{.Arch}}" -osarch 'darwin/amd64 linux/amd64 windows/amd64'
+          cd ../builds
           find . -maxdepth 1 -type f -execdir zip 'compressed/{}.zip' '{}' \;
 
       - name: Upload Binaries
