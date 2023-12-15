@@ -38,5 +38,5 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}:dev
+            ghcr.io/${{ github.repository }}:dev
             ${{ steps.meta.outputs.tags }}

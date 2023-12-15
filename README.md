@@ -7,6 +7,8 @@
 
 This is a Dockerized version of the [Satisfactory](https://store.steampowered.com/app/526870/Satisfactory/) dedicated server.
 
+If the server feels too buggy for you, you can try the [saveshare](saveshare/README.md) instead (which relies on client-hosting).
+
 ## Setup
 
 Recent updates consume 4GB - 6GB RAM, but [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers#Requirements) recommends allocating 12GB - 16GB RAM.
