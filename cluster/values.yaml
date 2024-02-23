@@ -1,0 +1,19 @@
+env:
+  # Environmental variables as below can be passed in this yaml block
+  AUTOPAUSE: "true"
+  MAXPLAYERS: 3
+
+service:
+  main: # Example setup for a LoadBalancer with an external IP
+    # MetalLB for example could be used if a Loadbalancer is not provided by your provider
+    type: LoadBalancer # Setting an external IP for simple port forwarding
+    externalTrafficPolicy: Cluster
+    loadBalancerIP: "192.168.2.200" # IP of the satisfactory server
+
+persistence:
+  config: # Config/save data stored here
+    enabled: true
+
+  server-cache: # Game files stored here
+    # This is seperated to allow for backing up only game/config data
+    enabled: true

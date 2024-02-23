@@ -49,6 +49,10 @@ else
     set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils\.IpNetDriver" "ConnectionTimeout" "$TIMEOUT"
     set_ini_prop "Engine.ini" "\/Script\/OnlineSubsystemUtils\.IpNetDriver" "InitialConnectTimeout" "$TIMEOUT"
 
+    [[ "${SERVERSTREAMING,,}" == "true" ]] && SERVERSTREAMING="1" || SERVERSTREAMING="0"
+    printf "Setting server streaming to %s\\n" "$SERVERSTREAMING"
+    set_ini_prop "Engine.ini" "ConsoleVariables" "wp.Runtime.EnableServerStreaming" "$SERVERSTREAMING"
+
     cp /home/steam/Engine.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
 fi
 

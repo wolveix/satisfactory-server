@@ -94,42 +94,11 @@ services:
 
 ### Kubernetes
 
-If you are running a [Kubernetes](https://kubernetes.io) cluster, we do have a 
-[service.yaml](https://github.com/wolveix/satisfactory-server/cluster/service.yaml) and 
-[statefulset.yaml](https://github.com/wolveix/satisfactory-server/cluster/statefulset.yaml) available under the 
-[cluster](https://github.com/wolveix/satisfactory-server/cluster) directory of this repo.
+If you are running a [Kubernetes](https://kubernetes.io) cluster, we do have a [service.yaml](https://github.com/wolveix/satisfactory-server/cluster/service.yaml) and [statefulset.yaml](https://github.com/wolveix/satisfactory-server/cluster/statefulset.yaml) available under the [cluster](https://github.com/wolveix/satisfactory-server/cluster) directory of this repo, along with an example [values.yaml](https://github.com/wolveix/satisfactory-server/cluster/values.yaml) file.
 
 If you are using [Helm](https://helm.sh), you can find charts for this repo on 
 [ArtifactHUB](https://artifacthub.io/packages/search?ts_query_web=satisfactory&sort=relevance&page=1). The 
-[k8s-at-home](https://github.com/k8s-at-home/charts) helm chart for Satisfactory can be installed with the below.
-
-Some suggested default `values.yaml` for the k8s-at-home chart - check out the vaules.yaml for full defaults, and the common chart for more values options.
-
-**values.yaml**
-
-```yaml
-env:
-    # Environmental variables as below can be passed in this yaml block
-    AUTOPAUSE: "true"
-    MAXPLAYERS: 3
-
-service:
-    main: # Example setup for a LoadBalancer with an external IP
-          # MetalLB for example could be used if a Loadbalancer is not provided by your provider
-        type: LoadBalancer # Setting an external IP for simple port forwarding
-        externalTrafficPolicy: Cluster
-        loadBalancerIP: "192.168.2.200" # IP of the satisfactory server
-
-persistence:
-    config: # Config/save data stored here
-        enabled: true
-
-    server-cache: # Game files stored here
-        # This is seperated to allow for backing up only game/config data
-        enabled: true
-```
-
-The `values.yaml` could then be installed to your Kubernetes cluster with the below
+[k8s-at-home](https://github.com/k8s-at-home/charts) helm chart for Satisfactory can be installed with the below (please see `cluster/values.yaml` for more information).
 
 ```bash
 helm repo add k8s-at-home https://k8s-at-home.com/charts/
@@ -159,6 +128,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `SERVERGAMEPORT`        |  `7777`   | set the game's port                                 |
 | `SERVERIP`              | `0.0.0.0` | set the game's ip (usually not needed)              |
 | `SERVERQUERYPORT`       |  `15777`  | set the game's query port                           |
+| `SERVERSTREAMING`       |  `true`   | toggle whether the game utilizes asset streaming    |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart  |
 | `STEAMBETA`             |  `false`  | set experimental game version                       |
 | `TIMEOUT`               |   `30`    | set client timeout (in seconds)                     |
@@ -172,6 +142,30 @@ If you want to run a server for the Experimental version of the game, set the `S
 While we've made most of the common configuration options through the `.ini` files configurable through environment variables, you may have a niche requirement that we hadn't considered or may not be used by most people. In which case, please place your version of the `.ini` file into the `/config/overrides` directory and the container will use this instead.
 
 **Do note that doing this disables the environment variables specific to the file in question.**
+
+## Modding
+
+Mod support is still a little rough around the edges, but they do now work. This Docker container functions the same as a standalone installation, so you can follow the excellent technical documentation from the community [here](https://docs.ficsit.app/satisfactory-modding/latest/ForUsers/DedicatedServerSetup.html).
+
+The container does **NOT** have an S/FTP server installed directly, as Docker images are intended to carry a single function/process. You can either SFTP into your host that houses the Satisfactory server (trivial to do if you're running Linux), or alternatively you can spin up an S/FTP server through the use of another Docker container using the Docker Compose example listed below:
+
+```yaml
+version: '3'
+
+services:
+    # only needed for mods
+    sftp-server:
+        container_name: 'sftp-server'
+        image: 'atmoz/sftp:latest'
+        volumes:
+            - '/path/to/config:/home/your-ftp-user'
+        ports:
+            - '2222:22'
+        # set the user and password, and the user's UID (this should match the PUID and PGID of the satisfactory-server container)
+        command: 'your-ftp-user:your-ftp-password:1000'
+```
+
+With this, you'll be able to SFTP into your server and access your game files via `/home/gamefiles`.
 
 ## IPv6 Support
 
