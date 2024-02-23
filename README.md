@@ -165,7 +165,7 @@ services:
         command: 'your-ftp-user:your-ftp-password:1000'
 ```
 
-With this, you'll be able to SFTP into your server and access your game files via `/home/gamefiles`.
+With this, you'll be able to SFTP into your server and access your game files via `/home/your-ftp-user/gamefiles`.
 
 ## IPv6 Support
 
