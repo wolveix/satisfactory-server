@@ -94,7 +94,7 @@ services:
 
 ### Kubernetes
 
-If you are running a [Kubernetes](https://kubernetes.io) cluster, we do have a [service.yaml](https://github.com/wolveix/satisfactory-server/cluster/service.yaml) and [statefulset.yaml](https://github.com/wolveix/satisfactory-server/cluster/statefulset.yaml) available under the [cluster](https://github.com/wolveix/satisfactory-server/cluster) directory of this repo, along with an example [values.yaml](https://github.com/wolveix/satisfactory-server/cluster/values.yaml) file.
+If you are running a [Kubernetes](https://kubernetes.io) cluster, we do have a [service.yaml](https://github.com/wolveix/satisfactory-server/tree/main/cluster/service.yaml) and [statefulset.yaml](https://github.com/wolveix/satisfactory-server/tree/main/cluster/statefulset.yaml) available under the [cluster](https://github.com/wolveix/satisfactory-server/tree/main/cluster) directory of this repo, along with an example [values.yaml](https://github.com/wolveix/satisfactory-server/tree/main/cluster/values.yaml) file.
 
 If you are using [Helm](https://helm.sh), you can find charts for this repo on 
 [ArtifactHUB](https://artifacthub.io/packages/search?ts_query_web=satisfactory&sort=relevance&page=1). The 
