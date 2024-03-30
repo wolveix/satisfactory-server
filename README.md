@@ -26,7 +26,7 @@ Run the Satisfactory server image like this (this is one command, make sure to c
 
 ```bash
 docker run \
---detached \
+--detach \
 --name=satisfactory-server \
 --hostname satisfactory-server \
 --restart unless-stopped \
@@ -47,7 +47,7 @@ wolveix/satisfactory-server:latest
 <details> 
 <summary>Explanation of the command</summary>
 
-* `--detached` -> Starts the container detached from your terminal<br> 
+* `--detach` -> Starts the container detached from your terminal<br> 
 If you want to see the logs replace it with `--sig-proxy=false`
 * `--name` -> Gives the container a unqiue name
 * `--hostname` -> Changes the hostname of the container
