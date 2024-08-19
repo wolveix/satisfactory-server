@@ -1,4 +1,3 @@
-version: '3'
 services:
   satisfactory-server:
     container_name: 'satisfactory-server'
