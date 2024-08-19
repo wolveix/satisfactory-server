@@ -18,7 +18,6 @@ Download the release from the releases tab. When you initially run it, it'll ask
 If you're using [Docker Compose](https://docs.docker.com/compose/):
 
 ```yaml
-version: '3'
 services:
   satisfactory-saveshare:
     container_name: satisfactory-saveshare

@@ -1,4 +1,3 @@
-version: '3'
 services:
   satisfactory-saveshare:
     container_name: satisfactory-saveshare

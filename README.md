@@ -44,10 +44,10 @@ docker run \
 wolveix/satisfactory-server:latest
 ```
 
-<details> 
+<details>
 <summary>Explanation of the command</summary>
 
-* `--detach` -> Starts the container detached from your terminal<br> 
+* `--detach` -> Starts the container detached from your terminal<br>
 If you want to see the logs replace it with `--sig-proxy=false`
 * `--name` -> Gives the container a unqiue name
 * `--hostname` -> Changes the hostname of the container
@@ -57,7 +57,7 @@ Allows you to easily access your savegames
 * For the environment (`--env`) variables please see [here](https://github.com/wolveix/satisfactory-server#environment-variables)
 * `--memory-reservation=4G` -> Reserves 4GB RAM from the host for the container's use
 * `--memory 6G` -> Restricts the container to 6GB RAM
-* `--publish` -> Specifies the ports that the container exposes<br> 
+* `--publish` -> Specifies the ports that the container exposes<br>
 </details>
 
 ### Docker Compose
@@ -65,7 +65,6 @@ Allows you to easily access your savegames
 If you're using [Docker Compose](https://docs.docker.com/compose/):
 
 ```yaml
-version: '3'
 services:
     satisfactory-server:
         container_name: 'satisfactory-server'
@@ -96,8 +95,8 @@ services:
 
 If you are running a [Kubernetes](https://kubernetes.io) cluster, we do have a [service.yaml](https://github.com/wolveix/satisfactory-server/tree/main/cluster/service.yaml) and [statefulset.yaml](https://github.com/wolveix/satisfactory-server/tree/main/cluster/statefulset.yaml) available under the [cluster](https://github.com/wolveix/satisfactory-server/tree/main/cluster) directory of this repo, along with an example [values.yaml](https://github.com/wolveix/satisfactory-server/tree/main/cluster/values.yaml) file.
 
-If you are using [Helm](https://helm.sh), you can find charts for this repo on 
-[ArtifactHUB](https://artifacthub.io/packages/search?ts_query_web=satisfactory&sort=relevance&page=1). The 
+If you are using [Helm](https://helm.sh), you can find charts for this repo on
+[ArtifactHUB](https://artifacthub.io/packages/search?ts_query_web=satisfactory&sort=relevance&page=1). The
 [k8s-at-home](https://github.com/k8s-at-home/charts) helm chart for Satisfactory can be installed with the below (please see `cluster/values.yaml` for more information).
 
 ```bash
@@ -150,8 +149,6 @@ Mod support is still a little rough around the edges, but they do now work. This
 The container does **NOT** have an S/FTP server installed directly, as Docker images are intended to carry a single function/process. You can either SFTP into your host that houses the Satisfactory server (trivial to do if you're running Linux), or alternatively you can spin up an S/FTP server through the use of another Docker container using the Docker Compose example listed below:
 
 ```yaml
-version: '3'
-
 services:
     # only needed for mods
     sftp-server:
