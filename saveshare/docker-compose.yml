@@ -1,9 +1,0 @@
-services:
-  satisfactory-saveshare:
-    container_name: satisfactory-saveshare
-    image: atmoz/sftp:latest
-    volumes:
-      - /opt/saveshare:/home/saveshare/upload
-    ports:
-      - "15770:22"
-    command: saveshare:PASSWORD_HERE:1001
