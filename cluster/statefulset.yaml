@@ -32,7 +32,7 @@ spec:
             value: "false"
         ports:
         - containerPort: 7777
-          name: "gameTCP"
+          name: "gametcp"
           protocol: TCP
         - containerPort: 7777
           name: "game"
