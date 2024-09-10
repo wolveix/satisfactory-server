@@ -65,28 +65,35 @@ If you're using [Docker Compose](https://docs.docker.com/compose/):
 
 ```yaml
 services:
-    satisfactory-server:
-        container_name: 'satisfactory-server'
-        hostname: 'satisfactory-server'
-        image: 'wolveix/satisfactory-server:latest'
-        ports:
-            - '7777:7777/udp'
-            - '7777:7777/tcp'
-        volumes:
-            - './satisfactory-server:/config'
-        environment:
-            MAXPLAYERS: 4
-            PGID: 1000
-            PUID: 1000
-            ROOTLESS: false
-            STEAMBETA: false
-        restart: unless-stopped
-        deploy:
-          resources:
-            limits:
-              memory: 6G
-            reservations:
-              memory: 4G
+  satisfactory-server:
+    container_name: 'satisfactory-server'
+    hostname: 'satisfactory-server'
+    image: 'wolveix/satisfactory-server:latest'
+    ports:
+      - '7777:7777/udp'
+      - '7777:7777/tcp'
+    volumes:
+      - './satisfactory-server:/config'
+    environment:
+      - MAXPLAYERS=4
+      - PGID=1000
+      - PUID=1000
+      - ROOTLESS=false
+      - STEAMBETA=false
+    restart: unless-stopped
+    healthcheck:
+      test: bash /healthcheck.sh
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 80s  # just a guess
+
+    deploy:
+      resources:
+        limits:
+          memory: 6G
+        reservations:
+          memory: 4G
 ```
 
 ### Kubernetes

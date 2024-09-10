@@ -3,7 +3,7 @@ FROM steamcmd/steamcmd:ubuntu-18
 # hadolint ignore=DL3008
 RUN set -x \
  && apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu xdg-user-dirs --no-install-recommends\
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu xdg-user-dirs curl --no-install-recommends\
  && rm -rf /var/lib/apt/lists/* \
  && useradd -ms /bin/bash steam \
  && gosu nobody true
@@ -12,6 +12,7 @@ RUN mkdir -p /config \
  && chown steam:steam /config
 
 COPY init.sh /
+COPY healthcheck.sh /
 COPY --chown=steam:steam *.ini run.sh /home/steam/
 
 WORKDIR /config
