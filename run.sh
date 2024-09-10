@@ -185,4 +185,4 @@ fi
 
 cd /config/gamefiles || exit 1
 
-exec ./FactoryServer.sh "$@"
+exec ./FactoryServer.sh -port="$SERVERGAMEPORT" $SERVERIP "$@"
