@@ -107,17 +107,11 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 
 | Parameter               |  Default  | Function                                            |
 |-------------------------|:---------:|-----------------------------------------------------|
-| `AUTOPAUSE`             |  `true`   | pause game when no player is connected              |
-| `AUTOSAVEINTERVAL`      |   `300`   | autosave interval in seconds                        |
-| `AUTOSAVENUM`           |    `5`    | number of rotating autosave files                   |
-| `AUTOSAVEONDISCONNECT`  |  `true`   | autosave when last player disconnects               |
-| `CRASHREPORT`           |  `true`   | automatic crash reporting                           |
 | `DEBUG`                 |  `false`  | for debugging the server                            |
 | `DISABLESEASONALEVENTS` |  `false`  | disable the FICSMAS event (you miserable bastard)   |
 | `MAXOBJECTS`            | `2162688` | set the object limit for your server                |
 | `MAXPLAYERS`            |    `4`    | set the player limit for your server                |
 | `MAXTICKRATE`           |   `30`    | set the maximum sim tick rate for your server       |
-| `NETWORKQUALITY`        |    `3`    | set the network quality/bandwidth for your server   |
 | `PGID`                  |  `1000`   | set the group ID of the user the server will run as |
 | `PUID`                  |  `1000`   | set the user ID of the user the server will run as  |
 | `ROOTLESS`              |  `false`  | run the container as a non-root user                |
@@ -151,7 +145,7 @@ services:
         container_name: 'sftp-server'
         image: 'atmoz/sftp:latest'
         volumes:
-            - '/path/to/config:/home/your-ftp-user'
+            - './satisfactory-server:/home/your-ftp-user'
         ports:
             - '2222:22'
         # set the user and password, and the user's UID (this should match the PUID and PGID of the satisfactory-server container)
