@@ -185,4 +185,4 @@ fi
 
 cd /config/gamefiles || exit 1
 
-exec ./FactoryServer.sh -Port="$SERVERGAMEPORT" -BeaconPort="$SERVERBEACONPORT" -ServerQueryPort="$SERVERQUERYPORT" $SERVERIP "$@"
+exec ./FactoryServer.sh -Port="$SERVERGAMEPORT" $SERVERIP "$@"

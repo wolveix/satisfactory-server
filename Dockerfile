@@ -1,5 +1,6 @@
 FROM steamcmd/steamcmd:ubuntu-24
 
+# hadolint ignore=DL3008
 RUN set -x \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu xdg-user-dirs --no-install-recommends\
@@ -31,16 +32,14 @@ ENV AUTOPAUSE="true" \
     PGID="1000" \
     PUID="1000" \
     ROOTLESS="false" \
-    SERVERBEACONPORT="15000" \
     SERVERGAMEPORT="7777" \
     SERVERIP="0.0.0.0" \
-    SERVERQUERYPORT="15777" \
     SERVERSTREAMING="true" \
     SKIPUPDATE="false" \
     STEAMAPPID="1690800" \
     STEAMBETA="false" \
     TIMEOUT="30"
 
-EXPOSE 7777/udp 15000/udp 15777/udp
+EXPOSE 7777/udp 7777/tcp
 
 ENTRYPOINT [ "/init.sh" ]
