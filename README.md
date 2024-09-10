@@ -39,8 +39,7 @@ docker run \
 --memory-reservation=4G \
 --memory 6G \
 --publish 7777:7777/udp \
---publish 15000:15000/udp \
---publish 15777:15777/udp \
+--publish 7777:7777/tcp \
 wolveix/satisfactory-server:latest
 ```
 
@@ -72,8 +71,7 @@ services:
         image: 'wolveix/satisfactory-server:latest'
         ports:
             - '7777:7777/udp'
-            - '15000:15000/udp'
-            - '15777:15777/udp'
+            - '7777:7777/tcp'
         volumes:
             - '/path/to/config:/config'
         environment:
@@ -126,7 +124,6 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `SERVERBEACONPORT`      |  `15000`  | set the game's beacon port                          |
 | `SERVERGAMEPORT`        |  `7777`   | set the game's port                                 |
 | `SERVERIP`              | `0.0.0.0` | set the game's ip (usually not needed)              |
-| `SERVERQUERYPORT`       |  `15777`  | set the game's query port                           |
 | `SERVERSTREAMING`       |  `true`   | toggle whether the game utilizes asset streaming    |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart  |
 | `STEAMBETA`             |  `false`  | set experimental game version                       |
