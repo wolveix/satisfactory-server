@@ -11,8 +11,7 @@ RUN set -x \
 RUN mkdir -p /config \
  && chown steam:steam /config
 
-COPY init.sh /
-COPY healthcheck.sh /
+COPY init.sh healthcheck.sh /
 COPY --chown=steam:steam *.ini run.sh /home/steam/
 
 WORKDIR /config
