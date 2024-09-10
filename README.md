@@ -185,11 +185,6 @@ services:
 
 With this, you'll be able to SFTP into your server and access your game files via `/home/your-ftp-user/gamefiles`.
 
-## IPv6 Support
-
-If you want to use IPv6, set the `SERVERIP` variable to empty or to your IPv6 address. By default, we set this to
-`0.0.0.0` which means that the server will bind to IPv4.
-
 ## How to Improve the Multiplayer Experience
 
 The [Satisfactory Wiki](https://satisfactory.wiki.gg/wiki/Multiplayer#Engine.ini) recommends a few config tweaks to
