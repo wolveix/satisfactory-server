@@ -119,10 +119,6 @@ else
     cp /home/steam/ServerSettings.ini "${GAMECONFIGDIR}/Config/LinuxServer/"
 fi
 
-if [ -n "$SERVERIP" ]; then
-    SERVERIP="-multihome=\"$SERVERIP\""
-fi
-
 if [[ "${SKIPUPDATE,,}" != "false" ]] && [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
     printf "%s Skip update is set, but no game files exist. Updating anyway\\n" "${MSGWARNING}"
     SKIPUPDATE="false"
@@ -185,4 +181,4 @@ fi
 
 cd /config/gamefiles || exit 1
 
-exec ./FactoryServer.sh -port="$SERVERGAMEPORT" $SERVERIP "$@"
+exec ./FactoryServer.sh -Port="$SERVERGAMEPORT" $SERVERIP "$@"
