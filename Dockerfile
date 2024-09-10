@@ -1,5 +1,6 @@
 FROM steamcmd/steamcmd:ubuntu-24
 
+# hadolint ignore=DL3008
 RUN set -x \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu xdg-user-dirs --no-install-recommends\
