@@ -121,7 +121,6 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `PGID`                  |  `1000`   | set the group ID of the user the server will run as |
 | `PUID`                  |  `1000`   | set the user ID of the user the server will run as  |
 | `ROOTLESS`              |  `false`  | run the container as a non-root user                |
-| `SERVERBEACONPORT`      |  `15000`  | set the game's beacon port                          |
 | `SERVERGAMEPORT`        |  `7777`   | set the game's port                                 |
 | `SERVERIP`              | `0.0.0.0` | set the game's ip (usually not needed)              |
 | `SERVERSTREAMING`       |  `true`   | toggle whether the game utilizes asset streaming    |
