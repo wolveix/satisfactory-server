@@ -117,4 +117,4 @@ fi
 
 cd /config/gamefiles || exit 1
 
-exec ./FactoryServer.sh -Port="$SERVERGAMEPORT" "$@"
+exec ./FactoryServer.sh -Port="$SERVERGAMEPORT" -ini:Engine:[HTTPServer.Listeners]:DefaultBindAddress=any "$@"
