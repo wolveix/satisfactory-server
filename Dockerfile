@@ -1,4 +1,4 @@
-FROM steamcmd/steamcmd:ubuntu-24
+FROM steamcmd/steamcmd:ubuntu-18
 
 # hadolint ignore=DL3008
 RUN set -x \
@@ -12,7 +12,7 @@ RUN mkdir -p /config \
  && chown steam:steam /config
 
 COPY init.sh /
-COPY --chown=steam:steam *.ini run.sh /home/steam/
+COPY --chown=steam:steam run.sh /home/steam/
 
 WORKDIR /config
 
@@ -33,7 +33,6 @@ ENV AUTOPAUSE="true" \
     PUID="1000" \
     ROOTLESS="false" \
     SERVERGAMEPORT="7777" \
-    SERVERIP="0.0.0.0" \
     SERVERSTREAMING="true" \
     SKIPUPDATE="false" \
     STEAMAPPID="1690800" \

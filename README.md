@@ -30,7 +30,7 @@ docker run \
 --name=satisfactory-server \
 --hostname satisfactory-server \
 --restart unless-stopped \
---volume /path/to/config:/config \
+--volume ./satisfactory-server:/config \
 --env MAXPLAYERS=4 \
 --env PGID=1000 \
 --env PUID=1000 \
@@ -73,7 +73,7 @@ services:
             - '7777:7777/udp'
             - '7777:7777/tcp'
         volumes:
-            - '/path/to/config:/config'
+            - './satisfactory-server:/config'
         environment:
             MAXPLAYERS: 4
             PGID: 1000

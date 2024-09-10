@@ -7,7 +7,7 @@ services:
       - '7777:7777/udp'
       - '7777:7777/tcp'
     volumes:
-      - '/path/to/config:/config'
+      - './satisfactory-server:/config'
     environment:
       - MAXPLAYERS=4
       - PGID=1000
