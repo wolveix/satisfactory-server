@@ -77,11 +77,11 @@ services:
         volumes:
             - '/path/to/config:/config'
         environment:
-            - MAXPLAYERS=4
-            - PGID=1000
-            - PUID=1000
-            - ROOTLESS=false
-            - STEAMBETA=false
+            MAXPLAYERS: 4
+            PGID: 1000
+            PUID: 1000
+            ROOTLESS: false
+            STEAMBETA: false
         restart: unless-stopped
         deploy:
           resources:
