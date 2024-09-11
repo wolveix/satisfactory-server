@@ -38,7 +38,7 @@ fi
 
 # GameUserSettings.ini settings
 if [[ "${DISABLESEASONALEVENTS,,}" == "true" ]]; then
-    printf "Disabling seasonal events"
+    printf "Disabling seasonal events\\n"
     DISABLESEASONALEVENTS="-DisableSeasonalEvents"
 else
     DISABLESEASONALEVENTS=""
