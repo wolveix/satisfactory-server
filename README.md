@@ -8,8 +8,31 @@
 This is a Dockerized version of the [Satisfactory](https://store.steampowered.com/app/526870/Satisfactory/) dedicated
 server.
 
-If the server feels too buggy for you, you can try the [saveshare](saveshare/README.md) instead (which relies on
+You can alternatively try [saveshare](https://github.com/wolveix/satisfactory-server/tree/main/saveshare) instead (which relies on
 client-hosting).
+
+## Upgrading for Satisfactory 1.0
+
+Satisfactory is finally out of early access! 🎉
+
+If you're not new here and looking to upgrade your setup, here's what you need to do:
+- Upgrade your local Docker image `docker pull wolveix/satisfactory-server:latest`
+- Change your ports from:
+```
+ - '7777:7777/udp'
+ - '15000:15000/udp'
+ - '15777:15777/udp'
+```
+- To the new ports:
+```
+ - '7777:7777/tcp'
+ - '7777:7777/udp'
+```
+- Ensue BOTH of the new ports are explicitly allowed through your firewall/port forwarded as needed.
+
+If you're experiencing API connectivity issues, your issue is that you haven't completed one of these two steps. If you're seeing a `EADDRINUSE` log message, Coffee Stain confirmed that it does **not** matter. Same applies to the self-signed certificate log message. For more information, see [the original issue from launch](https://github.com/wolveix/satisfactory-server/issues/260).
+
+Enjoy 1.0! 🎉
 
 ## Setup
 
