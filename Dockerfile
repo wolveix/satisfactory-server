@@ -16,6 +16,10 @@ COPY --chown=steam:steam run.sh /home/steam/
 
 WORKDIR /config
 
+ARG VERSION="DEV"
+ENV VERSION=$VERSION
+LABEL version=$VERSION
+
 ENV AUTOSAVENUM="5" \
     DEBUG="false" \
     DISABLESEASONALEVENTS="false" \

@@ -15,36 +15,36 @@ spec:
         app: satisfactory
     spec:
       containers:
-      - name: satisfactory
-        image: wolveix/satisfactory-server:latest
-        env:
-          - name: DEBUG
-            value: "false"
-          - name: MAXPLAYERS
-            value: "8"
-          - name: PGID
-            value: "1000"
-          - name: PUID
-            value: "1000"
-          - name: SKIPUPDATE
-            value: "false"
-          - name: STEAMBETA
-            value: "false"
-        ports:
-        - containerPort: 7777
-          name: "gameTCP"
-          protocol: TCP
-        - containerPort: 7777
-          name: "game"
-          protocol: UDP
-        volumeMounts:
-        - name: satisfactory-data
-          mountPath: /config
+        - name: satisfactory
+          image: wolveix/satisfactory-server:latest
+          env:
+            - name: DEBUG
+              value: "false"
+            - name: MAXPLAYERS
+              value: "8"
+            - name: PGID
+              value: "1000"
+            - name: PUID
+              value: "1000"
+            - name: SKIPUPDATE
+              value: "false"
+            - name: STEAMBETA
+              value: "false"
+          ports:
+            - containerPort: 7777
+              name: "gameTCP"
+              protocol: TCP
+            - containerPort: 7777
+              name: "game"
+              protocol: UDP
+          volumeMounts:
+            - name: satisfactory-data
+              mountPath: /config
   volumeClaimTemplates:
-  - metadata:
-      name: satisfactory-data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 20Gi
+    - metadata:
+        name: satisfactory-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 20Gi

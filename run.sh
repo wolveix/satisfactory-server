@@ -88,6 +88,8 @@ else
     printf "Skipping update as flag is set\\n"
 fi
 
+printf "Launching game server\\n\\n"
+
 cp -r "/config/saved/server/." "/config/backups/"
 cp -r "${GAMESAVESDIR}/server/." "/config/backups" # useful after the first run
 rm -rf "$GAMESAVESDIR"
