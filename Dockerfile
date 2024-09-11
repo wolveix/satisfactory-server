@@ -1,4 +1,4 @@
-FROM steamcmd/steamcmd:ubuntu-18
+FROM steamcmd/steamcmd:ubuntu-22
 
 # hadolint ignore=DL3008
 RUN set -x \
