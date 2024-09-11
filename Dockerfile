@@ -12,11 +12,12 @@ RUN mkdir -p /config \
  && chown steam:steam /config
 
 COPY init.sh healthcheck.sh /
-COPY --chown=steam:steam *.ini run.sh /home/steam/
+COPY --chown=steam:steam run.sh /home/steam/
 
 WORKDIR /config
 
-ENV DEBUG="false" \
+ENV AUTOSAVENUM="5" \
+    DEBUG="false" \
     DISABLESEASONALEVENTS="false" \
     GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
     GAMESAVESDIR="/home/steam/.config/Epic/FactoryGame/Saved/SaveGames" \

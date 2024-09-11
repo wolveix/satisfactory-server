@@ -8,7 +8,8 @@
 This is a Dockerized version of the [Satisfactory](https://store.steampowered.com/app/526870/Satisfactory/) dedicated
 server.
 
-You can alternatively try [saveshare](https://github.com/wolveix/satisfactory-server/tree/main/saveshare) instead (which relies on
+You can alternatively try [saveshare](https://github.com/wolveix/satisfactory-server/tree/main/saveshare) instead (which
+relies on
 client-hosting).
 
 ## Upgrading for Satisfactory 1.0
@@ -16,21 +17,29 @@ client-hosting).
 Satisfactory is finally out of early access! 🎉
 
 If you're not new here and looking to upgrade your setup, here's what you need to do:
+
 - Upgrade your local Docker image `docker pull wolveix/satisfactory-server:latest`
 - Change your ports from:
+
 ```
  - '7777:7777/udp'
  - '15000:15000/udp'
  - '15777:15777/udp'
 ```
+
 - To the new ports:
+
 ```
  - '7777:7777/tcp'
  - '7777:7777/udp'
 ```
+
 - Ensue BOTH of the new ports are explicitly allowed through your firewall/port forwarded as needed.
 
-If you're experiencing API connectivity issues, your issue is that you haven't completed one of these two steps. If you're seeing a `EADDRINUSE` log message, Coffee Stain confirmed that it does **not** matter. Same applies to the self-signed certificate log message. For more information, see [the original issue from launch](https://github.com/wolveix/satisfactory-server/issues/260).
+If you're experiencing API connectivity issues, your issue is that you haven't completed one of these two steps. If
+you're seeing a `EADDRINUSE` log message, Coffee Stain confirmed that it does **not** matter. Same applies to the
+self-signed certificate log message. For more information,
+see [the original issue from launch](https://github.com/wolveix/satisfactory-server/issues/260).
 
 Enjoy 1.0! 🎉
 
@@ -46,7 +55,6 @@ following directories:
 - `/backups` - the server will automatically backup your saves when the container first starts
 - `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload
   8GB+ every time you want to rebuild the container
-- `/overrides` - this is for custom `.ini` configuration file overrides
 - `/saved` - this contains the game's blueprints, saves, and server configuration
 
 Before running the server image, you should find your user ID that will be running the container. This isn't necessary
@@ -152,6 +160,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 
 | Parameter               |  Default  | Function                                            |
 |-------------------------|:---------:|-----------------------------------------------------|
+| `AUTOSAVENUM`           |    `5`    | number of rotating autosave files                   |
 | `DEBUG`                 |  `false`  | for debugging the server                            |
 | `DISABLESEASONALEVENTS` |  `false`  | disable the FICSMAS event (you miserable bastard)   |
 | `MAXOBJECTS`            | `2162688` | set the object limit for your server                |
@@ -171,15 +180,6 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 
 If you want to run a server for the Experimental version of the game, set the `STEAMBETA` environment variable to
 `true`.
-
-## Configuration Overrides
-
-While we've made most of the common configuration options through the `.ini` files configurable through environment
-variables, you may have a niche requirement that we hadn't considered or may not be used by most people. In which case,
-please place your version of the `.ini` file into the `/config/overrides` directory and the container will use this
-instead.
-
-**Do note that doing this disables the environment variables specific to the file in question.**
 
 ## Modding
 
@@ -210,9 +210,9 @@ With this, you'll be able to SFTP into your server and access your game files vi
 
 ## How to Improve the Multiplayer Experience
 
-The [Satisfactory Wiki](https://satisfactory.wiki.gg/wiki/Multiplayer#Engine.ini) recommends a few config tweaks to
-really get the best out of multiplayer. These changes are already applied to the server, but they need to be applied to
-your local config too:
+The [Satisfactory Wiki](https://satisfactory.wiki.gg/wiki/Multiplayer#Engine.ini) recommends a few config tweaks for
+your client to
+really get the best out of multiplayer:
 
 - Press `WIN + R`
 - Enter `%localappdata%/FactoryGame/Saved/Config/WindowsNoEditor`
