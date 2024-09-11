@@ -2,6 +2,8 @@
 
 set -e
 
+printf "===== Satisfactory Server %s =====\\nhttps://github.com/wolveix/satisfactory-server\\n\\n" "$VERSION"
+
 CURRENTUID=$(id -u)
 HOME="/home/steam"
 MSGERROR="\033[0;31mERROR:\033[0m"

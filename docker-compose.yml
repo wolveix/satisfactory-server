@@ -7,7 +7,7 @@ services:
       - '7777:7777/udp'
       - '7777:7777/tcp'
     volumes:
-      - '/path/to/config:/config'
+      - './satisfactory-server:/config'
     environment:
       - MAXPLAYERS=4
       - PGID=1000
@@ -15,6 +15,12 @@ services:
       - ROOTLESS='false'
       - STEAMBETA='false'
     restart: unless-stopped
+    healthcheck:
+      test: bash /healthcheck.sh
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
     deploy:
       resources:
         limits:

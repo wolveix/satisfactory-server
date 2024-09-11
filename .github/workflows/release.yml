@@ -45,6 +45,8 @@ jobs:
         with:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+          build-args: |
+            VERSION=${{ github.event.release.tag_name }}
 
       - name: Setup Go Environment
         uses: actions/setup-go@v2

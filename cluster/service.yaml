@@ -8,15 +8,15 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 7777
-    nodePort: 7777
-    protocol: UDP
-    name: "game"
-    targetPort: "game"
-  - port: 7777
-    nodePort: 7777
-    protocol: TCP
-    name: "gameTCP"
-    targetPort: "gameTCP"
+    - port: 7777
+      nodePort: 7777
+      protocol: UDP
+      name: "game"
+      targetPort: 7777
+    - port: 7777
+      nodePort: 7777
+      protocol: TCP
+      name: "gametcp"
+      targetPort: 7777
   selector:
     app: satisfactory

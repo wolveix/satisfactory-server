@@ -1,9 +1,9 @@
-FROM steamcmd/steamcmd:ubuntu-24
+FROM steamcmd/steamcmd:ubuntu-18
 
 # hadolint ignore=DL3008
 RUN set -x \
  && apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu xdg-user-dirs --no-install-recommends\
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y gosu xdg-user-dirs curl --no-install-recommends\
  && rm -rf /var/lib/apt/lists/* \
  && useradd -ms /bin/bash steam \
  && gosu nobody true
@@ -11,16 +11,16 @@ RUN set -x \
 RUN mkdir -p /config \
  && chown steam:steam /config
 
-COPY init.sh /
-COPY --chown=steam:steam *.ini run.sh /home/steam/
+COPY init.sh healthcheck.sh /
+COPY --chown=steam:steam run.sh /home/steam/
 
 WORKDIR /config
 
-ENV AUTOPAUSE="true" \
-    AUTOSAVEINTERVAL="300" \
-    AUTOSAVENUM="5" \
-    AUTOSAVEONDISCONNECT="true" \
-    CRASHREPORT="true" \
+ARG VERSION="DEV"
+ENV VERSION=$VERSION
+LABEL version=$VERSION
+
+ENV AUTOSAVENUM="5" \
     DEBUG="false" \
     DISABLESEASONALEVENTS="false" \
     GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
@@ -28,12 +28,10 @@ ENV AUTOPAUSE="true" \
     MAXOBJECTS="2162688" \
     MAXPLAYERS="4" \
     MAXTICKRATE="30" \
-    NETWORKQUALITY="3" \
     PGID="1000" \
     PUID="1000" \
     ROOTLESS="false" \
     SERVERGAMEPORT="7777" \
-    SERVERIP="0.0.0.0" \
     SERVERSTREAMING="true" \
     SKIPUPDATE="false" \
     STEAMAPPID="1690800" \
