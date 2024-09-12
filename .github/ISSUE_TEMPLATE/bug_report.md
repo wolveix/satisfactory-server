@@ -49,6 +49,11 @@ Alternatively, you can find the information manually. Here's what we're looking 
 - RAM: [e.g. 4GB/16GB] (Linux: `cat /proc/meminfo | grep Mem`)
 - HDD; [e.g. 22GB/251GB (9% used)] (Linux: `df -h`)
 
+### Logs
+
+Please provide your **full** container logs. Do not link to an external site for them, just upload them as an attachment
+to your reply.
+
 ### Additional Context
 
 Add any other context about the problem here.
