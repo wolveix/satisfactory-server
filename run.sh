@@ -45,7 +45,6 @@ else
 fi
 
 ini_args=(
-  "-ini:Engine:[HTTPServer.Listeners]:DefaultBindAddress=any"
   "-ini:Engine:[Core.Log]:LogNet=Error"
   "-ini:Engine:[Core.Log]:LogNetTraffic=Warning"
   "-ini:Engine:[/Script/FactoryGame.FGSaveSession]:mNumRotatingAutosaves=$AUTOSAVENUM"
