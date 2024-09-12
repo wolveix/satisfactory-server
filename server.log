@@ -1,56 +1,72 @@
-Checking available memory...33GB detected
+===== Satisfactory Server v1.8.1 =====
+https://github.com/wolveix/satisfactory-server
+
+Checking available memory: 38GB detected
 Setting autosave number to 5
-Setting crash reporting to True
-Setting max objects number to 2162688
-Setting timeout number to 300
-Setting max players to 8
-Setting autosave interval to 300s
-Setting disable seasonal events to 0
-Setting network quality number to 3
-Setting auto pause to False
-Setting autosave on disconnect to True
-Checking available space...277GB detected
+Setting max objects to 2162688
+Setting max tick rate to 30
+Setting server streaming to 1
+Setting timeout to 30
+Checking available storage: 76GB detected
+
 Downloading the latest version of the game...
-Redirecting stderr to '/home/steam/.steam/logs/stderr.txt'
+Redirecting stderr to '/home/steam/.steam/steam/logs/stderr.txt'
 ILocalize::AddFile() failed to load file "public/steambootstrapper_english.txt".
 [  0%] Checking for available update...
-[----] Downloading update (105 of 54,186 KB)...
-[  0%] Downloading update (877 of 54,186 KB)...
-[  1%] Downloading update (2,150 of 54,186 KB)...
-[  3%] Downloading update (4,048 of 54,186 KB)...
-[  7%] Downloading update (6,447 of 54,186 KB)...
-[ 11%] Downloading update (8,761 of 54,186 KB)...
-[ 16%] Downloading update (11,564 of 54,186 KB)...
-[ 21%] Downloading update (14,124 of 54,186 KB)...
-[ 26%] Downloading update (16,684 of 54,186 KB)...
-[ 30%] Downloading update (19,500 of 54,186 KB)...
-[ 35%] Downloading update (22,060 of 54,186 KB)...
-[ 40%] Downloading update (24,620 of 54,186 KB)...
-[ 45%] Downloading update (27,179 of 54,186 KB)...
-[ 50%] Downloading update (29,868 of 54,186 KB)...
-[ 55%] Downloading update (32,303 of 54,186 KB)...
-[ 59%] Downloading update (33,873 of 54,186 KB)...
-[ 62%] Downloading update (35,761 of 54,186 KB)...
-[ 65%] Downloading update (37,041 of 54,186 KB)...
-[ 68%] Downloading update (38,321 of 54,186 KB)...
-[ 70%] Downloading update (39,729 of 54,186 KB)...
-[ 73%] Downloading update (41,009 of 54,186 KB)...
-[ 75%] Downloading update (42,289 of 54,186 KB)...
-[ 78%] Downloading update (43,697 of 54,186 KB)...
-[ 80%] Downloading update (44,977 of 54,186 KB)...
-[ 83%] Downloading update (46,257 of 54,186 KB)...
-[ 85%] Downloading update (47,665 of 54,186 KB)...
-[ 87%] Downloading update (48,945 of 54,186 KB)...
-[ 90%] Downloading update (50,225 of 54,186 KB)...
-[ 92%] Downloading update (51,633 of 54,186 KB)...
-[ 95%] Downloading update (52,913 of 54,186 KB)...
-[ 97%] Downloading update (54,186 of 54,186 KB)...
-[100%] Download complete.
+[----] Downloading update (0 of 48,910 KB)...
+[  0%] Downloading update (0 of 48,910 KB)...
+[  0%] Downloading update (0 of 48,910 KB)...
+[  0%] Downloading update (3,106 of 48,910 KB)...
+[  6%] Downloading update (6,877 of 48,910 KB)...
+[ 14%] Downloading update (9,656 of 48,910 KB)...
+[ 19%] Downloading update (12,152 of 48,910 KB)...
+[ 24%] Downloading update (14,891 of 48,910 KB)...
+[ 30%] Downloading update (17,380 of 48,910 KB)...
+[ 35%] Downloading update (19,875 of 48,910 KB)...
+[ 40%] Downloading update (22,627 of 48,910 KB)...
+[ 46%] Downloading update (25,109 of 48,910 KB)...
+[ 51%] Downloading update (27,598 of 48,910 KB)...
+[ 56%] Downloading update (30,296 of 48,910 KB)...
+[ 61%] Downloading update (32,766 of 48,910 KB)...
+[ 66%] Downloading update (35,241 of 48,910 KB)...
+[ 72%] Downloading update (37,988 of 48,910 KB)...
+[ 77%] Downloading update (40,488 of 48,910 KB)...
+[ 82%] Downloading update (42,336 of 48,910 KB)...
+[ 86%] Downloading update (43,710 of 48,910 KB)...
+[ 89%] Downloading update (44,954 of 48,910 KB)...
+[ 91%] Downloading update (46,199 of 48,910 KB)...
+[ 94%] Downloading update (47,564 of 48,910 KB)...
+[ 97%] Downloading update (48,800 of 48,910 KB)...
+[ 99%] Downloading update (48,910 of 48,910 KB)...
+[100%] Download Complete.
+[----] Applying update...
+[----] Extracting package...
+[----] Extracting package...
+[----] Extracting package...
+[----] Extracting package...
 [----] Installing update...
+[----] Installing update...
+[----] Installing update...
+[----] Installing update...
+[----] Installing update...
+[----] Installing update...
+[----] Installing update...
+[----] Installing update...
+[----] Installing update...
+[----] Cleaning up...
+[----] Update complete, launching...
+Redirecting stderr to '/home/steam/.steam/steam/logs/stderr.txt'
+Logging directory: '/home/steam/.steam/steam/logs'
+[  0%] Checking for available updates...
+[----] Verifying installation...
+[  0%] Downloading update...
+[  0%] Checking for available updates...
+[----] Download complete.
 [----] Extracting package...
 [----] Extracting package...
 [----] Extracting package...
 [----] Extracting package...
+[----] Installing update...
 [----] Installing update...
 [----] Installing update...
 [----] Installing update...
@@ -61,127 +77,263 @@ ILocalize::AddFile() failed to load file "public/steambootstrapper_english.txt".
 [----] Installing update...
 [----] Cleaning up...
 [----] Update complete, launching Steamcmd...
-Redirecting stderr to '/home/steam/Steam/logs/stderr.txt'
+steamcmd.sh[37]: Restarting steamcmd by request...
+UpdateUI: skip show logoRedirecting stderr to '/home/steam/.steam/steam/logs/stderr.txt'
+Logging directory: '/home/steam/.steam/steam/logs'
 [  0%] Checking for available updates...
 [----] Verifying installation...
-Steam Console Client (c) Valve Corporation
+UpdateUI: skip show logoSteam Console Client (c) Valve Corporation - version 1726088194
 -- type 'quit' to exit --
 Loading Steam API...OK
 
 Connecting anonymously to Steam Public...OK
 Waiting for client config...OK
 Waiting for user info...OK
-Success! App '1690800' already up to date.
-cron: can't open or create /var/run/crond.pid: Permission denied
-Starting periodic command scheduler: cron failed!
+ Update state (0x3) reconfiguring, progress: 0.00 (0 / 0)
+ Update state (0x11) preallocating, progress: 74.47 (3204820681 / 4303569976)
+ Update state (0x61) downloading, progress: 2.55 (109931692 / 4303569976)
+ Update state (0x61) downloading, progress: 20.56 (884725305 / 4303569976)
+ Update state (0x61) downloading, progress: 36.07 (1552352473 / 4303569976)
+ Update state (0x61) downloading, progress: 50.65 (2179756179 / 4303569976)
+ Update state (0x61) downloading, progress: 65.36 (2812863411 / 4303569976)
+ Update state (0x61) downloading, progress: 80.68 (3472049822 / 4303569976)
+ Update state (0x61) downloading, progress: 88.07 (3790212476 / 4303569976)
+ Update state (0x61) downloading, progress: 93.70 (4032433532 / 4303569976)
+ Update state (0x61) downloading, progress: 99.25 (4271484367 / 4303569976)
+ Update state (0x81) verifying update, progress: 24.25 (1043434135 / 4303569976)
+ Update state (0x81) verifying update, progress: 59.43 (2557552804 / 4303569976)
+ Update state (0x81) verifying update, progress: 94.02 (4046092394 / 4303569976)
+Work thread 'CContentUpdateContext::m_pCPUTh' is marked exited, but we could not immediately join prior to deleting -- proceeding without join
+Success! App '1690800' fully installed.
+Launching game server
+
 Project file not found: /config/gamefiles/FactoryGame/FactoryGame.uproject
-sh: 1: xdg-user-dir: not found
-4.26.1-170147+++FactoryGame+main 522 3
+5.3.2-365306+++FactoryGame+rel-main-1.0.0 1009 3
 Disabling core dumps.
 LogInit: Display: Running engine for game: FactoryGame
 LogInit: Display: Project file not found: /config/gamefiles/FactoryGame/FactoryGame.uproject
-LogInit: Display:       Attempting to find via project info helper.
+LogInit: Display: 	Attempting to find via project info helper.
 LogUProjectInfo: Found projects:
+LogPakFile: Initializing PakPlatformFile
+LogIoDispatcher: Display: Reading toc: ../../../FactoryGame/Content/Paks/global.utoc
+LogIoDispatcher: Display: Toc signature hash: 83989862C6199616CC2D9564D32FE64C93DCA681
+LogIoDispatcher: Display: Mounting container '../../../FactoryGame/Content/Paks/global.utoc' in location slot 0
+LogPakFile: Display: Initialized I/O dispatcher file backend. Mounted the global container: ../../../FactoryGame/Content/Paks/global.utoc
 LogPakFile: Display: Found Pak file ../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.pak attempting to mount.
 LogPakFile: Display: Mounting pak file ../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.pak.
-LogPakFile: PakFile PrimaryIndexSize=587118
-LogPakFile: PakFile PathHashIndexSize=670699
-LogPakFile: PakFile FullDirectoryIndexSize=1861035
-LogPakFile: OnPakFileMounted2Time == 0.000060
-LogPlatformFile: Using cached read wrapper
-LogTaskGraph: Started task graph with 4 named threads and 8 total threads with 1 sets of task threads.
+LogIoDispatcher: Display: Reading toc: ../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.utoc
+LogIoDispatcher: Display: Toc signature hash: EF49DC5F59B6CD0160DCE0B142695B01F4C4A5B0
+LogIoDispatcher: Display: Mounting container '../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.utoc' in location slot 0
+LogPakFile: Display: Mounted IoStore container "../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.utoc"
+LogPakFile: Display: Mounted Pak file '../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.pak', mount point: '../../../'
 LogICUInternationalization: ICU TimeZone Detection - Raw Offset: +0:00, Platform Override: ''
-LogPluginManager: Mounting plugin ReplicationGraph
-LogPluginManager: Mounting plugin DTLSHandlerComponent
-LogPluginManager: Mounting plugin Wwise
-LogPluginManager: Mounting plugin GeometryMode
-LogPluginManager: Mounting plugin ApexDestruction
-LogPluginManager: Mounting plugin BlueprintStats
-LogPluginManager: Mounting plugin OnlineFramework
-LogPluginManager: Mounting plugin OnlineSubsystem
-LogPluginManager: Mounting plugin OnlineSubsystemUtils
-LogPluginManager: Mounting plugin LensDistortion
-LogPluginManager: Mounting plugin WindowsDeviceProfileSelector
-LogPluginManager: Mounting plugin SteamController
-LogPluginManager: Mounting plugin SteamShared
-LogPluginManager: Mounting plugin RawInput
-LogPluginManager: Mounting plugin MfMedia
-LogPluginManager: Mounting plugin OnlineSubsystemSteam
-LogPluginManager: Mounting plugin OnlineSubsystemEOS
-LogPluginManager: Mounting plugin EOSShared
-LogPluginManager: Mounting plugin EOSVoiceChat
-LogPluginManager: Mounting plugin SignificanceManager
-LogPluginManager: Mounting plugin PythonScriptPlugin
-LogPluginManager: Mounting plugin EditorScriptingUtilities
-LogPluginManager: Mounting plugin EditorTests
-LogPluginManager: Mounting plugin FbxAutomationTestBuilder
-LogPluginManager: Mounting plugin FunctionalTestingEditor
-LogPluginManager: Mounting plugin RuntimeTests
-LogPluginManager: Mounting plugin ScreenshotTools
-LogPluginManager: Mounting plugin CSSEditorToolsExtension
-LogPluginManager: Mounting plugin Paper2D
-LogPluginManager: Mounting plugin AISupport
-LogPluginManager: Mounting plugin EnvironmentQueryEditor
-LogPluginManager: Mounting plugin LightPropagationVolume
-LogPluginManager: Mounting plugin AnimationSharing
-LogPluginManager: Mounting plugin PluginUtils
-LogPluginManager: Mounting plugin PropertyAccessEditor
-LogPluginManager: Mounting plugin UObjectPlugin
-LogPluginManager: Mounting plugin AssetManagerEditor
-LogPluginManager: Mounting plugin FacialAnimation
-LogPluginManager: Mounting plugin SpeedTreeImporter
-LogPluginManager: Mounting plugin DatasmithContent
-LogPluginManager: Mounting plugin VariantManagerContent
-LogPluginManager: Mounting plugin AlembicImporter
-LogPluginManager: Mounting plugin GeometryCache
-LogPluginManager: Mounting plugin AutomationUtils
-LogPluginManager: Mounting plugin BackChannel
-LogPluginManager: Mounting plugin ChaosClothEditor
-LogPluginManager: Mounting plugin ChaosCloth
-LogPluginManager: Mounting plugin ChaosEditor
-LogPluginManager: Mounting plugin PlanarCut
-LogPluginManager: Mounting plugin GeometryProcessing
-LogPluginManager: Mounting plugin EditableMesh
-LogPluginManager: Mounting plugin GeometryCollectionPlugin
-LogPluginManager: Mounting plugin ProceduralMeshComponent
-LogPluginManager: Mounting plugin ChaosSolverPlugin
-LogPluginManager: Mounting plugin ChaosNiagara
-LogPluginManager: Mounting plugin Niagara
-LogPluginManager: Mounting plugin CharacterAI
-LogPluginManager: Mounting plugin MotoSynth
-LogPluginManager: Mounting plugin PlatformCrypto
-LogPluginManager: Mounting plugin ImgMedia
-LogPluginManager: Mounting plugin MediaCompositing
-LogPluginManager: Mounting plugin MeshPainting
-[S_API] SteamAPI_Init(): Loaded local 'steamclient.so' OK.
-CAppInfoCacheReadFromDiskThread took 108 milliseconds to initialize
-LogPluginManager: Mounting plugin TcpMessaging
-LogPluginManager: Mounting plugin UdpMessaging
-LogPluginManager: Mounting plugin ActorSequence
-LogPluginManager: Mounting plugin LevelSequenceEditor
-LogPluginManager: Mounting plugin MatineeToLevelSequence
-LogPluginManager: Mounting plugin TemplateSequence
-LogPluginManager: Mounting plugin OnlineSubsystemNull
-LogPluginManager: Mounting plugin LauncherChunkInstaller
-LogPluginManager: Mounting plugin ActorLayerUtilities
-LogPluginManager: Mounting plugin AppleImageUtils
-LogPluginManager: Mounting plugin AssetTags
-LogPluginManager: Mounting plugin AudioCapture
-LogPluginManager: Mounting plugin CableComponent
-LogPluginManager: Mounting plugin ChunkDownloader
-LogPluginManager: Mounting plugin CustomMeshComponent
-LogPluginManager: Mounting plugin ExampleDeviceProfileSelector
-LogPluginManager: Mounting plugin GooglePAD
-LogPluginManager: Mounting plugin LinuxDeviceProfileSelector
-LogPluginManager: Mounting plugin PhysXVehicles
-LogPluginManager: Mounting plugin RuntimePhysXCooking
-LogPluginManager: Mounting plugin SoundFields
-LogPluginManager: Mounting plugin Synthesis
-LogPluginManager: Mounting plugin AudioSynesthesia
-LogInit: Using libcurl 7.65.3-DEV
+LogInit: Session CrashGUID >====================================================
+         Session CrashGUID >   UECC-Linux-F41E128A7474423DA8566CD5C8AC9B21
+         Session CrashGUID >====================================================
+LogConfig: Using compiled CustomConfig FactoryServer
+LogConfig: Warning: Found a deprecated ini section name in ../../../FactoryGame/Config/DefaultEngine.ini. Search for [/Script/Engine.TextureLODSettings] and replace with [GlobalDefaults DeviceProfile]
+LogAssetRegistry: Premade AssetRegistry loaded from '../../../FactoryGame/AssetRegistry.bin'
+LogConfig: Warning: Found a deprecated ini section name in ../../../FactoryGame/Config/DefaultDeviceProfiles.ini. Search for [/Script/Engine.TextureLODSettings] and replace with [GlobalDefaults DeviceProfile]
+LogStreaming: Warning: Failed to read file '/config/gamefiles/Cloud/IoStoreOnDemand.ini' error.
+LogPluginManager: Mounting Engine plugin Paper2D
+LogPluginManager: Mounting Engine plugin AISupport
+LogPluginManager: Mounting Engine plugin EnvironmentQueryEditor
+LogPluginManager: Mounting Engine plugin ACLPlugin
+LogPluginManager: Mounting Engine plugin AnimationData
+LogPluginManager: Mounting Engine plugin ControlRigSpline
+LogPluginManager: Mounting Engine plugin ControlRig
+LogPluginManager: Mounting Engine plugin DeformerGraph
+LogPluginManager: Mounting Engine plugin IKRig
+LogPluginManager: Mounting Engine plugin Bridge
+LogPluginManager: Mounting Engine plugin CameraShakePreviewer
+LogPluginManager: Mounting Engine plugin GameplayCameras
+LogPluginManager: Mounting Engine plugin LensDistortion
+LogPluginManager: Mounting Engine plugin OodleNetwork
+LogPluginManager: Mounting Engine plugin DSTelemetry
+LogPluginManager: Mounting Engine plugin AnimationSharing
+LogPluginManager: Mounting Engine plugin PluginUtils
+LogPluginManager: Mounting Engine plugin UObjectPlugin
+LogPluginManager: Mounting Engine plugin AssetManagerEditor
+LogPluginManager: Mounting Engine plugin BlueprintHeaderView
+LogPluginManager: Mounting Engine plugin EditorScriptingUtilities
+LogPluginManager: Mounting Engine plugin FacialAnimation
+LogPluginManager: Mounting Engine plugin GeometryMode
+LogPluginManager: Mounting Engine plugin LightMixer
+LogPluginManager: Mounting Engine plugin ObjectMixer
+LogPluginManager: Mounting Engine plugin SequencerAnimTools
+LogPluginManager: Mounting Engine plugin SpeedTreeImporter
+LogPluginManager: Mounting Engine plugin UVEditor
+LogPluginManager: Mounting Engine plugin EnhancedInput
+LogPluginManager: Found config from plugin[EnhancedInput] Input
+LogPluginManager: Mounting Engine plugin DatasmithContent
+LogPluginManager: Mounting Engine plugin GLTFExporter
+LogPluginManager: Mounting Engine plugin VariantManagerContent
+LogPluginManager: Mounting Engine plugin VariantManager
+LogPluginManager: Mounting Engine plugin AutomationUtils
+LogPluginManager: Mounting Engine plugin BackChannel
+LogPluginManager: Mounting Engine plugin BlueprintStats
+LogPluginManager: Mounting Engine plugin ChaosCaching
+LogPluginManager: Mounting Engine plugin ChaosClothEditor
+LogPluginManager: Mounting Engine plugin ChaosCloth
+LogPluginManager: Mounting Engine plugin ChaosEditor
+LogPluginManager: Mounting Engine plugin ChaosNiagara
+LogPluginManager: Mounting Engine plugin ChaosSolverPlugin
+LogPluginManager: Mounting Engine plugin ChaosUserDataPT
+LogPluginManager: Mounting Engine plugin ChaosVehiclesPlugin
+LogPluginManager: Mounting Engine plugin CharacterAI
+LogPluginManager: Mounting Engine plugin ControlFlows
+LogPluginManager: Mounting Engine plugin Dataflow
+LogPluginManager: Mounting Engine plugin Fracture
+LogPluginManager: Mounting Engine plugin FullBodyIK
+LogPluginManager: Mounting Engine plugin GeometryCollectionPlugin
+LogPluginManager: Mounting Engine plugin GeometryScripting
+LogPluginManager: Mounting Engine plugin Landmass
+LogPluginManager: Mounting Engine plugin LocalizableMessage
+LogPluginManager: Mounting Engine plugin PlanarCut
+LogPluginManager: Mounting Engine plugin PlatformCrypto
+LogPluginManager: Mounting Engine plugin ProxyLODPlugin
+LogPluginManager: Mounting Engine plugin PythonScriptPlugin
+LogPluginManager: Mounting Engine plugin RawInput
+LogPluginManager: Found config from plugin[RawInput] Input
+LogPluginManager: Mounting Engine plugin StructUtils
+LogPluginManager: Mounting Engine plugin ToolPresets
+LogPluginManager: Mounting Engine plugin Niagara
+LogPluginManager: Mounting Engine plugin Fab
+LogPluginManager: Mounting Engine plugin AlembicImporter
+LogPluginManager: Mounting Engine plugin InterchangeEditor
+LogPluginManager: Mounting Engine plugin Interchange
+LogPluginManager: Mounting Engine plugin ImgMedia
+LogPluginManager: Mounting Engine plugin MediaCompositing
+LogPluginManager: Mounting Engine plugin MediaPlate
+LogPluginManager: Mounting Engine plugin MfMedia
+LogPluginManager: Mounting Engine plugin MeshPainting
+LogPluginManager: Mounting Engine plugin TcpMessaging
+LogPluginManager: Mounting Engine plugin UdpMessaging
+LogPluginManager: Mounting Engine plugin ActorSequence
+LogPluginManager: Mounting Engine plugin LevelSequenceEditor
+LogPluginManager: Mounting Engine plugin SequencerScripting
+LogPluginManager: Mounting Engine plugin TemplateSequence
+LogPluginManager: Mounting Engine plugin OnlineBase
+LogPluginManager: Mounting Engine plugin OnlineFramework
+LogPluginManager: Mounting Engine plugin OnlineServicesNull
+LogPluginManager: Found config from plugin[OnlineServicesNull] Engine
+LogPluginManager: Mounting Engine plugin OnlineServicesOSSAdapter
+LogPluginManager: Mounting Engine plugin OnlineServices
+LogPluginManager: Mounting Engine plugin OnlineSubsystemNull
+LogPluginManager: Mounting Engine plugin OnlineSubsystemUtils
+LogPluginManager: Mounting Engine plugin OnlineSubsystem
+LogPluginManager: Mounting Engine plugin LauncherChunkInstaller
+LogPluginManager: Mounting Engine plugin ActorLayerUtilities
+LogPluginManager: Mounting Engine plugin AndroidFileServer
+LogPluginManager: Mounting Engine plugin ApexDestruction
+LogPluginManager: Mounting Engine plugin AppleImageUtils
+LogPluginManager: Mounting Engine plugin AssetTags
+LogPluginManager: Mounting Engine plugin AudioCapture
+LogPluginManager: Mounting Engine plugin AudioSynesthesia
+LogPluginManager: Mounting Engine plugin AudioWidgets
+LogPluginManager: Mounting Engine plugin CableComponent
+LogPluginManager: Mounting Engine plugin ChunkDownloader
+LogPluginManager: Mounting Engine plugin ComputeFramework
+LogPluginManager: Mounting Engine plugin CustomMeshComponent
+LogPluginManager: Mounting Engine plugin ExampleDeviceProfileSelector
+LogPluginManager: Mounting Engine plugin GeometryCache
+LogPluginManager: Mounting Engine plugin GeometryProcessing
+LogPluginManager: Mounting Engine plugin GooglePAD
+LogPluginManager: Mounting Engine plugin HairStrands
+LogPluginManager: Mounting Engine plugin LinuxDeviceProfileSelector
+LogPluginManager: Mounting Engine plugin MeshModelingToolset
+LogPluginManager: Mounting Engine plugin Metasound
+LogPluginManager: Mounting Engine plugin ModelViewViewModel
+LogPluginManager: Mounting Engine plugin MsQuic
+LogPluginManager: Mounting Engine plugin DTLSHandlerComponent
+LogPluginManager: Mounting Engine plugin ProceduralMeshComponent
+LogPluginManager: Mounting Engine plugin PropertyAccessEditor
+LogPluginManager: Mounting Engine plugin ReplicationGraph
+LogPluginManager: Mounting Engine plugin ResonanceAudio
+LogPluginManager: Mounting Engine plugin RigVM
+LogPluginManager: Mounting Engine plugin SignificanceManager
+LogPluginManager: Mounting Engine plugin SoundFields
+LogPluginManager: Mounting Engine plugin Synthesis
+LogPluginManager: Mounting Engine plugin WaveTable
+LogPluginManager: Mounting Engine plugin WindowsDeviceProfileSelector
+LogPluginManager: Mounting Engine plugin EditorTests
+LogPluginManager: Mounting Engine plugin FbxAutomationTestBuilder
+LogPluginManager: Mounting Engine plugin FunctionalTestingEditor
+LogPluginManager: Mounting Engine plugin InterchangeTests
+LogPluginManager: Mounting Engine plugin RuntimeTests
+LogPluginManager: Mounting Engine plugin TraceUtilities
+LogPluginManager: Mounting Engine plugin Takes
+LogPluginManager: Mounting Engine plugin WwiseNiagara
+LogPluginManager: Mounting Engine plugin Wwise
+LogPluginManager: Mounting Project plugin AbstractInstance
+LogPluginManager: Mounting Project plugin EditorTools
+LogPluginManager: Mounting Project plugin GameplayEvents
+LogPluginManager: Mounting Project plugin InstancedSplines
+LogPluginManager: Mounting Project plugin OnlineIntegration
+LogPluginManager: Mounting Project plugin SignificanceISPC
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/2D/Paper2D/Content/' mounted to '/Paper2D/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Animation/ACLPlugin/Content/' mounted to '/ACLPlugin/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Animation/ControlRigSpline/Content/' mounted to '/ControlRigSpline/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Animation/ControlRig/Content/' mounted to '/ControlRig/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Animation/DeformerGraph/Content/' mounted to '/DeformerGraph/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Animation/IKRig/Content/' mounted to '/IKRig/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Bridge/Content/' mounted to '/Bridge/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Compositing/LensDistortion/Content/' mounted to '/LensDistortion/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Developer/AnimationSharing/Content/' mounted to '/AnimationSharing/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Editor/BlueprintHeaderView/Content/' mounted to '/BlueprintHeaderView/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Editor/GeometryMode/Content/' mounted to '/GeometryMode/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Editor/ObjectMixer/LightMixer/Content/' mounted to '/LightMixer/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Editor/ObjectMixer/ObjectMixer/Content/' mounted to '/ObjectMixer/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Editor/SpeedTreeImporter/Content/' mounted to '/SpeedTreeImporter/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Editor/UVEditor/Content/' mounted to '/UVEditor/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Enterprise/DatasmithContent/Content/' mounted to '/DatasmithContent/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Enterprise/GLTFExporter/Content/' mounted to '/GLTFExporter/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ChaosCaching/Content/' mounted to '/ChaosCaching/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ChaosClothEditor/Content/' mounted to '/ChaosClothEditor/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ChaosNiagara/Content/' mounted to '/ChaosNiagara/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ChaosSolverPlugin/Content/' mounted to '/ChaosSolverPlugin/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ChaosVehiclesPlugin/Content/' mounted to '/ChaosVehiclesPlugin/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ControlFlows/Content/' mounted to '/ControlFlows/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/Dataflow/Content/' mounted to '/Dataflow/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/FullBodyIK/Content/' mounted to '/FullBodyIK/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/GeometryCollectionPlugin/Content/' mounted to '/GeometryCollectionPlugin/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/GeometryScripting/Content/' mounted to '/GeometryScripting/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/Landmass/Content/' mounted to '/Landmass/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/PythonScriptPlugin/Content/' mounted to '/PythonScriptPlugin/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ToolPresets/Content/' mounted to '/ToolPresets/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/FX/Niagara/Content/' mounted to '/Niagara/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Fab/Content/' mounted to '/Fab/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Interchange/Runtime/Content/' mounted to '/Interchange/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Media/MediaCompositing/Content/' mounted to '/MediaCompositing/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Media/MediaPlate/Content/' mounted to '/MediaPlate/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/MovieScene/SequencerScripting/Content/' mounted to '/SequencerScripting/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/AudioSynesthesia/Content/' mounted to '/AudioSynesthesia/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/AudioWidgets/Content/' mounted to '/AudioWidgets/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/GeometryProcessing/Content/' mounted to '/GeometryProcessing/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/HairStrands/Content/' mounted to '/HairStrands/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/MeshModelingToolset/Content/' mounted to '/MeshModelingToolset/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/Metasound/Content/' mounted to '/Metasound/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/ResonanceAudio/Content/' mounted to '/ResonanceAudio/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/RigVM/Content/' mounted to '/RigVM/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/Synthesis/Content/' mounted to '/Synthesis/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/WaveTable/Content/' mounted to '/WaveTable/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Tests/EditorTests/Content/' mounted to '/EditorTests/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Tests/RuntimeTests/Content/' mounted to '/RuntimeTests/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/TraceUtilities/Content/' mounted to '/TraceUtilities/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/VirtualProduction/Takes/Content/' mounted to '/Takes/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/WwiseNiagara/Content/' mounted to '/WwiseNiagara/'
+LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Wwise/Content/' mounted to '/Wwise/'
+LogPackageName: Display: FPackageName: Mount point added: '../../../FactoryGame/Plugins/AbstractInstance/Content/' mounted to '/AbstractInstance/'
+LogPackageName: Display: FPackageName: Mount point added: '../../../FactoryGame/Plugins/EditorTools/Content/' mounted to '/EditorTools/'
+LogPackageName: Display: FPackageName: Mount point added: '../../../FactoryGame/Plugins/GameplayEvents/Content/' mounted to '/GameplayEvents/'
+LogPackageName: Display: FPackageName: Mount point added: '../../../FactoryGame/Plugins/InstancedSplines/Content/' mounted to '/InstancedSplines/'
+LogPackageName: Display: FPackageName: Mount point added: '../../../FactoryGame/Plugins/Online/OnlineIntegration/Content/' mounted to '/OnlineIntegration/'
+LogPackageName: Display: FPackageName: Mount point added: '../../../FactoryGame/Plugins/SignificanceISPC/Content/' mounted to '/SignificanceISPC/'
+LogHAL: Log category LogOnlineSession verbosity has been raised to Verbose.
+LogInit: Using libcurl 8.4.0
 LogInit:  - built for x86_64-unknown-linux-gnu
-LogInit:  - supports SSL with OpenSSL/1.1.1c
-LogInit:  - supports HTTP deflate (compression) using libz 1.2.8
+LogInit:  - supports SSL with OpenSSL/1.1.1t
+LogInit:  - supports HTTP deflate (compression) using libz 1.2.13
 LogInit:  - other features:
 LogInit:      CURL_VERSION_SSL
 LogInit:      CURL_VERSION_LIBZ
@@ -196,186 +348,287 @@ LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
 LogInit:  - MaxHostConnections = 16  - Libcurl will limit the number of connections to a host
 LogInit:  - LocalHostAddr = Default
 LogInit:  - BufferSize = 65536
-Shutdown handler: initalize.
-LogEOSSDK: Initializing EOSSDK Version:1.13.0-16697186
-LogOnline: OSS: Creating online subsystem instance for: EOS
-LogOnline: OSS: TryLoadSubsystemAndSetDefault: Loaded subsystem for module [EOS]
-LogSteamShared: Display: Loading Steam SDK 1.47
-LogCore: Warning: dlopen failed: /config/gamefiles/Engine/Binaries/Linux/libsteam_api.so: cannot open shared object file: No such file or directory
-LogSteamShared: Warning: Could not find system one, loading bundled libsteam_api.so.
-LogSteamShared: Display: Loaded libsteam_api.so at 0x5f0f00
-LogSteamShared: Steam SDK Loaded!
-LogOnline: OSS: Creating online subsystem instance for: Steam
-LogGenericPlatformMisc: Error: SetEnvironmentVar not implemented for this platform: SteamAppId = 526870
-LogSteamShared: Warning: Steam Dedicated Server API failed to initialize.
-LogOnline: STEAM: [AppId: 0] Game Server API initialized 0
-LogOnline: Warning: STEAM: Failed to initialize Steam, this could be due to a Steam server and client running on the same machine. Try running with -NOSTEAM on the cmdline to disable.
-LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
-LogOnline: Warning: STEAM: Steam API failed to initialize!
-LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
-LogOnline: OSS: Unable to create OnlineSubsystem module Steam
-LogInit: Build: ++FactoryGame+main-CL-170147
-LogInit: Engine Version: 4.26.1-170147+++FactoryGame+main
-LogInit: Compatible Engine Version: 4.26.1-170147+++FactoryGame+main
-LogInit: Net CL: 170147
-LogInit: OS: GenericOSVersionLabel (GenericOSSubVersionLabel), CPU: AMD Ryzen 5 3600 6-Core Processor              , GPU: GenericGPUBrand
-LogInit: Compiled (64-bit): Oct 18 2021 21:21:12
-LogInit: Compiled with Clang: 10.0.1 (https://github.com/llvm/llvm-project ef32c611aa214dea855364efd7ba451ec5ec3f74)
+LogOnline: Warning: OSS: TryLoadSubsystemAndSetDefault: LoadSubsystemModule([None]) failed
+LogOnline: OSS: Created online subsystem instance for: NULL
+LogOnline: OSS: TryLoadSubsystemAndSetDefault: Loaded subsystem for type [NULL]
+LogInit: ExecutableName: FactoryServer-Linux-Shipping
+LogInit: Build: ++FactoryGame+rel-main-1.0.0-CL-365306
+LogInit: Engine Version: 5.3.2-365306+++FactoryGame+rel-main-1.0.0
+LogInit: Compatible Engine Version: 5.3.2-365306+++FactoryGame+rel-main-1.0.0
+LogInit: Net CL: 365306
+LogInit: OS: Ubuntu 22.04.4 LTS (6.2.16-10-pve), CPU: AMD Ryzen 9 5900X 12-Core Processor, GPU: NVIDIA PCI-id: 10de-1401 (1462-3201)
+LogInit: Compiled (64-bit): Sep  9 2024 11:32:40
+LogInit: Architecture: x64
+LogInit: Compiled with Clang: 15.0.1 (https://github.com/llvm/llvm-project b73d2c8c720a8c8e6e73b11be4e27afa6cb75bdf)
 LogInit: Build Configuration: Shipping
-LogInit: Branch Name: ++FactoryGame+main
-LogInit: Command Line:
+LogInit: Branch Name: ++FactoryGame+rel-main-1.0.0
+LogInit: Command Line: -Port=7777 -ini:Engine:[HTTPServer.Listeners]:DefaultBindAddress=any -ini:Engine:[Core.Log]:LogNet=Error -ini:Engine:[Core.Log]:LogNetTraffic=Warning -ini:Engine:[/Script/FactoryGame.FGSaveSession]:mNumRotatingAutosaves=5 -ini:Engine:[/Script/Engine.GarbageCollectionSettings]:gc.MaxObjectsInEditor=2162688 -ini:Engine:[/Script/OnlineSubsystemUtils.IpNetDriver]:LanServerMaxTickRate=30 -ini:Engine:[/Script/OnlineSubsystemUtils.IpNetDriver]:NetServerMaxTickRate=30 -ini:Engine:[/Script/OnlineSubsystemUtils.IpNetDriver]:ConnectionTimeout=30 -ini:Engine:[/Script/OnlineSubsystemUtils.IpNetDriver]:InitialConnectTimeout=30 -ini:Engine:[ConsoleVariables]:wp.Runtime.EnableServerStreaming=1 -ini:Game:[/Script/Engine.GameSession]:ConnectionTimeout=30 -ini:Game:[/Script/Engine.GameSession]:InitialConnectTimeout=30 -ini:Game:[/Script/Engine.GameSession]:MaxPlayers=6 -ini:GameUserSettings:[/Script/Engine.GameSession]:MaxPlayers=6
 LogInit: Base Directory: /config/gamefiles/Engine/Binaries/Linux/
 LogInit: Allocator: binned2
 LogInit: Installed Engine Build: 0
+LogInit: This binary is optimized with LTO: no, PGO: no, instrumented for PGO data collection: no
 LogInit: Launcher File: /config/gamefiles/launcher_id
-LogInit: Launcher ID:
-LogInit: Launcher Artifact:
+LogInit: Launcher ID: 
+LogInit: Launcher Artifact: 
 LogInit: Presizing for max 2097152 objects, including 1 objects not considered by GC, pre-allocating 0 bytes for permanent pool.
-LogStreaming: Display: Async Loading initialized: Event Driven Loader: true, Async Loading Thread: false, Async Post Load: false
+LogStreaming: Display: AsyncLoading2 - Created: Event Driven Loader: false, Async Loading Thread: true, Async Post Load: true
+LogStreaming: Display: AsyncLoading2 - Initialized
 LogInit: Object subsystem initialized
-[2021.10.26-20.03.53:333][  0]LogLinux: Selected Device Profile: [LinuxServer]
-[2021.10.26-20.03.53:333][  0]LogInit: Applying CVar settings loaded from the selected device profile: [LinuxServer]
-[2021.10.26-20.03.53:333][  0]LogHAL: Display: Platform has ~ 4 GB [16761188352 / 4294967296 / 16], which maps to Smallest [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
-[2021.10.26-20.03.53:333][  0]LogInit: Going up to parent DeviceProfile [Linux]
-[2021.10.26-20.03.53:333][  0]LogInit: Going up to parent DeviceProfile []
-[2021.10.26-20.03.53:333][  0]LogInit: Unix hardware info:
-[2021.10.26-20.03.53:333][  0]LogInit:  - we are the first instance of this executable
-[2021.10.26-20.03.53:333][  0]LogInit:  - this process' id (pid) is 79, parent process' id (ppid) is 72
-[2021.10.26-20.03.53:333][  0]LogInit:  - we are not running under debugger
-[2021.10.26-20.03.53:333][  0]LogInit:  - machine network name is 'b340f34b6527'
-[2021.10.26-20.03.53:333][  0]LogInit:  - user name is 'steam' (steam)
-[2021.10.26-20.03.53:333][  0]LogInit:  - we're logged in locally
-[2021.10.26-20.03.53:333][  0]LogInit:  - we're running without rendering
-[2021.10.26-20.03.53:334][  0]LogInit:  - CPU: AuthenticAMD 'AMD Ryzen 5 3600 6-Core Processor              ' (signature: 0x870F10)
-[2021.10.26-20.03.53:334][  0]LogInit:  - Number of physical cores available for the process: 6
-[2021.10.26-20.03.53:334][  0]LogInit:  - Number of logical cores available for the process: 12
-[2021.10.26-20.03.53:334][  0]LogInit:  - Cache line size: 64
-[2021.10.26-20.03.53:334][  0]LogInit:  - Memory allocator used: binned2
-[2021.10.26-20.03.53:334][  0]LogInit:  - This binary is optimized with LTO: no, PGO: no, instrumented for PGO data collection: no
-[2021.10.26-20.03.53:334][  0]LogInit:  - This is a licensee build.
-[2021.10.26-20.03.53:334][  0]LogCore: Benchmarking clocks:
-[2021.10.26-20.03.53:334][  0]LogCore:  - CLOCK_MONOTONIC (id=1) can sustain 22166010 (22166K, 22M) calls per second with 55.692612% zero deltas.
-[2021.10.26-20.03.53:334][  0]LogCore:  - CLOCK_MONOTONIC_RAW (id=4) can sustain 404448 (404K, 0M) calls per second without zero deltas.
-[2021.10.26-20.03.53:334][  0]LogCore:  - CLOCK_MONOTONIC_COARSE (id=6) can sustain 229829920 (229830K, 230M) calls per second with 99.999952% zero deltas.
-[2021.10.26-20.03.53:334][  0]LogCore: Selected clock_id 4 (CLOCK_MONOTONIC_RAW) since it is the fastest support clock without zero deltas.
-[2021.10.26-20.03.53:334][  0]LogCore: The clock source is too slow on this machine, performance may be affected.
-[2021.10.26-20.03.53:334][  0]LogInit: Unix-specific commandline switches:
-[2021.10.26-20.03.53:334][  0]LogInit:  -ansimalloc - use malloc()/free() from libc (useful for tools like valgrind and electric fence)
-[2021.10.26-20.03.53:334][  0]LogInit:  -jemalloc - use jemalloc for all memory allocation
-[2021.10.26-20.03.53:334][  0]LogInit:  -binnedmalloc - use binned malloc  for all memory allocation
-[2021.10.26-20.03.53:334][  0]LogInit:  -filemapcachesize=NUMBER - set the size for case-sensitive file mapping cache
-[2021.10.26-20.03.53:334][  0]LogInit:  -useksm - uses kernel same-page mapping (KSM) for mapped memory (OFF)
-[2021.10.26-20.03.53:334][  0]LogInit:  -ksmmergeall - marks all mmap'd memory pages suitable for KSM (OFF)
-[2021.10.26-20.03.53:334][  0]LogInit:  -preloadmodulesymbols - Loads the main module symbols file into memory (OFF)
-[2021.10.26-20.03.53:334][  0]LogInit:  -sigdfl=SIGNAL - Allows a specific signal to be set to its default handler rather then ignoring the signal
-[2021.10.26-20.03.53:334][  0]LogInit:  -httpproxy=ADDRESS:PORT - redirects HTTP requests to a proxy (only supported if compiled with libcurl)
-[2021.10.26-20.03.53:334][  0]LogInit:  -reuseconn - allow libcurl to reuse HTTP connections (only matters if compiled with libcurl)
-[2021.10.26-20.03.53:334][  0]LogInit:  -virtmemkb=NUMBER - sets process virtual memory (address space) limit (overrides VirtualMemoryLimitInKB value from .ini)
-[2021.10.26-20.03.53:334][  0]LogInit:  - Physical RAM available (not considering process quota): 16 GB (15984 MB, 16368348 KB, 16761188352 bytes)
-[2021.10.26-20.03.53:334][  0]LogInit:  - VirtualMemoryAllocator pools will grow at scale 1.4
-[2021.10.26-20.03.53:334][  0]LogInit:  - MemoryRangeDecommit() will will evict the memory from RAM (re-run with -novmapoolevict to change)
-[2021.10.26-20.03.53:386][  0]LogInit: Physics initialised using underlying interface: PhysX
-[2021.10.26-20.03.53:386][  0]LogInit: Overriding language with engine language configuration option (en-US-Posix).
-[2021.10.26-20.03.53:386][  0]LogInit: Overriding language with engine locale configuration option (en-US-Posix).
-[2021.10.26-20.03.53:391][  0]LogTextLocalizationResource: LocRes '../../../Engine/Content/Localization/Engine/en-US-POSIX/Engine.locres' could not be opened for reading!
-[2021.10.26-20.03.53:391][  0]LogTextLocalizationResource: LocRes '../../../Engine/Plugins/Online/OnlineFramework/Content/Localization/OnlineFramework/en-US-POSIX/OnlineFramework.locres' could not be opened for reading!
-[2021.10.26-20.03.53:391][  0]LogTextLocalizationResource: LocRes '../../../Engine/Plugins/Online/OnlineSubsystem/Content/Localization/OnlineSubsystem/en-US-POSIX/OnlineSubsystem.locres' could not be opened for reading!
-[2021.10.26-20.03.53:391][  0]LogTextLocalizationResource: LocRes '../../../Engine/Plugins/Online/OnlineSubsystemUtils/Content/Localization/OnlineSubsystemUtils/en-US-POSIX/OnlineSubsystemUtils.locres' could not be opened for reading!
-[2021.10.26-20.03.53:391][  0]LogTextLocalizationResource: LocRes '../../../Engine/Plugins/Online/OnlineSubsystemSteam/Content/Localization/OnlineSubsystemSteam/en-US-POSIX/OnlineSubsystemSteam.locres' could not be opened for reading!
-[2021.10.26-20.03.53:417][  0]LogRendererCore: Ray tracing is disabled. Reason: r.RayTracing=0.
-[2021.10.26-20.03.53:429][  0]LogInit: Overriding language with engine language configuration option (en-US-Posix).
-[2021.10.26-20.03.53:429][  0]LogInit: Overriding language with engine locale configuration option (en-US-Posix).
-[2021.10.26-20.03.53:437][  0]LogTextLocalizationResource: LocRes '../../../FactoryGame/Content/Localization/Game/en/Game.locres' could not be opened for reading!
-[2021.10.26-20.03.53:442][  0]LogTextLocalizationManager: Compacting localization data took   0.70ms
-[2021.10.26-20.03.53:589][  0]LogAssetRegistry: FAssetRegistry took 0.1334 seconds to start up
-[2021.10.26-20.03.53:652][  0]LogStreaming: Display: FlushAsyncLoading: 1 QueuedPackages, 0 AsyncPackages
-[2021.10.26-20.03.53:653][  0]LogPackageLocalizationCache: Processed 23 localized package path(s) for 2 prioritized culture(s) in 0.000405 seconds
-[2021.10.26-20.03.53:654][  0]LogPakFile: New pak file ../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.pak added to pak precacher.
-[2021.10.26-20.03.53:657][  0]LogLinux: Selected Device Profile: [LinuxServer]
-[2021.10.26-20.03.53:657][  0]LogInit: Active device profile: [0x7f2ee55c9f40][0x7f2f12547630 49] LinuxServer
-[2021.10.26-20.03.53:657][  0]LogInit: Profiles: [0x7f2ee55ca0c0][0x7f2f125489e0 49] Linux, [0x7f2ee55c9f40][0x7f2f12547630 49] LinuxServer,
-[2021.10.26-20.03.53:669][  0]LogSerialization: Display: AllowBulkDataInIoStore: 'true'
-[2021.10.26-20.03.53:671][  0]LogNetVersion: FactoryGame 1.0.0, NetCL: 170147, EngineNetVer: 16, GameNetVer: 0 (Checksum: 191819191)
-[2021.10.26-20.03.54:220][  0]LogActor: Warning: SetReplicates called on non-initialized actor Default__FGSimulatedWheeledVehicle. Directly setting bReplicates is the correct procedure for pre-init actors.
-[S_API] SteamAPI_Init(): Loaded local 'steamclient.so' OK.
-[S_API] SteamAPI_Init(): Loaded local 'steamclient.so' OK.
-[2021.10.26-20.03.54:401][  0]LogNiagara: Warning: NiagaraSystem /Game/FactoryGame/VFX/Factory/Doors/NS_DoorClose_01.NS_DoorClose_01 IsReadyToRunInternal() failed due to missing SystemScript.  Spawn[<none>] Update[<none>]
-[2021.10.26-20.03.55:748][  0]LogPakFile: Precache HighWater 16MB
-
-[2021.10.26-20.03.55:748][  0]LogPakFile: Precache HighWater 32MB
-
-[2021.10.26-20.03.55:748][  0]LogPakFile: Precache HighWater 48MB
-
-[2021.10.26-20.03.55:748][  0]LogPakFile: Precache HighWater 64MB
-
-[2021.10.26-20.03.55:748][  0]LogNiagara: Warning: NiagaraSystem /Game/FactoryGame/VFX/World/AmbientLife/Flies/NS_Fireflies_01.NS_Fireflies_01 IsReadyToRunInternal() failed due to missing SystemScript.  Spawn[<none>] Update[<none>]
-[2021.10.26-20.03.55:748][  0]LogNiagara: Warning: NiagaraSystem /Game/FactoryGame/VFX/World/AmbientLife/Bats/NS_Bats_01.NS_Bats_01 IsReadyToRunInternal() failed due to missing SystemScript.  Spawn[<none>] Update[<none>]
-[2021.10.26-20.03.55:945][  0]GameAnalyticsModule: Display: GameAnalyticsModule has started!
-[2021.10.26-20.03.55:945][  0]LogStreaming: Warning: Failed to read file '../../../FactoryGame/Saved/SaveGames/GameAnalytics.sav' error.
-[2021.10.26-20.03.56:079][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
-[2021.10.26-20.03.56:079][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
-[2021.10.26-20.03.56:105][  0]LogUObjectArray: 49612 objects as part of root set at end of initial load.
-[2021.10.26-20.03.56:105][  0]LogUObjectArray: 2 objects are not in the root set, but can never be destroyed because they are in the DisregardForGC set.
-[2021.10.26-20.03.56:105][  0]LogUObjectAllocator: 15770864 out of 0 bytes used by permanent object pool.
-[2021.10.26-20.03.56:105][  0]LogUObjectArray: CloseDisregardForGC: 49612/49612 objects in disregard for GC pool
-[2021.10.26-20.03.56:105][  0]LogEngine: Initializing Engine...
-[2021.10.26-20.03.56:107][  0]LogStats: UGameplayTagsManager::InitializeManager -  0.001 s
-[2021.10.26-20.03.56:117][  0]LogInit: Initializing FReadOnlyCVARCache
-[2021.10.26-20.03.56:117][  0]LogNetVersion: Set ProjectVersion to 0.0.1.0. Version Checksum will be recalculated on next use.
-[2021.10.26-20.03.56:117][  0]LogInit: Texture streaming: Disabled
-[2021.10.26-20.03.56:145][  0]LogOnline: OSS: Creating online subsystem instance for: Steam
-[2021.10.26-20.03.56:145][  0]LogGenericPlatformMisc: Error: SetEnvironmentVar not implemented for this platform: SteamAppId = 526870
-[2021.10.26-20.03.56:149][  0]LogSteamShared: Warning: Steam Dedicated Server API failed to initialize.
-[2021.10.26-20.03.56:150][  0]LogOnline: STEAM: [AppId: 0] Game Server API initialized 0
-[2021.10.26-20.03.56:150][  0]LogOnline: Warning: STEAM: Failed to initialize Steam, this could be due to a Steam server and client running on the same machine. Try running with -NOSTEAM on the cmdline to disable.
-[2021.10.26-20.03.56:150][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
-[2021.10.26-20.03.56:150][  0]LogOnline: Warning: STEAM: Steam API failed to initialize!
-[2021.10.26-20.03.56:150][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
-[2021.10.26-20.03.56:150][  0]LogOnline: OSS: Creating online subsystem instance for: Steam
-[2021.10.26-20.03.56:150][  0]LogGenericPlatformMisc: Error: SetEnvironmentVar not implemented for this platform: SteamAppId = 526870
-[2021.10.26-20.03.56:154][  0]LogSteamShared: Warning: Steam Dedicated Server API failed to initialize.
-[2021.10.26-20.03.56:154][  0]LogOnline: STEAM: [AppId: 0] Game Server API initialized 0
-[2021.10.26-20.03.56:154][  0]LogOnline: Warning: STEAM: Failed to initialize Steam, this could be due to a Steam server and client running on the same machine. Try running with -NOSTEAM on the cmdline to disable.
-[2021.10.26-20.03.56:154][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
-[2021.10.26-20.03.56:154][  0]LogOnline: Warning: STEAM: Steam API failed to initialize!
-[2021.10.26-20.03.56:154][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
-[2021.10.26-20.03.56:154][  0]LogOnline: OSS: Creating online subsystem instance for: Steam
-[S_API] SteamAPI_Init(): Loaded local 'steamclient.so' OK.
-[2021.10.26-20.03.56:154][  0]LogGenericPlatformMisc: Error: SetEnvironmentVar not implemented for this platform: SteamAppId = 526870
-[2021.10.26-20.03.56:159][  0]LogSteamShared: Warning: Steam Dedicated Server API failed to initialize.
-[2021.10.26-20.03.56:160][  0]LogOnline: STEAM: [AppId: 0] Game Server API initialized 0
-[2021.10.26-20.03.56:160][  0]LogOnline: Warning: STEAM: Failed to initialize Steam, this could be due to a Steam server and client running on the same machine. Try running with -NOSTEAM on the cmdline to disable.
-[2021.10.26-20.03.56:160][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
-[2021.10.26-20.03.56:160][  0]LogOnline: Warning: STEAM: Steam API failed to initialize!
-[2021.10.26-20.03.56:160][  0]LogOnline: Display: STEAM: OnlineSubsystemSteam::Shutdown()
-[2021.10.26-20.03.56:161][  0]LogServerQuery: Binding Server Query Socket to port 15777
-[2021.10.26-20.03.56:161][  0]LogStreaming: Warning: Failed to read file '/home/steam/.config/Epic/FactoryGame/Saved/SaveGames/ServerSettings.15777' error.
-[2021.10.26-20.03.56:162][  0]LogGame: MaxNumBackupsaves: 25
-[2021.10.26-20.03.56:162][  0]GameAnalyticsModule: Warning: Invalid EOS Metrics Handle
-[2021.10.26-20.03.56:162][  0]GameAnalyticsModule: Warning: AnalyticsService is initialized for Epic Online Services Metris
-[2021.10.26-20.03.56:162][  0]LogInit: Display: Game Engine Initialized.
-[2021.10.26-20.03.56:162][  0]LogNetVersion: Set ProjectVersion to ++FactoryGame+main-CL-170147. Version Checksum will be recalculated on next use.
-[2021.10.26-20.03.56:162][  0]LogConsoleResponse: Display: Can't switch to RHI thread mode when we are not running a multithreaded renderer.
-[2021.10.26-20.03.56:162][  0]LogConsoleResponse: Display: RHIThread is disabled.
-[2021.10.26-20.03.56:163][  0]LogInit: OnPostEngineInit has been broadcasted successfully.
-[2021.10.26-20.03.56:169][  0]LogInit: Display: Starting Game.
-[2021.10.26-20.03.56:169][  0]LogNet: Browse: /Game/FactoryGame/Map/DedicatedserverEntry?Name=Player
-[2021.10.26-20.03.56:170][  0]LogLoad: LoadMap: /Game/FactoryGame/Map/DedicatedserverEntry?Name=Player
-[2021.10.26-20.03.56:170][  0]LogWorld: BeginTearingDown for /Temp/Untitled_0
-[2021.10.26-20.03.56:173][  0]LogWorld: UWorld::CleanupWorld for Untitled, bSessionEnded=true, bCleanupResources=true
-[2021.10.26-20.03.56:178][  0]LogUObjectHash: Compacting FUObjectHashTables data took   2.85ms
-[2021.10.26-20.03.56:247][  0]LogAIModule: Creating AISystem for world DedicatedserverEntry
-[2021.10.26-20.03.56:248][  0]LogLoad: Game class is 'BP_GameModeMenu_C'
-[2021.10.26-20.03.56:250][  0]LogReplicationGraph: Display: SetActorDiscoveryBudget set to 20 kBps (5333 bits per network tick).
-[2021.10.26-20.03.56:327][  0]LogNetCore: DDoS detection status: detection enabled: 0 analytics enabled: 0
-[2021.10.26-20.03.56:327][  0]LogInit: BSD IPv4/6: Socket queue. Rx: 262144 (config 131072) Tx: 262144 (config 131072)
-[2021.10.26-20.03.56:327][  0]LogNet: Created socket for bind address: 0.0.0.0 on port 7777
-[2021.10.26-20.03.56:327][  0]PacketHandlerLog: Loaded PacketHandler component: DTLSHandlerComponent ()
-[2021.10.26-20.03.56:328][  0]PacketHandlerLog: Loaded PacketHandler component: Engine.EngineHandlerComponentFactory (StatelessConnectHandlerComponent)
-[2021.10.26-20.03.56:328][  0]LogNet: GameNetDriver NetDriverEOS_2147482563 IpNetDriver listening on port 7777
-[2021.10.26-20.03.56:329][  0]LogWorld: Bringing World /Game/FactoryGame/Map/DedicatedserverEntry.DedicatedserverEntry up for play (max tick rate 30) at 2021.10.26-20.03.56
-[2021.10.26-20.03.56:332][  0]LogWorld: Bringing up level for play took: 0.004131
-[2021.10.26-20.03.56:333][  0]LogGameMode: Display: Match State Changed from EnteringMap to WaitingToStart
-[2021.10.26-20.03.56:333][  0]LogGameState: Match State Changed from EnteringMap to WaitingToStart
-[2021.10.26-20.03.56:335][  0]LogReplicationGraph: Display: SetActorDiscoveryBudget set to 20 kBps (5333 bits per network tick).
-[2021.10.26-20.03.56:335][  0]LogNetCore: DDoS detection status: detection enabled: 0 analytics enabled: 0
+[2024.09.12-11.27.37:619][  0]LogLinux: Selected Device Profile: [LinuxServer]
+[2024.09.12-11.27.37:619][  0]LogInit: Selected Device Profile: [LinuxServer]
+[2024.09.12-11.27.37:619][  0]LogHAL: Display: Platform has ~ 63 GB [67312029696 / 68719476736 / 63], which maps to Largest [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
+[2024.09.12-11.27.37:619][  0]LogDeviceProfileManager: Going up to parent DeviceProfile [Linux]
+[2024.09.12-11.27.37:619][  0]LogDeviceProfileManager: Going up to parent DeviceProfile []
+[2024.09.12-11.27.37:619][  0]LogInit: Unix hardware info:
+[2024.09.12-11.27.37:619][  0]LogInit:  - we are the first instance of this executable
+[2024.09.12-11.27.37:619][  0]LogInit:  - this process' id (pid) is 175, parent process' id (ppid) is 1
+[2024.09.12-11.27.37:619][  0]LogInit:  - we are not running under debugger
+[2024.09.12-11.27.37:619][  0]LogInit:  - machine network name is 'satisfactory-server'
+[2024.09.12-11.27.37:619][  0]LogInit:  - user name is 'steam' (steam)
+[2024.09.12-11.27.37:619][  0]LogInit:  - we're logged in locally
+[2024.09.12-11.27.37:619][  0]LogInit:  - we're running without rendering
+[2024.09.12-11.27.37:619][  0]LogInit:  - CPU: AuthenticAMD 'AMD Ryzen 9 5900X 12-Core Processor' (signature: 0xA20F10)
+[2024.09.12-11.27.37:619][  0]LogInit:  - Number of physical cores available for the process: 12
+[2024.09.12-11.27.37:619][  0]LogInit:  - Number of logical cores available for the process: 24
+[2024.09.12-11.27.37:619][  0]LogInit:  - GPU Brand Info: NVIDIA PCI-id: 10de-1401 (1462-3201)
+[2024.09.12-11.27.37:619][  0]LogInit:  - Memory allocator used: binned2
+[2024.09.12-11.27.37:619][  0]LogInit:  - This is a licensee build.
+[2024.09.12-11.27.37:619][  0]LogCore: Benchmarking clocks:
+[2024.09.12-11.27.37:619][  0]LogCore:  - CLOCK_MONOTONIC (id=1) can sustain 44104295 (44104K, 44M) calls per second without zero deltas.
+[2024.09.12-11.27.37:619][  0]LogCore:  - CLOCK_MONOTONIC_RAW (id=4) can sustain 44120514 (44121K, 44M) calls per second without zero deltas.
+[2024.09.12-11.27.37:619][  0]LogCore:  - CLOCK_MONOTONIC_COARSE (id=6) can sustain 212015625 (212016K, 212M) calls per second with 99.999877% zero deltas.
+[2024.09.12-11.27.37:619][  0]LogCore: Selected clock_id 4 (CLOCK_MONOTONIC_RAW) since it is the fastest support clock without zero deltas.
+[2024.09.12-11.27.37:619][  0]LogInit: Unix-specific commandline switches:
+[2024.09.12-11.27.37:619][  0]LogInit:  -ansimalloc - use malloc()/free() from libc (useful for tools like valgrind and electric fence)
+[2024.09.12-11.27.37:619][  0]LogInit:  -jemalloc - use jemalloc for all memory allocation
+[2024.09.12-11.27.37:619][  0]LogInit:  -binnedmalloc - use binned malloc  for all memory allocation
+[2024.09.12-11.27.37:619][  0]LogInit:  -filemapcachesize=NUMBER - set the size for case-sensitive file mapping cache
+[2024.09.12-11.27.37:619][  0]LogInit:  -useksm - uses kernel same-page mapping (KSM) for mapped memory (OFF)
+[2024.09.12-11.27.37:619][  0]LogInit:  -ksmmergeall - marks all mmap'd memory pages suitable for KSM (OFF)
+[2024.09.12-11.27.37:619][  0]LogInit:  -preloadmodulesymbols - Loads the main module symbols file into memory (OFF)
+[2024.09.12-11.27.37:619][  0]LogInit:  -sigdfl=SIGNAL - Allows a specific signal to be set to its default handler rather then ignoring the signal
+[2024.09.12-11.27.37:619][  0]LogInit:  -crashhandlerstacksize - Allows setting crash handler stack sizes (204800)
+[2024.09.12-11.27.37:619][  0]LogInit:  -noexclusivelockonwrite - disables marking files created by the engine as exclusive locked while the engine has them opened
+[2024.09.12-11.27.37:619][  0]LogInit:  -httpproxy=ADDRESS:PORT - redirects HTTP requests to a proxy (only supported if compiled with libcurl)
+[2024.09.12-11.27.37:619][  0]LogInit:  -reuseconn - allow libcurl to reuse HTTP connections (only matters if compiled with libcurl)
+[2024.09.12-11.27.37:619][  0]LogInit:  -virtmemkb=NUMBER - sets process virtual memory (address space) limit (overrides VirtualMemoryLimitInKB value from .ini)
+[2024.09.12-11.27.37:619][  0]LogInit:  -allowsyscallfilterfile=PATH_TO_FILE - sets up a system call filter allow list. any invalid syscall in this list *will* cause a crash
+[2024.09.12-11.27.37:619][  0]LogInit:  - Physical RAM available (not considering process quota): 63 GB (64193 MB, 65734404 KB, 67312029696 bytes)
+[2024.09.12-11.27.37:619][  0]LogInit:  - VirtualMemoryAllocator pools will grow at scale 1.4
+[2024.09.12-11.27.37:619][  0]LogInit:  - MemoryRangeDecommit() will will evict the memory from RAM (re-run with -novmapoolevict to change)
+[2024.09.12-11.27.37:619][  0]LogInit:  - PageSize 4096
+[2024.09.12-11.27.37:619][  0]LogInit:  - BinnedPageSize 65536
+[2024.09.12-11.27.37:621][  0]LogInit: Physics initialised using underlying interface: Chaos
+[2024.09.12-11.27.37:621][  0]LogInit: Overriding language with engine language configuration option (en-US-Posix).
+[2024.09.12-11.27.37:621][  0]LogInit: Overriding language with engine locale configuration option (en-US-Posix).
+[2024.09.12-11.27.37:621][  0]LogTextLocalizationManager: No specific localization for 'en-US-Posix' exists, so 'en' will be used for the language.
+[2024.09.12-11.27.37:649][  0]LogConfig: Warning: Found a deprecated ini section name in ../../../FactoryGame/Config/DefaultEngine.ini. Search for [/Script/Engine.TextureLODSettings] and replace with [GlobalDefaults DeviceProfile]
+[2024.09.12-11.27.37:651][  0]LogRendererCore: Ray tracing is disabled. Reason: disabled through project setting (r.RayTracing=0).
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/2D/Paper2D/Content/' mounted to '/Paper2D/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Animation/ACLPlugin/Content/' mounted to '/ACLPlugin/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Animation/ControlRigSpline/Content/' mounted to '/ControlRigSpline/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Animation/ControlRig/Content/' mounted to '/ControlRig/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Animation/DeformerGraph/Content/' mounted to '/DeformerGraph/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Animation/IKRig/Content/' mounted to '/IKRig/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Bridge/Content/' mounted to '/Bridge/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Compositing/LensDistortion/Content/' mounted to '/LensDistortion/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Developer/AnimationSharing/Content/' mounted to '/AnimationSharing/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Editor/BlueprintHeaderView/Content/' mounted to '/BlueprintHeaderView/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Editor/GeometryMode/Content/' mounted to '/GeometryMode/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Editor/ObjectMixer/LightMixer/Content/' mounted to '/LightMixer/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Editor/ObjectMixer/ObjectMixer/Content/' mounted to '/ObjectMixer/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Editor/SpeedTreeImporter/Content/' mounted to '/SpeedTreeImporter/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Editor/UVEditor/Content/' mounted to '/UVEditor/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Enterprise/DatasmithContent/Content/' mounted to '/DatasmithContent/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Enterprise/GLTFExporter/Content/' mounted to '/GLTFExporter/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ChaosCaching/Content/' mounted to '/ChaosCaching/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ChaosClothEditor/Content/' mounted to '/ChaosClothEditor/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ChaosNiagara/Content/' mounted to '/ChaosNiagara/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ChaosSolverPlugin/Content/' mounted to '/ChaosSolverPlugin/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ChaosVehiclesPlugin/Content/' mounted to '/ChaosVehiclesPlugin/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ControlFlows/Content/' mounted to '/ControlFlows/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/Dataflow/Content/' mounted to '/Dataflow/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/FullBodyIK/Content/' mounted to '/FullBodyIK/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/GeometryCollectionPlugin/Content/' mounted to '/GeometryCollectionPlugin/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/GeometryScripting/Content/' mounted to '/GeometryScripting/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/Landmass/Content/' mounted to '/Landmass/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/PythonScriptPlugin/Content/' mounted to '/PythonScriptPlugin/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Experimental/ToolPresets/Content/' mounted to '/ToolPresets/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/FX/Niagara/Content/' mounted to '/Niagara/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Fab/Content/' mounted to '/Fab/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Interchange/Runtime/Content/' mounted to '/Interchange/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Media/MediaCompositing/Content/' mounted to '/MediaCompositing/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Media/MediaPlate/Content/' mounted to '/MediaPlate/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/MovieScene/SequencerScripting/Content/' mounted to '/SequencerScripting/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/AudioSynesthesia/Content/' mounted to '/AudioSynesthesia/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/AudioWidgets/Content/' mounted to '/AudioWidgets/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/GeometryProcessing/Content/' mounted to '/GeometryProcessing/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/HairStrands/Content/' mounted to '/HairStrands/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/MeshModelingToolset/Content/' mounted to '/MeshModelingToolset/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/Metasound/Content/' mounted to '/Metasound/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/ResonanceAudio/Content/' mounted to '/ResonanceAudio/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/RigVM/Content/' mounted to '/RigVM/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/Synthesis/Content/' mounted to '/Synthesis/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Runtime/WaveTable/Content/' mounted to '/WaveTable/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Tests/EditorTests/Content/' mounted to '/EditorTests/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Tests/RuntimeTests/Content/' mounted to '/RuntimeTests/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/TraceUtilities/Content/' mounted to '/TraceUtilities/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/VirtualProduction/Takes/Content/' mounted to '/Takes/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/WwiseNiagara/Content/' mounted to '/WwiseNiagara/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../Plugins/Wwise/Content/' mounted to '/Wwise/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../../FactoryGame/Plugins/AbstractInstance/Content/' mounted to '/AbstractInstance/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../../FactoryGame/Plugins/EditorTools/Content/' mounted to '/EditorTools/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../../FactoryGame/Plugins/GameplayEvents/Content/' mounted to '/GameplayEvents/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../../FactoryGame/Plugins/InstancedSplines/Content/' mounted to '/InstancedSplines/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../../FactoryGame/Plugins/Online/OnlineIntegration/Content/' mounted to '/OnlineIntegration/'
+[2024.09.12-11.27.37:656][  0]LogPackageName: Display: FPackageName: Mount point added: '../../../FactoryGame/Plugins/SignificanceISPC/Content/' mounted to '/SignificanceISPC/'
+[2024.09.12-11.27.37:656][  0]LogInit: Overriding language with engine language configuration option (en-US-Posix).
+[2024.09.12-11.27.37:656][  0]LogInit: Overriding language with engine locale configuration option (en-US-Posix).
+[2024.09.12-11.27.37:656][  0]LogTextLocalizationManager: No localization for 'en-US-Posix' exists, so 'en-US' will be used for the language.
+[2024.09.12-11.27.37:656][  0]LogTextLocalizationManager: No localization for 'en-US-Posix' exists, so 'en-US' will be used for the locale.
+[2024.09.12-11.27.37:656][  0]LogTextLocalizationResource: LocRes '../../../FactoryGame/Content/Localization/Game/en-US/Game.locres' could not be opened for reading!
+[2024.09.12-11.27.37:657][  0]LogTextLocalizationResource: LocRes '../../../FactoryGame/Content/Localization/InputKeys/en-US/InputKeys.locres' could not be opened for reading!
+[2024.09.12-11.27.37:657][  0]LogTextLocalizationResource: LocRes '../../../FactoryGame/Content/Localization/Narrative/en-US/Narrative.locres' could not be opened for reading!
+[2024.09.12-11.27.37:657][  0]LogTextLocalizationResource: LocRes '../../../FactoryGame/Content/Localization/AllStringTables/en-US/AllStringTables.locres' could not be opened for reading!
+[2024.09.12-11.27.37:657][  0]LogTextLocalizationResource: LocRes '../../../Engine/Content/Localization/Engine/en-US/Engine.locres' could not be opened for reading!
+[2024.09.12-11.27.37:657][  0]LogTextLocalizationResource: LocRes '../../../Engine/Plugins/Online/OnlineFramework/Content/Localization/OnlineFramework/en-US/OnlineFramework.locres' could not be opened for reading!
+[2024.09.12-11.27.37:657][  0]LogTextLocalizationResource: LocRes '../../../Engine/Plugins/Online/OnlineSubsystemUtils/Content/Localization/OnlineSubsystemUtils/en-US/OnlineSubsystemUtils.locres' could not be opened for reading!
+[2024.09.12-11.27.37:657][  0]LogTextLocalizationResource: LocRes '../../../Engine/Plugins/Online/OnlineSubsystem/Content/Localization/OnlineSubsystem/en-US/OnlineSubsystem.locres' could not be opened for reading!
+[2024.09.12-11.27.37:657][  0]LogTextLocalizationResource: LocRes '../../../FactoryGame/Content/Localization/Game/en/Game.locres' could not be opened for reading!
+[2024.09.12-11.27.37:657][  0]LogTextLocalizationResource: LocRes '../../../FactoryGame/Content/Localization/InputKeys/en/InputKeys.locres' could not be opened for reading!
+[2024.09.12-11.27.37:657][  0]LogTextLocalizationResource: LocRes '../../../FactoryGame/Content/Localization/Narrative/en/Narrative.locres' could not be opened for reading!
+[2024.09.12-11.27.37:657][  0]LogTextLocalizationResource: LocRes '../../../FactoryGame/Content/Localization/AllStringTables/en/AllStringTables.locres' could not be opened for reading!
+[2024.09.12-11.27.37:658][  0]LogAssetRegistry: FAssetRegistry took 0.0001 seconds to start up
+[2024.09.12-11.27.37:698][  0]LogStreaming: Display: FlushAsyncLoading(1): 1 QueuedPackages, 0 AsyncPackages
+[2024.09.12-11.27.37:699][  0]LogLinux: Selected Device Profile: [LinuxServer]
+[2024.09.12-11.27.37:699][  0]LogDeviceProfileManager: Available device profiles:
+[2024.09.12-11.27.37:699][  0]LogDeviceProfileManager: 	[0x7f60a1eaff20][0x7f6131dc9250 66] Linux, 
+[2024.09.12-11.27.37:699][  0]LogDeviceProfileManager: 	[0x7f60a1eafd60][0x7f6131dc6dc0 66] LinuxServer, 
+[2024.09.12-11.27.37:699][  0]LogDeviceProfileManager: Active device profile: [0x7f60a1eafd60][0x7f6131dc6dc0 66] LinuxServer
+[2024.09.12-11.27.37:703][  0]LogTextureEncodingSettings: Display: Texture Encode Speed: Final (cook).
+[2024.09.12-11.27.37:703][  0]LogTextureEncodingSettings: Display: Oodle Texture Encode Speed settings: Fast: RDO Off Lambda=0, Effort=Normal Final: RDO Off Lambda=0, Effort=Normal
+[2024.09.12-11.27.37:703][  0]LogTextureEncodingSettings: Display: Shared linear texture encoding: Disabled
+[2024.09.12-11.27.37:729][  0]LogPackageLocalizationCache: Processed 60 localized package path(s) for 2 prioritized culture(s) in 0.000109 seconds
+[2024.09.12-11.27.37:834][  0]LogAudio: Display: Registering Engine Module Parameter Interfaces...
+[2024.09.12-11.27.37:836][  0]LogMetasoundEngine: MetaSound Engine Initialized
+[2024.09.12-11.27.37:842][  0]LogWwiseNiagara: Display: Initializing default Niagara.
+[2024.09.12-11.27.37:865][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Players/Messages/YouGotKicked'. Did you forget to add a string table redirector?
+[2024.09.12-11.27.37:865][  0]LogConsoleManager: Warning: Console object named 'SigMan.server.tickrate' already exists but is being registered again, but we weren't expected it to be! (FConsoleManager::AddConsoleObject)
+[2024.09.12-11.27.37:865][  0]LogConsoleManager: Warning: Console object named 'SigMan.server.tickrate' already exists but is being registered again, but we weren't expected it to be! (FConsoleManager::AddConsoleObject)
+[2024.09.12-11.27.37:865][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Sessions/JoinSession/Header'. Did you forget to add a string table redirector?
+[2024.09.12-11.27.37:865][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Sessions/JoinSession/Body'. Did you forget to add a string table redirector?
+[2024.09.12-11.27.37:865][  0]LogStringTable: Warning: Failed to find string table entry for 'Messages_UI' 'Warnings/JoinSession/FailedToDestroyOldSession'. Did you forget to add a string table redirector?
+[2024.09.12-11.27.37:865][  0]LogStringTable: Warning: Failed to find string table entry for 'Messages_UI' 'Warnings/JoinSession/FailedToLookupFriendsId'. Did you forget to add a string table redirector?
+[2024.09.12-11.27.37:865][  0]LogStringTable: Warning: Failed to find string table entry for 'Messages_UI' 'Warnings/JoinSession/FailedToLookupHostId'. Did you forget to add a string table redirector?
+[2024.09.12-11.27.37:865][  0]LogStringTable: Warning: Failed to find string table entry for 'Messages_UI' 'Warnings/JoinSession/FailedToJoinSession'. Did you forget to add a string table redirector?
+[2024.09.12-11.27.37:865][  0]LogConsoleManager: Warning: Console object named 'SigMan.server.tickrate' already exists but is being registered again, but we weren't expected it to be! (FConsoleManager::AddConsoleObject)
+[2024.09.12-11.27.37:865][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Sessions/Errors/OfflineFallback/aTitle'. Did you forget to add a string table redirector?
+[2024.09.12-11.27.37:865][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Sessions/Errors/OfflineFallback/Body'. Did you forget to add a string table redirector?
+[2024.09.12-11.27.37:865][  0]LogConsoleManager: Warning: Console object named 'SigMan.server.tickrate' already exists but is being registered again, but we weren't expected it to be! (FConsoleManager::AddConsoleObject)
+[2024.09.12-11.27.37:898][  0]LogStats: UGameplayTagsManager::InitializeManager -  0.001 s
+[2024.09.12-11.27.37:926][  0]LogLocaTools: Loading up all available csv stringtables at: Localization/StringTables
+[2024.09.12-11.27.37:926][  0]LogLocaTools: Loading up stringtable as Architecture_Data at: ../../../FactoryGame/Content/Localization/StringTables/Architecture_Data.csv
+[2024.09.12-11.27.37:926][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Architecture_Data.csv
+[2024.09.12-11.27.37:926][  0]LogLocaTools: Loading up stringtable as AWESOME_Data at: ../../../FactoryGame/Content/Localization/StringTables/AWESOME_Data.csv
+[2024.09.12-11.27.37:926][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/AWESOME_Data.csv
+[2024.09.12-11.27.37:926][  0]LogLocaTools: Loading up stringtable as AWESOME_UI at: ../../../FactoryGame/Content/Localization/StringTables/AWESOME_UI.csv
+[2024.09.12-11.27.37:926][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/AWESOME_UI.csv
+[2024.09.12-11.27.37:926][  0]LogLocaTools: Loading up stringtable as Buildables_Data at: ../../../FactoryGame/Content/Localization/StringTables/Buildables_Data.csv
+[2024.09.12-11.27.37:926][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Buildables_Data.csv
+[2024.09.12-11.27.37:927][  0]LogLocaTools: Loading up stringtable as Buildables_UI at: ../../../FactoryGame/Content/Localization/StringTables/Buildables_UI.csv
+[2024.09.12-11.27.37:927][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Buildables_UI.csv
+[2024.09.12-11.27.37:928][  0]LogLocaTools: Loading up stringtable as Codex_UI at: ../../../FactoryGame/Content/Localization/StringTables/Codex_UI.csv
+[2024.09.12-11.27.37:928][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Codex_UI.csv
+[2024.09.12-11.27.37:928][  0]LogLocaTools: Loading up stringtable as Credits_UI at: ../../../FactoryGame/Content/Localization/StringTables/Credits_UI.csv
+[2024.09.12-11.27.37:928][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Credits_UI.csv
+[2024.09.12-11.27.37:928][  0]LogLocaTools: Loading up stringtable as Customization_Data at: ../../../FactoryGame/Content/Localization/StringTables/Customization_Data.csv
+[2024.09.12-11.27.37:928][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Customization_Data.csv
+[2024.09.12-11.27.37:928][  0]LogLocaTools: Loading up stringtable as Customization_UI at: ../../../FactoryGame/Content/Localization/StringTables/Customization_UI.csv
+[2024.09.12-11.27.37:928][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Customization_UI.csv
+[2024.09.12-11.27.37:928][  0]LogLocaTools: Loading up stringtable as Emotes_Data at: ../../../FactoryGame/Content/Localization/StringTables/Emotes_Data.csv
+[2024.09.12-11.27.37:928][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Emotes_Data.csv
+[2024.09.12-11.27.37:928][  0]LogLocaTools: Loading up stringtable as Equipment_Data at: ../../../FactoryGame/Content/Localization/StringTables/Equipment_Data.csv
+[2024.09.12-11.27.37:928][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Equipment_Data.csv
+[2024.09.12-11.27.37:929][  0]LogLocaTools: Loading up stringtable as FICSMAS_Data at: ../../../FactoryGame/Content/Localization/StringTables/FICSMAS_Data.csv
+[2024.09.12-11.27.37:929][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/FICSMAS_Data.csv
+[2024.09.12-11.27.37:929][  0]LogLocaTools: Loading up stringtable as FICSMAS_UI at: ../../../FactoryGame/Content/Localization/StringTables/FICSMAS_UI.csv
+[2024.09.12-11.27.37:929][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/FICSMAS_UI.csv
+[2024.09.12-11.27.37:929][  0]LogLocaTools: Loading up stringtable as Gamepads_UI at: ../../../FactoryGame/Content/Localization/StringTables/Gamepads_UI.csv
+[2024.09.12-11.27.37:929][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Gamepads_UI.csv
+[2024.09.12-11.27.37:929][  0]LogLocaTools: Loading up stringtable as GamepadsMappings_UI at: ../../../FactoryGame/Content/Localization/StringTables/GamepadsMappings_UI.csv
+[2024.09.12-11.27.37:929][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/GamepadsMappings_UI.csv
+[2024.09.12-11.27.37:929][  0]LogLocaTools: Loading up stringtable as General_UI at: ../../../FactoryGame/Content/Localization/StringTables/General_UI.csv
+[2024.09.12-11.27.37:929][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/General_UI.csv
+[2024.09.12-11.27.37:929][  0]LogLocaTools: Loading up stringtable as HUB_UI at: ../../../FactoryGame/Content/Localization/StringTables/HUB_UI.csv
+[2024.09.12-11.27.37:929][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/HUB_UI.csv
+[2024.09.12-11.27.37:930][  0]LogLocaTools: Loading up stringtable as IconLibrary_Data at: ../../../FactoryGame/Content/Localization/StringTables/IconLibrary_Data.csv
+[2024.09.12-11.27.37:930][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/IconLibrary_Data.csv
+[2024.09.12-11.27.37:930][  0]LogLocaTools: Loading up stringtable as Items_Data at: ../../../FactoryGame/Content/Localization/StringTables/Items_Data.csv
+[2024.09.12-11.27.37:930][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Items_Data.csv
+[2024.09.12-11.27.37:931][  0]LogLocaTools: Loading up stringtable as MAM_Data at: ../../../FactoryGame/Content/Localization/StringTables/MAM_Data.csv
+[2024.09.12-11.27.37:931][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/MAM_Data.csv
+[2024.09.12-11.27.37:931][  0]LogLocaTools: Loading up stringtable as MAM_UI at: ../../../FactoryGame/Content/Localization/StringTables/MAM_UI.csv
+[2024.09.12-11.27.37:931][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/MAM_UI.csv
+[2024.09.12-11.27.37:931][  0]LogLocaTools: Loading up stringtable as Map_UI at: ../../../FactoryGame/Content/Localization/StringTables/Map_UI.csv
+[2024.09.12-11.27.37:931][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Map_UI.csv
+[2024.09.12-11.27.37:931][  0]LogLocaTools: Loading up stringtable as Menus_UI at: ../../../FactoryGame/Content/Localization/StringTables/Menus_UI.csv
+[2024.09.12-11.27.37:931][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Menus_UI.csv
+[2024.09.12-11.27.37:933][  0]LogLocaTools: Loading up stringtable as Messages_UI at: ../../../FactoryGame/Content/Localization/StringTables/Messages_UI.csv
+[2024.09.12-11.27.37:933][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Messages_UI.csv
+[2024.09.12-11.27.37:933][  0]LogLocaTools: Loading up stringtable as Minigame_UI at: ../../../FactoryGame/Content/Localization/StringTables/Minigame_UI.csv
+[2024.09.12-11.27.37:933][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Minigame_UI.csv
+[2024.09.12-11.27.37:933][  0]LogLocaTools: Loading up stringtable as Onboarding at: ../../../FactoryGame/Content/Localization/StringTables/Onboarding.csv
+[2024.09.12-11.27.37:933][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Onboarding.csv
+[2024.09.12-11.27.37:933][  0]LogLocaTools: Loading up stringtable as Options_Data at: ../../../FactoryGame/Content/Localization/StringTables/Options_Data.csv
+[2024.09.12-11.27.37:933][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Options_Data.csv
+[2024.09.12-11.27.37:934][  0]LogLocaTools: Loading up stringtable as OptionsInputs_Data at: ../../../FactoryGame/Content/Localization/StringTables/OptionsInputs_Data.csv
+[2024.09.12-11.27.37:934][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/OptionsInputs_Data.csv
+[2024.09.12-11.27.37:934][  0]LogLocaTools: Loading up stringtable as Player_UI at: ../../../FactoryGame/Content/Localization/StringTables/Player_UI.csv
+[2024.09.12-11.27.37:934][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Player_UI.csv
+[2024.09.12-11.27.37:935][  0]LogLocaTools: Loading up stringtable as Schematics_Data at: ../../../FactoryGame/Content/Localization/StringTables/Schematics_Data.csv
+[2024.09.12-11.27.37:935][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Schematics_Data.csv
+[2024.09.12-11.27.37:935][  0]LogLocaTools: Loading up stringtable as Transportation_UI at: ../../../FactoryGame/Content/Localization/StringTables/Transportation_UI.csv
+[2024.09.12-11.27.37:935][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Transportation_UI.csv
+[2024.09.12-11.27.37:936][  0]LogLocaTools: Loading up stringtable as Units_UI at: ../../../FactoryGame/Content/Localization/StringTables/Units_UI.csv
+[2024.09.12-11.27.37:936][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/Units_UI.csv
+[2024.09.12-11.27.37:936][  0]LogLocaTools: Loading up stringtable as World_Data at: ../../../FactoryGame/Content/Localization/StringTables/World_Data.csv
+[2024.09.12-11.27.37:936][  0]LogLocaTools: Loading up stringtable: Content/Localization/StringTables/World_Data.csv
+[2024.09.12-11.27.37:960][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2024.09.12-11.27.37:960][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2024.09.12-11.27.37:962][  0]LogSlateStyle: Warning: Missing Resource from 'CoreStyle' Style: 'Unable to find Brush 'Sequencer.Timeline.VanillaScrubHandleDown'.'
+[2024.09.12-11.27.37:975][  0]LogUObjectArray: 36776 objects as part of root set at end of initial load.
+[2024.09.12-11.27.37:975][  0]LogUObjectArray: 1271 objects are not in the root set, but can never be destroyed because they are in the DisregardForGC set.
+[2024.09.12-11.27.37:975][  0]LogUObjectAllocator: 11346544 out of 0 bytes used by permanent object pool.
+[2024.09.12-11.27.37:975][  0]LogUObjectArray: CloseDisregardForGC: 36776/36776 objects in disregard for GC pool
+[2024.09.12-11.27.37:981][  0]LogStreaming: Display: AsyncLoading2 - NotifyRegistrationComplete: Registered 33257 public script object entries (913.81 KB)
+[2024.09.12-11.27.37:981][  0]LogStreaming: Display: AsyncLoading2 - Thread Started: true, IsInitialLoad: false
+[2024.09.12-11.27.37:982][  0]LogEngine: Initializing Engine...
+[2024.09.12-11.27.37:982][  0]LogStreaming: Warning: Failed to read file '../../../FactoryGame/Saved/DebugUI/Settings.data' error.
+[2024.09.12-11.27.37:990][  0]LogAssetManager: Display: Ignoring PrimaryAssetType Profiling - Conflicts with Map - Asset: Map_UI-Profile
+[2024.09.12-11.27.37:992][  0]LogInit: Initializing FReadOnlyCVARCache
+[2024.09.12-11.27.37:992][  0]LogNetVersion: Set ProjectVersion to 0.0.1.0. Version Checksum will be recalculated on next use.
+[2024.09.12-11.27.37:992][  0]LogInit: Texture streaming: Disabled
+[2024.09.12-11.27.37:994][  0]LogUserSetting: Initializing user settings
+[2024.09.12-11.27.38:027][  0]LogLoad: Loading WwiseSoundEngine module: WwiseSoundEngine
+[2024.09.12-11.27.38:027][  0]LogWwiseSoundEngine: Display: Loading Wwise Sound Engine version 2022.1
+[2024.09.12-11.27.38:027][  0]LogAkAudio: FAkAudioModule::StartupModule: Couldn't initialize FAkAudioDevice. AkAudioModule will not be fully initialized.
+[2024.09.12-11.27.38:032][  0]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.09.12-11.27.38:033][  0]LogOnlineSchema: Error: Invalid schema category lobby: Service descriptor id lobby not found.
+[2024.09.12-11.27.38:033][  0]LogOnlineSchema: Error: Invalid schema category lobbymember: Service descriptor id lobbymember not found.
+[2024.09.12-11.27.38:033][  0]LogOnlineServices: Error: [FLobbiesCommon::Initialize] Failed to initialize schema registry
+[2024.09.12-11.27.38:033][  0]LogOnlineIntegration: Initialized 'NULL' online backend
+[2024.09.12-11.27.38:034][  0]LogCommonUser: HandleNetworkConnectionStatusChanged(Context:Offline, ServiceName:, OldStatus:NotConnected, NewStatus:Connected)
+[2024.09.12-11.27.38:034][  0]LogStreaming: Warning: Failed to read file '/home/steam/.config/Epic/FactoryGame/Saved/SaveGames/ServerSettings.7777.sav' error.
+[2024.09.12-11.27.38:034][  0]LogHttpServerModule: Starting all listeners...
+[2024.09.12-11.27.38:034][  0]LogHttpServerModule: All listeners started
+[2024.09.12-11.27.38:063][  0]LogServer: Display: Generated a new Self-Signed certificate for the Server API (old certificate invalid or expired)
+[2024.09.12-11.27.38:063][  0]LogServer: Warning: ==============================================================
+[2024.09.12-11.27.38:063][  0]LogServer: Warning: Server API is running using a Self-Signed Certificate.
+[2024.09.12-11.27.38:063][  0]LogServer: Warning: To verify the certificate integrity on the Client, make sure the following Fingerprint matches with the Client one: 
+[2024.09.12-11.27.38:063][  0]LogServer: Warning: SHA256:Re8Y8l7EB+699kPspYduzdfA9PewDxrATl2tZlL2kRQ=
+[2024.09.12-11.27.38:063][  0]LogServer: Warning: ==============================================================
+[2024.09.12-11.27.38:063][  0]LogHttpListener: Warning: HttpListener unable to set desired buffer size (524288): Limited to 425984
+[2024.09.12-11.27.38:063][  0]LogHttpListener: Created new HttpListener on 0.0.0.0:7777
+[2024.09.12-11.27.38:063][  0]LogServer: Display: Server API listening on '0.0.0.0:7777' (Standalone)
+[2024.09.12-11.27.38:063][  0]LogGame: MaxNumBackupsaves: 25
+[2024.09.12-11.27.38:064][  0]LogLoad: Loading WwiseSoundEngine module: WwiseSoundEngine

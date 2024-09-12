@@ -77,14 +77,15 @@ if [[ "${SKIPUPDATE,,}" != "true" ]]; then
 
     STORAGEAVAILABLE=$(stat -f -c "%a*%S" .)
     STORAGEAVAILABLE=$((STORAGEAVAILABLE/1024/1024/1024))
-    printf "Checking available storage...%sGB detected\\n" "$STORAGEAVAILABLE"
+    printf "Checking available storage: %sGB detected\\n" "$STORAGEAVAILABLE"
 
     if [[ "$STORAGEAVAILABLE" -lt 8 ]]; then
         printf "You have less than 8GB (%sGB detected) of available storage to download the game.\\nIf this is a fresh install, it will probably fail.\\n" "$STORAGEAVAILABLE"
     fi
 
-    printf "Downloading the latest version of the game...\\n"
+    printf "\\nDownloading the latest version of the game...\\n"
     steamcmd +force_install_dir /config/gamefiles +login anonymous +app_update "$STEAMAPPID" -beta "$STEAMBETAFLAG" validate +quit
+    cp -r "/home/steam/.steam/steam/logs" "/config/logs/steam" || printf "Failed to store Steam logs\\n"
 else
     printf "Skipping update as flag is set\\n"
 fi
@@ -94,6 +95,8 @@ printf "Launching game server\\n\\n"
 cp -r "/config/saved/server/." "/config/backups/"
 cp -r "${GAMESAVESDIR}/server/." "/config/backups" # useful after the first run
 rm -rf "$GAMESAVESDIR"
+ln -sf "/config/gamefiles/FactoryGame/Saved/Logs/"* "/config/logs/satisfactory/" || printf "Failed to link steam logs\\n"
+ln -sf "/home/steam/.steam/steam/logs/"* "/config/logs/steam/" || printf "Failed to link satisfactory logs\\n"
 ln -sf "/config/saved" "$GAMESAVESDIR"
 
 if [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then

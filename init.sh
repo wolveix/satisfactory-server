@@ -36,7 +36,7 @@ if [[ "$cpu_model" == "Common KVM processor" || "$cpu_model" == *"QEMU"* ]]; the
     exit 1
 fi
 
-printf "Checking available memory...%sGB detected\\n" "$RAMAVAILABLE"
+printf "Checking available memory: %sGB detected\\n" "$RAMAVAILABLE"
 if [[ "$RAMAVAILABLE" -lt 12 ]]; then
     printf "${MSGWARNING} You have less than the required 12GB minmum (%sGB detected) of available RAM to run the game server.\\nIt is likely that the server will fail to load properly.\\n" "$RAMAVAILABLE"
 fi
@@ -85,11 +85,15 @@ fi
 mkdir -p \
     /config/backups \
     /config/gamefiles \
+    /config/logs/satisfactory \
+    /config/logs/steam \
     /config/saved/blueprints \
     /config/saved/server \
     "${GAMECONFIGDIR}/Config/LinuxServer" \
     "${GAMECONFIGDIR}/Logs" \
     "${GAMESAVESDIR}/server" \
+    /home/steam/.steam/root \
+    /home/steam/.steam/steam \
     || exit 1
 
 if [[ "${ROOTLESS,,}" != "true" ]]; then

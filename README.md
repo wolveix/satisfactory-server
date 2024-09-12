@@ -59,6 +59,7 @@ following directories:
 - `/backups` - the server will automatically backup your saves when the container first starts
 - `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload
   8GB+ every time you want to rebuild the container
+- `/logs` - this holds all Steam and Satisfactory logfiles
 - `/saved` - this contains the game's blueprints, saves, and server configuration
 
 Before running the server image, you should find your user ID that will be running the container. This isn't necessary
