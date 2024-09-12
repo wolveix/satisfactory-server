@@ -6,17 +6,31 @@ labels: ''
 assignees: ''
 ---
 
-**Describe the Bug**
+### [Experiencing issues? Check our Troubleshooting FAQ wiki!](https://github.com/wolveix/satisfactory-server/wiki/Troubleshooting-FAQ)
+
+### Describe the Bug
+
 A clear and concise description of what the bug is.
 
-**Your Runtime Command or Docker Compose File**
+### Your Runtime Command or Docker Compose File
+
 Please censor anything sensitive. Your runtime command might look like this:
 
 ```shell
 docker run --name="satisfactory" -p 7777 -v ./satisfactory:/config wolveix/satisfactory-server:latest
 ```
 
-**System Specs (please complete the following information):**
+### Debug Output
+
+Run the container with `DEBUG=true` as an environment variable, and it'll print out the system specs requested below, as
+well as a bunch of information about your container (version, environment variables, etc.)
+
+```shell
+OUTPUT HERE
+```
+
+### System Specs (please complete the following information):
+
 If you're on Linux, just paste the following block as a single command, and paste the output here.
 
 ```shell
@@ -35,5 +49,6 @@ Alternatively, you can find the information manually. Here's what we're looking 
 - RAM: [e.g. 4GB/16GB] (Linux: `cat /proc/meminfo | grep Mem`)
 - HDD; [e.g. 22GB/251GB (9% used)] (Linux: `df -h`)
 
-**Additional Context**
+### Additional Context
+
 Add any other context about the problem here.

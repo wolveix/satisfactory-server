@@ -1,5 +1,7 @@
 # Satisfactory Server
 
+![Satisfactory](https://raw.githubusercontent.com/wolveix/satisfactory-server/main/.github/logo.png "Satisfactory logo")
+
 ![Release](https://img.shields.io/github/v/release/wolveix/satisfactory-server)
 ![Docker Pulls](https://img.shields.io/docker/pulls/wolveix/satisfactory-server)
 ![Docker Stars](https://img.shields.io/docker/stars/wolveix/satisfactory-server)
@@ -11,6 +13,8 @@ server.
 You can alternatively try [saveshare](https://github.com/wolveix/satisfactory-server/tree/main/saveshare) instead (which
 relies on
 client-hosting).
+
+### [Experiencing issues? Check our Troubleshooting FAQ wiki!](https://github.com/wolveix/satisfactory-server/wiki/Troubleshooting-FAQ)
 
 ## Upgrading for Satisfactory 1.0
 

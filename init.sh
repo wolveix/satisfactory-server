@@ -22,6 +22,7 @@ OS:  $(uname -a)
 CPU: $(lscpu | grep 'Model name:' | sed 's/Model name:[[:space:]]*//g')
 RAM: $(awk '/MemAvailable/ {printf( "%d\n", $2 / 1024000 )}' /proc/meminfo)GB/$(awk '/MemTotal/ {printf( "%d\n", $2 / 1024000 )}' /proc/meminfo)GB
 HDD: $(df -h | awk '$NF=="/"{printf "%dGB/%dGB (%s used)\n", $3,$2,$5}')"
+    printf "\\nCurrent version:\\n%s" "${VERSION}"
     printf "\\nCurrent user:\\n%s" "$(id)"
     printf "\\nProposed user:\\nuid=%s(?) gid=%s(?) groups=%s(?)\\n" "$PUID" "$PGID" "$PGID"
     printf "\\nExiting...\\n"
@@ -84,7 +85,6 @@ fi
 mkdir -p \
     /config/backups \
     /config/gamefiles \
-    /config/overrides \
     /config/saved/blueprints \
     /config/saved/server \
     "${GAMECONFIGDIR}/Config/LinuxServer" \

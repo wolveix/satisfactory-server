@@ -45,6 +45,7 @@ else
 fi
 
 ini_args=(
+  "-ini:Engine:[HTTPServer.Listeners]:DefaultBindAddress=any"
   "-ini:Engine:[Core.Log]:LogNet=Error"
   "-ini:Engine:[Core.Log]:LogNetTraffic=Warning"
   "-ini:Engine:[/Script/FactoryGame.FGSaveSession]:mNumRotatingAutosaves=$AUTOSAVENUM"
@@ -102,4 +103,4 @@ fi
 
 cd /config/gamefiles || exit 1
 
-exec ./FactoryServer.sh -Port="$SERVERGAMEPORT" -ini:Engine:[HTTPServer.Listeners]:DefaultBindAddress=any "${ini_args[@]}" "$@"
+exec ./FactoryServer.sh -Port="$SERVERGAMEPORT" "${ini_args[@]}" "$@"
