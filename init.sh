@@ -45,6 +45,14 @@ if [[ "$RAMAVAILABLE" -lt 12 ]]; then
     printf "${MSGWARNING} You have less than the required 12GB minmum (%sGB detected) of available RAM to run the game server.\\nIt is likely that the server will fail to load properly.\\n" "$RAMAVAILABLE"
 fi
 
+# prevent large logs from accumulating by default
+if [[ "${LOG,,}" != "true" ]]; then
+    printf "Clearing old Satisfactory logs (set LOG=true to disable this)\\n"
+    if [ -d "/config/gamefiles/FactoryGame/Saved/Logs" ] && [ -n "$(find /config/gamefiles/FactoryGame/Saved/Logs -type f -print -quit)" ]; then
+        rm -r /config/gamefiles/FactoryGame/Saved/Logs/*
+    fi
+fi
+
 # check if the user and group IDs have been set
 if [[ "$CURRENTUID" -ne "0" ]] && [[ "${ROOTLESS,,}" != "true" ]]; then
     printf "${MSGERROR} Current user (%s) is not root (0)\\nPass your user and group to the container using the PGID and PUID environment variables\\nDo not use the --user flag (or user: field in Docker Compose) without setting ROOTLESS=true\\n" "$CURRENTUID"
@@ -89,7 +97,6 @@ fi
 mkdir -p \
     /config/backups \
     /config/gamefiles \
-    /config/logs/satisfactory \
     /config/logs/steam \
     /config/saved/blueprints \
     /config/saved/server \
@@ -99,6 +106,8 @@ mkdir -p \
     /home/steam/.steam/root \
     /home/steam/.steam/steam \
     || exit 1
+
+echo "Satisfactory logs can be found in /config/gamefiles/FactoryGame/Saved/Logs" > /config/logs/satisfactory-path.txt
 
 if [[ "${ROOTLESS,,}" != "true" ]]; then
   chown -R "$PUID":"$PGID" /config /home/steam /tmp/dumps

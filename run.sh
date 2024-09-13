@@ -85,7 +85,7 @@ if [[ "${SKIPUPDATE,,}" != "true" ]]; then
 
     printf "\\nDownloading the latest version of the game...\\n"
     steamcmd +force_install_dir /config/gamefiles +login anonymous +app_update "$STEAMAPPID" -beta "$STEAMBETAFLAG" validate +quit
-    cp -r "/home/steam/.steam/steam/logs" "/config/logs/steam" || printf "Failed to store Steam logs\\n"
+    cp -r /home/steam/.steam/steam/logs/* "/config/logs/steam" || printf "Failed to store Steam logs\\n"
 else
     printf "Skipping update as flag is set\\n"
 fi
@@ -95,8 +95,6 @@ printf "Launching game server\\n\\n"
 cp -r "/config/saved/server/." "/config/backups/"
 cp -r "${GAMESAVESDIR}/server/." "/config/backups" # useful after the first run
 rm -rf "$GAMESAVESDIR"
-ln -sf "/config/gamefiles/FactoryGame/Saved/Logs/"* "/config/logs/satisfactory/" || printf "Failed to link steam logs\\n"
-ln -sf "/home/steam/.steam/steam/logs/"* "/config/logs/steam/" || printf "Failed to link satisfactory logs\\n"
 ln -sf "/config/saved" "$GAMESAVESDIR"
 
 if [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then

@@ -57,9 +57,9 @@ You'll need to bind a local directory to the Docker container's `/config` direct
 following directories:
 
 - `/backups` - the server will automatically backup your saves when the container first starts
-- `/gamefiles` - this is for the game's files. They're stored outside of the container to avoid needing to redownload
+- `/gamefiles` - this is for the game's files. They're stored outside the container to avoid needing to redownload
   8GB+ every time you want to rebuild the container
-- `/logs` - this holds all Steam and Satisfactory log files
+- `/logs` - this holds Steam's logs, and contains a pointer to Satisfactory's logs (empties on startup unless `LOG=true`)
 - `/saved` - this contains the game's blueprints, saves, and server configuration
 
 Before running the server image, you should find your user ID that will be running the container. This isn't necessary
@@ -168,6 +168,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `AUTOSAVENUM`           |    `5`    | number of rotating autosave files                         |
 | `DEBUG`                 |  `false`  | for debugging the server                                  |
 | `DISABLESEASONALEVENTS` |  `false`  | disable the FICSMAS event (you miserable bastard)         |
+| `LOG`                   |  `false`  | disable Satisfactory log pruning                          |
 | `MAXOBJECTS`            | `2162688` | set the object limit for your server                      |
 | `MAXPLAYERS`            |    `4`    | set the player limit for your server                      |
 | `MAXTICKRATE`           |   `30`    | set the maximum sim tick rate for your server             |
