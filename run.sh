@@ -35,6 +35,7 @@ if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
     printf "Invalid max players given: %s\\n" "$MAXPLAYERS"
     MAXPLAYERS="4"
 fi
+printf "Setting max players to %s\\n" "$MAXPLAYERS"
 
 # GameUserSettings.ini settings
 if [[ "${DISABLESEASONALEVENTS,,}" == "true" ]]; then
