@@ -40,6 +40,8 @@ ENV AUTOSAVENUM="5" \
     TIMEOUT="30" \
     VMOVERRIDE="false"
 
+STOPSIGNAL SIGINT
+
 EXPOSE 7777/udp 7777/tcp
 
 ENTRYPOINT [ "/init.sh" ]

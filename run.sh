@@ -104,4 +104,15 @@ fi
 
 cd /config/gamefiles || exit 1
 
-exec ./FactoryServer.sh -Port="$SERVERGAMEPORT" "${ini_args[@]}" "$@"
+./FactoryServer.sh -Port="$SERVERGAMEPORT" "${ini_args[@]}" "$@" &
+
+sleep 2
+satisfactory_pid=$(ps --ppid ${!} o pid=)
+
+shutdown() {
+    printf "\\nReceived SIGINT. Shutting down.\\n"
+    kill -INT $satisfactory_pid 2>/dev/null
+}
+trap shutdown SIGINT SIGTERM
+
+wait
