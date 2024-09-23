@@ -1,6 +1,6 @@
 # Satisfactory Server
 
-![Satisfactory](https://raw.githubusercontent.com/wolveix/satisfactory-server/main/.github/logo.png "Satisfactory logo")
+![Satisfactory](.github/logo.png "Satisfactory logo")
 
 ![Release](https://img.shields.io/github/v/release/wolveix/satisfactory-server)
 ![Docker Pulls](https://img.shields.io/docker/pulls/wolveix/satisfactory-server)
@@ -10,7 +10,7 @@
 This is a Dockerized version of the [Satisfactory](https://store.steampowered.com/app/526870/Satisfactory/) dedicated
 server.
 
-You can alternatively try [saveshare](https://github.com/wolveix/satisfactory-server/tree/main/saveshare) instead (which
+You can alternatively try [saveshare](saveshare) instead (which
 relies on
 client-hosting).
 
@@ -99,7 +99,7 @@ wolveix/satisfactory-server:latest
 * `--volume` -> Binds the Satisfactory config folder to the folder you specified
   Allows you to easily access your savegames
 * For the environment (`--env`) variables please
-  see [here](https://github.com/wolveix/satisfactory-server#environment-variables)
+  see [here](#environment-variables)
 * `--memory-reservation=4G` -> Reserves 4GB RAM from the host for the container's use
 * `--memory 6G` -> Restricts the container to 6GB RAM
 * `--publish` -> Specifies the ports that the container exposes<br>
@@ -145,10 +145,10 @@ services:
 ### Kubernetes
 
 If you are running a [Kubernetes](https://kubernetes.io) cluster, we do have
-a [service.yaml](https://github.com/wolveix/satisfactory-server/tree/main/cluster/service.yaml)
-and [statefulset.yaml](https://github.com/wolveix/satisfactory-server/tree/main/cluster/statefulset.yaml) available
-under the [cluster](https://github.com/wolveix/satisfactory-server/tree/main/cluster) directory of this repo, along with
-an example [values.yaml](https://github.com/wolveix/satisfactory-server/tree/main/cluster/values.yaml) file.
+a [service.yaml](cluster/service.yaml)
+and [statefulset.yaml](cluster/statefulset.yaml) available
+under the [cluster](cluster) directory of this repo, along with
+an example [values.yaml](cluster/values.yaml) file.
 
 If you are using [Helm](https://helm.sh), you can find charts for this repo on
 [ArtifactHUB](https://artifacthub.io/packages/search?ts_query_web=satisfactory&sort=relevance&page=1). The
@@ -233,7 +233,7 @@ really get the best out of multiplayer:
   This change was made to address [permissions issues](https://github.com/wolveix/satisfactory-server/issues/44)
 - The server log will show various errors; most of which can be safely ignored. As long as the container continues to
   run and your log looks similar to the example log, the server should be functioning just
-  fine: [example log](https://github.com/wolveix/satisfactory-server/blob/main/server.log)
+  fine: [example log](server.log)
 
 ## Star History
 
