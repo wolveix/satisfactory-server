@@ -166,7 +166,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 Uses Certbot and Let's Encrypt to generate SSL certificates for the server.
 Without Certbot, the Satisfactory server uses self-signed SSL certificates, requiring players to manually confirm them.
 
-You can read more in the [ssl](ssl) directory.
+You can read more in the [ssl](https://github.com/wolveix/satisfactory-server/tree/main/ssl) directory.
 
 ## Environment Variables
 
