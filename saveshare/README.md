@@ -1,7 +1,6 @@
 # Satisfactory Save Sharing
 
-**_Note: this is a work in progress. The group I play with have been relying on solely this for the last few months, but
-I'm still working on making it more user-friendly._**
+**_Note: this is a work in progress. Prior to 1.0's release, the group I played with had been relying on solely this for many months. Now that 1.0 is released, dedicated servers are much more reliable, meaning we haven't really been using SaveShare._**
 
 The dedicated server for Satisfactory introduces a few unique bugs to the game, where multiplayer (through joining a
 friend) doesn't. This application introduces save sharing with friends. It's designed to function similarly to how the
@@ -15,7 +14,7 @@ leaves, anyone else can pick up from where they left off.
 
 Download the release from the releases tab. When you initially run it, it'll ask for the following information:
 
-- Server address (IP and port, e.g. `localhost:15770`)
+- Server address (IP and port, e.g. `localhost:7790`)
 - Server password (the SFTP password)
 - Session name (this must be EXACTLY as it is formatted within Satisfactory)
 
@@ -31,7 +30,7 @@ services:
     volumes:
       - /opt/saveshare:/home/saveshare/upload
     ports:
-      - "15770:22"
+      - "7790:22"
     command: saveshare:PASSWORD_HERE:1001
 ```
 
