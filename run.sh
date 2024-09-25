@@ -104,7 +104,7 @@ fi
 
 cd /config/gamefiles || exit 1
 
-chmod +x FactoryServer.sh
+chmod +x FactoryServer.sh || true
 ./FactoryServer.sh -Port="$SERVERGAMEPORT" "${ini_args[@]}" "$@" &
 
 sleep 2
