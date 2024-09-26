@@ -51,7 +51,7 @@ spec:
           requests:
             storage: 1Gi
     - metadata:
-        name: satisfactory-server-cache
+        name: satisfactory-data
       spec:
         accessModes: [ "ReadWriteOnce" ]
         resources:
