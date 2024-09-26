@@ -17,7 +17,7 @@ spec:
       port: 7777
       protocol: UDP
       targetPort: 7777
-    - name: "gametcp"
+    - name: "api"
       port: 7777
       protocol: TCP
       targetPort: 7777
