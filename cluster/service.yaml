@@ -10,6 +10,8 @@ spec:
   allocateLoadBalancerNodePorts: true
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
+# might be necessary for your cluster:
+#  loadBalancerIP: <external-IP>
   ports:
     - name: "game"
       port: 7777
