@@ -35,8 +35,11 @@ services:
 
   certbot:
     image: certbot/certbot
-    volumes:
-      - ./certs:/etc/letsencrypt
     command: certonly --standalone --non-interactive --agree-tos -m ${CERTBOT_MAIL} -d ${DOMAIN}
     ports:
-      - "80:80"
+      - '80:80/tcp'
+    volumes:
+      - ./certs:/etc/letsencrypt
+    environment:
+      - CERTBOT_MAIL=certbot@domain.tld
+      - DOMAIN=satisfactory.domain.tld
