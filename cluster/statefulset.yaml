@@ -40,7 +40,7 @@ spec:
           volumeMounts:
             - name: satisfactory-config
               mountPath: /config
-            - name: satisfactory-server-cache
+            - name: satisfactory-data
               mountPath: /config/gamefiles
   volumeClaimTemplates:
     - metadata:
