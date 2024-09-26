@@ -31,7 +31,7 @@ spec:
             - name: STEAMBETA
               value: "false"
           ports:
-            - name: "gametcp"
+            - name: "api"
               containerPort: 7777
               protocol: TCP
             - name: "game"
