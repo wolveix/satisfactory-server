@@ -8,8 +8,8 @@ services:
       - '7777:7777/tcp'
     volumes:
       - './satisfactory-server:/config'
-      - './certs/live/${DOMAIN}/privkey.pem:/config/gamefiles/FactoryGame/Certificates/private_key.pem'
       - './certs/live/${DOMAIN}/fullchain.pem:/config/gamefiles/FactoryGame/Certificates/cert_chain.pem'
+      - './certs/live/${DOMAIN}/privkey.pem:/config/gamefiles/FactoryGame/Certificates/private_key.pem'
     environment:
       - MAXPLAYERS=4
       - PGID=1000
