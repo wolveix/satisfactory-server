@@ -6,17 +6,20 @@ metadata:
   labels:
     app: satisfactory
 spec:
-  type: NodePort
+  type: LoadBalancer
+  allocateLoadBalancerNodePorts: true
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+# might be necessary for your cluster:
+#  loadBalancerIP: <external-IP>
   ports:
-    - port: 7777
-      nodePort: 7777
+    - name: "game"
+      port: 7777
       protocol: UDP
-      name: "game"
       targetPort: 7777
-    - port: 7777
-      nodePort: 7777
+    - name: "api"
+      port: 7777
       protocol: TCP
-      name: "gametcp"
       targetPort: 7777
   selector:
     app: satisfactory

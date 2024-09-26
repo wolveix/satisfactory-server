@@ -31,16 +31,25 @@ spec:
             - name: STEAMBETA
               value: "false"
           ports:
-            - containerPort: 7777
-              name: "gameTCP"
+            - name: "api"
+              containerPort: 7777
               protocol: TCP
-            - containerPort: 7777
-              name: "game"
+            - name: "game"
+              containerPort: 7777
               protocol: UDP
           volumeMounts:
-            - name: satisfactory-data
+            - name: satisfactory-config
               mountPath: /config
+            - name: satisfactory-data
+              mountPath: /config/gamefiles
   volumeClaimTemplates:
+    - metadata:
+        name: satisfactory-config
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi
     - metadata:
         name: satisfactory-data
       spec:
