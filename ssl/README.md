@@ -27,12 +27,6 @@ services:
     depends_on:
       certbot:
         condition: service_completed_successfully
-    healthcheck:
-      test: bash /healthcheck.sh
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 120s
     deploy:
       resources:
         limits:
