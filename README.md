@@ -59,7 +59,8 @@ following directories:
 - `/backups` - the server will automatically backup your saves when the container first starts
 - `/gamefiles` - this is for the game's files. They're stored outside the container to avoid needing to redownload
   8GB+ every time you want to rebuild the container
-- `/logs` - this holds Steam's logs, and contains a pointer to Satisfactory's logs (empties on startup unless `LOG=true`)
+- `/logs` - this holds Steam's logs, and contains a pointer to Satisfactory's logs (empties on startup unless
+  `LOG=true`)
 - `/saved` - this contains the game's blueprints, saves, and server configuration
 
 Before running the server image, you should find your user ID that will be running the container. This isn't necessary
@@ -141,6 +142,12 @@ services:
         reservations:
           memory: 4G
 ```
+
+### SSL Certificate with Certbot (Optional)
+
+You can use Certbot with Let's Encrypt to issue a signed SSL certificate for your server. Without this,
+Satisfactory will use a self-signed SSL certificate, requiring players to manually confirm them when they initially
+connect. [Learn more](https://github.com/wolveix/satisfactory-server/tree/main/ssl).
 
 ### Kubernetes
 

@@ -1,0 +1,45 @@
+services:
+  satisfactory-server:
+    container_name: 'satisfactory-server'
+    hostname: 'satisfactory-server'
+    image: 'wolveix/satisfactory-server:latest'
+    ports:
+      - '7777:7777/udp'
+      - '7777:7777/tcp'
+    volumes:
+      - './satisfactory-server:/config'
+      - './certs/live/${DOMAIN}/fullchain.pem:/config/gamefiles/FactoryGame/Certificates/cert_chain.pem'
+      - './certs/live/${DOMAIN}/privkey.pem:/config/gamefiles/FactoryGame/Certificates/private_key.pem'
+    environment:
+      - MAXPLAYERS=4
+      - PGID=1000
+      - PUID=1000
+      - ROOTLESS=false
+      - STEAMBETA=false
+    restart: unless-stopped
+    depends_on:
+      certbot:
+        condition: service_completed_successfully
+    healthcheck:
+      test: bash /healthcheck.sh
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+    deploy:
+      resources:
+        limits:
+          memory: 6G
+        reservations:
+          memory: 4G
+
+  certbot:
+    image: certbot/certbot
+    command: certonly --standalone --non-interactive --agree-tos -m ${CERTBOT_MAIL} -d ${DOMAIN}
+    ports:
+      - '80:80/tcp'
+    volumes:
+      - ./certs:/etc/letsencrypt
+    environment:
+      - CERTBOT_MAIL=certbot@domain.tld
+      - DOMAIN=satisfactory.domain.tld
