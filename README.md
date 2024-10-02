@@ -130,7 +130,7 @@ services:
       - STEAMBETA=false
     restart: unless-stopped
     healthcheck:
-      test: bash /healthcheck.sh
+      test: ["CMD", "bash", "/healthcheck.sh"]
       interval: 30s
       timeout: 10s
       retries: 3
