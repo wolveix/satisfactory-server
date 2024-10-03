@@ -130,7 +130,7 @@ services:
       - STEAMBETA=false
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "bash", "/healthcheck.sh"]
+      test: [ "CMD", "bash", "/healthcheck.sh" ]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -176,6 +176,8 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `DEBUG`                 |  `false`  | for debugging the server                                  |
 | `DISABLESEASONALEVENTS` |  `false`  | disable the FICSMAS event (you miserable bastard)         |
 | `LOG`                   |  `false`  | disable Satisfactory log pruning                          |
+| `LOGNETLEVEL`           |  `Error`  | print network logs at or above this log level             |
+| `LOGNETTRAFFICLEVEL`    | `Warning` | print network traffic logs at or above this log level     |
 | `MAXOBJECTS`            | `2162688` | set the object limit for your server                      |
 | `MAXPLAYERS`            |    `4`    | set the player limit for your server                      |
 | `MAXTICKRATE`           |   `30`    | set the maximum sim tick rate for your server             |
@@ -189,6 +191,16 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `STEAMBETA`             |  `false`  | set experimental game version                             |
 | `TIMEOUT`               |   `30`    | set client timeout (in seconds)                           |
 | `VMOVERRIDE`            |  `false`  | skips the CPU model check (should not ordinarily be used) |
+
+For the log level variables, the following values are supported by the game:
+
+- `Fatal`
+- `Error`
+- `Warning`
+- `Display`
+- `Log`
+- `Verbose`
+- `VeryVerbose`
 
 ## Experimental Branch
 
