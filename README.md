@@ -130,7 +130,7 @@ services:
       - STEAMBETA=false
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "bash", "/healthcheck.sh"]
+      test: [ "CMD", "bash", "/healthcheck.sh" ]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -170,34 +170,37 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 
 ## Environment Variables
 
-| Parameter                 |  Default  | Function                                                         |
-|---------------------------|:---------:|------------------------------------------------------------------|
-| `AUTOSAVENUM`             |    `5`    | number of rotating autosave files                                |
-| `DEBUG`                   |  `false`  | for debugging the server                                         |
-| `DISABLESEASONALEVENTS`   |  `false`  | disable the FICSMAS event (you miserable bastard)                |
-| `LOG`                     |  `false`  | disable Satisfactory log pruning                                 |
-| `LOGNETERRORLEVEL`        |  `Error`  | LogNet errors at or above this log level will be printed         |
-| `LOGNETTRAFFICERRORLEVEL` | `Warning` | LogNetTraffic errors at or above this log level will be printed  |
-| `MAXOBJECTS`              | `2162688` | set the object limit for your server                             |
-| `MAXPLAYERS`              |    `4`    | set the player limit for your server                             |
-| `MAXTICKRATE`             |   `30`    | set the maximum sim tick rate for your server                    |
-| `PGID`                    |  `1000`   | set the group ID of the user the server will run as              |
-| `PUID`                    |  `1000`   | set the user ID of the user the server will run as               |
-| `ROOTLESS`                |  `false`  | run the container as a non-root user                             |
-| `SERVERGAMEPORT`          |  `7777`   | set the game's port                                              |
-| `SERVERIP`                | `0.0.0.0` | set the game's ip (usually not needed)                           |
-| `SERVERSTREAMING`         |  `true`   | toggle whether the game utilizes asset streaming                 |
-| `SKIPUPDATE`              |  `false`  | avoid updating the game on container start/restart               |
-| `STEAMBETA`               |  `false`  | set experimental game version                                    |
-| `TIMEOUT`                 |   `30`    | set client timeout (in seconds)                                  |
-| `VMOVERRIDE`              |  `false`  | skips the CPU model check (should not ordinarily be used)        |
+| Parameter               |  Default  | Function                                                  |
+|-------------------------|:---------:|-----------------------------------------------------------|
+| `AUTOSAVENUM`           |    `5`    | number of rotating autosave files                         |
+| `DEBUG`                 |  `false`  | for debugging the server                                  |
+| `DISABLESEASONALEVENTS` |  `false`  | disable the FICSMAS event (you miserable bastard)         |
+| `LOG`                   |  `false`  | disable Satisfactory log pruning                          |
+| `LOGNETLEVEL`           |  `Error`  | print network logs at or above this log level             |
+| `LOGNETTRAFFICLEVEL`    | `Warning` | print network traffic logs at or above this log level     |
+| `MAXOBJECTS`            | `2162688` | set the object limit for your server                      |
+| `MAXPLAYERS`            |    `4`    | set the player limit for your server                      |
+| `MAXTICKRATE`           |   `30`    | set the maximum sim tick rate for your server             |
+| `PGID`                  |  `1000`   | set the group ID of the user the server will run as       |
+| `PUID`                  |  `1000`   | set the user ID of the user the server will run as        |
+| `ROOTLESS`              |  `false`  | run the container as a non-root user                      |
+| `SERVERGAMEPORT`        |  `7777`   | set the game's port                                       |
+| `SERVERIP`              | `0.0.0.0` | set the game's ip (usually not needed)                    |
+| `SERVERSTREAMING`       |  `true`   | toggle whether the game utilizes asset streaming          |
+| `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart        |
+| `STEAMBETA`             |  `false`  | set experimental game version                             |
+| `TIMEOUT`               |   `30`    | set client timeout (in seconds)                           |
+| `VMOVERRIDE`            |  `false`  | skips the CPU model check (should not ordinarily be used) |
 
-## Network Debugging
+For the log level variables, the following values are supported by the game:
 
-The ini values of `Engine:[Core.Log]:LogNet` and `Engine:[Core.Log]:LogNetTraffic` can be modified via the
-`LOGNETERRORLEVEL` and `LOGNETTRAFFICERRORLEVEL` environment variables.
-
-The following log levels are supported: `Fatal, Error, Warning, Display, Log, Verbose, VeryVerbose`
+- `Fatal`
+- `Error`
+- `Warning`
+- `Display`
+- `Log`
+- `Verbose`
+- `VeryVerbose`
 
 ## Experimental Branch
 
