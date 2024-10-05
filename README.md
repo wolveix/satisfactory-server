@@ -147,7 +147,9 @@ services:
 
 You can use Certbot with Let's Encrypt to issue a signed SSL certificate for your server. Without this,
 Satisfactory will use a self-signed SSL certificate, requiring players to manually confirm them when they initially
-connect. [Learn more](https://github.com/wolveix/satisfactory-server/tree/main/ssl).
+connect. If you're experiencing connectivity issues since issuing a certificate, check the link below for known issues.
+
+[Learn more](https://github.com/wolveix/satisfactory-server/tree/main/ssl).
 
 ### Kubernetes
 

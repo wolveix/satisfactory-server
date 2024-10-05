@@ -65,6 +65,13 @@ the game server will not start.
 
 ## Troubleshooting
 
+### I can't reach the server with the new cert!
+
+If you could reach the server before configuring a signed SSL cert, ensure that you're not doing either of the 
+following:
+- Using a wildcard cert: Satisfactory does not support them ([#354](https://github.com/wolveix/satisfactory-server/issues/354))
+- Connecting to a hostname not specified in your cert: Satisfactory does not support this ([#354](https://github.com/wolveix/satisfactory-server/issues/354))
+
 ### What if port 80 is already in-use with a reverse-proxy?
 
 Change the port for the certbot service (e.g. `7800:80/tcp`), and forward HTTP traffic from your reverse proxy through
