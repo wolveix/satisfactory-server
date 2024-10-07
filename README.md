@@ -82,7 +82,7 @@ docker run \
 --env PUID=1000 \
 --env ROOTLESS=false \
 --env STEAMBETA=false \
---memory-reservation=4G \
+--memory-reservation=2G \
 --memory 6G \
 --publish 7777:7777/udp \
 --publish 7777:7777/tcp \
@@ -140,7 +140,7 @@ services:
         limits:
           memory: 6G
         reservations:
-          memory: 4G
+          memory: 2G
 ```
 
 ### SSL Certificate with Certbot (Optional)
