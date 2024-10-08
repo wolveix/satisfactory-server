@@ -49,9 +49,9 @@ Enjoy 1.0! 🎉
 
 ## Setup
 
-Recent updates consume 4GB - 6GB RAM,
-but [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers#Requirements) recommends allocating 12GB -
-16GB RAM.
+The server may run on less than 8GB of RAM, though 8GB - 16GB is still recommended per
+the [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers#Requirements). You may need to increase the
+container's defined `--memory` restriction as you approach the late game (or if you're playing with many 4+ players)
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the
 following directories:
@@ -83,7 +83,7 @@ docker run \
 --env ROOTLESS=false \
 --env STEAMBETA=false \
 --memory-reservation=4G \
---memory 6G \
+--memory 8G \
 --publish 7777:7777/udp \
 --publish 7777:7777/tcp \
 wolveix/satisfactory-server:latest
@@ -102,7 +102,7 @@ wolveix/satisfactory-server:latest
 * For the environment (`--env`) variables please
   see [here](https://github.com/wolveix/satisfactory-server#environment-variables)
 * `--memory-reservation=4G` -> Reserves 4GB RAM from the host for the container's use
-* `--memory 6G` -> Restricts the container to 6GB RAM
+* `--memory 8G` -> Restricts the container to 6GB RAM
 * `--publish` -> Specifies the ports that the container exposes<br>
 
 </details>
@@ -138,7 +138,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 6G
+          memory: 8G
         reservations:
           memory: 4G
 ```
