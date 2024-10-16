@@ -41,8 +41,8 @@ else
 fi
 
 printf "Checking available memory: %sGB detected\\n" "$RAMAVAILABLE"
-if [[ "$RAMAVAILABLE" -lt 12 ]]; then
-    printf "${MSGWARNING} You have less than the required 12GB minmum (%sGB detected) of available RAM to run the game server.\\nIt is likely that the server will fail to load properly.\\n" "$RAMAVAILABLE"
+if [[ "$RAMAVAILABLE" -lt 8 ]]; then
+    printf "${MSGWARNING} You have less than the required 8GB minimum (%sGB detected) of available RAM to run the game server.\\nThe server will likely run fine, though may run into issues in the late game (or with 4+ players).\\n" "$RAMAVAILABLE"
 fi
 
 # prevent large logs from accumulating by default

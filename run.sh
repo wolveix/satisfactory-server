@@ -46,8 +46,6 @@ else
 fi
 
 ini_args=(
-  "-ini:Engine:[Core.Log]:LogNet=Error"
-  "-ini:Engine:[Core.Log]:LogNetTraffic=Warning"
   "-ini:Engine:[/Script/FactoryGame.FGSaveSession]:mNumRotatingAutosaves=$AUTOSAVENUM"
   "-ini:Engine:[/Script/Engine.GarbageCollectionSettings]:gc.MaxObjectsInEditor=$MAXOBJECTS"
   "-ini:Engine:[/Script/OnlineSubsystemUtils.IpNetDriver]:LanServerMaxTickRate=$MAXTICKRATE"
