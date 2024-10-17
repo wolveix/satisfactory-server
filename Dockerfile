@@ -14,7 +14,7 @@ RUN mkdir -p /config \
 COPY init.sh healthcheck.sh /
 COPY --chown=steam:steam run.sh /home/steam/
 
-HEALTHCHECK --timeout=10s --start-period=120s \
+HEALTHCHECK --timeout=10s --start-period=180s \
   CMD bash /healthcheck.sh
 
 WORKDIR /config
