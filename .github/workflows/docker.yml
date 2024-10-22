@@ -3,40 +3,46 @@ on: push
 
 jobs:
   push:
+    name: 🐳 Build and publish backend Docker image
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
+
     steps:
-      - uses: actions/checkout@v4
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Login to DockerHub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: 🛠️ Set up QEMU
+        uses: docker/setup-qemu-action@v3
 
-      - name: Login to GitHub Packages
+      - name: 🔧 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🔐 Log in to the Container Registry
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Docker meta
+      - name: 🏷️ Extract Metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
         with:
-          # list of Docker images to use as base name for tags
-          images: |
-            ${{ github.repository }}
-          # generate Docker tags based on the following events/attributes
+          images: ghcr.io/${{ github.repository }}
           tags: |
             type=raw,value=dev
-          # always generate latest tag on push
 
-      - name: Build and push to DockerHub
-        id: docker_build
+      - name: 🚢 Build and Push Docker Image
+        id: push
         uses: docker/build-push-action@v6
         with:
+          platforms: linux/amd64,linux/arm64
           push: true
-          tags: |
-            ghcr.io/${{ github.repository }}:dev
-            ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
