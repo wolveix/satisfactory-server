@@ -65,6 +65,7 @@ If you could reach the server before configuring a signed SSL cert, ensure that 
 following:
 - Using a wildcard cert: Satisfactory does not support them ([#354](https://github.com/wolveix/satisfactory-server/issues/354))
 - Connecting to a hostname not specified in your cert: Satisfactory does not support this ([#354](https://github.com/wolveix/satisfactory-server/issues/354))
+  - This means that **you can't connect using your local IP**. Doing so will give a "Failed to connect to Server API" error.
 
 ### What if port 80 is already in-use with a reverse-proxy?
 
