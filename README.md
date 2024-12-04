@@ -10,10 +10,6 @@
 This is a Dockerized version of the [Satisfactory](https://store.steampowered.com/app/526870/Satisfactory/) dedicated
 server.
 
-You can alternatively try [saveshare](https://github.com/wolveix/satisfactory-server/tree/main/saveshare) instead (which
-relies on
-client-hosting).
-
 ### [Experiencing issues? Check our Troubleshooting FAQ wiki!](https://github.com/wolveix/satisfactory-server/wiki/Troubleshooting-FAQ)
 
 ## Upgrading for Satisfactory 1.0
@@ -49,9 +45,9 @@ Enjoy 1.0! 🎉
 
 ## Setup
 
-Recent updates consume 4GB - 6GB RAM,
-but [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers#Requirements) recommends allocating 12GB -
-16GB RAM.
+The server may run on less than 8GB of RAM, though 8GB - 16GB is still recommended per
+the [the official wiki](https://satisfactory.wiki.gg/wiki/Dedicated_servers#Requirements). You may need to increase the
+container's defined `--memory` restriction as you approach the late game (or if you're playing with many 4+ players)
 
 You'll need to bind a local directory to the Docker container's `/config` directory. This directory will hold the
 following directories:
@@ -83,7 +79,7 @@ docker run \
 --env ROOTLESS=false \
 --env STEAMBETA=false \
 --memory-reservation=4G \
---memory 6G \
+--memory 8G \
 --publish 7777:7777/udp \
 --publish 7777:7777/tcp \
 wolveix/satisfactory-server:latest
@@ -102,7 +98,7 @@ wolveix/satisfactory-server:latest
 * For the environment (`--env`) variables please
   see [here](https://github.com/wolveix/satisfactory-server#environment-variables)
 * `--memory-reservation=4G` -> Reserves 4GB RAM from the host for the container's use
-* `--memory 6G` -> Restricts the container to 6GB RAM
+* `--memory 8G` -> Restricts the container to 8GB RAM
 * `--publish` -> Specifies the ports that the container exposes<br>
 
 </details>
@@ -129,16 +125,10 @@ services:
       - ROOTLESS=false
       - STEAMBETA=false
     restart: unless-stopped
-    healthcheck:
-      test: bash /healthcheck.sh
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 120s
     deploy:
       resources:
         limits:
-          memory: 6G
+          memory: 8G
         reservations:
           memory: 4G
 ```
@@ -147,7 +137,9 @@ services:
 
 You can use Certbot with Let's Encrypt to issue a signed SSL certificate for your server. Without this,
 Satisfactory will use a self-signed SSL certificate, requiring players to manually confirm them when they initially
-connect. [Learn more](https://github.com/wolveix/satisfactory-server/tree/main/ssl).
+connect. If you're experiencing connectivity issues since issuing a certificate, check the link below for known issues.
+
+[Learn more](https://github.com/wolveix/satisfactory-server/tree/main/ssl).
 
 ### Kubernetes
 

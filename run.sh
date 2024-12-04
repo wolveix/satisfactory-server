@@ -46,8 +46,6 @@ else
 fi
 
 ini_args=(
-  "-ini:Engine:[Core.Log]:LogNet=Error"
-  "-ini:Engine:[Core.Log]:LogNetTraffic=Warning"
   "-ini:Engine:[/Script/FactoryGame.FGSaveSession]:mNumRotatingAutosaves=$AUTOSAVENUM"
   "-ini:Engine:[/Script/Engine.GarbageCollectionSettings]:gc.MaxObjectsInEditor=$MAXOBJECTS"
   "-ini:Engine:[/Script/OnlineSubsystemUtils.IpNetDriver]:LanServerMaxTickRate=$MAXTICKRATE"
@@ -84,6 +82,10 @@ if [[ "${SKIPUPDATE,,}" != "true" ]]; then
     fi
 
     printf "\\nDownloading the latest version of the game...\\n"
+    if [ -f "/config/gamefiles/steamapps/appmanifest_1690800.acf" ]; then
+        printf "\\nRemoving the app manifest to force Steam to check for an update...\\n"
+        rm "/config/gamefiles/steamapps/appmanifest_1690800.acf" || true
+    fi
     steamcmd +force_install_dir /config/gamefiles +login anonymous +app_update "$STEAMAPPID" -beta "$STEAMBETAFLAG" validate +quit
     cp -r /home/steam/.steam/steam/logs/* "/config/logs/steam" || printf "Failed to store Steam logs\\n"
 else

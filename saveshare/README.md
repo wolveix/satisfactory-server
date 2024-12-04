@@ -1,6 +1,7 @@
 # Satisfactory Save Sharing
 
-**_Note: this is a work in progress. Prior to 1.0's release, the group I played with had been relying on solely this for many months. Now that 1.0 is released, dedicated servers are much more reliable, meaning we haven't really been using SaveShare._**
+**_Note: Prior to 1.0's release, the group I played with had been relying on solely this for many months. 1.0's release 
+drastically improved the stability of dedicated servers, removing the need for SaveShare._**
 
 The dedicated server for Satisfactory introduces a few unique bugs to the game, where multiplayer (through joining a
 friend) doesn't. This application introduces save sharing with friends. It's designed to function similarly to how the
@@ -12,7 +13,8 @@ leaves, anyone else can pick up from where they left off.
 
 ## Setup
 
-Download the release from the releases tab. When you initially run it, it'll ask for the following information:
+Download the last build from [here](https://github.com/wolveix/satisfactory-server/releases/tag/1.8.2). When you 
+initially run it, it'll ask for the following information:
 
 - Server address (IP and port, e.g. `localhost:7790`)
 - Server password (the SFTP password)

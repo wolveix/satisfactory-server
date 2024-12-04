@@ -27,16 +27,10 @@ services:
     depends_on:
       certbot:
         condition: service_completed_successfully
-    healthcheck:
-      test: bash /healthcheck.sh
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 120s
     deploy:
       resources:
         limits:
-          memory: 6G
+          memory: 8G
         reservations:
           memory: 4G
 
@@ -64,6 +58,14 @@ You can now launch the Docker Compose configuration in the same way you normally
 the game server will not start.
 
 ## Troubleshooting
+
+### I can't reach the server with the new cert!
+
+If you could reach the server before configuring a signed SSL cert, ensure that you're not doing either of the 
+following:
+- Using a wildcard cert: Satisfactory does not support them ([#354](https://github.com/wolveix/satisfactory-server/issues/354))
+- Connecting to a hostname not specified in your cert: Satisfactory does not support this ([#354](https://github.com/wolveix/satisfactory-server/issues/354))
+- Using your local IP. You cannot use your local IP, as it will not be included in your certificate.
 
 ### What if port 80 is already in-use with a reverse-proxy?
 
