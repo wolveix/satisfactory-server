@@ -1,5 +1,5 @@
 name: Docker
-on: push
+on: [ push ]
 
 jobs:
   push:
@@ -24,13 +24,12 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          # list of Docker images to use as base name for tags
+          # List of Docker images to use as base name for tags.
           images: |
             ${{ github.repository }}
-          # generate Docker tags based on the following events/attributes
+          # Generate Docker tags based on the following events/attributes.
           tags: |
             type=raw,value=dev
-          # always generate latest tag on push
 
       - name: Build and push to DockerHub
         id: docker_build

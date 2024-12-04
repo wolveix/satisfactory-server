@@ -10,10 +10,6 @@
 This is a Dockerized version of the [Satisfactory](https://store.steampowered.com/app/526870/Satisfactory/) dedicated
 server.
 
-You can alternatively try [saveshare](https://github.com/wolveix/satisfactory-server/tree/main/saveshare) instead (which
-relies on
-client-hosting).
-
 ### [Experiencing issues? Check our Troubleshooting FAQ wiki!](https://github.com/wolveix/satisfactory-server/wiki/Troubleshooting-FAQ)
 
 ## Upgrading for Satisfactory 1.0

@@ -5,5 +5,5 @@ services:
     volumes:
       - /opt/saveshare:/home/saveshare/upload
     ports:
-      - "15770:22"
+      - "7790:22"
     command: saveshare:PASSWORD_HERE:1001

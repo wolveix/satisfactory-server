@@ -31,23 +31,22 @@ func main() {
 		logger.Fatal().Err(err).Msg("Failed to create config directory")
 	}
 
-	// check if the log file exists, and create it if it doesn't
+	// Create the log file if it doesn't already exist.
 	if _, err = os.Stat(logfile); os.IsNotExist(err) {
 		if _, err = os.Create(logfile); err != nil {
 			logger.Fatal().Err(err).Msg("Failed to create log file")
 		}
 	}
 
-	// open the log file
 	logFile, err := os.OpenFile(logfile, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0o600)
 	if err != nil {
 		logger.Fatal().Err(err).Msg("Failed to open log file")
 	}
 
-	// replace the default logger with one that writes to the log file as well as to the console
+	// Replace the default logger with one that writes a file and to the console.
 	logger = zerolog.New(zerolog.MultiLevelWriter(zerolog.ConsoleWriter{Out: os.Stdout, TimeFormat: time.RFC3339}, logFile)).With().Timestamp().Logger().Level(zerolog.InfoLevel)
 
-	logger.Info().Msg("Satisfactory Save Share Client v1.6.1")
+	logger.Info().Msg("Satisfactory Save Share Client v1.8.2")
 	logger.Info().Msg("https://github.com/wolveix/satisfactory-server/saveshare")
 	logger.Info().Msg("Initializing config...")
 
@@ -100,7 +99,7 @@ func main() {
 
 	logger.Info().Msg("Config loaded successfully!")
 
-	// Establish an SSH connection to the server
+	// Establish an SSH connection to the server.
 	sshConfig := &ssh.ClientConfig{
 		User: "saveshare",
 		Auth: []ssh.AuthMethod{
@@ -115,7 +114,7 @@ func main() {
 	}
 	defer sshClient.Close()
 
-	// Establish an SFTP session
+	// Establish an SFTP session.
 	sftpClient, err := sftp.NewClient(sshClient)
 	if err != nil {
 		logger.Fatal().Err(err).Msg("Error creating SFTP client")
@@ -127,7 +126,7 @@ func main() {
 
 	remotePath := "upload/" + cfg.SessionName
 
-	// create the remote directories if they don't already exist
+	// Create the remote directories if they don't already exist.
 	if err = sftpClient.MkdirAll(remotePath + "/blueprints"); err != nil {
 		fmt.Printf("Error creating remote blueprints directory: %v\n", err)
 		return
@@ -174,14 +173,14 @@ func syncLocalUpdates(sftpClient *sftp.Client, localPath string, remotePath stri
 
 		remoteFilePath := remotePath + "/" + info.Name()
 
-		// save files are named like: "SESSIONNAME_autosave_0.sav"
+		// Save files are named like: "SESSIONNAME_autosave_0.sav".
 		if sessionName != "" {
 			if !strings.HasPrefix(info.Name(), sessionName) {
 				return nil
 			}
 		}
 
-		// Check if the file exists on the remote server
+		// Check the file exists on the remote server.
 		remoteFile, err := sftpClient.Stat(remoteFilePath)
 		if err != nil {
 			if os.IsNotExist(err) {
@@ -192,7 +191,7 @@ func syncLocalUpdates(sftpClient *sftp.Client, localPath string, remotePath stri
 			}
 		}
 
-		// Compare local and remote file timestamps
+		// Compare local and remote file timestamps.
 		localModTime := info.ModTime().Truncate(1 * time.Second)
 		remoteModTime := remoteFile.ModTime().Truncate(1 * time.Second)
 
@@ -201,11 +200,11 @@ func syncLocalUpdates(sftpClient *sftp.Client, localPath string, remotePath stri
 		}
 
 		if localModTime.After(remoteModTime) {
-			// Local file is newer, so upload it
+			// Local file is newer, so upload it.
 			logger.Info().Msg("Uploading " + localFilePath + " to " + remoteFilePath)
 			return uploadFile(sftpClient, localFilePath, remoteFilePath)
 		} else {
-			// Remote file is newer, so download it
+			// Remote file is newer, so download it.
 			logger.Info().Msg("Downloading " + remoteFilePath + " to " + localFilePath)
 			return downloadFile(sftpClient, remoteFilePath, localFilePath)
 		}
@@ -213,13 +212,13 @@ func syncLocalUpdates(sftpClient *sftp.Client, localPath string, remotePath stri
 }
 
 func syncRemoteUpdates(sftpClient *sftp.Client, localPath string, remotePath string) error {
-	// Get a list of files and directories in the remote directory
+	// Get a list of files and directories from the remote directory.
 	remoteFiles, err := sftpClient.ReadDir(remotePath)
 	if err != nil {
 		return fmt.Errorf("error reading remote directory: %w", err)
 	}
 
-	// Iterate through remote files and directories
+	// Iterate through remote files and directories.
 	for _, remoteFile := range remoteFiles {
 		if remoteFile.IsDir() {
 			return nil
@@ -228,11 +227,11 @@ func syncRemoteUpdates(sftpClient *sftp.Client, localPath string, remotePath str
 		localFilePath := localPath + slash + remoteFile.Name()
 		remoteFilePath := remotePath + "/" + remoteFile.Name()
 
-		// Check if the file exists on the local side
+		// Check if the file exists locally.
 		localFile, err := os.Stat(localFilePath)
 		if err != nil {
 			if os.IsNotExist(err) {
-				// Download the remote file
+				// Download the remote file.
 				logger.Info().Msg("Downloading " + remoteFilePath + " to " + localFilePath)
 				if err = downloadFile(sftpClient, remoteFilePath, localFilePath); err != nil {
 					return err
@@ -244,23 +243,23 @@ func syncRemoteUpdates(sftpClient *sftp.Client, localPath string, remotePath str
 			return fmt.Errorf("error checking local file: %w", err)
 		}
 
-		// Compare remote and local file timestamps
+		// Compare remote and local file timestamps.
 		localModTime := localFile.ModTime().Truncate(1 * time.Second)
 		remoteModTime := remoteFile.ModTime().Truncate(1 * time.Second)
 
-		// Compare timestamps and synchronize as needed
+		// Compare timestamps and synchronize as needed.
 		if localModTime == remoteModTime {
 			continue
 		}
 
 		if remoteModTime.After(localModTime) {
-			// Remote file is newer, download it
+			// Remote file is newer, download it.
 			logger.Info().Msg("Downloading " + remoteFilePath + " to " + localFilePath)
 			if err = downloadFile(sftpClient, remoteFilePath, localFilePath); err != nil {
 				return err
 			}
 		} else {
-			// Local file is newer, upload it
+			// Local file is newer, upload it.
 			logger.Info().Msg("Uploading " + localFilePath + " to " + remoteFilePath)
 			if err = uploadFile(sftpClient, localFilePath, remoteFilePath); err != nil {
 				return err

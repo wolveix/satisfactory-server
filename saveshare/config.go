@@ -24,15 +24,13 @@ func NewConfig(configDir string) (*Config, error) {
 		path: configDir + slash + "config.yml",
 	}
 
-	// Check if the file exists
+	// If the file doesn't exist, create an empty file.
 	if _, err := os.Stat(cfg.path); os.IsNotExist(err) {
-		// If the file doesn't exist, create an empty file
 		if _, err = os.Create(cfg.path); err != nil {
 			return nil, fmt.Errorf("could not create config file: %w", err)
 		}
 	}
 
-	// Read the YAML file
 	yamlData, err := os.ReadFile(cfg.path)
 	if err != nil {
 		return nil, fmt.Errorf("could not read config file: %w", err)
@@ -42,7 +40,7 @@ func NewConfig(configDir string) (*Config, error) {
 		return nil, fmt.Errorf("could not unmarshal config file: %w", err)
 	}
 
-	// populate the blueprint and save paths
+	// Populate the blueprint and save paths.
 	appDataPath, err := os.UserCacheDir()
 	if err != nil {
 		return nil, fmt.Errorf("could not get appdata path: %w", err)
@@ -54,12 +52,11 @@ func NewConfig(configDir string) (*Config, error) {
 		cfg.BlueprintPath = cfg.gamePath + "blueprints" + slash + cfg.SessionName
 	}
 
-	// check if the game path exists
 	if _, err = os.Stat(cfg.gamePath); os.IsNotExist(err) {
 		return nil, fmt.Errorf("game path does not exist: %w", err)
 	}
 
-	// get the save path
+	// Determine the save path.
 	if err = filepath.Walk(cfg.gamePath, func(path string, info os.FileInfo, err error) error {
 		if info == nil {
 			return errors.New("path does not exist")

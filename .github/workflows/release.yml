@@ -26,16 +26,16 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          # list of Docker images to use as base name for tags
+          # List of Docker images to use as base name for tags.
           images: |
             ${{ github.repository }}
             ghcr.io/${{ github.repository }}
-          # generate Docker tags based on the following events/attributes
+          # Generate Docker tags based on the following events/attributes.
           tags: |
             type=semver,pattern=v{{version}}
             type=semver,pattern=v{{major}}.{{minor}}
             type=semver,pattern=v{{major}}
-          # always generate latest tag on push
+          # Always generate latest tag on push.
           flavor: |
             latest=true
 
@@ -47,22 +47,3 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           build-args: |
             VERSION=${{ github.event.release.tag_name }}
-
-      - name: Setup Go Environment
-        uses: actions/setup-go@v2
-        with:
-          go-version: '^1.20.0'
-
-      - name: Build Binaries
-        run: |
-          mkdir -p builds/compressed
-          go install github.com/mitchellh/gox@latest
-          cd saveshare
-          gox --output "../builds/saveshare-{{.OS}}-{{.Arch}}" -osarch 'darwin/amd64 linux/amd64 windows/amd64'
-          cd ../builds
-          find . -maxdepth 1 -type f -execdir zip 'compressed/{}.zip' '{}' \;
-
-      - name: Upload Binaries
-        run: |
-          go install github.com/tcnksm/ghr@latest
-          ghr -t ${{ secrets.GITHUB_TOKEN }} --delete Latest builds/compressed/
