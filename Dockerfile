@@ -1,4 +1,4 @@
-FROM steamcmd/steamcmd:ubuntu-24
+FROM steamcmd/steamcmd:ubuntu-22
 
 ENV AUTOSAVENUM="5" \
     DEBIAN_FRONTEND="noninteractive" \
@@ -26,9 +26,7 @@ RUN set -x \
  && apt-get update \
  && apt-get install -y gosu xdg-user-dirs curl jq tzdata --no-install-recommends \
  && rm -rf /var/lib/apt/lists/* \
- && userdel ubuntu \
- && groupadd -r steam -g $PGID \
- && useradd -ms /bin/bash --no-log-init -r -u $PUID -g $PGID steam \
+ && useradd -ms /bin/bash steam \
  && gosu nobody true
 
 RUN mkdir -p /config \
