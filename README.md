@@ -133,6 +133,28 @@ services:
           memory: 4G
 ```
 
+### Updating
+
+The game automatically updates when the container is started or restarted (unless you set `SKIPUPDATE=true`).
+
+To update the container image itself:
+
+#### Docker Run
+
+```shell
+docker pull wolveix/satisfactory-server:latest
+docker stop satisfactory-server
+docker rm satisfactory-server
+docker run ...
+```
+
+#### Docker Compose
+
+```shell
+docker compose pull
+docker compose up -d
+```
+
 ### SSL Certificate with Certbot (Optional)
 
 You can use Certbot with Let's Encrypt to issue a signed SSL certificate for your server. Without this,
