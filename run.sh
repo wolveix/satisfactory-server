@@ -21,6 +21,27 @@ if ! [[ "$MAXTICKRATE" =~ $NUMCHECK ]] ; then
 fi
 printf "Setting max tick rate to %s\\n" "$MAXTICKRATE"
 
+if [[ "$MULTIHOME" != "::" ]]; then
+    if [[ "$MULTIHOME" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
+        # Check if it's a valid IPv4 address (0-255 segments)
+        if echo "$MULTIHOME" | awk -F. '$1<=255 && $2<=255 && $3<=255 && $4<=255'; then
+            if [[ "$MULTIHOME" == "0.0.0.0" ]]; then
+                printf "Restricting Server to IPv4 on all interfaces\n"
+            else
+                printf "Setting custom IPv4 as Interface: %s\n" "$MULTIHOME"
+            fi
+        else
+            printf "Invalid IPv4 address: %s\n" "$MULTIHOME"
+        fi
+    elif [[ "$MULTIHOME" =~ ^([0-9a-fA-F]{1,4}:){1,7}[0-9a-fA-F]{1,4}$ ]]; then
+        printf "Setting custom IPv6 as Interface: %s\n" "$MULTIHOME"
+    else
+        # server handles this non-graciously
+        printf "Invalid IP address: %s\n" "$MULTIHOME"
+        exit 1
+    fi
+fi
+
 [[ "${SERVERSTREAMING,,}" == "true" ]] && SERVERSTREAMING="1" || SERVERSTREAMING="0"
 printf "Setting server streaming to %s\\n" "$SERVERSTREAMING"
 
@@ -58,6 +79,7 @@ ini_args=(
   "-ini:Game:[/Script/Engine.GameSession]:MaxPlayers=$MAXPLAYERS"
   "-ini:GameUserSettings:[/Script/Engine.GameSession]:MaxPlayers=$MAXPLAYERS"
   "$DISABLESEASONALEVENTS"
+  "-multihome=$MULTIHOME"
 )
 
 if [[ "${SKIPUPDATE,,}" != "false" ]] && [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then

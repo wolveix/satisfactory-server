@@ -197,7 +197,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `PUID`                  |  `1000`   | set the user ID of the user the server will run as        |
 | `ROOTLESS`              |  `false`  | run the container as a non-root user                      |
 | `SERVERGAMEPORT`        |  `7777`   | set the game's port                                       |
-| `SERVERIP`              | `0.0.0.0` | set the game's ip (usually not needed)                    |
+| `MULTIHOME`             |   `::`    | set the servers listening interfaces (usually not needed) |
 | `SERVERSTREAMING`       |  `true`   | toggle whether the game utilizes asset streaming          |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart        |
 | `STEAMBETA`             |  `false`  | set experimental game version                             |

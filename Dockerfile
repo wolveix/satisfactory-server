@@ -19,7 +19,8 @@ ENV AUTOSAVENUM="5" \
     STEAMAPPID="1690800" \
     STEAMBETA="false" \
     TIMEOUT="30" \
-    VMOVERRIDE="false"
+    VMOVERRIDE="false" \
+    MULTIHOME="::"
 
 # hadolint ignore=DL3008
 RUN set -x \
