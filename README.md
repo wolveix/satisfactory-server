@@ -193,11 +193,11 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `MAXOBJECTS`            | `2162688` | set the object limit for your server                      |
 | `MAXPLAYERS`            |    `4`    | set the player limit for your server                      |
 | `MAXTICKRATE`           |   `30`    | set the maximum sim tick rate for your server             |
+| `MULTIHOME`             |   `::`    | set the server's listening interface (usually not needed) |
 | `PGID`                  |  `1000`   | set the group ID of the user the server will run as       |
 | `PUID`                  |  `1000`   | set the user ID of the user the server will run as        |
 | `ROOTLESS`              |  `false`  | run the container as a non-root user                      |
 | `SERVERGAMEPORT`        |  `7777`   | set the game's port                                       |
-| `MULTIHOME`             |   `::`    | set the servers listening interfaces (usually not needed) |
 | `SERVERSTREAMING`       |  `true`   | toggle whether the game utilizes asset streaming          |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart        |
 | `STEAMBETA`             |  `false`  | set experimental game version                             |

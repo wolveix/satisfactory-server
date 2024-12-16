@@ -10,6 +10,7 @@ ENV AUTOSAVENUM="5" \
     MAXOBJECTS="2162688" \
     MAXPLAYERS="4" \
     MAXTICKRATE="30" \
+    MULTIHOME="::" \
     PGID="1000" \
     PUID="1000" \
     ROOTLESS="false" \
@@ -19,8 +20,7 @@ ENV AUTOSAVENUM="5" \
     STEAMAPPID="1690800" \
     STEAMBETA="false" \
     TIMEOUT="30" \
-    VMOVERRIDE="false" \
-    MULTIHOME="::"
+    VMOVERRIDE="false"
 
 # hadolint ignore=DL3008
 RUN set -x \
