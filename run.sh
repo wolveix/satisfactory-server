@@ -45,6 +45,27 @@ else
     DISABLESEASONALEVENTS=""
 fi
 
+if [[ "$MULTIHOME" != "::" ]]; then
+    # Check if it's a valid IPv4 address (0-255 segments).
+    if [[ "$MULTIHOME" =~ ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$ ]]; then
+        printf "Multihome will accept IPv4 connections only\\n"
+    # Check if it's a valid IPv6 address.
+    elif [[ "$MULTIHOME" =~ ^([0-9a-fA-F]{1,4}:){1,7}[0-9a-fA-F]{1,4}$ ]]; then
+        # FIXME: doesn't support IPv6 shorthand, e.g. 2041:0000:140F::875B:131B.
+        printf "Multihome will accept IPv6 connections only\\n"
+    else
+        printf "Invalid multihome address given: %s\n" "$MULTIHOME"
+        MULTIHOME="::"
+    fi
+fi
+
+# Secondary check needed if a failure condition occurs above.
+if [[ "$MULTIHOME" == "::" ]]; then
+    printf "Multihome will accept IPv4 and IPv6 connections\\n"
+fi
+
+printf "Setting multihome to %s\\n" "$MULTIHOME"
+
 ini_args=(
   "-ini:Engine:[/Script/FactoryGame.FGSaveSession]:mNumRotatingAutosaves=$AUTOSAVENUM"
   "-ini:Engine:[/Script/Engine.GarbageCollectionSettings]:gc.MaxObjectsInEditor=$MAXOBJECTS"
@@ -58,6 +79,7 @@ ini_args=(
   "-ini:Game:[/Script/Engine.GameSession]:MaxPlayers=$MAXPLAYERS"
   "-ini:GameUserSettings:[/Script/Engine.GameSession]:MaxPlayers=$MAXPLAYERS"
   "$DISABLESEASONALEVENTS"
+  "-multihome=$MULTIHOME"
 )
 
 if [[ "${SKIPUPDATE,,}" != "false" ]] && [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then

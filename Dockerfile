@@ -10,6 +10,7 @@ ENV AUTOSAVENUM="5" \
     MAXOBJECTS="2162688" \
     MAXPLAYERS="4" \
     MAXTICKRATE="30" \
+    MULTIHOME="::" \
     PGID="1000" \
     PUID="1000" \
     ROOTLESS="false" \
