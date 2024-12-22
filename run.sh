@@ -48,14 +48,20 @@ fi
 if [[ "$MULTIHOME" != "::" ]]; then
     # Check if it's a valid IPv4 address (0-255 segments).
     if [[ "$MULTIHOME" =~ ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$ ]]; then
-        printf "Multihome will accept IPv4 connections only\\n"
-    # Check if it's a valid IPv6 address.
-    elif [[ "$MULTIHOME" =~ ^([0-9a-fA-F]{1,4}:){1,7}[0-9a-fA-F]{1,4}$ ]]; then
-        # FIXME: doesn't support IPv6 shorthand, e.g. 2041:0000:140F::875B:131B.
-        printf "Multihome will accept IPv6 connections only\\n"
+        printf "Accepting IPv4 connections only on %s\n" "$MULTIHOME"
+    # Basic IPv6 validation, allowing shorthand (some invalid ones may still pass here).
+    elif [[ "$MULTIHOME" =~ ^(([0-9a-fA-F]{0,4}::?){0,7})([0-9a-fA-F]{1,4})(::)?$ ]]; then
+        printf "Trying to accept IPv6 connections only on %s\n" "$MULTIHOME"
     else
-        printf "Invalid multihome address given: %s\n" "$MULTIHOME"
-        MULTIHOME="::"
+        printf "\e[31mInvalid IP address given: %s\e[0m\n" "$MULTIHOME"
+    fi
+
+    printf "Testing given Interface: " # Should always be reachable since localhost, practically checks if interface exists
+    if ping -c 1 "$MULTIHOME"; then
+        printf "\e[32mValid and reachable: %s\e[0m\n" "$MULTIHOME" 
+    else
+        printf "\e[31mInvalid or unreachable: %s\e[0m\n" "$MULTIHOME"
+        exit 1 # Fail LOUDLY as to prevent the need to dig through the log
     fi
 fi
 
