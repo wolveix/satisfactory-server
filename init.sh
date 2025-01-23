@@ -53,10 +53,10 @@ if [[ "${LOG,,}" != "true" ]]; then
     fi
 fi
 
-# check if the user and group IDs have been set
-if [[ "$CURRENTUID" -ne "0" ]] && [[ "${ROOTLESS,,}" != "true" ]]; then
-    printf "${MSGERROR} Current user (%s) is not root (0)\\nPass your user and group to the container using the PGID and PUID environment variables\\nDo not use the --user flag (or user: field in Docker Compose) without setting ROOTLESS=true\\n" "$CURRENTUID"
-    exit 1
+# check if the user and group IDs have been set. If so, reset HOME to the upstream default
+if [[ "$CURRENTUID" -ne "0" ]]; then
+    HOME="/root"
+    printf "${MSGWARNING} Current user (%s) is not root (0).\\nNo permissions will be adjusted as we're running within a rootless environment.\\n" "$CURRENTUID"
 fi
 
 if ! [[ "$PGID" =~ $NUMCHECK ]] ; then
@@ -75,18 +75,18 @@ elif [[ "$PUID" -eq 0 ]]; then
     exit 1
 fi
 
-if [[ "${ROOTLESS,,}" != "true" ]]; then
-  if [[ $(getent group $PGID | cut -d: -f1) ]]; then
-      usermod -a -G "$PGID" steam
-  else
-      groupmod -g "$PGID" steam
-  fi
+if [[ "$CURRENTUID" -eq "0" ]]; then
+    if [[ $(getent group $PGID | cut -d: -f1) ]]; then
+        usermod -a -G "$PGID" steam
+    else
+        groupmod -g "$PGID" steam
+    fi
 
-  if [[ $(getent passwd ${PUID} | cut -d: -f1) ]]; then
-      USER=$(getent passwd $PUID | cut -d: -f1)
-  else
-      usermod -u "$PUID" steam
-  fi
+    if [[ $(getent passwd ${PUID} | cut -d: -f1) ]]; then
+        USER=$(getent passwd $PUID | cut -d: -f1)
+    else
+        usermod -u "$PUID" steam
+    fi
 fi
 
 if [[ ! -w "/config" ]]; then
@@ -109,9 +109,10 @@ mkdir -p \
 
 echo "Satisfactory logs can be found in /config/gamefiles/FactoryGame/Saved/Logs" > /config/logs/satisfactory-path.txt
 
-if [[ "${ROOTLESS,,}" != "true" ]]; then
-  chown -R "$PUID":"$PGID" /config /home/steam /tmp/dumps
-  exec gosu "$USER" "/home/steam/run.sh" "$@"
+if [[ "$CURRENTUID" -eq "0" ]]; then
+    chown -R "$PUID":"$PGID" /config /home/steam /tmp/dumps
+    exec gosu "$USER" "/home/steam/run.sh" "$@"
 else
-  exec "/home/steam/run.sh" "$@"
+    # running within a rootless environment
+    exec "/home/steam/run.sh" "$@"
 fi

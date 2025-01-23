@@ -12,7 +12,6 @@ ENV AUTOSAVENUM="5" \
     MAXTICKRATE="30" \
     PGID="1000" \
     PUID="1000" \
-    ROOTLESS="false" \
     SERVERGAMEPORT="7777" \
     SERVERSTREAMING="true" \
     SKIPUPDATE="false" \
@@ -35,17 +34,13 @@ RUN mkdir -p /config \
 COPY init.sh healthcheck.sh /
 COPY --chown=steam:steam run.sh /home/steam/
 
-HEALTHCHECK --timeout=10s --start-period=180s \
-  CMD bash /healthcheck.sh
+HEALTHCHECK --timeout=30s --start-period=300s CMD bash /healthcheck.sh
 
 WORKDIR /config
-
 ARG VERSION="DEV"
 ENV VERSION=$VERSION
 LABEL version=$VERSION
-
 STOPSIGNAL SIGINT
-
 EXPOSE 7777/udp 7777/tcp
 
 ENTRYPOINT [ "/init.sh" ]

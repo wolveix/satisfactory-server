@@ -195,7 +195,6 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `MAXTICKRATE`           |   `30`    | set the maximum sim tick rate for your server             |
 | `PGID`                  |  `1000`   | set the group ID of the user the server will run as       |
 | `PUID`                  |  `1000`   | set the user ID of the user the server will run as        |
-| `ROOTLESS`              |  `false`  | run the container as a non-root user                      |
 | `SERVERGAMEPORT`        |  `7777`   | set the game's port                                       |
 | `SERVERIP`              | `0.0.0.0` | set the game's ip (usually not needed)                    |
 | `SERVERSTREAMING`       |  `true`   | toggle whether the game utilizes asset streaming          |
@@ -247,6 +246,12 @@ really get the best out of multiplayer:
 - Copy the config data from the wiki into the respective files
 - Right-click each of the 3 config files (Engine.ini, Game.ini, Scalability.ini)
 - Go to Properties > tick Read-only under the attributes
+
+## Rootless
+
+If you'd prefer to run the container as a non-root user, just pass your preferred user to the container using Docker's
+own user implementation (e.g. `--user 1000:1000`). Do note that the container will print a warning for this, and this
+may permissions-related issues.
 
 ## Known Issues
 
