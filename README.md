@@ -249,7 +249,7 @@ really get the best out of multiplayer:
 
 If you'd prefer to run the container as a non-root user, just pass your preferred user to the container using Docker's
 own user implementation (e.g. `--user 1000:1000`). Do note that the container will print a warning for this, and this
-may permissions-related issues.
+may cause permissions-related issues.
 
 ## Known Issues
 
