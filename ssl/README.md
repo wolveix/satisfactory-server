@@ -21,7 +21,6 @@ services:
       - MAXPLAYERS=4
       - PGID=1000
       - PUID=1000
-      - ROOTLESS=false
       - STEAMBETA=false
     restart: unless-stopped
     depends_on:

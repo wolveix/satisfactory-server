@@ -76,7 +76,6 @@ docker run \
 --env MAXPLAYERS=4 \
 --env PGID=1000 \
 --env PUID=1000 \
---env ROOTLESS=false \
 --env STEAMBETA=false \
 --memory-reservation=4G \
 --memory 8G \
@@ -122,7 +121,6 @@ services:
       - MAXPLAYERS=4
       - PGID=1000
       - PUID=1000
-      - ROOTLESS=false
       - STEAMBETA=false
     restart: unless-stopped
     deploy:
