@@ -1,5 +1,8 @@
 FROM steamcmd/steamcmd:ubuntu-22
 
+ARG GID=1000
+ARG UID=1000
+
 ENV AUTOSAVENUM="5" \
     DEBIAN_FRONTEND="noninteractive" \
     DEBUG="false" \
@@ -25,7 +28,8 @@ RUN set -x \
  && apt-get update \
  && apt-get install -y gosu xdg-user-dirs curl jq tzdata --no-install-recommends \
  && rm -rf /var/lib/apt/lists/* \
- && useradd -ms /bin/bash steam \
+ && groupadd -g ${GID} steam \
+ && useradd -u ${UID} -g ${GID} -ms /bin/bash steam \
  && gosu nobody true
 
 RUN mkdir -p /config \

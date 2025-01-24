@@ -4,13 +4,17 @@ set -e
 
 printf "===== Satisfactory Server %s =====\\nhttps://github.com/wolveix/satisfactory-server\\n\\n" "$VERSION"
 
-CURRENTUID=$(id -u)
-HOME="/home/steam"
 MSGERROR="\033[0;31mERROR:\033[0m"
 MSGWARNING="\033[0;33mWARNING:\033[0m"
 NUMCHECK='^[0-9]+$'
 RAMAVAILABLE=$(awk '/MemAvailable/ {printf( "%d\n", $2 / 1024000 )}' /proc/meminfo)
-USER="steam"
+
+export CURRENTGID=$(id -g)
+export CURRENTUID=$(id -u)
+export HOME="/home/steam"
+export STEAMGID=$(id -g steam)
+export STEAMUID=$(id -u steam)
+export USER="steam"
 
 if [[ "${DEBUG,,}" == "true" ]]; then
     printf "Debugging enabled (the container will exit after printing the debug info)\\n\\nPrinting environment variables:\\n"
@@ -53,10 +57,13 @@ if [[ "${LOG,,}" != "true" ]]; then
     fi
 fi
 
-# check if the user and group IDs have been set. If so, reset HOME to the upstream default
 if [[ "$CURRENTUID" -ne "0" ]]; then
-    HOME="/root"
-    printf "${MSGWARNING} Current user (%s) is not root (0).\\nNo permissions will be adjusted as we're running within a rootless environment.\\n" "$CURRENTUID"
+    if [[ "$STEAMUID" -ne "$CURRENTUID" ]] || [[ "$STEAMGID" -ne $(id -g) ]]; then
+        printf "${MSGERROR} Current user (%s:%s) is not root (0:0), and doesn't match the steam user/group (%s:%s).\\nTo run the container as non-root with a UID/GID that differs from the steam user, you must build the Docker image with the UID and GID build arguments set.\\n" "$CURRENTUID" "$CURRENTGID" "$STEAMUID" "$STEAMGID"
+        exit 1
+    fi
+
+    printf "${MSGWARNING} Running as non-root user (%s:%s).\\n" "$CURRENTUID" "$CURRENTGID"
 fi
 
 if ! [[ "$PGID" =~ $NUMCHECK ]] ; then

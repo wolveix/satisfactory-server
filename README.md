@@ -245,16 +245,61 @@ really get the best out of multiplayer:
 - Right-click each of the 3 config files (Engine.ini, Game.ini, Scalability.ini)
 - Go to Properties > tick Read-only under the attributes
 
-## Rootless
+## Running as Non-Root User
 
-If you'd prefer to run the container as a non-root user, just pass your preferred user to the container using Docker's
-own user implementation (e.g. `--user 1000:1000`). Do note that the container will print a warning for this, and this
-may cause permissions-related issues.
+By default, the container runs with root privileges but executes Satisfactory under `1000:1000`. If your host's user and
+group IDs are `1000:1000`, you can run the entire container as non-root using Docker's `--user` directive. For different
+user/group IDs, you'll need to clone and rebuild the image with your specific UID/GID:
+
+### Building Non-Root Image
+
+1. Clone the repository:
+
+```shell
+git clone https://github.com/wolveix/satisfactory-server.git
+```
+
+2. Create a docker-compose.yml file with your desired UID/GID as build args (note that the `PUID` and `PGID` environment
+   variables will no longer be needed):
+
+```yaml
+services:
+  satisfactory-server:
+    container_name: 'satisfactory-server'
+    hostname: 'satisfactory-server'
+    build:
+      context: .
+      args:
+        UID: 1001  # Your desired UID
+        GID: 1001  # Your desired GID
+    user: "1001:1001"  # Must match UID:GID above
+    ports:
+      - '7777:7777/udp'
+      - '7777:7777/tcp'
+    volumes:
+      - './satisfactory-server:/config'
+    environment:
+      - MAXPLAYERS=4
+      - STEAMBETA=false
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 4G
+```
+
+3. Build and run the container:
+
+```shell
+docker compose up -d
+```
 
 ## Known Issues
 
-- The container is run as `root`. This is pretty common for Docker images, but is bad practice for security reasons.
-  This change was made to address [permissions issues](https://github.com/wolveix/satisfactory-server/issues/44)
+- The container is run as `root` by default. You can provide your own user and group using Docker's `--user` directive;
+  however, if your proposed user and group aren't `1000:1000`, you'll need to rebuild the image (as outlined above).
 - The server log will show various errors; most of which can be safely ignored. As long as the container continues to
   run and your log looks similar to the example log, the server should be functioning just
   fine: [example log](https://github.com/wolveix/satisfactory-server/blob/main/server.log)
