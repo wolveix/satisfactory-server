@@ -31,6 +31,9 @@ RUN set -x \
  && rm -rf /var/lib/apt/lists/* \
  && groupadd -g ${GID} steam \
  && useradd -u ${UID} -g ${GID} -ms /bin/bash steam \
+ && mkdir -p /home/steam/.local/share/Steam/ \
+ && cp -R /root/.local/share/Steam/steamcmd/ /home/steam/.local/share/Steam/steamcmd/ \
+ && chown -R ${UID}:${GID} /home/steam/.local/ \
  && gosu nobody true
 
 RUN mkdir -p /config \
