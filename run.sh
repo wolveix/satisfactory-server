@@ -45,32 +45,32 @@ else
     DISABLESEASONALEVENTS=""
 fi
 
-if [[ "$MULTIHOME" != "::" ]]; then
-    # Check if it's a valid IPv4 address (0-255 segments).
-    if [[ "$MULTIHOME" =~ ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$ ]]; then
-        printf "Accepting IPv4 connections only on %s\n" "$MULTIHOME"
-    # Basic IPv6 validation, allowing shorthand (some invalid ones may still pass here).
-    elif [[ "$MULTIHOME" =~ ^(([0-9a-fA-F]{0,4}::?){0,7})([0-9a-fA-F]{1,4})(::)?$ ]]; then
-        printf "Trying to accept IPv6 connections only on %s\n" "$MULTIHOME"
-    else
-        printf "\e[31mInvalid IP address given: %s\e[0m\n" "$MULTIHOME"
+# Validate and set multihome address for network connections (useful for v6-only networks).
+if [[ "$MULTIHOME" != "" ]]; then
+    if [[ "$MULTIHOME" != "" ]] && [[ "$MULTIHOME" != "::" ]]; then
+        # IPv4 regex matches addresses from 0.0.0.0 to 255.255.255.255.
+        IPv4='^([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'
+
+        # IPv6 regex supports full and shortened formats like 2001:db8::1.
+        IPv6='^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'
+
+        if [[ "$MULTIHOME" =~ $IPv4 ]]; then
+            printf "Multihome will accept IPv4 connections only\n"
+        elif [[ "$MULTIHOME" =~ $IPv6 ]]; then
+            printf "Multihome will accept IPv6 connections only\n"
+        else
+            printf "Invalid multihome address: %s (defaulting to ::)\n" "$MULTIHOME"
+            MULTIHOME="::"
+        fi
     fi
 
-    printf "Testing given Interface: " # Should always be reachable since localhost, practically checks if interface exists
-    if ping -c 1 "$MULTIHOME"; then
-        printf "\e[32mValid and reachable: %s\e[0m\n" "$MULTIHOME" 
-    else
-        printf "\e[31mInvalid or unreachable: %s\e[0m\n" "$MULTIHOME"
-        exit 1 # Fail LOUDLY as to prevent the need to dig through the log
+    if [[ "$MULTIHOME" == "::" ]]; then
+        printf "Multihome will accept IPv4 and IPv6 connections\n"
     fi
-fi
 
-# Secondary check needed if a failure condition occurs above.
-if [[ "$MULTIHOME" == "::" ]]; then
-    printf "Multihome will accept IPv4 and IPv6 connections\\n"
+    printf "Setting multihome to %s\n" "$MULTIHOME"
+    MULTIHOME="-multihome=$MULTIHOME"
 fi
-
-printf "Setting multihome to %s\\n" "$MULTIHOME"
 
 ini_args=(
   "-ini:Engine:[/Script/FactoryGame.FGSaveSession]:mNumRotatingAutosaves=$AUTOSAVENUM"
@@ -85,7 +85,7 @@ ini_args=(
   "-ini:Game:[/Script/Engine.GameSession]:MaxPlayers=$MAXPLAYERS"
   "-ini:GameUserSettings:[/Script/Engine.GameSession]:MaxPlayers=$MAXPLAYERS"
   "$DISABLESEASONALEVENTS"
-  "-multihome=$MULTIHOME"
+  "$MULTIHOME"
 )
 
 if [[ "${SKIPUPDATE,,}" != "false" ]] && [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
