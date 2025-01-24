@@ -45,6 +45,33 @@ else
     DISABLESEASONALEVENTS=""
 fi
 
+# Validate and set multihome address for network connections (useful for v6-only networks).
+if [[ "$MULTIHOME" != "" ]]; then
+    if [[ "$MULTIHOME" != "" ]] && [[ "$MULTIHOME" != "::" ]]; then
+        # IPv4 regex matches addresses from 0.0.0.0 to 255.255.255.255.
+        IPv4='^([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'
+
+        # IPv6 regex supports full and shortened formats like 2001:db8::1.
+        IPv6='^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'
+
+        if [[ "$MULTIHOME" =~ $IPv4 ]]; then
+            printf "Multihome will accept IPv4 connections only\n"
+        elif [[ "$MULTIHOME" =~ $IPv6 ]]; then
+            printf "Multihome will accept IPv6 connections only\n"
+        else
+            printf "Invalid multihome address: %s (defaulting to ::)\n" "$MULTIHOME"
+            MULTIHOME="::"
+        fi
+    fi
+
+    if [[ "$MULTIHOME" == "::" ]]; then
+        printf "Multihome will accept IPv4 and IPv6 connections\n"
+    fi
+
+    printf "Setting multihome to %s\n" "$MULTIHOME"
+    MULTIHOME="-multihome=$MULTIHOME"
+fi
+
 ini_args=(
   "-ini:Engine:[/Script/FactoryGame.FGSaveSession]:mNumRotatingAutosaves=$AUTOSAVENUM"
   "-ini:Engine:[/Script/Engine.GarbageCollectionSettings]:gc.MaxObjectsInEditor=$MAXOBJECTS"
@@ -58,6 +85,7 @@ ini_args=(
   "-ini:Game:[/Script/Engine.GameSession]:MaxPlayers=$MAXPLAYERS"
   "-ini:GameUserSettings:[/Script/Engine.GameSession]:MaxPlayers=$MAXPLAYERS"
   "$DISABLESEASONALEVENTS"
+  "$MULTIHOME"
 )
 
 if [[ "${SKIPUPDATE,,}" != "false" ]] && [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
