@@ -12,36 +12,7 @@ server.
 
 ### [Experiencing issues? Check our Troubleshooting FAQ wiki!](https://github.com/wolveix/satisfactory-server/wiki/Troubleshooting-FAQ)
 
-## Upgrading for Satisfactory 1.0
-
-Satisfactory is finally out of early access! 🎉
-
-If you're not new here and looking to upgrade your setup, here's what you need to do:
-
-- Upgrade your local Docker image `docker pull wolveix/satisfactory-server:latest`
-- Change your ports from:
-
-```
- - '7777:7777/udp'
- - '15000:15000/udp'
- - '15777:15777/udp'
-```
-
-- To the new ports:
-
-```
- - '7777:7777/tcp'
- - '7777:7777/udp'
-```
-
-- Ensure BOTH of the new ports are explicitly allowed through your firewall/port forwarded as needed.
-
-If you're experiencing API connectivity issues, your issue is that you haven't completed one of these two steps. If
-you're seeing a `EADDRINUSE` log message, Coffee Stain confirmed that it does **not** matter. Same applies to the
-self-signed certificate log message. For more information,
-see [the original issue from launch](https://github.com/wolveix/satisfactory-server/issues/260).
-
-Enjoy 1.0! 🎉
+### [Upgrading for Satisfactory 1.0](https://github.com/wolveix/satisfactory-server/wiki/Upgrading-for-1.0)
 
 ## Setup
 
