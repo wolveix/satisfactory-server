@@ -17,7 +17,7 @@ printf "Setting max objects to %s\\n" "$MAXOBJECTS"
 
 if ! [[ "$MAXTICKRATE" =~ $NUMCHECK ]] ; then
     printf "Invalid max tick rate number given: %s\\n" "$MAXTICKRATE"
-    MAXTICKRATE="120"
+    MAXTICKRATE="30"
 fi
 printf "Setting max tick rate to %s\\n" "$MAXTICKRATE"
 
@@ -26,7 +26,7 @@ printf "Setting server streaming to %s\\n" "$SERVERSTREAMING"
 
 if ! [[ "$TIMEOUT" =~ $NUMCHECK ]] ; then
     printf "Invalid timeout number given: %s\\n" "$TIMEOUT"
-    TIMEOUT="300"
+    TIMEOUT="30"
 fi
 printf "Setting timeout to %s\\n" "$TIMEOUT"
 
