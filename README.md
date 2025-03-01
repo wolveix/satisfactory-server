@@ -195,14 +195,14 @@ services:
     container_name: 'sftp-server'
     image: 'atmoz/sftp:latest'
     volumes:
-      - './satisfactory-server:/home/your-ftp-user'
+      - './satisfactory-server:/home/your-ftp-user/satisfactory-server'
     ports:
       - '2222:22'
     # set the user and password, and the user's UID (this should match the PUID and PGID of the satisfactory-server container)
     command: 'your-ftp-user:your-ftp-password:1000'
 ```
 
-With this, you'll be able to SFTP into your server and access your game files via `/home/your-ftp-user/gamefiles`.
+With this, you'll be able to SFTP into your server and access your game files via `/home/your-ftp-user/satisfactory-server/gamefiles`.
 
 ## How to Improve the Multiplayer Experience
 
