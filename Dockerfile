@@ -39,10 +39,10 @@ RUN set -x \
 RUN mkdir -p /config \
  && chown steam:steam /config
 
-COPY init.sh healthcheck.sh /
-COPY --chown=steam:steam run.sh /home/steam/
+COPY init.sh /
+COPY --chown=steam:steam healthcheck.sh run.sh /home/steam/
 
-HEALTHCHECK --timeout=30s --start-period=300s CMD bash /healthcheck.sh
+HEALTHCHECK --timeout=30s --start-period=300s CMD bash /home/steam/healthcheck.sh
 
 WORKDIR /config
 ARG VERSION="DEV"
