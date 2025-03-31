@@ -42,6 +42,8 @@ RUN mkdir -p /config \
 COPY init.sh /
 COPY --chown=steam:steam healthcheck.sh run.sh /home/steam/
 
+RUN chmod +x /init.sh /home/steam/healthcheck.sh /home/steam/run.sh
+
 HEALTHCHECK --timeout=30s --start-period=300s CMD bash /home/steam/healthcheck.sh
 
 WORKDIR /config
