@@ -37,6 +37,9 @@ spec:
             - name: "game"
               containerPort: 7777
               protocol: UDP
+            - name: "messaging"
+              containerPort: 8888
+              protocol: TCP
           volumeMounts:
             - name: satisfactory-config
               mountPath: /config

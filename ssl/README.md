@@ -11,8 +11,9 @@ services:
     hostname: 'satisfactory-server'
     image: 'wolveix/satisfactory-server:latest'
     ports:
-      - '7777:7777/udp'
       - '7777:7777/tcp'
+      - '7777:7777/udp'
+      - '8888:8888/tcp'
     volumes:
       - './satisfactory-server:/config'
       - './certs/live/${DOMAIN}/fullchain.pem:/config/gamefiles/FactoryGame/Certificates/cert_chain.pem'

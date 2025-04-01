@@ -50,8 +50,9 @@ docker run \
 --env STEAMBETA=false \
 --memory-reservation=4G \
 --memory 8G \
---publish 7777:7777/udp \
 --publish 7777:7777/tcp \
+--publish 7777:7777/udp \
+--publish 8888:8888/tcp \
 wolveix/satisfactory-server:latest
 ```
 
@@ -84,8 +85,9 @@ services:
     hostname: 'satisfactory-server'
     image: 'wolveix/satisfactory-server:latest'
     ports:
-      - '7777:7777/udp'
       - '7777:7777/tcp'
+      - '7777:7777/udp'
+      - '8888:8888/tcp'
     volumes:
       - './satisfactory-server:/config'
     environment:
@@ -165,7 +167,8 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `MULTIHOME`             |   `::`    | set the server's listening interface (usually not needed) |
 | `PGID`                  |  `1000`   | set the group ID of the user the server will run as       |
 | `PUID`                  |  `1000`   | set the user ID of the user the server will run as        |
-| `SERVERGAMEPORT`        |  `7777`   | set the game's port                                       |
+| `SERVERGAMEPORT`        |  `7777`   | set the game's server port                                |
+| `SERVERMESSAGINGPORT`   |  `8888`   | set the game's messaging port                             |
 | `SERVERSTREAMING`       |  `true`   | toggle whether the game utilizes asset streaming          |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart        |
 | `STEAMBETA`             |  `false`  | set experimental game version                             |
@@ -202,7 +205,8 @@ services:
     command: 'your-ftp-user:your-ftp-password:1000'
 ```
 
-With this, you'll be able to SFTP into your server and access your game files via `/home/your-ftp-user/satisfactory-server/gamefiles`.
+With this, you'll be able to SFTP into your server and access your game files via
+`/home/your-ftp-user/satisfactory-server/gamefiles`.
 
 ## How to Improve the Multiplayer Experience
 
@@ -245,8 +249,9 @@ services:
         GID: 1001  # Your desired GID
     user: "1001:1001"  # Must match UID:GID above
     ports:
-      - '7777:7777/udp'
       - '7777:7777/tcp'
+      - '7777:7777/udp'
+      - '8888:8888/tcp'
     volumes:
       - './satisfactory-server:/config'
     environment:

@@ -13,13 +13,17 @@ spec:
 # might be necessary for your cluster:
 #  loadBalancerIP: <external-IP>
   ports:
-    - name: "game"
-      port: 7777
-      protocol: UDP
-      targetPort: 7777
     - name: "api"
       port: 7777
       protocol: TCP
       targetPort: 7777
+    - name: "game"
+      port: 7777
+      protocol: UDP
+      targetPort: 7777
+    - name: "messaging"
+      port: 8888
+      protocol: TCP
+      targetPort: 8888
   selector:
     app: satisfactory

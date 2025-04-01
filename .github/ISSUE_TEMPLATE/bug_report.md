@@ -17,7 +17,7 @@ A clear and concise description of what the bug is.
 Please censor anything sensitive. Your runtime command might look like this:
 
 ```shell
-docker run --name="satisfactory" -p 7777 -v ./satisfactory:/config wolveix/satisfactory-server:latest
+docker run --name="satisfactory" -p 7777 -p 8888 -v ./satisfactory:/config wolveix/satisfactory-server:latest
 ```
 
 ### Debug Output

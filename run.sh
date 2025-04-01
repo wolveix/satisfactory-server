@@ -2,6 +2,19 @@
 
 set -e
 
+# Port validation
+if ! [[ "$SERVERGAMEPORT" =~ $NUMCHECK ]]; then
+    printf "Invalid server port given: %s\\n" "$SERVERGAMEPORT"
+    SERVERGAMEPORT="7777"
+fi
+printf "Setting server port to %s\\n" "$SERVERGAMEPORT"
+
+if ! [[ "$SERVERMESSAGINGPORT" =~ $NUMCHECK ]]; then
+    printf "Invalid messaging port given: %s\\n" "$SERVERMESSAGINGPORT"
+    SERVERMESSAGINGPORT="8888"
+fi
+printf "Setting messaging port to %s\\n" "$SERVERMESSAGINGPORT"
+
 # Engine.ini settings
 if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]]; then
     printf "Invalid autosave number given: %s\\n" "$AUTOSAVENUM"
@@ -135,7 +148,7 @@ fi
 cd /config/gamefiles || exit 1
 
 chmod +x FactoryServer.sh || true
-./FactoryServer.sh -Port="$SERVERGAMEPORT" "${ini_args[@]}" "$@" &
+./FactoryServer.sh -Port="$SERVERGAMEPORT" -ReliablePort="$SERVERMESSAGINGPORT" "${ini_args[@]}" "$@" &
 
 sleep 2
 satisfactory_pid=$(ps --ppid ${!} o pid=)
