@@ -18,7 +18,7 @@ printf "Setting messaging port to %s\\n" "$SERVERMESSAGINGPORT"
 # Temporary code to fix the new messaging port flag forcing IPv4 binding. We only specify it if we're not using 8888
 SERVERMESSAGINGPORTARG=""
 if [ "$SERVERMESSAGINGPORT" != "8888" ]; then
-    SERVERMESSAGINGPORTARG="-ReliablePort=\"$SERVERMESSAGINGPORT\""
+    SERVERMESSAGINGPORTARG="-ReliablePort=$SERVERMESSAGINGPORT"
 fi
 
 # Engine.ini settings
