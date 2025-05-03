@@ -15,13 +15,7 @@ if ! [[ "$SERVERMESSAGINGPORT" =~ $NUMCHECK ]]; then
 fi
 printf "Setting messaging port to %s\\n" "$SERVERMESSAGINGPORT"
 
-# Temporary code to fix the new messaging port flag forcing IPv4 binding. We only specify it if we're not using 8888
-SERVERMESSAGINGPORTARG=""
-if [ "$SERVERMESSAGINGPORT" != "8888" ]; then
-    SERVERMESSAGINGPORTARG="-ReliablePort=$SERVERMESSAGINGPORT"
-fi
-
-# Engine.ini settings
+# Engine.ini settings.
 if ! [[ "$AUTOSAVENUM" =~ $NUMCHECK ]]; then
     printf "Invalid autosave number given: %s\\n" "$AUTOSAVENUM"
     AUTOSAVENUM="5"
@@ -49,14 +43,14 @@ if ! [[ "$TIMEOUT" =~ $NUMCHECK ]] ; then
 fi
 printf "Setting timeout to %s\\n" "$TIMEOUT"
 
-# Game.ini settings
+# Game.ini settings.
 if ! [[ "$MAXPLAYERS" =~ $NUMCHECK ]] ; then
     printf "Invalid max players given: %s\\n" "$MAXPLAYERS"
     MAXPLAYERS="4"
 fi
 printf "Setting max players to %s\\n" "$MAXPLAYERS"
 
-# GameUserSettings.ini settings
+# GameUserSettings.ini settings.
 if [[ "${DISABLESEASONALEVENTS,,}" == "true" ]]; then
     printf "Disabling seasonal events\\n"
     DISABLESEASONALEVENTS="-DisableSeasonalEvents"
@@ -142,7 +136,7 @@ fi
 printf "Launching game server\\n\\n"
 
 cp -r "/config/saved/server/." "/config/backups/"
-cp -r "${GAMESAVESDIR}/server/." "/config/backups" # useful after the first run
+cp -r "${GAMESAVESDIR}/server/." "/config/backups" # Useful after the first run.
 rm -rf "$GAMESAVESDIR"
 ln -sf "/config/saved" "$GAMESAVESDIR"
 
@@ -154,7 +148,7 @@ fi
 cd /config/gamefiles || exit 1
 
 chmod +x FactoryServer.sh || true
-./FactoryServer.sh -Port="$SERVERGAMEPORT" "$SERVERMESSAGINGPORTARG" "${ini_args[@]}" "$@" &
+./FactoryServer.sh -Port="$SERVERGAMEPORT" -ReliablePort="$SERVERMESSAGINGPORT" -ExternalReliablePort="$SERVERMESSAGINGPORT" "${ini_args[@]}" "$@" &
 
 sleep 2
 satisfactory_pid=$(ps --ppid ${!} o pid=)

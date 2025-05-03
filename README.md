@@ -168,7 +168,7 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `PGID`                  |  `1000`   | set the group ID of the user the server will run as       |
 | `PUID`                  |  `1000`   | set the user ID of the user the server will run as        |
 | `SERVERGAMEPORT`        |  `7777`   | set the game's server port                                |
-| `SERVERMESSAGINGPORT`   |  `8888`   | set the game's messaging port                             |
+| `SERVERMESSAGINGPORT`   |  `8888`   | set the game's messaging port (internally and externally) |
 | `SERVERSTREAMING`       |  `true`   | toggle whether the game utilizes asset streaming          |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart        |
 | `STEAMBETA`             |  `false`  | set experimental game version                             |
