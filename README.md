@@ -12,7 +12,7 @@ server.
 
 ### [Experiencing issues? Check our Troubleshooting FAQ wiki!](https://github.com/wolveix/satisfactory-server/wiki/Troubleshooting-FAQ)
 
-### [Upgrading for Satisfactory 1.0](https://github.com/wolveix/satisfactory-server/wiki/Upgrading-for-1.0)
+### [Upgrading for Satisfactory 1.1](https://github.com/wolveix/satisfactory-server/wiki/Upgrading-for-1.1)
 
 ## Setup
 
