@@ -1,9 +1,14 @@
 ---
-name: Bug report
-about: Create a report to help us improve this project!
-title: Explain Your Issue
-labels: ''
-assignees: ''
+name: 'Bug report'
+about: 'Create a report to help us improve this project!'
+title: 'Explain Your Issue'
+labels: 'needs triage'
+---
+
+## 🚨 Do not submit AI-generated reports
+
+AI reports usually cite invalid sources and omit critical information that this template specifies.
+
 ---
 
 ### [Experiencing issues? Check our Troubleshooting FAQ wiki!](https://github.com/wolveix/satisfactory-server/wiki/Troubleshooting-FAQ)
@@ -31,7 +36,7 @@ OUTPUT HERE
 
 ### System Specs (please complete the following information):
 
-If you're on Linux, just paste the following block as a single command, and paste the output here.
+If you're on Linux, paste the following block as a single command, and paste the output here.
 
 ```shell
 echo "===== START ISSUE REPORT =====
@@ -51,8 +56,16 @@ Alternatively, you can find the information manually. Here's what we're looking 
 
 ### Logs
 
-Please provide your **full** container logs. Do not link to an external site for them, just upload them as an attachment
-to your reply.
+<details>
+<summary>Click to expand full container logs</summary>
+
+Please provide your container logs. Do not link to an external site for them, just paste them here.
+
+```
+PASTE YOUR LOGS HERE
+```
+
+</details>
 
 ### Additional Context
 
