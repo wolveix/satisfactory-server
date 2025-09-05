@@ -172,6 +172,8 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `SERVERSTREAMING`       |  `true`   | toggle whether the game utilizes asset streaming          |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart        |
 | `STEAMBETA`             |  `false`  | set experimental game version                             |
+| `STEAMBETAID`           | `tech-su` | set a custom beta game version                            |
+| `STEAMBETAPASSWORD`     |  `false`  | set password for beta game version                        |
 | `TIMEOUT`               |   `30`    | set client timeout (in seconds)                           |
 | `VMOVERRIDE`            |  `false`  | skips the CPU model check (should not ordinarily be used) |
 
