@@ -107,11 +107,22 @@ if [[ "${SKIPUPDATE,,}" != "false" ]] && [ ! -f "/config/gamefiles/FactoryServer
 fi
 
 if [[ "${SKIPUPDATE,,}" != "true" ]]; then
-    if [[ "${STEAMBETA,,}" == "true" ]]; then
+    if [[ -n "${STEAMBETAID}" ]]; then
+        printf "STEAMBETAID is set. Using beta ID: %s\\n" "$STEAMBETAID"
+        STEAMBETAFLAG="$STEAMBETAID"
+        if [[ -n "${STEAMBETAKEY}" ]]; then
+            BETAPASSWORD="-betapassword $STEAMBETAKEY"
+            printf "Beta password provided\\n"
+        else
+            BETAPASSWORD=""
+        fi
+    elif [[ "${STEAMBETA,,}" == "true" ]]; then
         printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
         STEAMBETAFLAG="experimental"
+        BETAPASSWORD=""
     else
         STEAMBETAFLAG="public"
+        BETAPASSWORD=""
     fi
 
     STORAGEAVAILABLE=$(stat -f -c "%a*%S" .)
@@ -127,7 +138,7 @@ if [[ "${SKIPUPDATE,,}" != "true" ]]; then
         printf "\\nRemoving the app manifest to force Steam to check for an update...\\n"
         rm "/config/gamefiles/steamapps/appmanifest_1690800.acf" || true
     fi
-    steamcmd +force_install_dir /config/gamefiles +login anonymous +app_update "$STEAMAPPID" -beta "$STEAMBETAFLAG" validate +quit
+    steamcmd +force_install_dir /config/gamefiles +login anonymous +app_update "$STEAMAPPID" -beta "$STEAMBETAFLAG" $BETAPASSWORD validate +quit
     cp -r /home/steam/.steam/steam/logs/* "/config/logs/steam" || printf "Failed to store Steam logs\\n"
 else
     printf "Skipping update as flag is set\\n"
