@@ -107,22 +107,19 @@ if [[ "${SKIPUPDATE,,}" != "false" ]] && [ ! -f "/config/gamefiles/FactoryServer
 fi
 
 if [[ "${SKIPUPDATE,,}" != "true" ]]; then
+    BETAPASSWORD=""
     if [[ -n "${STEAMBETAID}" ]]; then
         printf "STEAMBETAID is set. Using beta ID: %s\\n" "$STEAMBETAID"
         STEAMBETAFLAG="$STEAMBETAID"
         if [[ -n "${STEAMBETAKEY}" ]]; then
             BETAPASSWORD="-betapassword $STEAMBETAKEY"
             printf "Beta password provided\\n"
-        else
-            BETAPASSWORD=""
         fi
     elif [[ "${STEAMBETA,,}" == "true" ]]; then
         printf "Experimental flag is set. Experimental will be downloaded instead of Early Access.\\n"
         STEAMBETAFLAG="experimental"
-        BETAPASSWORD=""
     else
         STEAMBETAFLAG="public"
-        BETAPASSWORD=""
     fi
 
     STORAGEAVAILABLE=$(stat -f -c "%a*%S" .)
