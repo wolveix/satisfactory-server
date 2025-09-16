@@ -22,6 +22,8 @@ ENV AUTOSAVENUM="5" \
     SKIPUPDATE="false" \
     STEAMAPPID="1690800" \
     STEAMBETA="false" \
+    STEAMBETAID="" \
+    STEAMBETAKEY="" \
     TIMEOUT="30" \
     VMOVERRIDE="false"
 

@@ -172,6 +172,8 @@ helm install satisfactory k8s-at-home/satisfactory -f values.yaml
 | `SERVERSTREAMING`       |  `true`   | toggle whether the game utilizes asset streaming          |
 | `SKIPUPDATE`            |  `false`  | avoid updating the game on container start/restart        |
 | `STEAMBETA`             |  `false`  | set experimental game version                             |
+| `STEAMBETAID`           |           | set a custom beta game version (for testing)              |
+| `STEAMBETAKEY`          |           | set password for the beta game version (for testing)      |
 | `TIMEOUT`               |   `30`    | set client timeout (in seconds)                           |
 | `VMOVERRIDE`            |  `false`  | skips the CPU model check (should not ordinarily be used) |
 
@@ -188,8 +190,8 @@ community [here](https://docs.ficsit.app/satisfactory-modding/latest/ForUsers/De
 
 The container does **NOT** have an S/FTP server installed directly, as Docker images are intended to carry a single
 function/process. You can either SFTP into your host that houses the Satisfactory server (trivial to do if you're
-running Linux), or alternatively you can spin up an S/FTP server through the use of another Docker container using the
-Docker Compose example listed below:
+running Linux), or you can spin up an S/FTP server through the use of another Docker container using the Docker Compose
+example listed below:
 
 ```yaml
 services:
