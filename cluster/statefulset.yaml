@@ -45,6 +45,16 @@ spec:
               mountPath: /config
             - name: satisfactory-data
               mountPath: /config/gamefiles
+          livenessProbe:
+            exec:
+              command:
+              - "/bin/sh"
+              - "-c"
+              - "/home/steam/healthcheck.sh"
+            initialDelaySeconds: 300
+            failureThreshold: 4
+            successThreshold: 1
+            periodSeconds: 30
   volumeClaimTemplates:
     - metadata:
         name: satisfactory-config
