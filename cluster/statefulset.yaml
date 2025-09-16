@@ -50,7 +50,7 @@ spec:
               command:
               - "/bin/sh"
               - "-c"
-              - "curl -k -f -s -S -X POST https://localhost:${SERVERGAMEPORT}/api/v1 -H \"Content-Type: application/json\" -d '{\"function\":\"HealthCheck\",\"data\":{\"clientCustomData\":\"\"}}' -o /dev/null -s -w \"%{http_code}\""
+              - "/home/steam/healthcheck.sh"
             initialDelaySeconds: 300
             failureThreshold: 4
             successThreshold: 1
