@@ -217,7 +217,7 @@ your client to
 really get the best out of multiplayer:
 
 - Press `WIN + R`
-- Enter `%localappdata%/FactoryGame/Saved/Config/WindowsNoEditor`
+- Enter `%localappdata%/FactoryGame/Saved/Config/Windows`
 - Copy the config data from the wiki into the respective files
 - Right-click each of the 3 config files (Engine.ini, Game.ini, Scalability.ini)
 - Go to Properties > tick Read-only under the attributes
