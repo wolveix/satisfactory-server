@@ -52,7 +52,7 @@ fi
 # prevent large logs from accumulating by default
 if [[ "${LOG,,}" != "true" ]]; then
     printf "Clearing old Satisfactory logs (set LOG=true to disable this)\\n"
-    if [ -d "/config/gamefiles/FactoryGame/Saved/Logs" ] && [ -n "$(find /config/gamefiles/FactoryGame/Saved/Logs -type f -print -quit)" ]; then
+    if [[ -d "/config/gamefiles/FactoryGame/Saved/Logs" ]] && [[ -n "$(find /config/gamefiles/FactoryGame/Saved/Logs -type f -print -quit)" ]]; then
         rm -r /config/gamefiles/FactoryGame/Saved/Logs/* || true
     fi
 fi

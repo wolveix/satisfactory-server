@@ -101,7 +101,7 @@ ini_args=(
   "$MULTIHOME"
 )
 
-if [[ "${SKIPUPDATE,,}" != "false" ]] && [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
+if [[ "${SKIPUPDATE,,}" != "false" ]] && [[ ! -f "/config/gamefiles/FactoryServer.sh" ]]; then
     printf "%s Skip update is set, but no game files exist. Updating anyway\\n" "${MSGWARNING}"
     SKIPUPDATE="false"
 fi
@@ -132,7 +132,7 @@ if [[ "${SKIPUPDATE,,}" != "true" ]]; then
     fi
 
     printf "\\nDownloading the latest version of the game...\\n"
-    if [ -f "/config/gamefiles/steamapps/appmanifest_1690800.acf" ]; then
+    if [[ -f "/config/gamefiles/steamapps/appmanifest_1690800.acf" ]]; then
         printf "\\nRemoving the app manifest to force Steam to check for an update...\\n"
         rm "/config/gamefiles/steamapps/appmanifest_1690800.acf" || true
     fi
@@ -142,6 +142,79 @@ else
     printf "Skipping update as flag is set\\n"
 fi
 
+if [[ $FICSIT_ENABLE == 'true' ]]; then
+    cat <<-EOREP
+	##############################################################
+	# FICSIT support: enabled
+	# FICSIT profiles file:      $FICSIT_PROFILES_FILE
+	# FICSIT installations file: $FICSIT_INSTALLATIONS_FILE
+        # FICSIT profile: $FICSIT_PROFILE
+        ##############################################################
+	EOREP
+
+    if [[ ! -e "$FICSIT_PROFILES_FILE" ]]; then
+        printf "\\n!!! ERROR: FICSIT profiles file not found. Aborting FICSIT install !!!\\n\\n"
+    else
+        # Download the latest FICSIT CLI release if the binary is not present
+        if [[ ! -x "$FICSIT_BIN" ]]; then
+            printf "\\nDownloading FICSIT CLI...\\n"
+
+            # Resolve and create directory based on FICSIT_BIN
+            # Defaults to /config/bin
+            if [[ ! -d "${FICSIT_BIN%/*}" ]]; then
+                mkdir --parents "${FICSIT_BIN%/*}"
+            fi
+
+            curl --silent --fail --show-error --request GET \
+                 --location "$FICSIT_BIN_URL" \
+                 --output "$FICSIT_BIN" && \
+            chmod +x "$FICSIT_BIN"
+
+            # Verify downloaded binary checksum against GitHub releases page
+            # Use GitHub API to query releases, filter using jq and feed it to sha256sum
+            if [[ $FICSIT_BIN_VERIFY == 'true' ]]; then
+                printf "Verifying binary checksum... "
+                curl --silent --fail --show-error --request GET \
+                    --location "$FICSIT_RELEASE_URL" \
+                    --header 'Accept: application/vnd.github+json' \
+                    --header 'X-GitHub-Api-Version: 2026-03-10' | \
+                    jq --raw-output --arg artifact "$FICSIT_RELEASE_ARTIFACT" --arg bin_path "$FICSIT_BIN" \
+                        '.assets[] | select(.name == $artifact) | .digest +" " +$bin_path' | \
+                    cut --fields 2- --delimiter ':' | sha256sum --check -
+                printf "\\n"
+            fi
+        fi
+
+        # Generate installations.json
+        # path: points to directory with FactoryGame and FactoryServer.sh
+        # selected_installation: should always be the same as path
+        # profile: is a profile name of a profile from profiles.json
+        # vanilla: if set to true, running `ficsit apply` would remove all mods
+        if [[ ! -e "$FICSIT_INSTALLATIONS_FILE" ]]; then
+            printf "Creating installations.json...\\n"
+            cat <<-EOJSON | tee "$FICSIT_INSTALLATIONS_FILE"
+		{
+		  "selected_installation": "/config/gamefiles",
+		  "installations": [
+		    {
+		      "path": "/config/gamefiles",
+		      "profile": "$FICSIT_PROFILE",
+		      "vanilla": false
+		    }
+		  ],
+		  "version": 0
+		}
+		EOJSON
+            printf "\\nDone!\\n"
+        fi
+
+        printf "\\nApplying FICSIT profile \"%s\"...\\n" "$FICSIT_PROFILE"
+        "$FICSIT_BIN" apply /config/gamefiles --profiles-file "$FICSIT_PROFILES_FILE" \
+            --installations-file "$FICSIT_INSTALLATIONS_FILE" && \
+        printf "\\nDone!\\n\\n"
+    fi
+fi
+
 printf "Launching game server\\n\\n"
 
 cp -r "/config/saved/server/." "/config/backups/"
@@ -149,7 +222,7 @@ cp -r "${GAMESAVESDIR}/server/." "/config/backups" # Useful after the first run.
 rm -rf "$GAMESAVESDIR"
 ln -sf "/config/saved" "$GAMESAVESDIR"
 
-if [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
+if [[ ! -f "/config/gamefiles/FactoryServer.sh" ]]; then
     printf "FactoryServer launch script is missing.\\n"
     exit 1
 fi

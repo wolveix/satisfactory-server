@@ -7,6 +7,15 @@ ENV AUTOSAVENUM="5" \
     DEBIAN_FRONTEND="noninteractive" \
     DEBUG="false" \
     DISABLESEASONALEVENTS="false" \
+    FICSIT_ENABLE="false" \
+    FICSIT_BIN="/config/bin/ficsit" \
+    FICSIT_BIN_URL="https://github.com/satisfactorymodding/ficsit-cli/releases/latest/download/ficsit_linux_amd64" \
+    FICSIT_BIN_VERIFY="true" \
+    FICSIT_RELEASE_URL="https://api.github.com/repos/satisfactorymodding/ficsit-cli/releases/latest" \
+    FICSIT_RELEASE_ARTIFACT="ficsit_linux_amd64" \
+    FICSIT_PROFILES_FILE="/config/ficsit/profiles.json" \
+    FICSIT_PROFILE="Default" \
+    FICSIT_INSTALLATIONS_FILE="/config/ficsit/installations.json" \
     GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
     GAMESAVESDIR="/home/steam/.config/Epic/FactoryGame/Saved/SaveGames" \
     LOG="false" \
@@ -39,8 +48,8 @@ RUN set -x \
  && chown -R ${UID}:${GID} /home/steam/.local/ \
  && gosu nobody true
 
-RUN mkdir -p /config \
- && chown steam:steam /config
+RUN mkdir --parents /config \
+    && chown steam:steam /config
 
 COPY init.sh /
 COPY --chown=steam:steam healthcheck.sh run.sh /home/steam/
